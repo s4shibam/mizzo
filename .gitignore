@@ -1,0 +1,26 @@
+# Node modules
+node_modules
+
+# Build & cache files
+.cache
+.dist
+.next
+.turbo
+
+# Environment variables
+.env*.local
+.env
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Database
+.postgres
+.redis
+
+# Logs
+.logs
+
+# Other files
+.DS_Store
