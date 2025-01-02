@@ -1,0 +1,23 @@
+# Build artifacts
+.dist
+build
+.next
+out
+coverage
+
+# Dependencies
+node_modules
+
+# Misc
+.turbo
+.cache
+.env*
+!.env.example
+
+# Package manager files
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+
+# Generated files
+*.generated.* 
