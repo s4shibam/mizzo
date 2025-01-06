@@ -1,0 +1,81 @@
+{
+  // Editor General Settings
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit",
+    "source.removeUnusedImports": "explicit"
+  },
+
+  // File management
+  "search.exclude": {
+    ".git": true,
+    ".next": true,
+    ".turbo": true,
+    ".dist": true,
+    "node_modules": true,
+    "package-lock.json": true
+  },
+
+  // TypeScript Config
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "next/router.d.ts",
+    "next/dist/client/router.d.ts"
+  ],
+
+  // Formatting Configuration
+  "[json][jsonc][yaml]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript][javascript][typescriptreact][javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+
+  // Tailwind CSS Configuration
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "tailwindCSS.experimental.configFile": {
+    "apps/web/tailwind.config.ts": "apps/web/**"
+  },
+
+  // Spell checking
+  "cSpell.words": [
+    "autoincrement",
+    "awsvpc",
+    "cssinjs",
+    "cuid",
+    "EXTM",
+    "fargate",
+    "fkey",
+    "ianvs",
+    "mizzo",
+    "mpegurl",
+    "otps",
+    "pkey",
+    "presigner",
+    "serviceworker",
+    "sindresorhus",
+    "turborepo"
+  ],
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  }
+}
