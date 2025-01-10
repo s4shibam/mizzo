@@ -1,0 +1,54 @@
+{
+  "name": "repo",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "start": "turbo run start",
+    "build": "turbo run build",
+    "dev": "npm run dock:up && turbo run dev",
+    "clean": "turbo run clean && rm -rf .turbo node_modules",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "format": "prettier --write \"**/*.{json,js,jsx,ts,tsx,md}\"",
+    "db:generate": "dotenv -e .env -- npm run generate --workspace=@mizzo/prisma",
+    "db:push": "dotenv -e .env -- npm run push --workspace=@mizzo/prisma",
+    "db:studio": "dotenv -e .env -- npm run studio --workspace=@mizzo/prisma",
+    "db:migrate-create": "dotenv -e .env -- npm run migrate-create --workspace=@mizzo/prisma",
+    "db:migrate": "dotenv -e .env -- npm run migrate --workspace=@mizzo/prisma",
+    "dock:up": "docker compose up -d",
+    "dock:down": "docker compose down",
+    "dock:nuke": "docker compose down --volumes --remove-orphans"
+  },
+  "packageManager": "npm@11.1.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+    "dotenv-cli": "^8.0.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.5.0",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "turbo": "^2.4.4"
+  },
+  "lint-staged": {
+    "(apps|packages)/**/*.{js,ts,jsx,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ],
+    "*.prisma": [
+      "prisma format"
+    ]
+  }
+}
