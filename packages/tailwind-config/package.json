@@ -1,0 +1,17 @@
+{
+  "name": "@mizzo/tailwind-config",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": "./tailwind.config.ts",
+    "./theme": "./src/theme.ts"
+  },
+  "dependencies": {
+    "tailwindcss-animated": "^2.0.0",
+    "tailwindcss-mixins": "^0.0.11"
+  },
+  "devDependencies": {
+    "@mizzo/typescript-config": "*",
+    "tailwindcss": "^3.4.3"
+  }
+}
