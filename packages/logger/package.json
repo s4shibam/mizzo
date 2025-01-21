@@ -1,0 +1,34 @@
+{
+  "name": "@mizzo/logger",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./.dist/index.js",
+  "types": "./.dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./.dist/index.d.ts",
+      "require": "./.dist/index.js",
+      "default": "./.dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf .turbo .dist node_modules",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mizzo/utils": "*",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@logtail/node": "^0.5.2",
+    "@logtail/winston": "^0.5.2",
+    "@mizzo/eslint-config": "*",
+    "@mizzo/typescript-config": "*",
+    "@types/node": "^22.13.9",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3"
+  }
+}
