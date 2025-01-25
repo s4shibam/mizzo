@@ -1,0 +1,36 @@
+{
+  "name": "@mizzo/aws",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./.dist/index.js",
+  "types": "./.dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./.dist/index.d.ts",
+      "require": "./.dist/index.js",
+      "default": "./.dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf .dist && tsup",
+    "dev": "tsup --watch",
+    "clean": "rm -rf .turbo .dist node_modules",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ecs": "^3.758.0",
+    "@aws-sdk/client-s3": "^3.511.0",
+    "@aws-sdk/client-ses": "^3.511.0",
+    "@aws-sdk/client-sqs": "^3.758.0",
+    "@aws-sdk/s3-request-presigner": "^3.744.0",
+    "@mizzo/utils": "*"
+  },
+  "devDependencies": {
+    "@mizzo/eslint-config": "*",
+    "@mizzo/typescript-config": "*",
+    "@types/node": "^22.13.9",
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.3"
+  }
+}
