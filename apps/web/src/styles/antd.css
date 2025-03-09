@@ -1,0 +1,56 @@
+#admin-dashboard-summary > .ant-card {
+  @apply hover:border-primary transition-colors duration-200;
+}
+
+.admin-dashboard-statistic-title {
+  @apply text-lg;
+}
+
+.admin-dashboard-statistic-content {
+  @apply text-primary !text-3xl;
+}
+
+.ant-form-item-label > label,
+.ant-form-item-required {
+  @apply text-base font-medium;
+}
+
+.ant-table-thead > tr > .ant-table-cell {
+  @apply text-base capitalize;
+}
+
+.ant-tag {
+  @apply mr-0 overflow-hidden rounded-full border-zinc-200;
+}
+
+.ant-popover-inner {
+  @apply bg-zinc-400;
+}
+
+.ant-btn-loading-icon {
+  @apply grid place-items-center;
+}
+
+.accent-drawer-mask {
+  @apply bg-transparent;
+}
+
+.accent-drawer-content-wrapper {
+  @apply border-l shadow-none;
+}
+
+.accent-drawer-body {
+  @apply bg-primary-light !p-4;
+}
+
+.accent-drawer-header {
+  @apply bg-primary-light border-zinc-200 py-[17.5px];
+}
+
+.accent-drawer-header-title {
+  @apply [&>.accent-drawer-title]:text-primary flex-row-reverse [&>.accent-drawer-close]:me-0 [&>.accent-drawer-title]:text-lg;
+}
+
+.ant-input-affix-wrapper-lg {
+  @apply [&>*]:py-0.5;
+}

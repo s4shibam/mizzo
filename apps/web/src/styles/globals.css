@@ -1,0 +1,101 @@
+@layer tailwind-base, antd;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+@tailwind components;
+@tailwind utilities;
+
+@import './antd.css';
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  @apply h-1 w-1;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-secondary;
+}
+
+/* Autofill color disable */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 2147483647s ease-in-out 0s;
+  -webkit-text-fill-color: #27272a;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+* {
+  @apply font-outfit box-border;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+html,
+body {
+  @apply border-zinc-200 bg-white text-base font-normal text-zinc-800;
+}
+
+body {
+  @apply relative h-screen w-full;
+}
+
+.mz-text-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.mz-dropdown-menu-item {
+  @apply flex min-w-48 items-center gap-2 py-0.5 text-sm;
+}
+
+.mz-dropdown-menu-item > svg {
+  @apply text-primary size-4;
+}
+
+.mz-pill {
+  @apply border-primary bg-primary/10 flex w-fit select-none items-center overflow-hidden rounded-full border px-2 text-sm;
+}
+
+.mz-banner-image {
+  @apply bg-inherit;
+}
+
+/* Audio Tag CSS */
+audio {
+  @apply !w-[90%];
+}
+
+audio::-webkit-media-controls-panel,
+audio::-webkit-media-controls-enclosure {
+  @apply bg-primary/80;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  text-shadow: none;
+  @apply !font-semibold;
+}
+
+#progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply size-3 cursor-pointer overflow-visible rounded-full bg-white opacity-0 group-hover:opacity-100;
+}
+
+.mz-accent-drawer-form-footer {
+  @apply bg-primary-light absolute bottom-0 left-0 z-10 grid w-full grid-cols-2 gap-4 p-6;
+}
