@@ -1,0 +1,16 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  style="margin: auto; background: rgba(255, 255, 255, 0); display: block"
+  width="200px"
+  height="200px"
+  viewBox="0 0 100 100"
+  preserveAspectRatio="xMidYMid"
+>
+  <g transform="rotate(180 50 50)">
+    <rect x="15" y="12.5" width="10" height="50" fill="#856EF7"></rect>
+    <rect x="35" y="12.5" width="10" height="30" fill="#856EF7"></rect>
+    <rect x="55" y="12.5" width="10" height="70" fill="#856EF7"></rect>
+    <rect x="75" y="12.5" width="10" height="40" fill="#856EF7"></rect>
+  </g>
+</svg>
