@@ -1,5 +1,5 @@
 {
-  "name": "repo",
+  "name": "mizzo",
   "private": true,
   "scripts": {
     "prepare": "husky",
