@@ -1,10 +1,10 @@
 services:
   postgres:
-    container_name: repo-postgres
+    container_name: ${NEXT_PUBLIC_APP_SLUG:-app}-postgres
     image: postgres:16
     restart: unless-stopped
     environment:
-      POSTGRES_DB: repo
+      POSTGRES_DB: ${NEXT_PUBLIC_APP_SLUG:-app}
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - '5432:5432'
@@ -12,7 +12,7 @@ services:
       - ./.postgres:/var/lib/postgresql/data
 
   redis:
-    container_name: repo-redis
+    container_name: ${NEXT_PUBLIC_APP_SLUG:-app}-redis
     image: redis:7
     restart: unless-stopped
     ports:

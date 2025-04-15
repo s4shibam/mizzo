@@ -8,7 +8,7 @@ type TNodeEnv = 'dev' | 'prod' | 'test'
 
 export const NODE_ENV: TNodeEnv = (process.env.NODE_ENV as TNodeEnv) || 'dev'
 
-export const APP_SLUG = process.env.NEXT_PUBLIC_APP_SLUG || 'repo'
+export const APP_SLUG = process.env.NEXT_PUBLIC_APP_SLUG || 'app'
 
 export const APP_SLUG_CAP = capitalize(APP_SLUG)
 
