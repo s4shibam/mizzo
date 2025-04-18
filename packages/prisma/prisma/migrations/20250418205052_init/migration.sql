@@ -68,6 +68,7 @@ CREATE TABLE "otps" (
 CREATE TABLE "user_profiles" (
     "userId" TEXT NOT NULL,
     "avatarKey" TEXT,
+    "bio" TEXT,
     "facebook" TEXT,
     "twitter" TEXT,
     "instagram" TEXT
@@ -88,7 +89,6 @@ CREATE TABLE "user_artist_applications" (
     "isApproved" BOOLEAN,
     "idProofType" TEXT,
     "idProofKey" TEXT,
-    "selfieKey" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
