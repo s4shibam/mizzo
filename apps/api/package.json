@@ -12,22 +12,17 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@aws-sdk/client-lambda": "^3.772.0",
     "@mizzo/aws": "*",
     "@mizzo/logger": "*",
     "@mizzo/prisma": "*",
     "@mizzo/redis": "*",
     "@mizzo/utils": "*",
-    "@types/aws-lambda": "^8.10.147",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.7",
-    "esbuild": "^0.25.1",
     "express": "^4.21.2",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
-    "serverless-esbuild": "^1.55.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
@@ -41,7 +36,6 @@
     "eslint": "^9.21.0",
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
-    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.5.3"
   }
 }
