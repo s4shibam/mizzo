@@ -105,8 +105,15 @@ export const useUpdateProfileForm = (close: () => void) => {
       return
     }
 
-    const { name, bio, facebook, twitter, instagram, avatarFileObj, avatarFileExt } =
-      validationResult.data!
+    const {
+      name,
+      bio,
+      facebook,
+      twitter,
+      instagram,
+      avatarFileObj,
+      avatarFileExt
+    } = validationResult.data!
     let finalAvatarUrl = uploadedUrls.avatarUrl
 
     if (avatarUpdateOption === 'UPDATE') {

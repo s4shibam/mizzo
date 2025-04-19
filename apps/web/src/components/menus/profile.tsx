@@ -66,7 +66,7 @@ export const ProfileMenu = () => {
   const handleLogOut = async () => {
     setActiveTrack(undefined)
     setActivePlaylist(undefined)
-    
+
     try {
       await signOut({ callbackUrl: '/' })
       toast.success('Logged out successfully')

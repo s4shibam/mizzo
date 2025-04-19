@@ -207,7 +207,7 @@ const SignUpForm = () => {
         <Form.Item>
           <Button
             block
-            className="h-12 mt-5"
+            className="mt-5 h-12"
             htmlType="submit"
             loading={isSendOtpPending}
             size="large"
