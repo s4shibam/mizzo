@@ -11,7 +11,6 @@ import { shouldCreateNewProcessingTask } from '../utils'
 
 const sqsConsumer = async () => {
   console.log('[SQS]', new Date().toLocaleString())
-  await shouldCreateNewProcessingTask()
 
   try {
     const messages = await sqsGetMessages()
