@@ -1,33 +1,35 @@
-<p align="center">
-    <h1>Mizzo API</h1>
-    <p>Backend REST API service for the Mizzo music platform</p>
-</p>
+# Mizzo API
 
 ## ⚡ Introduction
 
-Mizzo API is the backend service that powers the Mizzo music streaming platform, providing authentication, data access, and business logic for the entire ecosystem. Built with Express.js and TypeScript, it offers a robust RESTful API interface for the web application and other consumers.
+Mizzo API is the backend service that provides core functionality for the music platform. It handles data access, authentication, and business logic through a RESTful interface.
 
 ## ✨ Features
 
-- RESTful API endpoints with Express.js
+- RESTful API endpoints with Express.js and TypeScript
 - JWT-based authentication system
 - Integration with AWS services
 - Database operations via Prisma ORM
+- Containerized PostgreSQL and Redis with Docker for storage and caching
 - Request validation with Zod
-- Caching with Redis
-- Comprehensive logging system
-- Docker-ready deployment
-- Streaming audio with range requests support
 - User, artist, and admin role management
-- Playlist CRUD operations
-- Track upload and metadata management
-- Media asset management
+- Track and Playlist CRUD operations
+- Logging with Winston and Logtail
+- Byte range audio streaming on HLS failure
 
 ## ⚙️ Tech Stack
 
 - Node.js
 - Express.js
 - TypeScript
+- PostgreSQL
 - Prisma ORM
 - Redis
-- AWS SDK
+- AWS S3, SES
+
+### 📦 Other Libraries and Tools
+
+- Zod
+- JWT
+- Logtail
+- Docker

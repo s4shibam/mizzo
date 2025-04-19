@@ -1,26 +1,16 @@
-<p align="center">
-    <h1>Mizzo Transcoder</h1>
-    <p>Media processing service for the Mizzo music platform</p>
-</p>
+# Mizzo Transcoder
 
 ## ⚡ Introduction
 
-Mizzo Transcoder is a specialized microservice responsible for processing, transcoding, and optimizing audio files for the Mizzo music platform. Built with Node.js and FFmpeg, it converts various audio formats into optimized versions for streaming and playback across different devices and bandwidths.
+Mizzo Transcoder is a microservice that converts audio files (mp3, wav, m4a) into HLS (HTTP Live Streaming) format with multiple bitrate variants. It creates audio segments and playlist files for adaptive streaming.
 
 ## ✨ Features
 
 - Audio transcoding using FFmpeg
 - Adaptive bitrate streaming (HLS) generation
-- Audio metadata extraction
 - AWS S3 integration for media storage
+- FFmpeg (via fluent-ffmpeg)
 - Containerized with Docker for scalable deployment
-- RESTful API for transcoding requests
-- Error handling and retry mechanisms
-- Multiple audio quality outputs
-- Format standardization
-- Audio normalization
-- Processing status tracking
-- Automatic waveform generation
 
 ## ⚙️ Tech Stack
 
@@ -28,6 +18,4 @@ Mizzo Transcoder is a specialized microservice responsible for processing, trans
 - TypeScript
 - FFmpeg
 - Docker
-- AWS S3
-- AWS ECR
-- AWS ECS Fargate
+- AWS S3, ECR, ECS Fargate

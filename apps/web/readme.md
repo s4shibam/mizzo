@@ -1,36 +1,27 @@
-<p align="center">
-    <h1>Mizzo Web</h1>
-    <p>Frontend web application for the Mizzo music platform</p>
-</p>
+# Mizzo Web
 
 ## ⚡ Introduction
 
-Mizzo Web is the primary user interface for the Mizzo music streaming platform, providing a modern, responsive web application built with Next.js and React. It offers a seamless user experience with server-side rendering, client-side interactivity, and optimized audio playback.
+Mizzo Web is the user interface for the music streaming platform. It provides the frontend application that allows users to browse, discover, and play music content. It also allows artists to manage their music along with Admin to manage the platform.
 
 ## ✨ Features
 
-- Modern UI with Ant Design and Tailwind CSS
-- Server-side rendering with Next.js
+- Modern UI with Ant Design, Tailwind CSS and Next.js
 - Authentication with NextAuth
 - Audio playback with HLS support
-- Interactive data visualization
-- Responsive design for all devices
-- Data fetching with Tanstack Query
-- Toast notifications for user feedback
-- Artist studio dashboard
-- User profile management
-- Playlist creation and management
-- Track search and filtering
-- Media player with playlist controls
-- Social media integration
+- Data fetching and client-side caching with Tanstack Query
+- User and artist management (profiles, studio dashboards)
+- Music management (playlists, track search/filtering)
+- Media playback with playlist controls
 
 ## ⚙️ Tech Stack
 
 - Next.js
-- React
+- React.js
 - TypeScript
 - Tailwind CSS
 - Ant Design
 - Tanstack Query
 - NextAuth
 - Axios
+- React Icons

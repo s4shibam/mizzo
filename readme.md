@@ -6,7 +6,7 @@
 
 <div align="center">
     <h1>Mizzo</h1>
-    <p>Modern Music Streaming Platform</p>
+    <p>Where music flows</p>
 </div>
 
 <p align="center">
@@ -19,42 +19,58 @@
 
 ## ⚡ Introduction
 
-Mizzo is a music streaming platform that allows users to discover, play, and share their favorite music. With features for both listeners and artists, Mizzo provides a comprehensive ecosystem for music enthusiasts, offering high-quality streaming, personalized playlists, and artist tools all in one place.
+Mizzo is a music streaming platform that allows users to discover, play, and share their favorite music. With features for listeners, artists, and administrators, Mizzo provides a comprehensive ecosystem for music enthusiasts, offering high-quality streaming, personalized playlists, artist tools, and robust platform management all in one place.
 
 ## ✨ Features
 
-- **Stream Music Anywhere**: Access your favorite tracks on any device with adaptive streaming
-- **Ad-Free Experience**: Premium users enjoy uninterrupted music without advertisements
-- **Offline Listening**: Download tracks for offline playback (Premium feature)
-- **Create & Share Playlists**: Build collections of your favorite tracks and share them with friends
-- **Artist Profiles**: Follow your favorite artists and discover their latest releases
-- **Artist Studio**: For musicians to upload and manage their music
-- **High Quality Audio**: Premium users get enhanced audio quality
-- **Personalized Recommendations**: Discover new music based on your listening habits
-- **Social Sharing**: Connect your social media accounts to share what you're listening to
+- Stream music with adaptive bitrate streaming (HLS) for optimal quality
+- Manage user profile with customizable fields and integrations
+- Secure user authentication and authorization with Role-based access control
+- Create, share, and manage personal playlists
+- Full text search for tracks, artists, and playlists
+- View track lyrics and metadata with a fully-featured, HLS audio player
+- Like, collect favorite content, and listening history
+- Upload, manage, curate, and share tracks as an artist
+- Comprehensive admin panel for managing users, artists, content quality and platform integrity
+- Monitor analytics, statistics, and manage platform settings
 
-## 📦 Technology Stack
+## ⚙️ Tech Stack
 
-- **Backend**: Node.js, Express.js, TypeScript
-- **Frontend**: Next.js, React, TypeScript, Tailwind CSS, Ant Design
-- **Database**: PostgreSQL, Prisma ORM
-- **Caching**: Redis
-- **Media Processing**: FFmpeg
-- **Containerization**: Docker
-- **Cloud Services**: AWS S3, Lambda
-- **Development**: TurboRepo, ESLint, Prettier, Husky
+- Next.js
+- React.js
+- Node.js
+- Express.js
+- TypeScript
+- PostgreSQL
+- TurboRepo
+- AWS (S3, SQS, ECS, SES)
+- Tanstack Query
+- Tailwind CSS
+- Ant Design
+- Prisma ORM
+
+## 📦 Other Libraries and Tools
+
+- Docker
+- Redis
+- FFmpeg
+- NextAuth
+- Node Cron
+- ESLint
+- Prettier
+- Husky
 
 ## 🎯 Goals
 
-- [x] Build a scalable music streaming platform with TypeScript end-to-end
-- [x] Implement adaptive bitrate streaming for optimal audio quality on any connection
-- [x] Create a fast, responsive UI with Next.js and modern React patterns
-- [x] Develop an artist portal for musicians to upload and manage their content
-- [x] Implement secure authentication and user profile management
-- [x] Design a sophisticated playlist and library management system
-- [x] Create efficient media transcoding pipeline with FFmpeg for various quality levels
-- [x] Build an extensible system architecture using a monorepo approach with shared packages
-- [ ] Implement AI-powered music search and recommendations
+- [x] Craft a TurboRepo-powered monorepo architecture to maximize code reuse and streamline development
+- [x] Learn popular AWS services (i.e. S3, SQS, ECS, SES) and implement them in the project
+- [x] Engineer a robust, containerized audio processing pipeline with FFmpeg, delivering HLS adaptive bitrate streaming
+- [x] Create a seamless audio playback experience through an HLS-compatible player with adaptive quality switching
+- [x] Enhance database performance with PostgreSQL full-text search and Prisma ORM optimizations
+- [x] Secure user sessions with NextAuth's JWT-based authentication system
+- [x] Boost API performance with Redis-powered caching for high-traffic endpoints
+- [x] Orchestrate background tasks using AWS services in a microservice-oriented architecture
+- [x] Implement notification system for user engagement and activity tracking
 
 ## 🏗️ Repository Structure
 
@@ -80,9 +96,7 @@ This monorepo contains multiple applications and shared packages, orchestrated w
 
 ## 🖼️ Screenshots
 
-![Hero Section](https://via.placeholder.com/800x450?text=Mizzo+Hero+Section)
-![Music Player](https://via.placeholder.com/800x450?text=Mizzo+Music+Player)
-![Playlist View](https://via.placeholder.com/800x450?text=Mizzo+Playlist+View)
+![Screenshot 1](./.readme/screenshot-1.png)
 
 ## 👋🏻 Contact
 
