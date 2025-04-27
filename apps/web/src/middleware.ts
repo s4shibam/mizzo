@@ -1,7 +1,6 @@
 import { NextResponse, type NextRequest } from 'next/server'
 
 const redirectionRecords: Record<string, string> = {
-  '/': '/home',
   '/library': '/library/my-playlists',
   '/studio': '/studio/dashboard',
   '/admin': '/admin/dashboard'
