@@ -31,7 +31,7 @@ Mizzo is a music streaming platform that allows users to discover, play, and sha
 - View track lyrics and metadata with a fully-featured, HLS audio player
 - Like, collect favorite content, and listening history
 - Upload, manage, curate, and share tracks as an artist
-- Comprehensive admin panel for managing users, artists, content quality and platform integrity
+- Admin panel for managing users, artists, content quality and platform integrity
 - Monitor analytics, statistics, and manage platform settings
 
 ## ⚙️ Tech Stack
