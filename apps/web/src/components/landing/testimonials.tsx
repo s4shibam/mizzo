@@ -43,7 +43,7 @@ export const TestimonialsSection = () => {
   const testimonials = [
     {
       name: 'Taylor Swift',
-      role: 'Pop Artist',
+      role: 'Singer & Songwriter',
       quote:
         'Mizzo has transformed my connection with fans. The platform makes it easy to share my music and engage with my audience in meaningful ways.',
       avatar:
@@ -52,7 +52,7 @@ export const TestimonialsSection = () => {
     },
     {
       name: 'Shreya Ghoshal',
-      role: 'Music Composer',
+      role: 'Playback Singer',
       quote:
         'Mizzo helped me bring Indian music to a global audience. The platform respects cultural diversity and provides excellent tools for artists around the world.',
       avatar:
@@ -62,7 +62,7 @@ export const TestimonialsSection = () => {
     },
     {
       name: 'Alan Walker',
-      role: 'Music Producer',
+      role: 'DJ & Music Producer',
       quote:
         "After joining Mizzo, my listener engagement grew exponentially. The platform's discovery algorithms actually help fans find new music in authentic ways.",
       avatar:

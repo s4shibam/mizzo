@@ -31,7 +31,7 @@ const Error = ({
       <p className="mt-5">We encountered an error. Please try again.</p>
 
       <Button
-        className="mt-20 w-36"
+        className="mt-20 h-11 w-36 rounded-full"
         size="large"
         type="primary"
         onClick={() => reset()}
