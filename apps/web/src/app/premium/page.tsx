@@ -8,11 +8,12 @@ import {
   LuMusic2,
   LuRadio,
   LuShield,
-  LuSparkles,
   LuZap
 } from 'react-icons/lu'
 
 import { APP_SLUG_CAP } from '@mizzo/utils'
+
+import { Branding } from '@/components/common/branding'
 
 const HERO_BG =
   'https://images.unsplash.com/photo-1619983081563-430f63602796?q=80&w=2000'
@@ -70,8 +71,10 @@ const GetPremium = () => {
         />
 
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4">
+          <Branding className="[&>span]:!text-background mb-4" />
+
           <div className="mb-4 flex items-center justify-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-md">
-            <LuSparkles className="size-5 text-yellow-400" />
+            <LuCrown className="size-5 text-amber-500" />
             <span className="font-medium text-white">
               Elevate Your Music Experience
             </span>
@@ -288,7 +291,7 @@ const PremiumCard = () => {
         </div>
 
         <Button block className="h-12 text-base" size="large" type="primary">
-          Get Premium
+          Coming Soon
         </Button>
       </div>
     </div>
@@ -316,11 +319,6 @@ const FaqSection = () => {
       question: 'What payment methods do you accept?',
       answer:
         'We accept all major credit cards, PayPal, and various mobile payment options for your convenience.'
-    },
-    {
-      question: 'Is there a family plan available?',
-      answer:
-        'Yes, we offer a family plan that allows up to 6 family members to enjoy Premium benefits at a discounted rate.'
     }
   ]
 
