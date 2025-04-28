@@ -2,9 +2,6 @@
 
 import { useEffect } from 'react'
 
-import { Button } from 'antd'
-import { LuRefreshCw } from 'react-icons/lu'
-
 import { APP_SLUG_CAP } from '@mizzo/utils'
 
 import { PlaylistCard } from '@/components/cards/playlist'
@@ -13,13 +10,7 @@ import { Loader } from '@/components/common/loader'
 import { useGetMyPlaylists } from '@/hooks/api/playlist'
 
 const MyPlaylistsPage = () => {
-  const {
-    data: myPlaylists,
-    isLoading,
-    isError,
-    error,
-    refetch
-  } = useGetMyPlaylists()
+  const { data: myPlaylists, isLoading, isError, error } = useGetMyPlaylists()
 
   useEffect(() => {
     document.title = `My Playlists - ${APP_SLUG_CAP}`
@@ -30,18 +21,7 @@ const MyPlaylistsPage = () => {
   }
 
   if (isError) {
-    return (
-      <ErrorInfo error={error}>
-        <Button
-          icon={<LuRefreshCw />}
-          size="large"
-          type="primary"
-          onClick={() => refetch()}
-        >
-          Retry
-        </Button>
-      </ErrorInfo>
-    )
+    return <ErrorInfo error={error} />
   }
 
   return (
