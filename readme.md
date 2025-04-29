@@ -96,7 +96,13 @@ This monorepo contains multiple applications and shared packages, orchestrated w
 
 ## 🖼️ Screenshots
 
-![Screenshot 1](./.readme/screenshot-1.png)
+![Landing Page](./.readme/main.webp)
+![Screenshot 1](./.readme/1.webp)
+![Screenshot 2](./.readme/2.webp)
+![Screenshot 3](./.readme/3.webp)
+![Screenshot 4](./.readme/4.webp)
+![Screenshot 5](./.readme/5.webp)
+![Screenshot 6](./.readme/6.webp)
 
 ## 👋🏻 Contact
 
