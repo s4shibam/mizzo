@@ -1,6 +1,12 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
+import {
+  PrismaClientInitializationError,
+  PrismaClientKnownRequestError,
+  PrismaClientRustPanicError,
+  PrismaClientUnknownRequestError,
+  PrismaClientValidationError
+} from '@prisma/client/runtime/library'
 import { ZodError } from 'zod'
 
 import { log } from '@mizzo/logger'
@@ -21,6 +27,14 @@ export const errorHandler = (
     customError = { ...handleZodError(err), stack: err.stack }
   } else if (err instanceof PrismaClientKnownRequestError) {
     customError = { ...handlePrismaError(err), stack: err.stack }
+  } else if (err instanceof PrismaClientInitializationError) {
+    customError = { ...handlePrismaInitError(), stack: err.stack }
+  } else if (err instanceof PrismaClientRustPanicError) {
+    customError = { ...handlePrismaInternalError(), stack: err.stack }
+  } else if (err instanceof PrismaClientUnknownRequestError) {
+    customError = { ...handlePrismaUnknownError(), stack: err.stack }
+  } else if (err instanceof PrismaClientValidationError) {
+    customError = { ...handlePrismaValidationError(), stack: err.stack }
   }
 
   sendErrorAsResponse(customError, req, res)
@@ -43,8 +57,9 @@ const handleZodError = (err: ZodError): TError => {
 }
 
 const handlePrismaError = (err: PrismaClientKnownRequestError): TError => {
-  let message = 'Unknown error occurred'
+  let message = 'Database operation failed'
   let statusCode = 500
+
   if (NODE_ENV === 'dev') {
     switch (err.code) {
       case 'P2002':
@@ -59,14 +74,46 @@ const handlePrismaError = (err: PrismaClientKnownRequestError): TError => {
         statusCode = 400
         message = `Invalid input data: ${err.meta?.target || 'unknown'}`
         break
+      case 'P2025':
+        statusCode = 404
+        message = 'Record not found'
+        break
       default:
-        message = `Something went wrong: ${err.message}`
+        message = `Database error: ${err.code}`
     }
   }
 
   return {
     message,
     statusCode
+  }
+}
+
+const handlePrismaInitError = (): TError => {
+  return {
+    message: 'Database connection error. Please try again later.',
+    statusCode: 503
+  }
+}
+
+const handlePrismaInternalError = (): TError => {
+  return {
+    message: 'Internal database error. Please try again later.',
+    statusCode: 500
+  }
+}
+
+const handlePrismaUnknownError = (): TError => {
+  return {
+    message: 'Unexpected database error. Please try again later.',
+    statusCode: 500
+  }
+}
+
+const handlePrismaValidationError = (): TError => {
+  return {
+    message: 'Invalid database query. Please try again later.',
+    statusCode: 400
   }
 }
 
@@ -91,9 +138,10 @@ const sendErrorAsResponse = (
       : req.headers['x-forwarded-for']) ||
     'unknown'
 
+  // Log the original error for debugging
   log.error({
     app: 'API',
-    message: errorResponse.message,
+    message: err.message,
     meta: {
       req: {
         method: req.method,
@@ -110,7 +158,7 @@ const sendErrorAsResponse = (
           validationError: errorResponse.validationError
         }
       },
-      stack: errorResponse.stack,
+      stack: err.stack,
       deviceInfo: NODE_ENV !== 'dev' ? deviceInfo : undefined
     }
   })
