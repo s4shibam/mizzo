@@ -50,7 +50,7 @@ export const HeroSection = () => {
 
         <div className="group relative mx-auto max-w-5xl overflow-hidden rounded-full">
           <div className="grid grid-cols-3 gap-3">
-            <div className="col-span-1 row-span-2 overflow-hidden rounded-lg shadow-sm">
+            <div className="bg-primary/25 col-span-1 row-span-2 overflow-hidden rounded-lg shadow-sm">
               <div className="relative aspect-[3/4] h-full w-full">
                 <Image
                   fill
@@ -61,7 +61,7 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            <div className="col-span-1 overflow-hidden rounded-lg shadow-sm">
+            <div className="bg-primary/25 col-span-1 overflow-hidden rounded-lg shadow-sm">
               <div className="relative aspect-[4/3] h-full w-full">
                 <Image
                   fill
@@ -72,7 +72,7 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            <div className="col-span-1 overflow-hidden rounded-lg shadow-sm">
+            <div className="bg-primary/25 col-span-1 overflow-hidden rounded-lg shadow-sm">
               <div className="relative aspect-square h-full w-full">
                 <Image
                   fill
@@ -83,7 +83,7 @@ export const HeroSection = () => {
               </div>
             </div>
 
-            <div className="col-span-2 overflow-hidden rounded-lg shadow-sm">
+            <div className="bg-primary/25 col-span-2 overflow-hidden rounded-lg shadow-sm">
               <div className="relative aspect-[16/9] h-full w-full">
                 <Image
                   fill
