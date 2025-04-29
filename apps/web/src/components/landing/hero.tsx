@@ -1,7 +1,7 @@
 import { Button } from 'antd'
 import Image from 'next/image'
 import Link from 'next/link'
-import { LuPlay } from 'react-icons/lu'
+import { LuPlay, LuSparkles } from 'react-icons/lu'
 
 export const HeroSection = () => {
   return (
@@ -10,6 +10,13 @@ export const HeroSection = () => {
 
       <div className="container relative mx-auto px-4">
         <div className="mb-16 flex flex-col items-center text-center">
+          <div className="border-primary/25 bg-background mb-2 flex cursor-default items-center rounded-full border p-0.5 text-sm font-medium">
+            <div className="grid size-7 place-items-center rounded-full bg-white">
+              <LuSparkles className="text-primary size-5" />
+            </div>
+
+            <p className="px-2">Create Magic Playlists</p>
+          </div>
           <h1 className="from-primary to-primary/70 mb-6 bg-gradient-to-r bg-clip-text text-5xl font-bold text-transparent md:text-6xl lg:text-7xl">
             Where Music Flows
           </h1>
