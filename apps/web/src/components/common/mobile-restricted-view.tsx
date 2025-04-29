@@ -19,7 +19,7 @@ const MobileRestrictedView = ({ children }: { children: React.ReactNode }) => {
           doNotAllowMobile ? 'md:hidden' : 'hidden'
         )}
       >
-        <Branding />
+        <Branding href="/" />
 
         <div className="space-y-8">
           <div className="space-y-2 text-center">

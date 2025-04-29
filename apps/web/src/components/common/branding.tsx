@@ -7,17 +7,22 @@ import MIZZO_LOGO from '@/assets/logos/mizzo-primary.svg'
 
 type BrandingProps = {
   className?: string
+  href?: string
   size?: 'large' | 'small'
 }
 
-export const Branding = ({ className, size = 'large' }: BrandingProps) => {
+export const Branding = ({
+  className,
+  size = 'large',
+  href = '/home'
+}: BrandingProps) => {
   return (
     <Link
       className={cn(
         'flex w-fit cursor-pointer select-none items-center justify-center gap-1',
         className
       )}
-      href="/"
+      href={href}
     >
       <div className="bg-background grid size-8 place-items-center rounded-lg xl:size-9">
         <Image
