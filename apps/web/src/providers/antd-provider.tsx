@@ -18,6 +18,10 @@ export const AntdProvider = ({ children }: { children: ReactNode }) => {
             borderRadius: 6
           },
           components: {
+            Button: {
+              colorPrimaryHover: `${colors.primary.DEFAULT}E6`,
+              colorPrimaryActive: `${colors.primary.DEFAULT}CC`
+            },
             Tooltip: { sizePopupArrow: 0 }
           }
         }}
