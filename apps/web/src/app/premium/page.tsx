@@ -71,7 +71,7 @@ const GetPremium = () => {
         />
 
         <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4">
-          <Branding className="[&>span]:!text-background mb-4" />
+          <Branding className="[&>span]:!text-background mb-4" href="/" />
 
           <div className="mb-4 flex items-center justify-center gap-2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-md">
             <LuCrown className="size-5 text-amber-500" />
