@@ -50,5 +50,12 @@
     "*.prisma": [
       "prisma format"
     ]
+  },
+  "dependencies": {},
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node"
   }
 }
