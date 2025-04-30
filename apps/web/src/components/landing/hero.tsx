@@ -49,6 +49,7 @@ export const HeroSection = () => {
         <div className="group relative mx-auto max-w-5xl overflow-hidden rounded-full">
           <div className="grid grid-cols-3 gap-2 md:gap-3">
             <Image
+              priority
               alt="Guitarist"
               className="bg-primary/25 col-span-1 row-span-2 h-full w-full rounded-lg object-cover"
               height={600}
@@ -57,6 +58,7 @@ export const HeroSection = () => {
             />
 
             <Image
+              priority
               alt="Music Concert"
               className="bg-primary/25 col-span-1 aspect-[4/3] h-full w-full rounded-lg object-cover"
               height={800}
@@ -65,6 +67,7 @@ export const HeroSection = () => {
             />
 
             <Image
+              priority
               alt="Headphones"
               className="bg-primary/25 col-span-1 aspect-square h-full w-full rounded-lg object-cover"
               height={800}
@@ -73,10 +76,11 @@ export const HeroSection = () => {
             />
 
             <Image
+              priority
               alt="Music Instruments"
               className="bg-primary/25 col-span-2 aspect-[16/9] h-full w-full rounded-lg object-cover"
               height={900}
-              src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=1287"
+              src="https://images.unsplash.com/photo-1511379938547-c1f69419868d"
               width={1600}
             />
           </div>
