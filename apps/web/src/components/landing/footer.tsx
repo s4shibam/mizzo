@@ -28,7 +28,10 @@ export const Footer = () => {
   const socialLinks = [
     { icon: <FiTwitter className="size-5" />, href: '#' },
     { icon: <FiInstagram className="size-5" />, href: '#' },
-    { icon: <FiGithub className="size-5" />, href: '#' }
+    {
+      icon: <FiGithub className="size-5" />,
+      href: 'https://github.com/s4shibam/mizzo'
+    }
   ]
 
   return (

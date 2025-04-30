@@ -72,7 +72,7 @@ export const TestimonialsSection = () => {
   ]
 
   return (
-    <section className="bg-zinc-50 py-20">
+    <section className="bg-primary/5 py-20">
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">
