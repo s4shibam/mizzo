@@ -13,6 +13,7 @@ import { ImageWithFallback } from '@/components/common/image-with-fallback'
 import { Loader } from '@/components/common/loader'
 import { useGetLikedTracks } from '@/hooks/api/playlist'
 import { useOnPlay } from '@/hooks/custom/use-on-play'
+import { getDurationInHMSWithText } from '@/lib/dayjs'
 import { pluralize } from '@/lib/utils'
 
 const LikedTracksPage = () => {
@@ -69,7 +70,14 @@ const LikedTracksPage = () => {
               )}
             </div>
 
-            {totalDuration && <div className="mz-pill">{totalDuration}</div>}
+            {totalDuration && (
+              <div className="mz-pill">
+                {getDurationInHMSWithText({
+                  secs: totalDuration,
+                  minimal: true
+                })}
+              </div>
+            )}
           </div>
 
           <button
