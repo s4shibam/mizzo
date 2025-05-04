@@ -48,7 +48,7 @@
       "prettier --write"
     ],
     "*.prisma": [
-      "prisma format"
+      "cd packages/prisma && npx prisma format"
     ]
   },
   "dependencies": {},
