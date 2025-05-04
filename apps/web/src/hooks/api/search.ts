@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 
+import type { TPaginationParams } from '@mizzo/utils'
+
 import { api } from '@/services/api'
 import type { TApiPromise, TQueryOpts } from '@/types/api'
 import type { Playlist } from '@/types/playlist'
@@ -11,7 +13,7 @@ import type { User } from '@/types/user'
 type TSearchParams = {
   search: string
   as?: 'artist' | 'user' | 'owner'
-}
+} & TPaginationParams
 
 // Search Api Endpoints
 
