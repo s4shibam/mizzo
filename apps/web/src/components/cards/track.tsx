@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { Tag } from 'antd'
+import { Tag, Tooltip } from 'antd'
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -68,17 +68,26 @@ export const TrackCard = ({
           src={s3GetUrlFromKey(track?.posterKey)}
         />
 
-        <LuPlay className="fill-primary text-primary absolute left-1/2 top-1/2 hidden size-7 -translate-x-1/2 -translate-y-1/2 group-hover:block" />
+        <Tooltip title="Play track">
+          <button
+            className="absolute left-1/2 top-1/2 hidden size-7 -translate-x-1/2 -translate-y-1/2 group-hover:block"
+            onClick={playTrack}
+          >
+            <LuPlay className="fill-primary text-primary size-7" />
+          </button>
+        </Tooltip>
       </div>
 
       <div className="flex flex-col gap-1">
         <div className="flex h-6 items-center gap-2">
-          <Link
-            className="hover:text-primary truncate text-lg font-medium xl:text-xl"
-            href={trackLink}
-          >
-            {track?.title}
-          </Link>
+          <Tooltip rootClassName="max-w-md" title={track?.title}>
+            <Link
+              className="hover:text-primary max-w-xs truncate text-lg font-medium xl:text-xl"
+              href={trackLink}
+            >
+              {track?.title}
+            </Link>
+          </Tooltip>
 
           {showArtistOnlyInfo &&
             isSameCuid(session?.user?.id, track?.primaryArtistId) && (

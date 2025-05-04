@@ -166,9 +166,9 @@ export const UploadTrackForm = () => {
             <div className="grid h-72 w-full place-items-center rounded-md border bg-zinc-50 p-3">
               {trackPreview ? (
                 <audio
+                  key={trackPreview}
                   ref={trackRef}
                   controls
-                  className="accent-primary w-full"
                   onLoadedMetadata={() =>
                     setDuration(trackRef?.current?.duration || 0)
                   }

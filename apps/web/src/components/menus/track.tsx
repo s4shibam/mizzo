@@ -52,11 +52,13 @@ export const TrackMenu = ({
     items.push({
       key: 'addToPlaylist',
       label: (
-        <AddToPlaylistButton trackId={track.id} trackTitle={track.title}>
-          <div className="mz-dropdown-menu-item">
-            <LuListMusic />
-            <span>Add to Playlist</span>
-          </div>
+        <AddToPlaylistButton
+          className="mz-dropdown-menu-item"
+          trackId={track.id}
+          trackTitle={track.title}
+        >
+          <LuListMusic />
+          <span>Add to Playlist</span>
         </AddToPlaylistButton>
       )
     })
@@ -162,7 +164,7 @@ export const TrackMenu = ({
         label: (
           <DeleteButton
             actionType="deleteTrack"
-            className="mz-dropdown-menu-item -mx-2 rounded-md border-2 !border-red-500 !py-2 px-2"
+            className="mz-dropdown-menu-item rounded-md bg-red-500/10 hover:bg-red-500/20"
             track={track}
           >
             <LuTrash className="size-full !text-red-500" />
