@@ -4,8 +4,7 @@ import { z } from 'zod'
 
 import { prisma } from '@mizzo/prisma'
 
-import { NON_PREMIUM_USER_CONSTRAINTS } from '@/constants/common'
-
+import { NON_PREMIUM_USER_CONSTRAINTS } from '../../constants/common'
 import { throwError } from '../../utils/throw-error'
 
 export const addTrackToPlaylist = async (req: Request, res: Response) => {
