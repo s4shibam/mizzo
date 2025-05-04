@@ -59,8 +59,14 @@ body {
   @apply transition-all duration-300 ease-in-out;
 }
 
+.artist-menu-menu-item,
+.playlist-menu-menu-item,
+.track-menu-menu-item {
+  @apply px-0 py-0;
+}
+
 .mz-dropdown-menu-item {
-  @apply flex min-w-48 items-center gap-2 py-0.5 text-sm;
+  @apply flex w-full min-w-48 items-center gap-2 px-3 py-2 text-sm;
 }
 
 .mz-dropdown-menu-item > svg {
@@ -77,23 +83,18 @@ body {
 
 /* Audio Tag CSS */
 audio {
-  @apply !w-[90%];
+  @apply !w-[90%] !text-white;
 }
 
 audio::-webkit-media-controls-panel,
 audio::-webkit-media-controls-enclosure {
-  @apply bg-primary/80;
+  @apply bg-secondary rounded-md;
 }
 
 audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display {
   text-shadow: none;
-  @apply !font-semibold;
-}
-
-#progress::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  @apply size-3 cursor-pointer overflow-visible rounded-full bg-white opacity-0 group-hover:opacity-100;
+  @apply font-medium;
 }
 
 .mz-accent-drawer-form-footer {
