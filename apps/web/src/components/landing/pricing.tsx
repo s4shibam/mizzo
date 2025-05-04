@@ -9,7 +9,7 @@ export const PricingSection = () => {
       price: '$0.00',
       description: 'Perfect for casual listeners',
       ctaText: 'Get Started',
-      ctaLink: '/auth/sign-up',
+      ctaLink: '/auth/signup',
       comingSoon: false,
       features: [
         { text: 'Ad-supported listening', included: true },
