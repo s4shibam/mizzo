@@ -81,7 +81,6 @@ model Playlist {
   likes          Int             @default(0)
   isPublic       Boolean         @default(false)
   posterKey      String?
-  tracksCount    Int             @default(0)
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @updatedAt
   likedPlaylist  LikedPlaylist[] @relation("Playlist_LikedPlaylists_O2M")
