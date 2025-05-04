@@ -39,19 +39,17 @@ export const PlaylistMenu = ({ playlist, className }: PlaylistMenuProps) => {
       items.push({
         key: 'like-track',
         label: (
-          <LikeButton idType="playlistId" playlistId={playlist.id}>
-            <div className="mz-dropdown-menu-item">
-              {playlistLikeData?.data?.isLiked ? (
-                <LuHeartOff className="text-primary size-full" />
-              ) : (
-                <LuHeart className="text-primary size-full" />
-              )}
-              <span>
-                {playlistLikeData?.data?.isLiked
-                  ? 'Remove from your Liked Playlists'
-                  : 'Add to your Liked Playlists'}
-              </span>
-            </div>
+          <LikeButton
+            className="mz-dropdown-menu-item"
+            idType="playlistId"
+            playlistId={playlist.id}
+          >
+            {playlistLikeData?.data?.isLiked ? <LuHeartOff /> : <LuHeart />}
+            <span>
+              {playlistLikeData?.data?.isLiked
+                ? 'Remove from your Liked Playlists'
+                : 'Add to your Liked Playlists'}
+            </span>
           </LikeButton>
         )
       })
@@ -76,11 +74,7 @@ export const PlaylistMenu = ({ playlist, className }: PlaylistMenuProps) => {
             idType="playlistId"
             playlistId={playlist.id}
           >
-            {playlist.isPublic ? (
-              <LuUserX className="text-primary size-full" />
-            ) : (
-              <LuUserCheck className="text-primary size-full" />
-            )}
+            {playlist.isPublic ? <LuUserX /> : <LuUserCheck />}
             <span>{playlist.isPublic ? 'Make Private' : 'Make Public'}</span>
           </ViewToggleButton>
         )
@@ -89,14 +83,18 @@ export const PlaylistMenu = ({ playlist, className }: PlaylistMenuProps) => {
 
     if (isSameCuid(session?.user?.id, playlist.ownerId)) {
       items.push({
+        type: 'divider'
+      })
+
+      items.push({
         key: 'delete-playlist',
         label: (
           <DeleteButton
             actionType="deletePlaylist"
-            className="mz-dropdown-menu-item"
+            className="mz-dropdown-menu-item rounded-md bg-red-500/10 hover:bg-red-500/20"
             playlist={playlist}
           >
-            <LuTrash className="text-primary size-full" />
+            <LuTrash />
             <span>Delete this playlist</span>
           </DeleteButton>
         )

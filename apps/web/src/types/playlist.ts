@@ -12,7 +12,6 @@ export type Playlist = {
   likes?: number
   isPublic?: boolean
   posterKey?: string | null
-  tracksCount?: number
   createdAt?: string
   updatedAt?: string
   owner?: Partial<User>

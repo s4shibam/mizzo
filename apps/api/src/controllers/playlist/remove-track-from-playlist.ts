@@ -33,24 +33,11 @@ export const removeTrackFromPlaylist = async (req: Request, res: Response) => {
     )
   }
 
-  await prisma.$transaction(async (tx) => {
-    await tx.playlistTrack.deleteMany({
-      where: {
-        playlistId,
-        trackId
-      }
-    })
-
-    await tx.playlist.update({
-      where: {
-        id: playlistId
-      },
-      data: {
-        tracksCount: {
-          decrement: 1
-        }
-      }
-    })
+  await prisma.playlistTrack.deleteMany({
+    where: {
+      playlistId,
+      trackId
+    }
   })
 
   res.status(200).json({

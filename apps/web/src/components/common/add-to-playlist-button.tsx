@@ -5,12 +5,14 @@ import { useOpenClose } from '@/hooks/custom/use-open-close'
 
 type AddToPlaylistButtonProps = {
   children: ReactNode
+  className?: string
   trackId: string
   trackTitle: string
 }
 
 export const AddToPlaylistButton = ({
   children,
+  className,
   trackId,
   trackTitle
 }: AddToPlaylistButtonProps) => {
@@ -24,7 +26,9 @@ export const AddToPlaylistButton = ({
         trackId={trackId}
         trackTitle={trackTitle}
       />
-      <button onClick={open}>{children}</button>
+      <button className={className} onClick={open}>
+        {children}
+      </button>
     </>
   )
 }

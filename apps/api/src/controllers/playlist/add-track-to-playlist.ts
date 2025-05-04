@@ -4,6 +4,8 @@ import { z } from 'zod'
 
 import { prisma } from '@mizzo/prisma'
 
+import { NON_PREMIUM_USER_CONSTRAINTS } from '@/constants/common'
+
 import { throwError } from '../../utils/throw-error'
 
 export const addTrackToPlaylist = async (req: Request, res: Response) => {
@@ -47,24 +49,26 @@ export const addTrackToPlaylist = async (req: Request, res: Response) => {
     throwError('You are not authorized to perform this action', 403)
   }
 
-  await prisma.$transaction(async (tx) => {
-    await tx.playlistTrack.create({
-      data: {
-        playlistId,
-        trackId
+  if (!req.user.isPremiumUser) {
+    const trackCount = await prisma.playlistTrack.count({
+      where: {
+        playlistId
       }
     })
 
-    await tx.playlist.update({
-      where: {
-        id: playlistId
-      },
-      data: {
-        tracksCount: {
-          increment: 1
-        }
-      }
-    })
+    if (trackCount >= NON_PREMIUM_USER_CONSTRAINTS.PER_PLAYLIST_TRACK_LIMIT) {
+      throwError(
+        `Non-premium users can only add ${NON_PREMIUM_USER_CONSTRAINTS.PER_PLAYLIST_TRACK_LIMIT} tracks per playlist. Please upgrade to premium for unlimited tracks.`,
+        403
+      )
+    }
+  }
+
+  await prisma.playlistTrack.create({
+    data: {
+      playlistId,
+      trackId
+    }
   })
 
   res.status(200).json({

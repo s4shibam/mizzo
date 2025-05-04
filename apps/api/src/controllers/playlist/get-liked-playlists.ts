@@ -19,6 +19,11 @@ export const getLikedPlaylists = async (req: Request, res: Response) => {
               id: true,
               name: true
             }
+          },
+          _count: {
+            select: {
+              playlistTracks: true
+            }
           }
         }
       }

@@ -46,7 +46,8 @@ export const AddToPlaylistModal = ({
           </h3>
 
           <p className="text-lg">
-            You are about to add the track, {trackTitle}
+            You are about to add the track,{' '}
+            <span className="font-medium">{trackTitle}</span>
           </p>
         </div>
 
@@ -100,7 +101,7 @@ const PlaylistPreview = ({
 
   return (
     <div
-      className="hover:bg-primary/10 group flex w-full cursor-pointer items-center gap-4 rounded-lg p-2 transition-all duration-300"
+      className="hover:bg-primary/10 group flex w-full cursor-pointer items-center gap-4 rounded-lg p-2 pr-4 transition-all duration-300"
       onClick={() => addTrackToPlaylistMutation(payload)}
     >
       <div className="relative aspect-square size-14">
