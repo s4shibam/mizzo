@@ -6,7 +6,8 @@ export const SIZES_IN_BYTES = {
 }
 
 export const NON_PREMIUM_USER_CONSTRAINTS = {
-  PLAYLIST_LIMIT: 5
+  PLAYLIST_LIMIT: 5,
+  PER_PLAYLIST_TRACK_LIMIT: 15
 }
 
 export const STATUS_LIST: Status[] = [

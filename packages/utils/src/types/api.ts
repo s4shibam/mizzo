@@ -29,6 +29,6 @@ export type TPagination = {
 }
 
 export type TPaginationParams = {
-  currentPage: number
-  perPage: number
+  currentPage?: number
+  perPage?: number
 }

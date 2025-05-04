@@ -23,9 +23,9 @@ export const homePage = ({ heading }: { heading: string }) => {
           display: grid;
           place-items: center;
           font-family: 'Outfit', Helvetica, Arial, sans-serif;
-          background-color: #f0f0f0 !important;
+          background-color: #FFF !important;
           text-align: center;
-          color: #111;
+          color: #0F0F0F;
           font-size: 18px;
         }
         a,
@@ -33,7 +33,7 @@ export const homePage = ({ heading }: { heading: string }) => {
         h3,
         p {
           font-family: 'Outfit', Helvetica, Arial, sans-serif;
-          color: #111;
+          color: #0F0F0F;
         }
         a {
           text-decoration: none;
@@ -49,8 +49,8 @@ export const homePage = ({ heading }: { heading: string }) => {
           padding: 20px;
           max-width: 400px;
           text-align: center;
-          background-color: #fff;
-          border: 1px solid #ff4466;
+          background-color: #F5EFFF;
+          border: 1px solid #856EF7;
           border-radius: 10px;
         }
         .logo-wrapper {
