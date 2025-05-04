@@ -19,6 +19,7 @@ import {
 } from '@/hooks/api/search'
 import { useOnPlay } from '@/hooks/custom/use-on-play'
 import { useQueryParams } from '@/hooks/custom/use-query-params'
+import { useWindowSize } from '@/hooks/custom/use-window-size'
 import { getTrendingSearches } from '@/lib/utils'
 
 const SearchPage = () => {
@@ -32,10 +33,12 @@ const SearchPage = () => {
 export default SearchPage
 
 const SearchContent = () => {
+  const { width } = useWindowSize()
   const { qParams } = useQueryParams()
   const searchQuery = qParams.q || ''
 
   const [noData, setNoData] = useState(false)
+  const [cardCount, setCardCount] = useState(8)
 
   const {
     data: tracks,
@@ -49,14 +52,20 @@ const SearchContent = () => {
     isLoading: isPlaylistsLoading,
     isError: isPlaylistsError,
     refetch: refetchPlaylists
-  } = useSearchPlaylistsByPlaylistName({ search: searchQuery })
+  } = useSearchPlaylistsByPlaylistName({
+    search: searchQuery,
+    perPage: cardCount
+  })
 
   const {
     data: users,
     isLoading: isUsersLoading,
     isError: isUsersError,
     refetch: refetchUsers
-  } = useSearchUsersByUserName({ search: searchQuery })
+  } = useSearchUsersByUserName({
+    search: searchQuery,
+    perPage: cardCount
+  })
 
   const onPlay = useOnPlay({
     id: `search-results-${searchQuery}-${Date.now()}`,
@@ -77,8 +86,18 @@ const SearchContent = () => {
     refetchPlaylists()
     refetchUsers()
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery, cardCount])
+
+  useEffect(() => {
+    if (width < 1280) {
+      setCardCount(4)
+    } else if (width >= 1280 && width < 1536) {
+      setCardCount(6)
+    } else if (width >= 1536) {
+      setCardCount(8)
+    }
+  }, [width])
 
   useEffect(() => {
     document.title = `Search - ${APP_SLUG_CAP}`
@@ -121,7 +140,7 @@ const SearchContent = () => {
         <div>
           <p className="px-4 py-2 text-2xl">Playlists</p>
 
-          <div className="grid grid-cols-2 gap-4 px-4 md:grid-cols-5 xl:grid-cols-7">
+          <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8">
             {playlists?.data?.map((playlist) => (
               <PlaylistCard
                 key={playlist?.id}
@@ -137,7 +156,7 @@ const SearchContent = () => {
         <div>
           <p className="px-4 py-2 text-2xl">Artists</p>
 
-          <div className="grid grid-cols-2 gap-4 px-4 md:grid-cols-5 xl:grid-cols-7">
+          <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8">
             {users?.data?.map((user) => (
               <ArtistCard key={user?.id} artist={user} />
             ))}
