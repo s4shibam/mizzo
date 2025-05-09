@@ -180,7 +180,7 @@ const RecentlyPlayedPlaylists = () => {
         {playlists.slice(0, cardCount).map((playlist) => (
           <PlaylistCard
             key={`${playlist?.id}`}
-            descriptionType="description"
+            descriptionType="trackCount"
             playlist={playlist}
           />
         ))}

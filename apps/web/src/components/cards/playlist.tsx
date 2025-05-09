@@ -4,7 +4,7 @@ import { LuPlay } from 'react-icons/lu'
 
 import PLAYLIST_POSTER_PLACEHOLDER from '@/assets/placeholders/playlist-poster.webp'
 import { ImageWithFallback } from '@/components/common/image-with-fallback'
-import { isSameCuid, s3GetUrlFromKey } from '@/lib/utils'
+import { isSameCuid, pluralize, s3GetUrlFromKey } from '@/lib/utils'
 import type { Playlist } from '@/types/playlist'
 
 type PlaylistCardProps = {
@@ -18,18 +18,13 @@ export const PlaylistCard = ({
 }: PlaylistCardProps) => {
   const { data: session } = useSession()
 
-  const playlistSize = playlist?._count?.playlistTracks || 0
+  const playlistSize =
+    playlist?.playlistTracks?.length ?? playlist?._count?.playlistTracks ?? 0
 
   let playlistDescription = ''
 
   if (descriptionType === 'trackCount') {
-    if (playlistSize === 0) {
-      playlistDescription = 'Empty Playlist'
-    } else if (playlistSize === 1) {
-      playlistDescription = '1 Track'
-    } else {
-      playlistDescription = `${playlistSize} Tracks`
-    }
+    playlistDescription = pluralize(playlistSize, 'Track')
   } else if (descriptionType === 'description') {
     playlistDescription = playlist?.description || 'No description'
   } else {
