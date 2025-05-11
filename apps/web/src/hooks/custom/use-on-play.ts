@@ -60,6 +60,7 @@ const isExcludedPlaylist = (playlistId: string | undefined) => {
   const excludedPlaylistIds = [
     'search-results',
     'liked-songs',
+    'artist-tracks',
     'my-collabs',
     'my-uploads'
   ]
