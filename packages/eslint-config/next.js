@@ -13,11 +13,8 @@ import baseConfig from './base.js'
  * */
 const nextConfig = [
   ...baseConfig,
-
   {
-    plugins: {
-      react: pluginReact
-    },
+    plugins: { react: pluginReact },
 
     languageOptions: {
       parserOptions: {
@@ -48,9 +45,7 @@ const nextConfig = [
     }
   },
   {
-    plugins: {
-      '@next/next': pluginNext
-    },
+    plugins: { '@next/next': pluginNext },
 
     rules: {
       ...pluginNext.configs.recommended.rules,
@@ -58,21 +53,15 @@ const nextConfig = [
     }
   },
   {
-    plugins: {
-      'react-hooks': pluginReactHooks
-    },
-
-    settings: { react: { version: 'detect' } },
+    plugins: { 'react-hooks': pluginReactHooks },
 
     rules: {
-      ...pluginReactHooks.configs.recommended.rules,
+      ...pluginReactHooks.configs['recommended-latest'].rules,
       'react/react-in-jsx-scope': 'off'
     }
   },
   {
-    plugins: {
-      tailwindcss: pluginTailwindCss
-    },
+    plugins: { tailwindcss: pluginTailwindCss },
 
     rules: {
       ...pluginTailwindCss.configs['flat/recommended'].rules,
