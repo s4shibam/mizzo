@@ -81,7 +81,7 @@ type PricingPlanProps = {
 const ComingSoonRibbon = () => {
   return (
     <div className="absolute -right-1 -top-1 overflow-hidden rounded-bl-xl">
-      <div className="from-primary to-primary/80 flex h-8 origin-top-right rotate-0 transform items-center justify-center bg-gradient-to-r px-4 py-1 text-xs font-bold text-white shadow-md">
+      <div className="from-primary to-primary/80 flex h-9 origin-top-right rotate-0 transform items-center justify-center bg-gradient-to-r px-4 py-1 text-xs font-bold text-white shadow-md">
         Coming Soon
       </div>
     </div>

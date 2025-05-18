@@ -59,8 +59,8 @@ type FeatureCardProps = {
 
 const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
   return (
-    <div className="hover:border-primary/20 flex flex-col items-start gap-4 rounded-lg border border-zinc-100 bg-white p-6 shadow-sm transition-all hover:shadow-md">
-      <div className="bg-primary/10 text-primary grid size-12 place-items-center rounded-full">
+    <div className="hover:border-primary/20 to-primary/10 flex flex-col items-start gap-4 rounded-lg border bg-gradient-to-br from-white p-6 shadow-sm transition-all hover:shadow-md">
+      <div className="from-primary to-primary/80 grid size-12 place-items-center rounded-full bg-gradient-to-br text-white">
         {icon}
       </div>
       <h3 className="text-xl font-semibold">{title}</h3>

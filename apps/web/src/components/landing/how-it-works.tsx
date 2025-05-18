@@ -71,8 +71,8 @@ type StepProps = {
 
 const Step = ({ icon, title, description }: StepProps) => {
   return (
-    <div className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left">
-      <div className="from-primary to-primary/70 mb-6 mr-6 grid size-16 flex-shrink-0 place-items-center rounded-full bg-gradient-to-r text-white md:mb-0">
+    <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-start md:text-left">
+      <div className="from-primary to-primary/70 grid size-16 flex-shrink-0 place-items-center rounded-full bg-gradient-to-r text-white">
         {icon}
       </div>
       <div>
