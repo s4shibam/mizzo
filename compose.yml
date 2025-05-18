@@ -20,6 +20,15 @@ services:
     volumes:
       - ./.redis:/data
 
+  redisinsight:
+    container_name: ${NEXT_PUBLIC_APP_SLUG:-app}-redisinsight
+    image: redislabs/redisinsight:latest
+    restart: unless-stopped
+    ports:
+      - '5540:5540'
+    depends_on:
+      - redis
+
 volumes:
   postgres:
   redis:
