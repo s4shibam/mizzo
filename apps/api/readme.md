@@ -10,12 +10,13 @@ Mizzo API is the backend service that provides core functionality for the music 
 - JWT-based authentication system
 - Integration with AWS services
 - Database operations via Prisma ORM
-- Containerized PostgreSQL and Redis with Docker for storage and caching
+- Containerized PostgreSQL and Redis for storage and caching
 - Request validation with Zod
 - User, artist, and admin role management
 - Track and Playlist CRUD operations
 - Logging with Winston and Logtail
 - Byte range audio streaming on HLS failure
+- Rate limiting to protect against abuse and DOS attacks
 
 ## ⚙️ Tech Stack
 
