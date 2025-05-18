@@ -11,18 +11,43 @@ import { submitArtistApplication } from '../controllers/user/submit-artist-appli
 import { togglePublicViewOfProfile } from '../controllers/user/toggle-public-view-of-profile'
 import { updatePassword } from '../controllers/user/update-password'
 import { updateProfile } from '../controllers/user/update-profile'
+import { ratelimit } from '../middlewares/rate-limit'
 import { isAuthenticatedUser } from '../middlewares/user-authentication'
 
 const router = Router()
 
 // Send email validation OTP to email
-router.post('/send-signup-otp', sendSignupOtp)
+router.post(
+  '/send-signup-otp',
+  ratelimit({
+    strategy: 'fixedWindow',
+    limit: 5,
+    windowSizeInSeconds: 60
+  }),
+  sendSignupOtp
+)
 
 // Sign up
-router.post('/signup', signupUser)
+router.post(
+  '/signup',
+  ratelimit({
+    strategy: 'fixedWindow',
+    limit: 3,
+    windowSizeInSeconds: 60
+  }),
+  signupUser
+)
 
 // Log in
-router.post('/login', loginUser)
+router.post(
+  '/login',
+  ratelimit({
+    strategy: 'fixedWindow',
+    limit: 10,
+    windowSizeInSeconds: 60
+  }),
+  loginUser
+)
 
 // Get profile
 router.get('/my-profile', isAuthenticatedUser, getMyProfile)
@@ -37,10 +62,26 @@ router.put('/update-profile', isAuthenticatedUser, updateProfile)
 router.put('/public-view', isAuthenticatedUser, togglePublicViewOfProfile)
 
 // Send password reset link to email
-router.post('/forgot-password', forgotPassword)
+router.post(
+  '/forgot-password',
+  ratelimit({
+    strategy: 'fixedWindow',
+    limit: 3,
+    windowSizeInSeconds: 300
+  }),
+  forgotPassword
+)
 
 // Reset password in database via reset link
-router.put('/reset-password', resetPassword)
+router.put(
+  '/reset-password',
+  ratelimit({
+    strategy: 'fixedWindow',
+    limit: 3,
+    windowSizeInSeconds: 300
+  }),
+  resetPassword
+)
 
 router.post('/artist-application', isAuthenticatedUser, submitArtistApplication)
 

@@ -10,12 +10,22 @@ import { togglePublicViewOfTrack } from '../controllers/track/toggle-public-view
 import { updateTrack } from '../controllers/track/update-track'
 import { uploadTrack } from '../controllers/track/upload-track'
 import { isAuthenticatedArtist } from '../middlewares/artist-authentication'
+import { ratelimit } from '../middlewares/rate-limit'
 import { isAuthenticatedUser } from '../middlewares/user-authentication'
 
 const router = Router()
 
 // Upload track
-router.post('/upload', isAuthenticatedArtist, uploadTrack)
+router.post(
+  '/upload',
+  ratelimit({
+    strategy: 'fixedWindow',
+    limit: 10,
+    windowSizeInSeconds: 3600
+  }),
+  isAuthenticatedArtist,
+  uploadTrack
+)
 
 // Update track
 router.put('/:trackId', isAuthenticatedArtist, updateTrack)
@@ -30,10 +40,27 @@ router.get('/my-collaborations', isAuthenticatedUser, getMyCollaboratedTracks)
 router.get('/:trackId/like', isAuthenticatedUser, getLikeStatusOfTrack)
 
 // Toggle like (like <-> unlike)
-router.put('/:trackId/like', isAuthenticatedUser, toggleLikeOfTrack)
+router.put(
+  '/:trackId/like',
+  ratelimit({
+    strategy: 'fixedWindow',
+    limit: 30,
+    windowSizeInSeconds: 60
+  }),
+  isAuthenticatedUser,
+  toggleLikeOfTrack
+)
 
 // Increment track listens
-router.put('/:trackId/listen', increaseTrackListens)
+router.put(
+  '/:trackId/listen',
+  ratelimit({
+    strategy: 'tokenBucket',
+    capacity: 5,
+    refillRate: 1
+  }),
+  increaseTrackListens
+)
 
 // Toggle public view
 router.put(

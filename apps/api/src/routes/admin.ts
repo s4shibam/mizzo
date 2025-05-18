@@ -13,8 +13,17 @@ import { updatePlaylist } from '../controllers/admin/update-playlist'
 import { updateTrack } from '../controllers/admin/update-track'
 import { updateUser } from '../controllers/admin/update-user'
 import { isAdmin } from '../middlewares/administrator'
+import { ratelimit } from '../middlewares/rate-limit'
 
 const router = Router()
+
+const adminRateLimit = ratelimit({
+  strategy: 'fixedWindow',
+  limit: 20,
+  windowSizeInSeconds: 60
+})
+
+router.use(adminRateLimit)
 
 router.get('/home/dashboard-summary', isAdmin, getAdminDashboardSummary)
 

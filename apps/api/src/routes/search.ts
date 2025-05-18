@@ -9,11 +9,20 @@ import { searchTracksByTrackName } from '../controllers/search/search-tracks-by-
 import { searchTracksByUserId } from '../controllers/search/search-tracks-by-user-id'
 import { searchUserByUserId } from '../controllers/search/search-user-by-user-id'
 import { searchUsersByUserName } from '../controllers/search/search-users-by-user-name'
+import { ratelimit } from '../middlewares/rate-limit'
 import { addRequestorDetails } from '../middlewares/requestor'
 
 const router = Router()
 
+const searchRateLimit = ratelimit({
+  strategy: 'tokenBucket',
+  capacity: 30,
+  refillRate: 5
+})
+
 // Base route : /api/v1/search
+
+router.use(searchRateLimit)
 
 // Users
 router.get('/user/:userId', searchUserByUserId)
