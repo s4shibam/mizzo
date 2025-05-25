@@ -1,10 +1,12 @@
 import { Request, Response } from 'express'
 
-import { Prisma } from '@prisma/client'
+import { Prisma, type User } from '@prisma/client'
 import { z } from 'zod'
 
 import { prisma } from '@mizzo/prisma'
 
+import { cache } from '../../services/cache'
+import { getCacheKey } from '../../utils/functions'
 import { throwError } from '../../utils/throw-error'
 
 export const searchUsersByUserName = async (req: Request, res: Response) => {
@@ -13,17 +15,33 @@ export const searchUsersByUserName = async (req: Request, res: Response) => {
     req.query
   )
 
-  // Get isAdmin status from request user (or false by default)
   const isAdmin = req.user?.isAdmin || false
 
-  // Calculate pagination
+  const cacheKey = getCacheKey(req)
+
+  const cachedResult = await cache.get<{
+    users: User[]
+    totalItems: number
+  }>(cacheKey)
+
+  if (cachedResult) {
+    return res.status(200).json({
+      message: `Search results for "${search}"`,
+      data: cachedResult.users,
+      pagination: {
+        currentPage,
+        perPage,
+        totalPages: Math.ceil(cachedResult.totalItems / perPage),
+        totalItems: cachedResult.totalItems
+      }
+    })
+  }
+
   const skip = (currentPage - 1) * perPage
   const take = perPage
 
-  // Extract individual words for better search
   const searchWords = search.split(/\s+/).filter((word) => word.length > 2)
 
-  // Exact phrase search conditions
   const exactConditions: Prisma.UserWhereInput[] = [
     { name: { contains: search, mode: 'insensitive' } },
     {
@@ -33,12 +51,10 @@ export const searchUsersByUserName = async (req: Request, res: Response) => {
     }
   ]
 
-  // Add email search for admins
   if (isAdmin) {
     exactConditions.push({ email: { contains: search, mode: 'insensitive' } })
   }
 
-  // Artist-specific search for tracks
   const artistTrackSearch: Prisma.UserWhereInput = {
     isArtist: true,
     OR: [
@@ -67,7 +83,6 @@ export const searchUsersByUserName = async (req: Request, res: Response) => {
 
   exactConditions.push(artistTrackSearch)
 
-  // Word-level search
   const wordConditions: Prisma.UserWhereInput[] = searchWords.flatMap(
     (word) => {
       const conditions: Prisma.UserWhereInput[] = [
@@ -83,7 +98,6 @@ export const searchUsersByUserName = async (req: Request, res: Response) => {
         conditions.push({ email: { contains: word, mode: 'insensitive' } })
       }
 
-      // Artist track word search
       conditions.push({
         isArtist: true,
         OR: [
@@ -114,7 +128,6 @@ export const searchUsersByUserName = async (req: Request, res: Response) => {
     }
   )
 
-  // Fuzzy search conditions
   const fuzzyConditions: Prisma.UserWhereInput[] = [
     { name: { contains: search.split('').join('%'), mode: 'insensitive' } },
     {
@@ -133,7 +146,6 @@ export const searchUsersByUserName = async (req: Request, res: Response) => {
     where.isPublicProfile = true
   }
 
-  // Execute single query with count
   const [users, totalItems] = await Promise.all([
     prisma.user.findMany({
       where,
@@ -161,6 +173,14 @@ export const searchUsersByUserName = async (req: Request, res: Response) => {
   if (users.length === 0) {
     throwError('No users found', 404)
   }
+
+  await cache.set({
+    key: cacheKey,
+    value: { users, totalItems },
+    options: {
+      ttl: 5 * 60
+    }
+  })
 
   res.status(200).json({
     message: `Search results for "${search}"`,

@@ -19,6 +19,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@mizzo/logger": "*",
     "ioredis": "^5.3.2"
   },
   "devDependencies": {

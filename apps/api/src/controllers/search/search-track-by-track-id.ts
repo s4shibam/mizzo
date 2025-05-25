@@ -4,12 +4,25 @@ import { z } from 'zod'
 
 import { prisma, Prisma } from '@mizzo/prisma'
 
+import { cache } from '../../services/cache'
+import { getCacheKey } from '../../utils/functions'
 import { throwError } from '../../utils/throw-error'
 
 export const searchTrackByTrackId = async (req: Request, res: Response) => {
   const userId = req.user?.id
   const { trackId } = zSearchTrackByTrackIdReqParams.parse(req.params)
   const { as } = zSearchTrackByTrackIdReqQuery.parse(req.query)
+
+  const cacheKey = getCacheKey(req)
+
+  const cachedTrack = await cache.get(cacheKey)
+
+  if (cachedTrack) {
+    return res.status(200).json({
+      message: 'Track found',
+      data: cachedTrack
+    })
+  }
 
   const options: Prisma.TrackWhereUniqueInput = {
     id: undefined
@@ -43,6 +56,14 @@ export const searchTrackByTrackId = async (req: Request, res: Response) => {
   if (!track) {
     throwError('Track not found', 404)
   }
+
+  await cache.set({
+    key: cacheKey,
+    value: track,
+    options: {
+      ttl: 1 * 60 * 60
+    }
+  })
 
   res.status(200).json({
     message: 'Track found',

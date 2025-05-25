@@ -4,6 +4,8 @@ import { z } from 'zod'
 
 import { prisma } from '@mizzo/prisma'
 
+import { cache } from '../../services/cache'
+
 export const toggleLikeOfPlaylist = async (req: Request, res: Response) => {
   const userId = req.user.id
   const { playlistId } = zToggleLikeOfPlaylistReqParams.parse(req.params)
@@ -47,6 +49,11 @@ export const toggleLikeOfPlaylist = async (req: Request, res: Response) => {
       }
     })
   })
+
+  await cache.invalidate([
+    `user:${userId}:GET:/playlist/${playlistId}/like`,
+    `user:${userId}:GET:/playlist/liked-playlists`
+  ])
 
   if (!likedPlaylist) {
     res.status(200).json({

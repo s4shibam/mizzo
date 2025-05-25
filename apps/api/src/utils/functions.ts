@@ -5,9 +5,48 @@ import jwt, { type SignOptions } from 'jsonwebtoken'
 
 import { S3_DIRECTORIES, TS3Directory } from '@mizzo/aws'
 import type { Status } from '@mizzo/prisma'
+import { NODE_ENV } from '@mizzo/utils'
 
 import { env } from '../constants/env'
 import { throwError } from '../utils/throw-error'
+
+export const getIp = (req: Request) => {
+  if (NODE_ENV === 'dev') {
+    return 'localhost'
+  }
+
+  const ip = (
+    req.ip ||
+    (Array.isArray(req.headers['x-forwarded-for'])
+      ? req.headers['x-forwarded-for'][0]
+      : req.headers['x-forwarded-for']) ||
+    req.socket.remoteAddress ||
+    'anon'
+  ).toString()
+
+  return ip
+}
+
+export const getCacheKey = (req: Request) => {
+  const ip = getIp(req)
+  const userId = req.user.id
+
+  let key = ''
+
+  if (userId) {
+    key = `user:${userId}`
+  } else if (ip) {
+    key = `ip:${ip}`
+  } else {
+    key = `anonymous`
+  }
+
+  key += `:${req.method}:${req.url}`
+  key = key.replace(/\//g, ':').replace(/\?/g, ':')
+  key = key.toLowerCase()
+
+  return key
+}
 
 type TDeviceInfo = {
   browser: string
