@@ -1,11 +1,10 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { getIp } from '@/utils/functions'
-
 import {
   createFixedWindowRateLimiter,
   createTokenBucketRateLimiter
 } from '../services/rate-limit'
+import { getIp } from '../utils/functions'
 import { throwError } from '../utils/throw-error'
 
 type TRateLimitParams =
