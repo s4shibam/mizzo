@@ -1,10 +1,12 @@
 import { Request, Response } from 'express'
 
-import { Prisma } from '@prisma/client'
+import { Prisma, type Track } from '@prisma/client'
 import { z } from 'zod'
 
 import { prisma } from '@mizzo/prisma'
 
+import { cache } from '../../services/cache'
+import { getCacheKey } from '../../utils/functions'
 import { throwError } from '../../utils/throw-error'
 
 export const searchTracksByTrackName = async (req: Request, res: Response) => {
@@ -12,6 +14,26 @@ export const searchTracksByTrackName = async (req: Request, res: Response) => {
   const { currentPage, perPage } = zSearchTracksByTrackNameReqQuery.parse(
     req.query
   )
+
+  const cacheKey = getCacheKey(req)
+
+  const cachedResult = await cache.get<{
+    tracks: Track[]
+    totalItems: number
+  }>(cacheKey)
+
+  if (cachedResult) {
+    return res.status(200).json({
+      message: `Search results for "${search}"`,
+      data: cachedResult.tracks,
+      pagination: {
+        currentPage,
+        perPage,
+        totalPages: Math.ceil(cachedResult.totalItems / perPage),
+        totalItems: cachedResult.totalItems
+      }
+    })
+  }
 
   // Calculate pagination
   const skip = (currentPage - 1) * perPage
@@ -98,6 +120,14 @@ export const searchTracksByTrackName = async (req: Request, res: Response) => {
   if (tracks.length === 0) {
     throwError('No tracks found', 404)
   }
+
+  await cache.set({
+    key: cacheKey,
+    value: { tracks, totalItems },
+    options: {
+      ttl: 1 * 60 * 60
+    }
+  })
 
   res.status(200).json({
     message: `Search results for "${search}"`,

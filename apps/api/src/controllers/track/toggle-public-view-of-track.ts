@@ -4,6 +4,7 @@ import { z } from 'zod'
 
 import { prisma } from '@mizzo/prisma'
 
+import { cache } from '../../services/cache'
 import { throwError } from '../../utils/throw-error'
 
 export const togglePublicViewOfTrack = async (req: Request, res: Response) => {
@@ -46,6 +47,12 @@ export const togglePublicViewOfTrack = async (req: Request, res: Response) => {
       }
     })
   })
+
+  await cache.invalidate([
+    '*:GET:/search/track*',
+    '*:GET:/playlist/liked-tracks',
+    `*:GET:/track/${trackId}*`
+  ])
 
   if (!isPublicInitially) {
     res.status(200).json({
