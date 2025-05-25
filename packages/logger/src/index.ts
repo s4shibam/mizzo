@@ -72,17 +72,15 @@ type TLogMeta = {
   [key: string]: any
 }
 
-const createLogFunction =
+export type LogParams = {
+  message: string
+  meta?: TLogMeta
+  app?: 'API' | 'WEB' | 'CRON' | 'TRANSCODER' | 'NA'
+}
+
+const createLogger =
   (level: 'error' | 'warn' | 'info' | 'debug') =>
-  ({
-    message,
-    meta = {},
-    app = 'NA'
-  }: {
-    message: string
-    meta?: TLogMeta
-    app?: 'API' | 'WEB' | 'CRON' | 'TRANSCODER' | 'NA'
-  }) => {
+  ({ message, meta = {}, app = 'NA' }: LogParams) => {
     const sanitizedMeta = { ...meta }
 
     if (sanitizedMeta.req?.body) {
@@ -96,8 +94,8 @@ const createLogFunction =
   }
 
 export const log = {
-  error: createLogFunction('error'),
-  warn: createLogFunction('warn'),
-  info: createLogFunction('info'),
-  debug: createLogFunction('debug')
+  error: createLogger('error'),
+  warn: createLogger('warn'),
+  info: createLogger('info'),
+  debug: createLogger('debug')
 }

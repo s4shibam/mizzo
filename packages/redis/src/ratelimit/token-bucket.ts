@@ -13,7 +13,7 @@ export class TokenBucketStrategy implements RateLimitStrategy {
   private readonly redis: Redis
   private readonly capacity: number
   private readonly refillRate: number // tokens per second
-  private readonly keyPrefix: string = 'ratelimit:token'
+  private readonly prefix: string
 
   /**
    * @param capacity Maximum number of tokens in the bucket
@@ -23,34 +23,38 @@ export class TokenBucketStrategy implements RateLimitStrategy {
   constructor({
     capacity,
     refillRate,
+    prefix,
     redis
   }: {
     capacity: number
     refillRate: number
+    prefix?: string
     redis?: Redis
   }) {
     this.capacity = capacity
     this.refillRate = refillRate
     this.redis = redis ?? defaultRedis
+    this.prefix = prefix ?? 'ratelimit:token'
   }
 
   async isAllowed(key: string): Promise<boolean> {
-    const bucketKey = `${this.keyPrefix}:${key}`
-    const now = Date.now() / 1000 // Current time in seconds
+    const nowInSecs = Date.now() / 1000
+    const bucketKey = `${this.prefix}:${key}`
+    const normalizedKey = bucketKey.replace(/:+/g, ':')
 
     // Get current bucket state
     const [tokensStr, lastRefillStr] = await this.redis.hmget(
-      bucketKey,
+      normalizedKey,
       'tokens',
       'lastRefill'
     )
 
     // Parse values or use defaults
     const tokens = tokensStr ? parseFloat(tokensStr) : this.capacity
-    const lastRefill = lastRefillStr ? parseFloat(lastRefillStr) : now
+    const lastRefill = lastRefillStr ? parseFloat(lastRefillStr) : nowInSecs
 
     // Calculate tokens to add based on time elapsed
-    const elapsedTime = now - lastRefill
+    const elapsedTime = nowInSecs - lastRefill
     const tokensToAdd = elapsedTime * this.refillRate
 
     // Update tokens (not exceeding capacity)
@@ -67,9 +71,9 @@ export class TokenBucketStrategy implements RateLimitStrategy {
         'tokens',
         remainingTokens.toString(),
         'lastRefill',
-        now.toString()
+        nowInSecs.toString()
       )
-      await this.redis.expire(bucketKey, 86400) // Expire after 24 hours
+      await this.redis.expire(bucketKey, 24 * 60 * 60)
 
       return true
     }

@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { NODE_ENV } from '@mizzo/utils'
+import { getIp } from '@/utils/functions'
 
 import {
   createFixedWindowRateLimiter,
@@ -22,16 +22,9 @@ type TRateLimitParams =
 
 export const ratelimit = (params: TRateLimitParams) => {
   return async (req: Request, _res: Response, next: NextFunction) => {
-    const ip = (
-      req.ip ||
-      (Array.isArray(req.headers['x-forwarded-for'])
-        ? req.headers['x-forwarded-for'][0]
-        : req.headers['x-forwarded-for']) ||
-      req.socket.remoteAddress ||
-      'anon'
-    ).toString()
+    const ip = getIp(req)
 
-    const key = `ip:${NODE_ENV === 'dev' ? 'localhost' : ip}:route:${req.path}`
+    const key = `ip:${ip}:route:${req.path}`
 
     if (params.strategy === 'tokenBucket') {
       const rateLimiter = createTokenBucketRateLimiter(

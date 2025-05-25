@@ -12,7 +12,7 @@ export class FixedWindowStrategy implements RateLimitStrategy {
   private readonly limit: number
   private readonly windowSizeInSeconds: number
   private readonly redis: Redis
-  private readonly keyPrefix: string = 'ratelimit:window'
+  private readonly prefix: string
 
   /**
    * @param limit Maximum requests allowed in the window
@@ -22,15 +22,18 @@ export class FixedWindowStrategy implements RateLimitStrategy {
   constructor({
     limit,
     windowSizeInSeconds,
+    prefix,
     redis
   }: {
     limit: number
     windowSizeInSeconds: number
+    prefix?: string
     redis?: Redis
   }) {
     this.limit = limit
     this.windowSizeInSeconds = windowSizeInSeconds
     this.redis = redis ?? defaultRedis
+    this.prefix = prefix ?? 'ratelimit:window'
   }
 
   async isAllowed(key: string): Promise<boolean> {
@@ -38,10 +41,12 @@ export class FixedWindowStrategy implements RateLimitStrategy {
     const currentWindow = Math.floor(
       Date.now() / 1000 / this.windowSizeInSeconds
     )
-    const windowKey = `${this.keyPrefix}:${key}:${currentWindow}`
+
+    const windowKey = `${this.prefix}:${key}:${currentWindow}`
+    const normalizedKey = windowKey.replace(/:+/g, ':')
 
     // Increment the counter for this window
-    const count = await this.redis.incr(windowKey)
+    const count = await this.redis.incr(normalizedKey)
 
     // Set expiration for this window key (if not already set)
     if (count === 1) {
