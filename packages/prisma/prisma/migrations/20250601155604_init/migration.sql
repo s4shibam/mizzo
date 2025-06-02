@@ -48,7 +48,6 @@ CREATE TABLE "playlists" (
     "likes" INTEGER NOT NULL DEFAULT 0,
     "isPublic" BOOLEAN NOT NULL DEFAULT false,
     "posterKey" TEXT,
-    "tracksCount" INTEGER NOT NULL DEFAULT 0,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
