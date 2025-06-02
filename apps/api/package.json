@@ -6,10 +6,16 @@
   "scripts": {
     "build": "tsc",
     "start": "node .dist/src/index.js",
-    "dev": "nodemon",
+    "dev": "dotenv -e ../../.env -- serverless offline",
     "clean": "rm -rf .turbo .dist node_modules",
     "lint": "eslint . --max-warnings 0",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "sls:deploy:dev": "dotenv -e ../../.env -- serverless deploy --stage dev",
+    "sls:deploy:prod": "dotenv -e ../../.env.prod -- serverless deploy --stage prod",
+    "sls:remove:dev": "dotenv -e ../../.env -- serverless remove --stage dev",
+    "sls:remove:prod": "dotenv -e ../../.env.prod -- serverless remove --stage prod",
+    "sls:logs:dev": "dotenv -e ../../.env -- serverless logs -f api --tail --stage dev",
+    "sls:logs:prod": "dotenv -e ../../.env.prod -- serverless logs -f api --tail --stage prod"
   },
   "dependencies": {
     "@mizzo/aws": "*",
@@ -23,6 +29,8 @@
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
+    "serverless-http": "^3.2.0",
+    "source-map-support": "^0.5.21",
     "zod": "^3.24.2"
   },
   "devDependencies": {
@@ -35,6 +43,10 @@
     "@types/node": "^22.12.0",
     "eslint": "^9.21.0",
     "nodemon": "^3.1.4",
+    "serverless": "^3.40.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-esbuild": "^1.55.0",
+    "serverless-offline": "^13.9.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   }
