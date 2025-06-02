@@ -26,10 +26,11 @@ Mizzo API is the backend service that provides core functionality for the music 
 - PostgreSQL
 - Prisma ORM
 - Redis
-- AWS S3, SES
+- AWS (Lambda, S3, SQS, ECS, SES)
 
 ### 📦 Other Libraries and Tools
 
+- Serverless Framework
 - Zod
 - JWT
 - Logtail

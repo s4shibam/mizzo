@@ -43,7 +43,7 @@ Mizzo is a music streaming platform that allows users to discover, play, and sha
 - TypeScript
 - PostgreSQL
 - TurboRepo
-- AWS (S3, SQS, ECS, SES)
+- AWS (Lambda, S3, SQS, ECS, SES)
 - Tanstack Query
 - Tailwind CSS
 - Ant Design
@@ -52,6 +52,7 @@ Mizzo is a music streaming platform that allows users to discover, play, and sha
 ## 📦 Other Libraries and Tools
 
 - Docker
+- Serverless Framework
 - Redis
 - FFmpeg
 - NextAuth
