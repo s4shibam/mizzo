@@ -35,7 +35,7 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response) => {
-    if (env.nodeEnv === 'dev') {
+    if (env.nodeEnv === 'development') {
       console.log('[API Response]', response)
     }
 

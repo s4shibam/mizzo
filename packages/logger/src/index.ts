@@ -27,7 +27,7 @@ const logFormat = winston.format.combine(
 const getTransports = (): winston.transport[] => {
   const logtailToken = process.env.LOGTAIL_TOKEN
 
-  if (NODE_ENV === 'dev' || !logtailToken) {
+  if (NODE_ENV === 'development' || !logtailToken) {
     return [
       new winston.transports.Console({
         format: logFormat
@@ -50,7 +50,7 @@ const getTransports = (): winston.transport[] => {
 }
 
 const logger = winston.createLogger({
-  level: NODE_ENV === 'dev' ? 'debug' : 'info',
+  level: NODE_ENV === 'development' ? 'debug' : 'info',
   format: logFormat,
   transports: getTransports(),
   exitOnError: false

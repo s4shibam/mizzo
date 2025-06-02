@@ -11,7 +11,7 @@ import { env } from '../constants/env'
 import { throwError } from '../utils/throw-error'
 
 export const getIp = (req: Request) => {
-  if (NODE_ENV === 'dev') {
+  if (NODE_ENV === 'development') {
     return 'localhost'
   }
 
@@ -29,7 +29,7 @@ export const getIp = (req: Request) => {
 
 export const getCacheKey = (req: Request) => {
   const ip = getIp(req)
-  const userId = req.user.id
+  const userId = req.user?.id // Note: Request can be unauthenticated also
 
   let key = ''
 

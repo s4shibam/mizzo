@@ -14,7 +14,7 @@ redis.on('error', (error) => {
   })
 })
 
-if (NODE_ENV !== 'prod') {
+if (NODE_ENV !== 'production') {
   globalForRedis.redis = redis
 }
 

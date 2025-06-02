@@ -54,7 +54,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
     userId
   }
 
-  if (NODE_ENV === 'dev') {
+  if (NODE_ENV === 'development') {
     console.log('Email not sent in dev mode', params)
 
     res.status(200).json({

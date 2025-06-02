@@ -47,7 +47,7 @@ export const sendSignupOtp = async (req: Request, res: Response) => {
     otp: generatedOtpResponse
   }
 
-  if (NODE_ENV === 'dev') {
+  if (NODE_ENV === 'development') {
     console.log('Email not sent in dev mode', params)
 
     res.status(200).json({

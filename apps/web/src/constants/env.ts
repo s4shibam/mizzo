@@ -1,5 +1,7 @@
+import { TNodeEnv } from '@mizzo/utils'
+
 type TEnv = {
-  nodeEnv: 'prod' | 'dev' | 'test'
+  nodeEnv: TNodeEnv
   nextAuthUrl: string | 'NA'
   nextAuthSecret: string | 'NA'
   awsS3BaseUrl: string | 'NA'
