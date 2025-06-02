@@ -1,0 +1,94 @@
+service: mizzo-api-sls
+
+frameworkVersion: '3'
+
+useDotenv: true
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: ${opt:stage, 'dev'}
+  region: ${env:AWS_REGION, 'us-east-1'}
+  deploymentBucket:
+    name: ${self:service}-${self:provider.stage}
+
+custom:
+  esbuild:
+    platform: 'node'
+    target: node20
+    format: 'cjs'
+    bundle: true
+    sourcemap: linked
+    outputWorkFolder: '.dist'
+    external:
+      - 'prisma'
+    loader:
+      .prisma: text
+    packager: npm
+    installExtraArgs:
+      - '--omit=dev'
+
+  serverless-offline:
+    httpPort: ${env:API_PORT, '8000'}
+    noPrependStageInUrl: true
+    reloadHandler: true
+
+package:
+  patterns:
+    - '!node_modules/.prisma/client/libquery_engine-*'
+    - 'node_modules/.prisma/client/libquery_engine-rhel-openssl-3.0.x.so.node'
+    - '!node_modules/@prisma/engines/**'
+    - '!node_modules/prisma/**'
+
+functions:
+  api:
+    name: ${self:service}-${self:provider.stage}
+    handler: src/index.handler
+    events:
+      - httpApi:
+          path: /{proxy+}
+          method: '*'
+    environment:
+      # Application Configuration
+      NODE_ENV: ${env:NODE_ENV}
+      NEXT_PUBLIC_APP_SLUG: ${env:NEXT_PUBLIC_APP_SLUG}
+
+      # Server Configuration
+      NEXT_PUBLIC_WEB_URL: ${env:NEXT_PUBLIC_WEB_URL}
+      NEXT_PUBLIC_API_URL: ${env:NEXT_PUBLIC_API_URL}
+
+      # Authentication Configuration
+      JWT_SECRET: ${env:JWT_SECRET}
+      API_SECRET_KEY: ${env:API_SECRET_KEY}
+
+      # Database Configuration
+      REDIS_URL: ${env:REDIS_URL}
+      POSTGRES_URL: ${env:POSTGRES_URL}
+      POSTGRES_DIRECT_URL: ${env:POSTGRES_DIRECT_URL}
+      PRISMA_QUERY_ENGINE_LIBRARY: ${env:PRISMA_QUERY_ENGINE_LIBRARY}
+
+      # AWS Configuration (Reserved / Auto fetched)
+      # AWS_REGION: ${env:AWS_REGION}
+      # AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+      # AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+
+      # AWS Configuration
+      AWS_S3_BUCKET: ${env:AWS_S3_BUCKET}
+      AWS_SQS_QUEUE_URL: ${env:AWS_SQS_QUEUE_URL}
+      AWS_SES_SENDER_EMAIL: ${env:AWS_SES_SENDER_EMAIL}
+      AWS_ECS_SUBNETS: ${env:AWS_ECS_SUBNETS}
+      AWS_ECS_CLUSTER_ARN: ${env:AWS_ECS_CLUSTER_ARN}
+      AWS_ECS_SECURITY_GROUP: ${env:AWS_ECS_SECURITY_GROUP}
+      AWS_ECS_TASK_DEFINITION_ARN: ${env:AWS_ECS_TASK_DEFINITION_ARN}
+
+      # Monitoring & Logging
+      LOGTAIL_TOKEN: ${env:LOGTAIL_TOKEN}
+
+      # Feature Flags
+      ENABLE_PROFANITY_CHECK: ${env:ENABLE_PROFANITY_CHECK}
+      ENABLE_RATE_LIMIT: ${env:ENABLE_RATE_LIMIT}
+      ENABLE_CACHING: ${env:ENABLE_CACHING}
