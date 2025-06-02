@@ -6,10 +6,15 @@ node_modules
 .dist
 .next
 .turbo
+.esbuild
+.serverless
 
 # Environment variables
-.env*.local
 .env
+.env*.local
+.env.prod
+.env.dev
+.env.test
 
 # Typescript
 *.tsbuildinfo
