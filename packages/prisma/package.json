@@ -8,19 +8,16 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "postinstall": "npm run generate",
-    "predev": "npm run generate",
-    "prebuild": "npm run generate",
-    "dev": "tsup src/* --watch",
+    "clean": "rm -rf .turbo .dist node_modules",
     "lint": "eslint . --max-warnings 0",
     "format": "prisma format && prettier --write .",
-    "clean": "rm -rf .turbo .dist node_modules",
+    "seed": "dotenv -e ../../.env -- tsx src/seed.ts",
     "typecheck": "tsc --noEmit",
-    "generate": "prisma generate",
-    "studio": "prisma studio --browser none",
-    "push": "prisma db push",
-    "migrate-create": "prisma migrate dev --create-only --name",
-    "migrate": "prisma migrate dev"
+    "generate": "dotenv -e ../../.env -- prisma generate",
+    "studio": "dotenv -e ../../.env -- prisma studio --browser none",
+    "push": "dotenv -e ../../.env -- prisma db push",
+    "migrate:create": "dotenv -e ../../.env -- prisma migrate dev --create-only --name",
+    "migrate": "dotenv -e ../../.env -- prisma migrate dev"
   },
   "dependencies": {
     "@prisma/client": "^6.4.1"
@@ -28,9 +25,7 @@
   "devDependencies": {
     "@mizzo/eslint-config": "*",
     "@mizzo/typescript-config": "*",
-    "concurrently": "^9.1.2",
     "prisma": "^6.4.1",
-    "tsup": "^8.4.0",
     "tsx": "^4.19.3"
   },
   "prisma": {

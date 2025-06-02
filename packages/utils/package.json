@@ -22,7 +22,6 @@
     "@paralleldrive/cuid2": "^2.2.2",
     "axios": "^1.8.3",
     "clsx": "^2.1.1",
-    "dotenv": "^16.4.7",
     "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
