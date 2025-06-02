@@ -1,9 +1,8 @@
 import { Request, Response } from 'express'
 
-import { Prisma, type Track } from '@prisma/client'
 import { z } from 'zod'
 
-import { prisma } from '@mizzo/prisma'
+import { Prisma, prisma, type Track } from '@mizzo/prisma'
 
 import { cache } from '../../services/cache'
 import { getCacheKey } from '../../utils/functions'

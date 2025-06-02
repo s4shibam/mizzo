@@ -1,9 +1,8 @@
 import { Request, Response } from 'express'
 
-import { Status } from '@prisma/client'
 import { z } from 'zod'
 
-import { prisma } from '@mizzo/prisma'
+import { prisma, Status } from '@mizzo/prisma'
 
 import { STATUS_LIST } from '../../constants/common'
 import { createTrackStatusNotification } from '../../services/notification'

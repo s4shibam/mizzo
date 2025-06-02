@@ -1,9 +1,8 @@
 import { NextFunction, Request, Response } from 'express'
 
-import { User } from '@prisma/client'
 import { z } from 'zod'
 
-import { prisma } from '@mizzo/prisma'
+import { prisma, User } from '@mizzo/prisma'
 
 import { verifyToken } from '../utils/functions'
 import { throwError } from '../utils/throw-error'

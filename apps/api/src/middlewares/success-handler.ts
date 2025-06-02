@@ -32,7 +32,7 @@ export const successHandler = (
             status: res.statusCode,
             json
           },
-          deviceInfo: NODE_ENV !== 'dev' ? deviceInfo : undefined
+          deviceInfo: NODE_ENV !== 'development' ? deviceInfo : undefined
         }
       })
     }

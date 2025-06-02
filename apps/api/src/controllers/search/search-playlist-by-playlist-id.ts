@@ -1,9 +1,8 @@
 import { Request, Response } from 'express'
 
-import { Prisma } from '@prisma/client'
 import { z } from 'zod'
 
-import { prisma } from '@mizzo/prisma'
+import { Prisma, prisma } from '@mizzo/prisma'
 
 import { getStaticPlaylist } from '../../constants/playlist-collection'
 import { cache } from '../../services/cache'

@@ -1,15 +1,9 @@
 import { NextFunction, Request, Response } from 'express'
 
-import {
-  PrismaClientInitializationError,
-  PrismaClientKnownRequestError,
-  PrismaClientRustPanicError,
-  PrismaClientUnknownRequestError,
-  PrismaClientValidationError
-} from '@prisma/client/runtime/library'
 import { ZodError } from 'zod'
 
 import { log } from '@mizzo/logger'
+import { Prisma } from '@mizzo/prisma'
 import { NODE_ENV, TError } from '@mizzo/utils'
 
 import CustomError from '../utils/CustomError'
@@ -25,15 +19,15 @@ export const errorHandler = (
 
   if (err instanceof ZodError) {
     customError = { ...handleZodError(err), stack: err.stack }
-  } else if (err instanceof PrismaClientKnownRequestError) {
+  } else if (err instanceof Prisma.PrismaClientKnownRequestError) {
     customError = { ...handlePrismaError(err), stack: err.stack }
-  } else if (err instanceof PrismaClientInitializationError) {
+  } else if (err instanceof Prisma.PrismaClientInitializationError) {
     customError = { ...handlePrismaInitError(), stack: err.stack }
-  } else if (err instanceof PrismaClientRustPanicError) {
+  } else if (err instanceof Prisma.PrismaClientRustPanicError) {
     customError = { ...handlePrismaInternalError(), stack: err.stack }
-  } else if (err instanceof PrismaClientUnknownRequestError) {
+  } else if (err instanceof Prisma.PrismaClientUnknownRequestError) {
     customError = { ...handlePrismaUnknownError(), stack: err.stack }
-  } else if (err instanceof PrismaClientValidationError) {
+  } else if (err instanceof Prisma.PrismaClientValidationError) {
     customError = { ...handlePrismaValidationError(), stack: err.stack }
   }
 
@@ -56,11 +50,13 @@ const handleZodError = (err: ZodError): TError => {
   }
 }
 
-const handlePrismaError = (err: PrismaClientKnownRequestError): TError => {
+const handlePrismaError = (
+  err: Prisma.PrismaClientKnownRequestError
+): TError => {
   let message = 'Database operation failed'
   let statusCode = 500
 
-  if (NODE_ENV === 'dev') {
+  if (NODE_ENV === 'development') {
     switch (err.code) {
       case 'P2002':
         statusCode = 400
@@ -125,8 +121,8 @@ const sendErrorAsResponse = (
   const errorResponse: TError = {
     message: err.message || 'Unknown error occurred',
     statusCode: err.statusCode || 500,
-    stack: NODE_ENV === 'prod' ? undefined : err.stack,
-    validationError: NODE_ENV === 'prod' ? undefined : err.validationError
+    stack: NODE_ENV === 'production' ? undefined : err.stack,
+    validationError: NODE_ENV === 'production' ? undefined : err.validationError
   }
 
   const deviceInfo = extractUserAgentInfo(req)
@@ -148,7 +144,7 @@ const sendErrorAsResponse = (
         path: req.path,
         query: req.query,
         body: req.body,
-        ip: NODE_ENV !== 'dev' ? ip : undefined,
+        ip: NODE_ENV !== 'development' ? ip : undefined,
         userId: 'NA'
       },
       res: {
@@ -159,7 +155,7 @@ const sendErrorAsResponse = (
         }
       },
       stack: err.stack,
-      deviceInfo: NODE_ENV !== 'dev' ? deviceInfo : undefined
+      deviceInfo: NODE_ENV !== 'development' ? deviceInfo : undefined
     }
   })
 
