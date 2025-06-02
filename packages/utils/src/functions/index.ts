@@ -1,7 +1,6 @@
 export * from './capitalize'
 export * from './cn'
 export * from './cuid'
-export * from './get-env-path'
 export * from './get-greeting-message'
 export * from './is-profane'
 export * from './s3-get-url-from-key'

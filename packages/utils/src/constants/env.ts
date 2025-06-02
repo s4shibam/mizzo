@@ -1,9 +1,3 @@
-import dotenv from 'dotenv'
-
-import { getEnvPath } from '../functions'
-
-dotenv.config({ path: getEnvPath() })
-
 type TEnv = {
   awsS3BaseUrl: string | 'NA'
   enableProfanityCheck: boolean

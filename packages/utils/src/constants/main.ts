@@ -1,12 +1,9 @@
-import dotenv from 'dotenv'
+import { capitalize } from '../functions'
 
-import { capitalize, getEnvPath } from '../functions'
+export type TNodeEnv = 'development' | 'production' | 'test'
 
-dotenv.config({ path: getEnvPath() })
-
-type TNodeEnv = 'dev' | 'prod' | 'test'
-
-export const NODE_ENV: TNodeEnv = (process.env.NODE_ENV as TNodeEnv) || 'dev'
+export const NODE_ENV: TNodeEnv =
+  (process.env.NODE_ENV as TNodeEnv) || 'development'
 
 export const APP_SLUG = process.env.NEXT_PUBLIC_APP_SLUG || 'app'
 
