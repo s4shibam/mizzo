@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node .dist/src/index.js",
-    "dev": "dotenv -e ../../.env -- serverless offline",
+    "dev": "dotenv -e ../../.env -- serverless offline --stage local",
     "clean": "rm -rf .turbo .dist node_modules",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",

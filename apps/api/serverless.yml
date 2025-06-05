@@ -28,9 +28,11 @@ custom:
       - 'prisma'
     loader:
       .prisma: text
-    packager: npm
-    installExtraArgs:
-      - '--omit=dev'
+
+  prismaEngine:
+    local: '../../node_modules/.prisma/client/libquery_engine-darwin-arm64.dylib.node'
+    dev: './node_modules/.prisma/client/libquery_engine-rhel-openssl-3.0.x.so.node'
+    prod: './node_modules/.prisma/client/libquery_engine-rhel-openssl-3.0.x.so.node'
 
   serverless-offline:
     httpPort: ${env:API_PORT, '8000'}
@@ -54,7 +56,7 @@ functions:
           method: '*'
     environment:
       # Application Configuration
-      NODE_ENV: ${env:NODE_ENV}
+      NODE_ENV: production
       NEXT_PUBLIC_APP_SLUG: ${env:NEXT_PUBLIC_APP_SLUG}
 
       # Server Configuration
@@ -69,7 +71,7 @@ functions:
       REDIS_URL: ${env:REDIS_URL}
       POSTGRES_URL: ${env:POSTGRES_URL}
       POSTGRES_DIRECT_URL: ${env:POSTGRES_DIRECT_URL}
-      PRISMA_QUERY_ENGINE_LIBRARY: ${env:PRISMA_QUERY_ENGINE_LIBRARY}
+      PRISMA_QUERY_ENGINE_LIBRARY: ${self:custom.prismaEngine.${self:provider.stage}}
 
       # AWS Configuration (Reserved / Auto fetched)
       # AWS_REGION: ${env:AWS_REGION}

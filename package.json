@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "postinstall": "npm run db:gen",
+    "postinstall": "npm run build:pkg && npm run db:gen",
     "start": "turbo run start",
     "build": "turbo run build",
     "build:pkg": "turbo run build --filter='./packages/*'",
