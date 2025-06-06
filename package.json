@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "prepare": "husky",
-    "postinstall": "npm run build:pkg && npm run db:gen",
+    "postinstall": "npm run build:pkg && npm run db:gen && cp -r ./node_modules/.prisma ./apps/api/node_modules/.prisma",
     "start": "turbo run start",
     "build": "turbo run build",
     "build:pkg": "turbo run build --filter='./packages/*'",
