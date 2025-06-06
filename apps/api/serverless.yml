@@ -73,10 +73,10 @@ functions:
       POSTGRES_DIRECT_URL: ${env:POSTGRES_DIRECT_URL}
       PRISMA_QUERY_ENGINE_LIBRARY: ${self:custom.prismaEngine.${self:provider.stage}}
 
-      # AWS Configuration (Reserved / Auto fetched)
-      # AWS_REGION: ${env:AWS_REGION}
-      # AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
-      # AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
+      # AWS Configuration (Add APP_ prefix to bypass reserved env names)
+      APP_AWS_REGION: ${env:AWS_REGION}
+      APP_AWS_ACCESS_KEY_ID: ${env:AWS_ACCESS_KEY_ID}
+      APP_AWS_SECRET_ACCESS_KEY: ${env:AWS_SECRET_ACCESS_KEY}
 
       # AWS Configuration
       AWS_S3_BUCKET: ${env:AWS_S3_BUCKET}
