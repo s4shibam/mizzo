@@ -88,7 +88,7 @@ export const updateProfile = async (req: Request, res: Response) => {
 
 const zUpdateProfileReqBody = z.object({
   name: z.string().min(2, 'Please enter name'),
-  bio: z.string().optional(),
+  bio: z.string().optional().nullable(),
   facebook: z.string().url('Invalid Facebook URL').optional().nullable(),
   twitter: z.string().url('Invalid Twitter URL').optional().nullable(),
   instagram: z.string().url('Invalid Instagram URL').optional().nullable(),
