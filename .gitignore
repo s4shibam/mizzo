@@ -27,5 +27,7 @@ next-env.d.ts
 # Logs
 .logs
 
-# Other files
+# Others
+.temp
+*.local.*
 .DS_Store
