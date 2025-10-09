@@ -1,15 +1,19 @@
 import {
   DeleteObjectCommand,
   DeleteObjectCommandOutput,
+  DeleteObjectsCommand,
   GetObjectCommand,
+  ListObjectsV2Command,
   PutObjectCommand,
   PutObjectCommandOutput,
   S3Client,
-  type GetObjectCommandOutput
+  type GetObjectCommandOutput,
+  type ObjectIdentifier
 } from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 
 import {
+  TDeleteFolderParams,
   TDeleteParams,
   TGetPresignedUrlParams,
   TUploadParams,
@@ -152,5 +156,62 @@ export const s3PresignedDownloadUrl = async (
   } catch (error) {
     console.error('Error generating presigned URL:', error)
     throw new Error('Failed to generate presigned download URL')
+  }
+}
+
+export const s3DeleteFolder = async (
+  params: TDeleteFolderParams
+): Promise<{ deletedCount: number }> => {
+  try {
+    const bucket = params.bucket ?? env.awsS3Bucket
+    const prefix = params.folderPath.endsWith('/')
+      ? params.folderPath
+      : `${params.folderPath}/`
+
+    let deletedCount = 0
+    let continuationToken: string | undefined
+
+    do {
+      const listCommand = new ListObjectsV2Command({
+        Bucket: bucket,
+        Prefix: prefix,
+        ContinuationToken: continuationToken
+      })
+
+      const listResponse = await s3Client.send(listCommand)
+
+      if (!listResponse.Contents || listResponse.Contents.length === 0) {
+        break
+      }
+
+      const objectsToDelete: ObjectIdentifier[] = listResponse.Contents.map(
+        (obj) => ({
+          Key: obj.Key
+        })
+      )
+
+      const deleteCommand = new DeleteObjectsCommand({
+        Bucket: bucket,
+        Delete: {
+          Objects: objectsToDelete,
+          Quiet: false
+        }
+      })
+
+      const deleteResponse = await s3Client.send(deleteCommand)
+
+      deletedCount += deleteResponse.Deleted?.length ?? 0
+
+      if (deleteResponse.Errors && deleteResponse.Errors.length > 0) {
+        console.error('Some objects failed to delete:', deleteResponse.Errors)
+      }
+
+      continuationToken = listResponse.NextContinuationToken
+    } while (continuationToken)
+
+    return { deletedCount }
+  } catch (error) {
+    console.error('Error deleting folder from S3:', error)
+    throw new Error('Failed to delete folder')
   }
 }

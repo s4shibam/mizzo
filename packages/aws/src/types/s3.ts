@@ -15,6 +15,11 @@ export type TDownloadParams = TBaseS3Params
 
 export type TDeleteParams = TBaseS3Params
 
+export type TDeleteFolderParams = {
+  bucket?: string
+  folderPath: string
+}
+
 export type TGetPresignedUrlParams = TBaseS3Params & {
   fileSize?: number
   fileType?: string
