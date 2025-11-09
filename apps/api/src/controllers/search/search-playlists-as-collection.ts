@@ -2,6 +2,8 @@ import { Request, Response } from 'express'
 
 import { z } from 'zod'
 
+import { prisma } from '@mizzo/prisma'
+
 import { playlistCollectionMap } from '../../constants/playlist-collection'
 import { throwError } from '../../utils/throw-error'
 
@@ -21,11 +23,33 @@ export const searchPlaylistsAsCollection = async (
     throwError('Playlist collection not found', 404)
   }
 
+  const playlists = await prisma.playlist.findMany({
+    where: {
+      id: {
+        in: playlistCollection.playlist_ids
+      }
+    },
+    select: {
+      id: true,
+      name: true,
+      description: true,
+      posterKey: true,
+      owner: {
+        select: {
+          id: true,
+          name: true
+        }
+      }
+    }
+  })
+
+  const shuffledPlaylists = playlists.sort(() => Math.random() - 0.5)
+
   res.status(200).json({
     message: 'Playlist(s) found',
     data: {
       ...playlistCollection,
-      playlists: playlistCollection.playlists.slice(0, parseInt(limit))
+      playlists: shuffledPlaylists.slice(0, parseInt(limit))
     }
   })
 }

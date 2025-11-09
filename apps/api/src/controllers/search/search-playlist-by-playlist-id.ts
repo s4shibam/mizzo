@@ -4,7 +4,6 @@ import { z } from 'zod'
 
 import { Prisma, prisma } from '@mizzo/prisma'
 
-import { getStaticPlaylist } from '../../constants/playlist-collection'
 import { cache } from '../../services/cache'
 import { getCacheKey } from '../../utils/functions'
 import { throwError } from '../../utils/throw-error'
@@ -44,27 +43,6 @@ export const searchPlaylistByPlaylistId = async (
     options.status = 'PUBLISHED'
   }
 
-  if (playlistId.startsWith('mizzo-')) {
-    const staticPlaylist = getStaticPlaylist(playlistId)
-
-    if (!staticPlaylist) {
-      throwError('Playlist not found', 404)
-    }
-
-    await cache.set({
-      key: cacheKey,
-      value: staticPlaylist,
-      options: {
-        ttl: 24 * 60 * 60
-      }
-    })
-
-    return res.status(200).json({
-      message: 'Playlist found',
-      data: staticPlaylist
-    })
-  }
-
   const playlist = await prisma.playlist.findUnique({
     where: {
       ...options
@@ -73,10 +51,17 @@ export const searchPlaylistByPlaylistId = async (
       owner: {
         select: {
           id: true,
-          name: true
+          name: true,
+          isArtist: true
         }
       },
       playlistTracks: {
+        where: {
+          track: {
+            status: 'PUBLISHED',
+            isPublic: true
+          }
+        },
         include: {
           track: {
             include: {

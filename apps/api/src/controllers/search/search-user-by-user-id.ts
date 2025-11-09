@@ -24,6 +24,7 @@ export const searchUserByUserId = async (req: Request, res: Response) => {
       profile: {
         select: {
           avatarKey: true,
+          bio: true,
           facebook: true,
           instagram: true,
           twitter: true
