@@ -3,11 +3,12 @@
 import { useState } from 'react'
 
 import {
-  Button,
   Drawer,
+  Select,
   Table,
   Tag,
   Tooltip,
+  type SelectProps,
   type TableColumnsType
 } from 'antd'
 import Link from 'next/link'
@@ -59,7 +60,6 @@ const AdminTracksPage = () => {
     {
       title: 'Title',
       dataIndex: 'title',
-      width: '30%',
       render: (title, record) => {
         return (
           <div className="flex items-center gap-2">
@@ -152,46 +152,31 @@ const AdminTracksPage = () => {
     {
       title: 'Update Status To',
       fixed: 'right',
+      width: 200,
       render: (record: Track) => {
-        if (record?.status === 'PENDING' || record.status === 'FAILED') {
-          return (
-            <div className="flex items-center gap-1">
-              <LuBan className="size-4 text-red-500" />
+        const statusOptions: SelectProps<TStatus>['options'] = [
+          { value: 'PENDING', label: 'Pending' },
+          { value: 'REVIEWING', label: 'Reviewing' },
+          { value: 'PUBLISHED', label: 'Published' },
+          { value: 'BLOCKED', label: 'Blocked' }
+        ]
 
-              <p className="text-red-500">
-                This track is not processed yet. So, no action is allowed.
-              </p>
-            </div>
-          )
-        } else {
-          return (
-            <div className="flex flex-col gap-2">
-              {record?.status !== 'PUBLISHED' && (
-                <Button
-                  type="primary"
-                  onClick={() => handleUpdateTrack(record?.id, 'PUBLISHED')}
-                >
-                  Published
-                </Button>
-              )}
-              {record?.status !== 'BLOCKED' && (
-                <Button
-                  danger
-                  onClick={() => handleUpdateTrack(record?.id, 'BLOCKED')}
-                >
-                  Blocked
-                </Button>
-              )}
-              {record?.status !== 'REVIEWING' && (
-                <Button
-                  onClick={() => handleUpdateTrack(record?.id, 'REVIEWING')}
-                >
-                  Reviewing
-                </Button>
-              )}
-            </div>
-          )
-        }
+        return (
+          <div className="flex w-fit items-center gap-2">
+            <Select
+              className="w-fit min-w-32"
+              defaultValue={record?.status}
+              options={statusOptions}
+              placeholder="Select status"
+              onChange={(newStatus) => handleUpdateTrack(record?.id, newStatus)}
+            />
+            {record?.status === 'PENDING' && (
+              <Tooltip title="This track is being processed now.">
+                <LuBan className="size-4 shrink-0 text-amber-500" />
+              </Tooltip>
+            )}
+          </div>
+        )
       }
     }
   ]
@@ -251,7 +236,7 @@ const AdminTracksPage = () => {
         pagination={false}
         rowKey={(record) => record?.id}
         scroll={{ x: 'max-content' }}
-        sticky={{ offsetHeader: 16 }}
+        sticky={{ offsetHeader: 0 }}
         onRow={(record) => {
           return {
             onDoubleClick: () => setSelectedTrack(record)

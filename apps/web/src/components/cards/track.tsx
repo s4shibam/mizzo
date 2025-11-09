@@ -52,7 +52,7 @@ export const TrackCard = ({
   return (
     <div
       className={cn(
-        'grid-cols-md-track-card xl:grid-cols-xl-track-card group grid items-center gap-2 rounded-lg p-3 pr-6 transition-colors duration-300 hover:bg-black/[0.04] xl:gap-4',
+        'grid-cols-md-track-card xl:grid-cols-xl-track-card group grid items-center gap-2 rounded-lg p-3 pr-6 transition-colors duration-300 hover:bg-black/[0.04]',
         { 'bg-primary/5': activeTrack?.id === track?.id },
         { 'bg-black/5 hover:!bg-black/20': isMenuActive }
       )}
@@ -78,11 +78,11 @@ export const TrackCard = ({
         </Tooltip>
       </div>
 
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col">
         <div className="flex h-6 items-center gap-2">
           <Tooltip rootClassName="max-w-md" title={track?.title}>
             <Link
-              className="hover:text-primary max-w-xs truncate text-lg font-medium xl:text-xl"
+              className="hover:text-primary max-w-sm truncate text-base font-medium xl:text-lg"
               href={trackLink}
             >
               {track?.title}
@@ -104,7 +104,7 @@ export const TrackCard = ({
         </div>
 
         <Link
-          className="w-fit truncate text-sm/3 hover:underline"
+          className="w-fit truncate text-xs hover:underline"
           href={`/artist/${track?.primaryArtistId}`}
         >
           {track?.primaryArtist?.name}
