@@ -17,20 +17,20 @@ export const HOME_PAGE_BANNER_IMAGE_CODES = [
 ]
 
 export const TRENDING_SEARCHES = [
+  'Romantic',
+  'Hindi',
+  'Melody',
+  'Love Song',
+  'Regional Hit',
+  'Dance',
+  'Emotional',
   'Rock',
-  'Indie Folk',
-  'Hip Hop',
-  'Chill Vibes',
-  'Workout',
-  'Electronic',
-  'Focus',
-  'Romance',
-  'Lo-fi',
-  'Relaxing',
-  'Hindi Hits',
-  'Classical',
+  'Party Song',
+  'Energetic',
+  'Peppy',
+  'International',
   'Bollywood',
-  'Sad',
-  'Party Anthems',
-  'Commute'
+  'Evergreen',
+  'Pop',
+  'Bengali'
 ]

@@ -26,6 +26,7 @@ export const PlayerLeftSection = ({ track }: PlayerLeftSectionProps) => {
     <div className="mr-auto flex items-center gap-4 truncate">
       <Link className="shrink-0" href={`/track/${track.id}`}>
         <ImageWithFallback
+          key={track.posterKey}
           alt="Poster"
           className="aspect-square h-14 w-full rounded-md object-cover"
           draggable={false}
