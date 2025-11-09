@@ -1,6 +1,7 @@
 import {
   DeleteMessageCommand,
   Message,
+  PurgeQueueCommand,
   ReceiveMessageCommand,
   SQSClient
 } from '@aws-sdk/client-sqs'
@@ -44,6 +45,21 @@ export const sqsDeleteMessage = async (message: Message) => {
     return true
   } catch (error) {
     console.error('Error deleting message from SQS', error)
+    return false
+  }
+}
+
+export const sqsPurgeQueue = async (): Promise<boolean> => {
+  try {
+    const command = new PurgeQueueCommand({
+      QueueUrl: env.awsSqsQueueUrl
+    })
+
+    await sqsClient.send(command)
+
+    return true
+  } catch (error) {
+    console.error('Error purging SQS queue', error)
     return false
   }
 }
