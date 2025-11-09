@@ -52,6 +52,7 @@ const AdminUsersPage = () => {
     {
       title: 'Title',
       dataIndex: 'name',
+      width: 350,
       render: (title, record) => {
         const fallback = record?.isArtist
           ? ARTIST_AVATAR_PLACEHOLDER

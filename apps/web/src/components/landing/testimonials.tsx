@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import { FiStar } from 'react-icons/fi'
 
+import { s3GetUrlFromKey } from '@/lib/utils'
+
 type TestimonialProps = {
   name: string
   role: string
@@ -46,8 +48,7 @@ export const TestimonialsSection = () => {
       role: 'Singer & Songwriter',
       quote:
         'Mizzo has transformed my connection with fans. The platform makes it easy to share my music and engage with my audience in meaningful ways.',
-      avatar:
-        'https://images.unsplash.com/photo-1536599424071-0b215a388ba7?q=80&w=1287',
+      avatar: s3GetUrlFromKey('user-data/jeyr5lrdbbbpmkhzuad1pcu9.jpg') ?? '',
       rating: 5
     },
     {
@@ -55,9 +56,7 @@ export const TestimonialsSection = () => {
       role: 'Playback Singer',
       quote:
         'Mizzo helped me bring Indian music to a global audience. The platform respects cultural diversity and provides excellent tools for artists around the world.',
-      avatar:
-        'https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=1170',
-
+      avatar: s3GetUrlFromKey('user-data/vy9k6p8nmvdlyjeg1o70nt4o.jpg') ?? '',
       rating: 5
     },
     {
@@ -65,8 +64,7 @@ export const TestimonialsSection = () => {
       role: 'DJ & Music Producer',
       quote:
         "After joining Mizzo, my listener engagement grew exponentially. The platform's discovery algorithms actually help fans find new music in authentic ways.",
-      avatar:
-        'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1287',
+      avatar: s3GetUrlFromKey('user-data/cjlc4otf3ikpoq9qhi38upab.jpg') ?? '',
       rating: 5
     }
   ]
