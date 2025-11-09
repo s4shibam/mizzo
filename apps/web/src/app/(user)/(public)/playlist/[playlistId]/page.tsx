@@ -71,6 +71,8 @@ const PlaylistByPlaylistIdPage = () => {
     return <ErrorInfo error={error} />
   }
 
+  const playlistOwner = playlist?.data?.owner
+
   return (
     <div className="grid grid-cols-[20rem_1fr] gap-5">
       <div className="from-primary-light to-primary/25 sticky top-4 flex h-fit flex-col gap-4 rounded-lg bg-gradient-to-br p-5">
@@ -108,9 +110,13 @@ const PlaylistByPlaylistIdPage = () => {
             <Tooltip title={playlist?.data?.owner?.name}>
               <Link
                 className="mz-pill line-clamp-1 max-w-48 cursor-pointer"
-                href={`/user/${playlist?.data?.owner?.id}`}
+                href={
+                  playlistOwner?.isArtist
+                    ? `/artist/${playlistOwner?.id}`
+                    : `/user/${playlistOwner?.id}`
+                }
               >
-                By {playlist?.data?.owner?.name?.split(' ')[0]}
+                By {playlistOwner?.name?.split(' ')[0]}
               </Link>
             </Tooltip>
 
