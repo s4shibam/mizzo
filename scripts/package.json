@@ -1,0 +1,26 @@
+{
+  "name": "@mizzo/scripts",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "script": "dotenv -e ../.env -- tsx",
+    "clean": "rm -rf .turbo .dist node_modules",
+    "lint": "eslint . --max-warnings 0",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@mizzo/aws": "*",
+    "@mizzo/prisma": "*",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "@mizzo/eslint-config": "*",
+    "@mizzo/typescript-config": "*",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.10.2",
+    "eslint": "^9.21.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

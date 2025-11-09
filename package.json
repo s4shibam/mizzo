@@ -27,7 +27,8 @@
   },
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "scripts"
   ],
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
