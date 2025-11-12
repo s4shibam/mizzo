@@ -3,7 +3,7 @@ import { Request } from 'express'
 import bcryptjs from 'bcryptjs'
 import jwt, { type SignOptions } from 'jsonwebtoken'
 
-import { S3_DIRECTORIES, TS3Directory } from '@mizzo/aws'
+import { isS3Url, S3_DIRECTORIES, TS3Directory } from '@mizzo/aws'
 import type { Status } from '@mizzo/prisma'
 import { NODE_ENV } from '@mizzo/utils'
 
@@ -201,13 +201,6 @@ export const formatTags = (tags: string[] = []) => {
     .map((tag) => tag.toLowerCase().trim().replace(/\s+/g, ' ')) // Convert to lowercase and trim each tag and replace multiple spaces with a single space
     .filter((tag) => tag !== '') // Remove empty tags
     .join(', ') // Join the tags with a comma
-}
-
-export const isS3Url = (url: string): boolean => {
-  // Regex to check if the URL is an S3 URL
-  const s3UrlPattern =
-    /^https?:\/\/[^/]+\.s3[.-][a-z0-9-]+\.amazonaws\.com\/.*/i
-  return s3UrlPattern.test(url)
 }
 
 type TGetS3KeyParams =
