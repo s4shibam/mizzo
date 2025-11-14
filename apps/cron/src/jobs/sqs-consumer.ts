@@ -1,13 +1,24 @@
 import cron from 'node-cron'
 
 import {
+  env as awsEnv,
   ecsRunTask,
   sqsDeleteMessage,
   sqsGetMessages,
   type TS3Event
 } from '@mizzo/aws'
 
+import { env } from '../env'
 import { shouldCreateNewProcessingTask } from '../utils'
+
+const getQueueName = (queueUrl: string): string => {
+  if (queueUrl === 'NA') {
+    return 'NA'
+  }
+
+  const parts = queueUrl.split('/')
+  return parts[parts.length - 1] || queueUrl
+}
 
 const sqsConsumer = async () => {
   console.log('[SQS]', new Date().toLocaleString())
@@ -16,7 +27,7 @@ const sqsConsumer = async () => {
     const messages = await sqsGetMessages()
 
     if (messages.length === 0) {
-      console.error('No messages found')
+      console.error('[SQS] No messages found')
       return
     }
 
@@ -86,6 +97,14 @@ const sqsConsumer = async () => {
 }
 
 export const scheduleSqsConsumer = () => {
+  if (!env.enableSqsConsumer) {
+    console.warn('[SQS] Consumer disabled by feature flag')
+    return
+  }
+
+  const queueName = getQueueName(awsEnv.awsSqsQueueUrl)
+  console.log('[SQS] Connected to queue:', queueName)
+
   cron.schedule('*/1 * * * *', async () => {
     await sqsConsumer()
   })
