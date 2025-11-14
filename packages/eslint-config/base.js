@@ -34,7 +34,15 @@ const baseConfig = [
     }
   },
   {
-    ignores: ['.dist/**']
+    ignores: [
+      '**/.cache/**',
+      '**/.dist/**',
+      '**/.next/**',
+      '**/.serverless/**',
+      '**/.turbo/**',
+      '**/coverage/**',
+      '**/node_modules/**'
+    ]
   }
 ]
 
