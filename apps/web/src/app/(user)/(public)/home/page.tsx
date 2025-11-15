@@ -37,13 +37,13 @@ const HomePage = () => {
     <div className="space-y-6">
       <WelcomeBanner />
 
-      <PlaylistCollection slug="most_played" />
+      <PlaylistCollection slug="india_listening" />
 
-      <PlaylistCollection slug="app_picks" />
+      <PlaylistCollection slug="most_played" />
 
       <RecentlyPlayedPlaylists />
 
-      <PlaylistCollection slug="india_listening" />
+      <PlaylistCollection slug="app_picks" />
     </div>
   )
 }

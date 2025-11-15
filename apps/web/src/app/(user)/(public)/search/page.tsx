@@ -86,7 +86,7 @@ const SearchContent = () => {
     refetchPlaylists()
     refetchUsers()
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchQuery, cardCount])
 
   useEffect(() => {

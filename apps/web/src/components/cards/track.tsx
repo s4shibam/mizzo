@@ -52,7 +52,7 @@ export const TrackCard = ({
   return (
     <div
       className={cn(
-        'grid-cols-md-track-card xl:grid-cols-xl-track-card group grid items-center gap-2 rounded-lg p-3 pr-6 transition-colors duration-300 hover:bg-black/[0.04]',
+        'grid-cols-md-track-card xl:grid-cols-xl-track-card group grid items-center gap-2 rounded-lg p-2 pr-4 transition-colors duration-300 hover:bg-black/[0.04]',
         { 'bg-primary/5': activeTrack?.id === track?.id },
         { 'bg-black/5 hover:!bg-black/20': isMenuActive }
       )}

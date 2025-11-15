@@ -124,7 +124,7 @@ const PlaylistByPlaylistIdPage = () => {
               {pluralize(playlist?.data?.playlistTracks?.length, 'Track')}
             </div>
 
-            {!!playlist?.data?._count?.playlistTracks && (
+            {!!playlist?.data?.playlistTracks?.length && (
               <p className="mz-pill">
                 {getDurationInHMSWithText({
                   secs: playlist?.data?.playlistTracks?.reduce(
@@ -176,7 +176,7 @@ const PlaylistByPlaylistIdPage = () => {
                   <LuPlay
                     className="text-primary fill-primary size-9 cursor-pointer stroke-[1.5] transition-all hover:scale-105"
                     onClick={() => {
-                      if (!playlist?.data?._count?.playlistTracks) {
+                      if (!playlist?.data?.playlistTracks?.length) {
                         toast.error('No songs in this playlist')
                       } else if (
                         isSameCuid(activePlaylist?.id, playlist?.data?.id)
