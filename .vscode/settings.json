@@ -78,6 +78,7 @@
     "nokey",
     "noprint",
     "otps",
+    "paralleldrive",
     "pkey",
     "presigner",
     "redisinsight",
@@ -86,6 +87,7 @@
     "scdn",
     "serviceworker",
     "sindresorhus",
+    "toploader",
     "turborepo"
   ],
   "[svg]": {

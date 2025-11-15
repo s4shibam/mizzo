@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://mizzo.app">
+    <a href="https://mizzo.s4shibam.com">
         <img alt="Mizzo" width="100" src="./apps/web/src/app/icon.ico">
     </a>
 </p>

@@ -614,8 +614,8 @@ const processTracksBatch = async ({
         posterKey,
         trackKey,
         isPublic: true,
-        likes: Math.floor(Math.random() * 10000),
-        listens: Math.floor(Math.random() * 100000),
+        likes: Math.floor(Math.random() * 1_00_000),
+        listens: Math.floor(Math.random() * 10_00_000),
         createdAt: trackData.createdAt
       }
 
