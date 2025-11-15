@@ -12,7 +12,6 @@ export const useHlsPlayer = () => {
     setActiveTrack,
     activePlaylist,
     setActivePlaylist,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isActiveTrackPlaying,
     setIsActiveTrackPlaying
   } = usePlayerContext()
@@ -109,6 +108,19 @@ export const useHlsPlayer = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTrack?.id])
+
+  useEffect(() => {
+    if (!trackRef.current) return
+
+    if (isActiveTrackPlaying) {
+      trackRef.current.play().catch(() => {
+        setIsActiveTrackPlaying(false)
+      })
+    } else {
+      trackRef.current.pause()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isActiveTrackPlaying])
 
   const playRandom = () => {
     if (
