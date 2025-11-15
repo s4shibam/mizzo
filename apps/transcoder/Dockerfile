@@ -1,5 +1,5 @@
 # Build stage
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # Set working directory for the monorepo
 WORKDIR /app
@@ -13,8 +13,8 @@ COPY packages/typescript-config/package.json ./packages/typescript-config/
 
 COPY apps/transcoder/package.json ./apps/transcoder/
 
-# Install dependencies (this will be cached if package.json files don't change)
-RUN npm install --frozen-lockfile
+# Install dependencies without running monorepo postinstall hooks
+RUN npm install --frozen-lockfile --ignore-scripts
 
 # Copy source files of the packages required by transcoder and the app itself
 COPY packages/aws ./packages/aws/
@@ -27,7 +27,7 @@ COPY apps/transcoder ./apps/transcoder/
 RUN npx turbo run build --filter=transcoder...
 
 # Production stage
-FROM node:18-alpine AS production
+FROM node:20-alpine AS production
 
 # Set working directory
 WORKDIR /app
