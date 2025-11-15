@@ -2,12 +2,18 @@
   "name": "@mizzo/prisma",
   "version": "0.0.0",
   "private": true,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./.dist/index.js",
+  "types": "./.dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./.dist/index.d.ts",
+      "require": "./.dist/index.js",
+      "default": "./.dist/index.js"
+    }
   },
   "scripts": {
+    "build": "dotenv -e ../../.env -- prisma generate && tsup",
+    "dev": "npm run studio",
     "clean": "rm -rf .turbo .dist node_modules",
     "lint": "eslint . --max-warnings 0",
     "format": "prisma format && prettier --write .",
@@ -26,7 +32,9 @@
     "@mizzo/eslint-config": "*",
     "@mizzo/typescript-config": "*",
     "prisma": "^6.4.1",
-    "tsx": "^4.19.3"
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
   },
   "prisma": {
     "schema": "prisma/schema.prisma"
