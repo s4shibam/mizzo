@@ -4,13 +4,9 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsc",
-    "start": "node .dist/src/index.js",
     "clean": "rm -rf .turbo .dist node_modules",
     "lint": "eslint . --max-warnings 0",
-    "typecheck": "tsc --noEmit",
-    "dock:up": "docker compose up",
-    "dock:down": "docker compose down"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@mizzo/aws": "*",
@@ -22,7 +18,7 @@
     "@mizzo/eslint-config": "*",
     "@mizzo/typescript-config": "*",
     "@types/fluent-ffmpeg": "^2.1.27",
-    "eslint": "^9.21.0",
-    "typescript": "^5.5.3"
+    "@types/node": "^22.13.9",
+    "typescript": "^5.7.3"
   }
 }

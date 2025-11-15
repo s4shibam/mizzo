@@ -12,15 +12,13 @@
   "dependencies": {
     "@mizzo/aws": "*",
     "@mizzo/prisma": "*",
-    "bcryptjs": "^2.4.3"
+    "bcryptjs": "^3.0.2"
   },
   "devDependencies": {
     "@mizzo/eslint-config": "*",
     "@mizzo/typescript-config": "*",
-    "@types/bcryptjs": "^2.4.6",
-    "@types/node": "^22.10.2",
-    "eslint": "^9.21.0",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "@types/node": "^22.13.9",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
   }
 }

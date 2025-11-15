@@ -4,10 +4,11 @@
   "scripts": {
     "prepare": "husky",
     "postinstall": "npm run build:pkg && npm run db:gen && cp -r ./node_modules/.prisma ./apps/api/node_modules/.prisma",
-    "start": "turbo run start",
+    "start": "dotenv -e .env -- turbo run start",
     "build": "turbo run build",
     "build:pkg": "turbo run build --filter='./packages/*'",
-    "dev": "npm run dock:up && turbo run dev",
+    "predev": "npm run build:pkg && npm run dock:up",
+    "dev": "dotenv -e .env -- turbo run dev",
     "clean": "turbo run clean && rm -rf .turbo node_modules",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck",
@@ -35,26 +36,13 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
     "dotenv-cli": "^8.0.0",
+    "eslint": "^9.21.0",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
     "prettier": "^3.5.0",
     "prettier-plugin-organize-imports": "^4.1.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "turbo": "^2.4.4"
   },
-  "lint-staged": {
-    "(apps|packages)/**/*.{js,ts,jsx,tsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.json": [
-      "prettier --write"
-    ],
-    "*.prisma": [
-      "cd packages/prisma && npx prisma format"
-    ]
-  },
-  "dependencies": {},
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "4.9.5",
     "sharp": "0.33.2"
