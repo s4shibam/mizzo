@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 import { Button, Form, Input, Radio, Select, Upload } from 'antd'
 import {
@@ -22,8 +22,8 @@ type UpdateTrackFormProps = {
 }
 
 export const UpdateTrackForm = ({ track, close }: UpdateTrackFormProps) => {
-  const [artistSearchQuery, setArtistSearchQuery] = useState('')
-  const debouncedSearchQuery = useDebounce(artistSearchQuery, 500)
+  const [artistSearchQuery, setArtistSearchQuery, debouncedSearchQuery] =
+    useDebounce('', 500)
 
   const {
     data: artists,
