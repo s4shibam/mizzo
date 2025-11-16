@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 import {
   Avatar,
@@ -33,8 +33,8 @@ export const UploadTrackForm = () => {
   const trackRef = useRef<HTMLAudioElement | null>(null)
   const languageList = getLanguageList()
 
-  const [artistSearchQuery, setArtistSearchQuery] = useState('')
-  const debouncedSearchQuery = useDebounce(artistSearchQuery, 500)
+  const [artistSearchQuery, setArtistSearchQuery, debouncedSearchQuery] =
+    useDebounce('', 500)
 
   const {
     form,

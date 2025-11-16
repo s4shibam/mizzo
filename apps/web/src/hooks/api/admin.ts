@@ -1,12 +1,43 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
 
+import type { TPaginationParams } from '@mizzo/utils'
+
 import { api } from '@/services/api'
 import type { TApiPromise, TMutationOpts, TQueryOpts } from '@/types/api'
+import type { TStatus } from '@/types/index'
 import { Playlist } from '@/types/playlist'
 import { Track } from '@/types/track'
 import { ArtistApplication, User } from '@/types/user'
 
 // Admin Api Types
+
+type TGetAllUsersParams = {
+  search?: string
+  isArtist?: boolean
+  isPremiumUser?: boolean
+  isPublicProfile?: boolean
+} & TPaginationParams
+
+type TGetAllAdminsParams = {
+  search?: string
+} & TPaginationParams
+
+type TGetAllTracksParams = {
+  search?: string
+  isPublic?: boolean
+  language?: string
+  status?: TStatus
+} & TPaginationParams
+
+type TGetAllPlaylistsParams = {
+  search?: string
+  isPublic?: boolean
+} & TPaginationParams
+
+type TGetAllArtistApplicationsParams = {
+  search?: string
+  isApproved?: boolean
+} & TPaginationParams
 
 type TGetUsersByEmailParams = {
   email: string
@@ -77,8 +108,8 @@ const getAdminDashboardSummary = (): TApiPromise<TAdminDashboardSummary> => {
   return api.get('/admin/home/dashboard-summary')
 }
 
-const getAllUsers = (): TApiPromise<User[]> => {
-  return api.get('/admin/user/all')
+const getAllUsers = (params?: TGetAllUsersParams): TApiPromise<User[]> => {
+  return api.get('/admin/user/all', { params })
 }
 
 const getUsersByEmail = (
@@ -92,32 +123,36 @@ const updateUser = (payload: TUpdateUserPayload): TApiPromise => {
   return api.put(`/admin/user/${payload.id}`, payload.data)
 }
 
-const getAllTracks = (): TApiPromise<Track[]> => {
-  return api.get('/admin/track/all')
+const getAllTracks = (params?: TGetAllTracksParams): TApiPromise<Track[]> => {
+  return api.get('/admin/track/all', { params })
 }
 
 const updateTrack = (payload: TUpdateTrackPayload): TApiPromise => {
   return api.put(`/admin/track/${payload.id}`, payload.data)
 }
 
-const getAllPlaylists = (): TApiPromise<Playlist[]> => {
-  return api.get('/admin/playlist/all')
+const getAllPlaylists = (
+  params?: TGetAllPlaylistsParams
+): TApiPromise<Playlist[]> => {
+  return api.get('/admin/playlist/all', { params })
 }
 
 const updatePlaylist = (payload: TUpdatePlaylistPayload): TApiPromise => {
   return api.put(`/admin/playlist/${payload.id}`, payload.data)
 }
 
-const getAllAdmins = (): TApiPromise<User[]> => {
-  return api.get('/admin/admin/all')
+const getAllAdmins = (params?: TGetAllAdminsParams): TApiPromise<User[]> => {
+  return api.get('/admin/admin/all', { params })
 }
 
 const updateAdmin = (payload: { id: string }): TApiPromise => {
   return api.put(`/admin/admin/${payload.id}`)
 }
 
-const getAllArtistApplications = (): TApiPromise<ArtistApplication[]> => {
-  return api.get('/admin/artist-applications')
+const getAllArtistApplications = (
+  params?: TGetAllArtistApplicationsParams
+): TApiPromise<ArtistApplication[]> => {
+  return api.get('/admin/artist-applications', { params })
 }
 
 const manageArtistApplication = (
@@ -127,6 +162,7 @@ const manageArtistApplication = (
 }
 
 // Admin Api Hooks
+
 export const useGetAdminDashboardSummary = (
   opts?: TQueryOpts<TAdminDashboardSummary>
 ) => {
@@ -137,10 +173,13 @@ export const useGetAdminDashboardSummary = (
   })
 }
 
-export const useGetAllUsers = (opts?: TQueryOpts<User[]>) => {
+export const useGetAllUsers = (
+  params?: TGetAllUsersParams,
+  opts?: TQueryOpts<User[]>
+) => {
   return useQuery({
-    queryKey: ['useGetAllUsers'],
-    queryFn: getAllUsers,
+    queryKey: ['useGetAllUsers', params],
+    queryFn: () => getAllUsers(params),
     ...opts
   })
 }
@@ -164,10 +203,13 @@ export const useUpdateUser = (opts?: TMutationOpts<TUpdateUserPayload>) => {
   })
 }
 
-export const useGetAllTracks = (opts?: TQueryOpts<Track[]>) => {
+export const useGetAllTracks = (
+  params?: TGetAllTracksParams,
+  opts?: TQueryOpts<Track[]>
+) => {
   return useQuery({
-    queryKey: ['useGetAllTracks'],
-    queryFn: getAllTracks,
+    queryKey: ['useGetAllTracks', params],
+    queryFn: () => getAllTracks(params),
     ...opts
   })
 }
@@ -180,10 +222,13 @@ export const useUpdateTrack = (opts?: TMutationOpts<TUpdateTrackPayload>) => {
   })
 }
 
-export const useGetAllPlaylists = (opts?: TQueryOpts<Playlist[]>) => {
+export const useGetAllPlaylists = (
+  params?: TGetAllPlaylistsParams,
+  opts?: TQueryOpts<Playlist[]>
+) => {
   return useQuery({
-    queryKey: ['useGetAllPlaylists'],
-    queryFn: getAllPlaylists,
+    queryKey: ['useGetAllPlaylists', params],
+    queryFn: () => getAllPlaylists(params),
     ...opts
   })
 }
@@ -198,10 +243,13 @@ export const useUpdatePlaylist = (
   })
 }
 
-export const useGetAllAdmins = (opts?: TQueryOpts<User[]>) => {
+export const useGetAllAdmins = (
+  params?: TGetAllAdminsParams,
+  opts?: TQueryOpts<User[]>
+) => {
   return useQuery({
-    queryKey: ['useGetAllAdmins'],
-    queryFn: getAllAdmins,
+    queryKey: ['useGetAllAdmins', params],
+    queryFn: () => getAllAdmins(params),
     ...opts
   })
 }
@@ -215,11 +263,12 @@ export const useUpdateAdmin = (opts?: TMutationOpts<{ id: string }>) => {
 }
 
 export const useGetAllArtistApplications = (
+  params?: TGetAllArtistApplicationsParams,
   opts?: TQueryOpts<ArtistApplication[]>
 ) => {
   return useQuery({
-    queryKey: ['useGetAllArtistApplications'],
-    queryFn: getAllArtistApplications,
+    queryKey: ['useGetAllArtistApplications', params],
+    queryFn: () => getAllArtistApplications(params),
     ...opts
   })
 }

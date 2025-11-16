@@ -1,11 +1,19 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect } from 'react'
 
-import { Button, Drawer, Table, Tooltip, type TableColumnsType } from 'antd'
+import {
+  Button,
+  Input,
+  Pagination,
+  Select,
+  Table,
+  Tooltip,
+  type TableColumnsType
+} from 'antd'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
-import { LuEye, LuEyeOff, LuStar, LuStarOff } from 'react-icons/lu'
+import { LuEye, LuEyeOff, LuSearch, LuStar, LuStarOff } from 'react-icons/lu'
 
 import { cn } from '@mizzo/utils'
 
@@ -14,19 +22,45 @@ import USER_AVATAR_PLACEHOLDER from '@/assets/placeholders/user-avatar.webp'
 import { ErrorInfo } from '@/components/common/error-info'
 import { ImageWithFallback } from '@/components/common/image-with-fallback'
 import { useGetAllUsers, useUpdateUser } from '@/hooks/api/admin'
-import { useDrawerWidth } from '@/hooks/custom/use-drawer-width'
+import { useDebounce } from '@/hooks/custom/use-debounce'
+import { useQueryParams } from '@/hooks/custom/use-query-params'
 import { s3GetUrlFromKey } from '@/lib/utils'
 import { invalidateQueries } from '@/services/tanstack'
 import type { User, User_Count, UserProfile } from '@/types/user'
 
 const AdminUsersPage = () => {
-  const { drawerWidth } = useDrawerWidth()
-  const [selectedUser, setSelectedUser] = useState<User | null>(null)
+  const { qParams, updateQParams } = useQueryParams()
+  const [searchInput, setSearchInput, search] = useDebounce(
+    qParams.search || '',
+    500
+  )
+
+  const currentPage = Number(qParams.currentPage) || 1
+  const isArtist = qParams.isArtist ? qParams.isArtist === 'true' : undefined
+  const isPremiumUser = qParams.isPremiumUser
+    ? qParams.isPremiumUser === 'true'
+    : undefined
+
   const {
     data: users,
     isLoading: isUsersLoading,
     error: usersError
-  } = useGetAllUsers()
+  } = useGetAllUsers({
+    currentPage,
+    search,
+    isArtist,
+    isPremiumUser
+  })
+
+  useEffect(() => {
+    if (search !== (qParams.search || '')) {
+      updateQParams({
+        search: search || undefined,
+        currentPage: '1'
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search])
 
   const { mutate: updateUserMutation, isPending: isUserUpdatePending } =
     useUpdateUser({
@@ -34,7 +68,6 @@ const AdminUsersPage = () => {
       onSuccess: (success) => {
         toast.success(success?.message)
         invalidateQueries({ queryKey: ['useGetAllUsers'] })
-        setSelectedUser(null)
       }
     })
 
@@ -48,11 +81,25 @@ const AdminUsersPage = () => {
     updateUserMutation({ id, data })
   }
 
+  const handlePageChange = (page: number) => {
+    updateQParams({
+      currentPage: page.toString()
+    })
+  }
+
+  const handleFilterChange = (key: string, value: string | undefined) => {
+    updateQParams({
+      [key]: value,
+      currentPage: '1'
+    })
+  }
+
   const columns: TableColumnsType<User> = [
     {
-      title: 'Title',
+      title: 'Name',
       dataIndex: 'name',
-      width: 350,
+      fixed: 'left',
+      width: 300,
       render: (title, record) => {
         const fallback = record?.isArtist
           ? ARTIST_AVATAR_PLACEHOLDER
@@ -63,9 +110,9 @@ const AdminUsersPage = () => {
           : `/user/${record?.id}`
 
         return (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3.5">
             <Link
-              className="relative size-[70px] overflow-hidden rounded-md"
+              className="relative size-16 shrink-0 overflow-hidden rounded-lg shadow-sm ring-1 ring-black/5 transition-all hover:scale-105 hover:shadow-md"
               href={`${url}?as=admin`}
             >
               <ImageWithFallback
@@ -78,15 +125,17 @@ const AdminUsersPage = () => {
               />
             </Link>
 
-            <div>
+            <div className="min-w-0 flex-1">
               <Tooltip title={title}>
-                <p className="line-clamp-1">{title || "User's Name"}</p>
+                <p className="line-clamp-1 text-base font-semibold text-zinc-900">
+                  {title || "User's Name"}
+                </p>
               </Tooltip>
 
-              <div className="grid grid-cols-[auto_1.2rem_1.2rem] items-center gap-2">
-                <p className="truncate text-base capitalize">
+              <div className="mt-1 flex items-center gap-1">
+                <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-700">
                   {record?.isArtist ? 'Artist' : 'User'}
-                </p>
+                </span>
                 <Tooltip
                   title={
                     record?.isPublicProfile
@@ -94,22 +143,26 @@ const AdminUsersPage = () => {
                       : 'Private Profile'
                   }
                 >
-                  {record?.isPublicProfile ? (
-                    <LuEye className="size-full text-green-600" />
-                  ) : (
-                    <LuEyeOff className="size-full text-red-600" />
-                  )}
+                  <p className="rounded-full bg-zinc-100 px-2.5 py-0.5">
+                    {record?.isPublicProfile ? (
+                      <LuEye className="size-4 text-emerald-600" />
+                    ) : (
+                      <LuEyeOff className="size-4 text-zinc-400" />
+                    )}
+                  </p>
                 </Tooltip>
                 <Tooltip
                   title={
                     record?.isPremiumUser ? 'Premium Member' : 'Regular Member'
                   }
                 >
-                  {record?.isPremiumUser ? (
-                    <LuStar className="text-primary size-full" />
-                  ) : (
-                    <LuStarOff className="size-full" />
-                  )}
+                  <p className="rounded-full bg-zinc-100 px-2.5 py-0.5">
+                    {record?.isPremiumUser ? (
+                      <LuStar className="text-primary size-4 fill-current" />
+                    ) : (
+                      <LuStarOff className="size-4 text-zinc-400" />
+                    )}
+                  </p>
                 </Tooltip>
               </div>
             </div>
@@ -118,79 +171,108 @@ const AdminUsersPage = () => {
       }
     },
     {
-      title: 'Email',
-      dataIndex: 'email',
-      width: '15%',
-      render: (email) => <p className="truncate text-base">{email || 'N/A'}</p>
-    },
-    {
-      title: 'Socials',
+      title: 'Contact & Socials',
+      width: 300,
       dataIndex: 'profile',
-      render: (profile: UserProfile) => (
-        <div className="grid grid-cols-[auto_1fr] gap-x-3 truncate text-center">
-          <p className="mr-auto font-medium">FB</p>
-
-          <p> {profile?.facebook || 'N/A'}</p>
-
-          <p className="mr-auto font-medium">IG</p>
-
-          <p> {profile?.instagram || 'N/A'}</p>
-
-          <p className="mr-auto font-medium">TW</p>
-
-          <p> {profile?.twitter || 'N/A'}</p>
+      render: (profile: UserProfile, user: User) => (
+        <div className="space-y-1.5">
+          <div className="flex items-center gap-2">
+            <span className="w-10 text-xs font-semibold text-zinc-500">EM</span>
+            <span className="truncate text-xs text-zinc-700">
+              {user?.email || <span className="text-zinc-400">Not set</span>}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-10 text-xs font-semibold text-zinc-500">FB</span>
+            <span className="truncate text-xs text-zinc-700">
+              {profile?.facebook || (
+                <span className="text-zinc-400">Not set</span>
+              )}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-10 text-xs font-semibold text-zinc-500">IG</span>
+            <span className="truncate text-xs text-zinc-700">
+              {profile?.instagram || (
+                <span className="text-zinc-400">Not set</span>
+              )}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="w-10 text-xs font-semibold text-zinc-500">TW</span>
+            <span className="truncate text-xs text-zinc-700">
+              {profile?.twitter || (
+                <span className="text-zinc-400">Not set</span>
+              )}
+            </span>
+          </div>
         </div>
       )
     },
     {
-      title: 'Playlist Stats (Count)',
+      title: 'Playlist Stats',
       dataIndex: '_count',
-      width: '15%',
+      width: 150,
       render: (count: User_Count) => (
-        <div className="grid grid-cols-[1fr_2.5rem] truncate text-center">
-          <p className="mr-auto font-medium">Liked Playlists</p>
-
-          <span> {count?.likedPlaylists}</span>
-
-          <p className="mr-auto font-medium">Owned Playlists</p>
-
-          <span> {count?.ownedPlaylists}</span>
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-xs text-zinc-500">Liked</span>
+            <span className="rounded-md bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-700">
+              {count?.likedPlaylists}
+            </span>
+          </div>
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-xs text-zinc-500">Owned</span>
+            <span className="rounded-md bg-purple-50 px-2 py-0.5 text-xs font-semibold text-purple-700">
+              {count?.ownedPlaylists}
+            </span>
+          </div>
         </div>
       )
     },
     {
-      title: 'Track Stats (Count)',
+      title: 'Track Stats',
       dataIndex: '_count',
-      width: '15%',
+      width: 150,
       render: (count: User_Count) => (
-        <div className="grid grid-cols-[1fr_2.5rem] truncate text-center">
-          <p className="mr-auto font-medium">Liked Tracks</p>
-
-          <span> {count?.likedTracks}</span>
-
-          <p className="mr-auto font-medium">Owned Tracks</p>
-
-          <span> {count?.primaryTracks}</span>
-
-          <p className="mr-auto font-medium">Collaborated Tracks</p>
-
-          <span> {count?.secondaryTracks}</span>
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-xs text-zinc-500">Liked</span>
+            <span className="rounded-md bg-pink-50 px-2 py-0.5 text-xs font-semibold text-pink-700">
+              {count?.likedTracks}
+            </span>
+          </div>
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-xs text-zinc-500">Owned</span>
+            <span className="rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700">
+              {count?.primaryTracks}
+            </span>
+          </div>
+          <div className="flex items-center justify-between gap-3">
+            <span className="text-xs text-zinc-500">Collab</span>
+            <span className="rounded-md bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-700">
+              {count?.secondaryTracks}
+            </span>
+          </div>
         </div>
       )
     },
     {
-      title: 'Action',
+      title: 'Actions',
       fixed: 'right',
+      width: 200,
       render: (record: User) => (
         <div className="flex flex-col gap-2">
           <Button
             className={cn(
-              'hover:!text-inherit',
+              '!h-8 text-xs font-medium transition-all hover:!text-inherit',
               {
-                'text-red-600 hover:!border-red-600': record?.isPremiumUser
+                'border-red-200 bg-red-50 text-red-600 hover:!border-red-400 hover:!bg-red-100':
+                  record?.isPremiumUser
               },
               {
-                'text-green-600 hover:!border-green-600': !record?.isPremiumUser
+                'border-emerald-200 bg-emerald-50 text-emerald-700 hover:!border-emerald-400 hover:!bg-emerald-100':
+                  !record?.isPremiumUser
               }
             )}
             onClick={() =>
@@ -202,19 +284,18 @@ const AdminUsersPage = () => {
               })
             }
           >
-            {record?.isPremiumUser
-              ? 'Regular Membership'
-              : 'Premium Membership'}
+            {record?.isPremiumUser ? 'Remove Premium' : 'Go Premium'}
           </Button>
 
           <Button
             className={cn(
-              'hover:!text-inherit',
+              '!h-8 text-xs font-medium transition-all hover:!text-inherit',
               {
-                'text-red-600 hover:!border-red-600': record?.isPublicProfile
+                'border-red-200 bg-red-50 text-red-600 hover:!border-red-400 hover:!bg-red-100':
+                  record?.isPublicProfile
               },
               {
-                'text-green-600 hover:!border-green-600':
+                'border-blue-200 bg-blue-50 text-blue-700 hover:!border-blue-400 hover:!bg-blue-100':
                   !record?.isPublicProfile
               }
             )}
@@ -227,50 +308,86 @@ const AdminUsersPage = () => {
               })
             }
           >
-            {record?.isPublicProfile
-              ? 'Make Private Profile'
-              : 'Make Public Profile'}
+            Make {record?.isPublicProfile ? 'Private' : 'Public'} Profile
           </Button>
         </div>
       )
     }
   ]
 
-  if (usersError) {
-    return <ErrorInfo error={usersError} />
-  }
-
-  const close = () => {
-    setSelectedUser(null)
-  }
-
   return (
     <div className="relative">
-      <Drawer
-        destroyOnClose
-        className="relative size-full"
-        open={!!selectedUser}
-        placement="right"
-        prefixCls="accent-drawer"
-        title="User Details"
-        width={drawerWidth}
-        onClose={close}
-      />
+      <div className="sticky top-0 z-10 -mt-4 flex items-center gap-3 bg-white py-4">
+        <Input
+          allowClear
+          className="min-w-60 flex-1"
+          placeholder="Search by name or email..."
+          prefix={<LuSearch className="text-zinc-400" />}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
 
-      <Table
-        columns={columns}
-        dataSource={users?.data}
-        loading={isUsersLoading || isUserUpdatePending}
-        pagination={false}
-        rowKey={(record) => record?.id}
-        scroll={{ x: 'max-content' }}
-        sticky={{ offsetHeader: 16 }}
-        onRow={(record) => {
-          return {
-            onDoubleClick: () => setSelectedUser(record)
+        <Select
+          allowClear
+          className="w-36"
+          options={[
+            { label: 'All Users', value: undefined },
+            { label: 'Artists', value: 'true' },
+            { label: 'Regular Users', value: 'false' }
+          ]}
+          placeholder="User Type"
+          value={
+            isArtist === undefined ? undefined : isArtist ? 'true' : 'false'
           }
-        }}
-      />
+          onChange={(value) => handleFilterChange('isArtist', value)}
+        />
+
+        <Select
+          allowClear
+          className="w-36"
+          options={[
+            { label: 'All Members', value: undefined },
+            { label: 'Premium', value: 'true' },
+            { label: 'Regular', value: 'false' }
+          ]}
+          placeholder="Membership"
+          value={
+            isPremiumUser === undefined
+              ? undefined
+              : isPremiumUser
+                ? 'true'
+                : 'false'
+          }
+          onChange={(value) => handleFilterChange('isPremiumUser', value)}
+        />
+      </div>
+
+      {!usersError && (
+        <Table
+          columns={columns}
+          dataSource={users?.data}
+          loading={isUsersLoading || isUserUpdatePending}
+          pagination={false}
+          rowKey={(record) => record?.id}
+          scroll={{ x: 'max-content' }}
+          sticky={{ offsetHeader: 64 }}
+        />
+      )}
+
+      {usersError && <ErrorInfo error={usersError} />}
+
+      {users?.pagination && (
+        <Pagination
+          className="mt-6 flex w-full justify-end"
+          current={currentPage}
+          pageSize={users?.pagination?.perPage}
+          showTotal={(total, range) =>
+            `${range[0]}-${range[1]} of ${total} users`
+          }
+          total={users.pagination.totalItems}
+          onChange={handlePageChange}
+        />
+      )}
     </div>
   )
 }

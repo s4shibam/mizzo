@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 import { z } from 'zod'
 
-import { prisma, Status } from '@mizzo/prisma'
+import { prisma, Status, type Prisma } from '@mizzo/prisma'
 
 import { STATUS_LIST } from '../../constants/common'
 import { createPlaylistStatusNotification } from '../../services/notification'
@@ -12,7 +12,7 @@ export const updatePlaylist = async (req: Request, res: Response) => {
   const { playlistId } = zUpdatePlaylistParams.parse(req.params)
   const { isPublic, status } = zUpdatePlaylistReqBody.parse(req.body)
 
-  const data: { isPublic: boolean; status: Status } = {
+  const data: Prisma.PlaylistUpdateInput = {
     isPublic,
     status
   }
@@ -39,14 +39,16 @@ export const updatePlaylist = async (req: Request, res: Response) => {
     data
   })
 
-  createPlaylistStatusNotification({
-    userId: playlist.ownerId,
-    playlistName: playlist.name,
-    status
-  })
+  if (status) {
+    createPlaylistStatusNotification({
+      userId: playlist.ownerId,
+      playlistName: playlist.name,
+      status
+    })
+  }
 
-  res.status(201).json({
-    message: 'Playlist updated'
+  res.status(200).json({
+    message: 'Playlist updated successfully'
   })
 }
 
@@ -55,6 +57,6 @@ const zUpdatePlaylistParams = z.object({
 })
 
 const zUpdatePlaylistReqBody = z.object({
-  isPublic: z.boolean(),
-  status: z.enum(STATUS_LIST as [Status, ...Status[]])
+  isPublic: z.boolean().optional(),
+  status: z.enum(STATUS_LIST as [Status, ...Status[]]).optional()
 })

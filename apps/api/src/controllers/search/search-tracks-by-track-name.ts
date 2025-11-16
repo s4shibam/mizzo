@@ -7,6 +7,7 @@ import { Prisma, prisma, type Track } from '@mizzo/prisma'
 import { cache } from '../../services/cache'
 import { getCacheKey } from '../../utils/functions'
 import { throwError } from '../../utils/throw-error'
+import { zPagination } from '../../utils/zod'
 
 export const searchTracksByTrackName = async (req: Request, res: Response) => {
   const { search } = zSearchTracksByTrackNameReqParams.parse(req.params)
@@ -147,7 +148,4 @@ const zSearchTracksByTrackNameReqParams = z.object({
     .transform((val) => val.trim())
 })
 
-const zSearchTracksByTrackNameReqQuery = z.object({
-  currentPage: z.coerce.number().positive().default(1),
-  perPage: z.coerce.number().positive().default(10)
-})
+const zSearchTracksByTrackNameReqQuery = zPagination

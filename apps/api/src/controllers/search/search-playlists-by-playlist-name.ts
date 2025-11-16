@@ -5,6 +5,7 @@ import { z } from 'zod'
 import { Prisma, prisma } from '@mizzo/prisma'
 
 import { throwError } from '../../utils/throw-error'
+import { zPagination } from '../../utils/zod'
 
 export const searchPlaylistsByPlaylistName = async (
   req: Request,
@@ -115,7 +116,4 @@ const zSearchPlaylistsByPlaylistNameReqParams = z.object({
     .transform((val) => val.trim())
 })
 
-const zSearchPlaylistsByPlaylistNameReqQuery = z.object({
-  currentPage: z.coerce.number().positive().default(1),
-  perPage: z.coerce.number().positive().default(10)
-})
+const zSearchPlaylistsByPlaylistNameReqQuery = zPagination

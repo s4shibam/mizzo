@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 import { z } from 'zod'
 
-import { prisma } from '@mizzo/prisma'
+import { prisma, type Prisma } from '@mizzo/prisma'
 
 export const updateUser = async (req: Request, res: Response) => {
   const { userId } = zUpdateUserReqParams.parse(req.params)
@@ -10,11 +10,7 @@ export const updateUser = async (req: Request, res: Response) => {
     req.body
   )
 
-  const data: {
-    isPublicProfile: boolean
-    isPremiumUser: boolean
-    isArtist: boolean
-  } = {
+  const data: Prisma.UserUpdateInput = {
     isPublicProfile,
     isPremiumUser,
     isArtist
@@ -31,7 +27,7 @@ export const updateUser = async (req: Request, res: Response) => {
     data
   })
 
-  res.status(201).json({
+  res.status(200).json({
     message: 'User updated successfully'
   })
 }
@@ -41,7 +37,7 @@ const zUpdateUserReqParams = z.object({
 })
 
 const zUpdateUserReqBody = z.object({
-  isPublicProfile: z.boolean(),
-  isPremiumUser: z.boolean(),
-  isArtist: z.boolean()
+  isPublicProfile: z.boolean().optional(),
+  isPremiumUser: z.boolean().optional(),
+  isArtist: z.boolean().optional()
 })
