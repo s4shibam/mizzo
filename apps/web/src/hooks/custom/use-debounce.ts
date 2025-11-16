@@ -1,25 +1,34 @@
 import { useEffect, useState } from 'react'
 
 /**
- * A hook that delays updating a value until a specified delay has passed
- * @param value The value to debounce
- * @param delay The delay in milliseconds
- * @returns The debounced value
+ * A self-sufficient hook that manages raw state internally and debounces it
+ * @param initialRawValue The initial value for the raw state
+ * @param delay The delay in milliseconds before updating the debounced value
+ * @returns An array containing [rawValue, setRawValue, debouncedValue]
  */
-export const useDebounce = <T>(value: T, delay: number): T => {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+export const useDebounce = <T>(
+  initialRawValue: T,
+  delay: number
+): [T, (value: T) => void, T] => {
+  const [rawValue, setRawValue] = useState<T>(initialRawValue)
+  const [debouncedValue, setDebouncedValue] = useState<T>(initialRawValue)
+
+  // Sync rawValue when initialRawValue changes (e.g., from query params)
+  useEffect(() => {
+    setRawValue(initialRawValue)
+  }, [initialRawValue])
 
   useEffect(() => {
     // Set a timeout to update the debounced value after the delay
     const timer = setTimeout(() => {
-      setDebouncedValue(value)
+      setDebouncedValue(rawValue)
     }, delay)
 
     // Clean up the timeout if the value changes before the delay has passed
     return () => {
       clearTimeout(timer)
     }
-  }, [value, delay])
+  }, [rawValue, delay])
 
-  return debouncedValue
+  return [rawValue, setRawValue, debouncedValue]
 }
