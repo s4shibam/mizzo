@@ -3,6 +3,7 @@ import {
   Message,
   PurgeQueueCommand,
   ReceiveMessageCommand,
+  SendMessageCommand,
   SQSClient
 } from '@aws-sdk/client-sqs'
 
@@ -61,5 +62,49 @@ export const sqsPurgeQueue = async (): Promise<boolean> => {
   } catch (error) {
     console.error('Error purging SQS queue', error)
     return false
+  }
+}
+
+export const sqsSendMessage = async (
+  messageBody: Record<string, unknown>
+): Promise<boolean> => {
+  try {
+    const command = new SendMessageCommand({
+      QueueUrl: env.awsSqsQueueUrl,
+      MessageBody: JSON.stringify(messageBody)
+    })
+
+    await sqsClient.send(command)
+
+    return true
+  } catch (error) {
+    console.error('Error sending message to SQS', error)
+    return false
+  }
+}
+
+type TBuildS3EventBridgeMessageParams = {
+  bucketName: string
+  key: string
+}
+
+export const sqsBuildS3EventBridgeMessage = ({
+  bucketName,
+  key
+}: TBuildS3EventBridgeMessageParams) => {
+  return {
+    Records: [
+      {
+        eventTime: new Date().toISOString(),
+        s3: {
+          bucket: {
+            name: bucketName
+          },
+          object: {
+            key
+          }
+        }
+      }
+    ]
   }
 }

@@ -2,10 +2,16 @@ import { Request, Response } from 'express'
 
 import { z } from 'zod'
 
+import {
+  env as awsEnv,
+  sqsBuildS3EventBridgeMessage,
+  sqsSendMessage
+} from '@mizzo/aws'
 import { prisma, Status, type Prisma } from '@mizzo/prisma'
 
 import { STATUS_LIST } from '../../constants/common'
 import { createTrackStatusNotification } from '../../services/notification'
+import { getStatusText } from '../../utils/functions'
 import { throwError } from '../../utils/throw-error'
 
 export const updateTrack = async (req: Request, res: Response) => {
@@ -23,7 +29,8 @@ export const updateTrack = async (req: Request, res: Response) => {
     },
     select: {
       title: true,
-      primaryArtistId: true
+      primaryArtistId: true,
+      trackKey: true
     }
   })
 
@@ -44,6 +51,28 @@ export const updateTrack = async (req: Request, res: Response) => {
       trackTitle: track.title,
       status
     })
+  }
+
+  // If status is set to PENDING, send message to SQS to reprocess the track
+  if (status === 'PENDING' && track.trackKey) {
+    const s3EventBridgeMessage = sqsBuildS3EventBridgeMessage({
+      bucketName: awsEnv.awsS3Bucket,
+      key: track.trackKey
+    })
+
+    const messageSent = await sqsSendMessage(s3EventBridgeMessage)
+
+    if (messageSent) {
+      res.status(201).json({
+        message: `Track status updated to ${getStatusText({ status })} and queued for reprocessing.`
+      })
+      return
+    } else {
+      res.status(201).json({
+        message: `Track status updated to ${getStatusText({ status })}, but failed to queue for reprocessing.`
+      })
+      return
+    }
   }
 
   res.status(200).json({ message: 'Track updated successfully' })
