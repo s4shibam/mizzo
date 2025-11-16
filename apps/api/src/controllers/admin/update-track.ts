@@ -2,18 +2,17 @@ import { Request, Response } from 'express'
 
 import { z } from 'zod'
 
-import { prisma, Status } from '@mizzo/prisma'
+import { prisma, Status, type Prisma } from '@mizzo/prisma'
 
 import { STATUS_LIST } from '../../constants/common'
 import { createTrackStatusNotification } from '../../services/notification'
-import { getStatusText } from '../../utils/functions'
 import { throwError } from '../../utils/throw-error'
 
 export const updateTrack = async (req: Request, res: Response) => {
   const { trackId } = zUpdateTrackParams.parse(req.params)
   const { status } = zUpdateTrackReqBody.parse(req.body)
 
-  const data: { status: Status; isPublic: boolean } = {
+  const data: Prisma.TrackUpdateInput = {
     status,
     isPublic: status === 'PUBLISHED'
   }
@@ -39,15 +38,15 @@ export const updateTrack = async (req: Request, res: Response) => {
     data
   })
 
-  createTrackStatusNotification({
-    userId: track.primaryArtistId,
-    trackTitle: track.title,
-    status
-  })
+  if (status) {
+    createTrackStatusNotification({
+      userId: track.primaryArtistId,
+      trackTitle: track.title,
+      status
+    })
+  }
 
-  res.status(201).json({
-    message: `Track status updated to ${getStatusText({ status })}`
-  })
+  res.status(200).json({ message: 'Track updated successfully' })
 }
 
 const zUpdateTrackParams = z.object({
@@ -55,5 +54,5 @@ const zUpdateTrackParams = z.object({
 })
 
 const zUpdateTrackReqBody = z.object({
-  status: z.enum(STATUS_LIST as [Status, ...Status[]])
+  status: z.enum(STATUS_LIST as [Status, ...Status[]]).optional()
 })
