@@ -7,6 +7,7 @@ import { Prisma, prisma, type User } from '@mizzo/prisma'
 import { cache } from '../../services/cache'
 import { getCacheKey } from '../../utils/functions'
 import { throwError } from '../../utils/throw-error'
+import { zPagination } from '../../utils/zod'
 
 export const searchUsersByUserName = async (req: Request, res: Response) => {
   const { search } = zSearchUsersByUserNameReqParams.parse(req.params)
@@ -200,7 +201,4 @@ const zSearchUsersByUserNameReqParams = z.object({
     .transform((val) => val.trim())
 })
 
-const zSearchUsersByUserNameReqQuery = z.object({
-  currentPage: z.coerce.number().positive().default(1),
-  perPage: z.coerce.number().positive().default(10)
-})
+const zSearchUsersByUserNameReqQuery = zPagination
