@@ -70,6 +70,7 @@
     "hmget",
     "hmset",
     "ianvs",
+    "kbps",
     "libquery",
     "logtail",
     "mizzo",

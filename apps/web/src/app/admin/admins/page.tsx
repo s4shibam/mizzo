@@ -44,7 +44,10 @@ const AdminAdminsPage = () => {
   const { isOpen, open, close } = useOpenClose()
   const { data: session, update } = useSession()
   const { qParams, updateQParams } = useQueryParams()
-  const [searchInput, setSearchInput, search] = useDebounce(qParams.search || '', 500)
+  const [searchInput, setSearchInput, search] = useDebounce(
+    qParams.search || '',
+    500
+  )
 
   const currentPage = Number(qParams.currentPage) || 1
 
