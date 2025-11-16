@@ -1,46 +1,70 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useMemo } from 'react'
 
 import {
-  Drawer,
+  Input,
+  Pagination,
   Select,
   Table,
-  Tag,
   Tooltip,
   type SelectProps,
   type TableColumnsType
 } from 'antd'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
-import { LuBan, LuEye, LuEyeOff } from 'react-icons/lu'
-
-import { cn } from '@mizzo/utils'
+import { LuBan, LuEye, LuEyeOff, LuSearch } from 'react-icons/lu'
 
 import ARTIST_AVATAR_PLACEHOLDER from '@/assets/placeholders/artist-avatar.webp'
 import TRACK_POSTER_PLACEHOLDER from '@/assets/placeholders/track-poster.webp'
 import { ErrorInfo } from '@/components/common/error-info'
 import { ImageWithFallback } from '@/components/common/image-with-fallback'
 import { useGetAllTracks, useUpdateTrack } from '@/hooks/api/admin'
-import { useDrawerWidth } from '@/hooks/custom/use-drawer-width'
+import { useDebounce } from '@/hooks/custom/use-debounce'
+import { useQueryParams } from '@/hooks/custom/use-query-params'
 import {
-  getDurationInHMSWithText,
+  getDurationInHMS,
   getFormattedDate,
   getFormattedTime
 } from '@/lib/dayjs'
-import { getStatusInfo, s3GetUrlFromKey } from '@/lib/utils'
+import { getLanguageList, getStatusInfo, s3GetUrlFromKey } from '@/lib/utils'
 import { invalidateQueries } from '@/services/tanstack'
 import type { TStatus } from '@/types/index'
 import type { Track } from '@/types/track'
 
 const AdminTracksPage = () => {
-  const { drawerWidth } = useDrawerWidth()
-  const [selectedTrack, setSelectedTrack] = useState<Track | null>(null)
+  const { qParams, updateQParams } = useQueryParams()
+  const [searchInput, setSearchInput, search] = useDebounce(
+    qParams.search || '',
+    500
+  )
+
+  const currentPage = Number(qParams.currentPage) || 1
+  const status = qParams.status as TStatus | undefined
+  const language = qParams.language
+  const isPublic = qParams.isPublic ? qParams.isPublic === 'true' : undefined
+
   const {
     data: tracks,
     isLoading: isTracksLoading,
     error: tracksError
-  } = useGetAllTracks()
+  } = useGetAllTracks({
+    currentPage,
+    search,
+    status,
+    isPublic,
+    language
+  })
+
+  useEffect(() => {
+    if (search !== (qParams.search || '')) {
+      updateQParams({
+        search: search || undefined,
+        currentPage: '1'
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search])
 
   const { mutate: updateTrackMutation, isPending: isTrackUpdatePending } =
     useUpdateTrack({
@@ -48,7 +72,6 @@ const AdminTracksPage = () => {
       onSuccess: (success) => {
         toast.success(success?.message)
         invalidateQueries({ queryKey: ['useGetAllTracks'] })
-        setSelectedTrack(null)
       }
     })
 
@@ -56,15 +79,37 @@ const AdminTracksPage = () => {
     updateTrackMutation({ id, data: { status: newStatus } })
   }
 
+  const handlePageChange = (page: number) => {
+    updateQParams({
+      currentPage: page.toString()
+    })
+  }
+
+  const handleFilterChange = (key: string, value: string | undefined) => {
+    updateQParams({
+      [key]: value,
+      currentPage: '1'
+    })
+  }
+
+  const languageOptions: SelectProps<string>['options'] = useMemo(() => {
+    return getLanguageList().map((lang) => ({
+      label: lang,
+      value: lang
+    }))
+  }, [])
+
   const columns: TableColumnsType<Track> = [
     {
       title: 'Title',
       dataIndex: 'title',
+      fixed: 'left',
+      width: 350,
       render: (title, record) => {
         return (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3.5">
             <Link
-              className="relative size-[70px] overflow-hidden rounded-md"
+              className="relative size-16 shrink-0 overflow-hidden rounded-lg shadow-sm ring-1 ring-black/5 transition-all hover:scale-105 hover:shadow-md"
               href={`/track/${record?.id}?as=admin`}
             >
               <ImageWithFallback
@@ -77,83 +122,125 @@ const AdminTracksPage = () => {
               />
             </Link>
 
-            <div>
-              <div className="grid w-fit grid-cols-[auto_1.2rem] items-center gap-2">
-                <Tooltip title={title}>
-                  <p className="line-clamp-1">{title}</p>
-                </Tooltip>
+            <div className="min-w-0 flex-1">
+              <Tooltip title={title}>
+                <p className="line-clamp-1 text-base font-semibold text-zinc-900">
+                  {title}
+                </p>
+              </Tooltip>
 
+              <div className="mt-1 flex items-center gap-1">
+                <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium capitalize text-zinc-700">
+                  {record?.language}
+                </span>
+                <span className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-700">
+                  {getDurationInHMS(record?.duration)}
+                </span>
                 <Tooltip title={record?.isPublic ? 'Public' : 'Private'}>
-                  {record?.isPublic ? (
-                    <LuEye className="size-full text-green-600" />
-                  ) : (
-                    <LuEyeOff className="size-full text-red-600" />
-                  )}
+                  <p className="rounded-full bg-zinc-100 px-2.5 py-0.5">
+                    {record?.isPublic ? (
+                      <LuEye className="size-4 text-emerald-600" />
+                    ) : (
+                      <LuEyeOff className="size-4 text-zinc-400" />
+                    )}
+                  </p>
                 </Tooltip>
               </div>
-
-              <p className="truncate capitalize">
-                {record?.language} &#8226;{' '}
-                {getDurationInHMSWithText({
-                  secs: record?.duration
-                })}
-              </p>
             </div>
           </div>
         )
       }
     },
     {
-      title: 'Primary Artist',
+      title: 'Artists',
       dataIndex: 'primaryArtist',
-      render: (primaryArtist) => (
-        <Tooltip
-          placement="left"
-          title={
-            <ImageWithFallback
-              alt={primaryArtist?.name}
-              className="rounded-md"
-              draggable={false}
-              fallbackSrc={ARTIST_AVATAR_PLACEHOLDER}
-              height={75}
-              src={s3GetUrlFromKey(primaryArtist?.profile?.avatarKey)}
-              width={75}
-            />
-          }
-        >
-          <Link
-            className="w-full truncate text-base hover:underline"
-            href={`/artist/${primaryArtist?.id}?as=admin`}
-          >
-            {primaryArtist?.name}
-          </Link>
-        </Tooltip>
-      )
+      width: 250,
+      render: (_primaryArtist, record) => {
+        const artists = [
+          record?.primaryArtist,
+          ...(record?.secondaryArtists ?? [])
+        ]
+
+        return (
+          <div className="flex flex-col gap-1.5">
+            {artists.map((artist, index) => {
+              if (!artist) {
+                return null
+              }
+
+              return (
+                <Link
+                  key={`${artist.id}-${index}`}
+                  className="flex w-fit items-center gap-1 rounded-full bg-zinc-100 p-0.5 pr-2 text-base text-zinc-700 transition-all hover:bg-zinc-200 hover:text-zinc-900"
+                  href={`/artist/${artist.id}?as=admin`}
+                >
+                  <ImageWithFallback
+                    alt={artist.name}
+                    className="size-6 rounded-full border border-white/60 object-cover shadow-sm"
+                    draggable={false}
+                    fallbackSrc={ARTIST_AVATAR_PLACEHOLDER}
+                    height={24}
+                    src={s3GetUrlFromKey(artist.profile?.avatarKey)}
+                    width={24}
+                  />
+                  <span className="truncate text-sm">{artist.name}</span>
+                </Link>
+              )
+            })}
+          </div>
+        )
+      }
     },
     {
       title: 'Uploaded On',
       dataIndex: 'createdAt',
+      width: 150,
       render: (createdAt) => (
-        <div>
-          <p>{getFormattedDate(createdAt)}</p>
-
-          <p>{getFormattedTime(createdAt)}</p>
+        <div className="space-y-0.5">
+          <p className="text-xs text-zinc-700">{getFormattedDate(createdAt)}</p>
+          <p className="text-xs text-zinc-500">{getFormattedTime(createdAt)}</p>
         </div>
       )
     },
     {
-      title: 'Status',
-      dataIndex: 'status',
-      render: (status) => {
-        const tag = getStatusInfo(status)
-        return <Tag color={tag.color}>{tag.text}</Tag>
+      title: 'Stats',
+      dataIndex: '_count',
+      render: (_count, record) => {
+        const likes = record?.likes ?? _count?.likedTrack ?? 0
+        const listens = record?.listens ?? 0
+        const playlistAdds = _count?.playlistTracks ?? 0
+
+        return (
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs text-zinc-500">Likes</span>
+              <span className="rounded-md bg-pink-50 px-2 py-0.5 text-xs font-semibold text-pink-700">
+                {likes}
+              </span>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs text-zinc-500">Listens</span>
+              <span className="rounded-md bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-700">
+                {listens}
+              </span>
+            </div>
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-xs text-zinc-500">Playlist Adds</span>
+              <span className="rounded-md bg-indigo-50 px-2 py-0.5 text-xs font-semibold text-indigo-700">
+                {playlistAdds}
+              </span>
+            </div>
+          </div>
+        )
       }
     },
     {
-      title: 'Update Status To',
+      title: 'Status',
       fixed: 'right',
-      width: 200,
+      width: 150,
       render: (record: Track) => {
+        const color = getStatusInfo(record?.status).color
+
         const statusOptions: SelectProps<TStatus>['options'] = [
           { value: 'PENDING', label: 'Pending' },
           { value: 'REVIEWING', label: 'Reviewing' },
@@ -164,16 +251,24 @@ const AdminTracksPage = () => {
         return (
           <div className="flex w-fit items-center gap-2">
             <Select
-              className="w-fit min-w-32"
+              className="w-fit min-w-28"
               defaultValue={record?.status}
               options={statusOptions}
               placeholder="Select status"
               onChange={(newStatus) => handleUpdateTrack(record?.id, newStatus)}
             />
-            {record?.status === 'PENDING' && (
-              <Tooltip title="This track is being processed now.">
+            {record?.status === 'PENDING' ? (
+              <Tooltip
+                placement="left"
+                title="This track is being processed now."
+              >
                 <LuBan className="size-4 shrink-0 text-amber-500" />
               </Tooltip>
+            ) : (
+              <div
+                className="size-4 rounded-full"
+                style={{ backgroundColor: color }}
+              />
             )}
           </div>
         )
@@ -181,94 +276,88 @@ const AdminTracksPage = () => {
     }
   ]
 
-  if (tracksError) {
-    return <ErrorInfo error={tracksError} />
-  }
-
-  const close = () => {
-    setSelectedTrack(null)
-  }
-
-  const trackDetails = selectedTrack
-    ? [
-        { name: 'id', value: selectedTrack.id },
-        { name: 'title', value: selectedTrack.title },
-        { name: 'primary artist', value: selectedTrack.primaryArtist?.name },
-        {
-          name: 'status',
-          value: getStatusInfo(selectedTrack.status).text
-        },
-        { name: 'language', value: selectedTrack.language },
-        {
-          name: 'duration',
-          value: getDurationInHMSWithText({
-            secs: selectedTrack.duration
-          })
-        },
-        { name: 'likes', value: selectedTrack.likes },
-        { name: 'listens', value: selectedTrack.listens || 0 },
-        { name: 'tags', value: selectedTrack.tags },
-        {
-          name: 'visibility',
-          value: selectedTrack.isPublic ? 'Public' : 'Private'
-        },
-        {
-          name: 'poster url',
-          value: s3GetUrlFromKey(selectedTrack.posterKey)
-        },
-        {
-          name: 'track url',
-          value: s3GetUrlFromKey(selectedTrack.trackKey)
-        },
-        {
-          name: 'uploaded on',
-          value: getFormattedDate(selectedTrack.createdAt)
-        }
-      ]
-    : []
-
   return (
     <div className="relative">
-      <Table
-        columns={columns}
-        dataSource={tracks?.data}
-        loading={isTracksLoading || isTrackUpdatePending}
-        pagination={false}
-        rowKey={(record) => record?.id}
-        scroll={{ x: 'max-content' }}
-        sticky={{ offsetHeader: 0 }}
-        onRow={(record) => {
-          return {
-            onDoubleClick: () => setSelectedTrack(record)
-          }
-        }}
-      />
+      <div className="sticky top-0 z-10 -mt-4 flex items-center gap-3 bg-white py-4">
+        <Input
+          allowClear
+          className="min-w-60 flex-1"
+          placeholder="Search by title or artist name..."
+          prefix={<LuSearch className="text-zinc-400" />}
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
 
-      <Drawer
-        destroyOnClose
-        className="relative size-full"
-        open={!!selectedTrack}
-        placement="right"
-        prefixCls="accent-drawer"
-        title="Track Details"
-        width={drawerWidth}
-        onClose={close}
-      >
-        <div className="space-y-4">
-          {trackDetails.map((detail) => (
-            <div key={detail.name}>
-              <h4 className="font-medium capitalize">{detail.name}</h4>
-              <p
-                className={cn('mz-pill line-clamp-1 w-full max-w-80 truncate', {
-                  capitalize: !['poster url', 'track url'].includes(detail.name)
-                })}
-              >
-                {detail.value}
-              </p>
-            </div>
-          ))}
-        </div>
-      </Drawer>
+        <Select
+          allowClear
+          className="w-40"
+          options={[
+            { label: 'All Tracks', value: undefined },
+            { label: 'Public', value: 'true' },
+            { label: 'Private', value: 'false' }
+          ]}
+          placeholder="Visibility"
+          value={
+            isPublic === undefined ? undefined : isPublic ? 'true' : 'false'
+          }
+          onChange={(value) => handleFilterChange('isPublic', value)}
+        />
+
+        <Select
+          allowClear
+          className="w-40"
+          options={[
+            { label: 'All Status', value: undefined },
+            { label: 'Pending', value: 'PENDING' },
+            { label: 'Processing', value: 'PROCESSING' },
+            { label: 'Reviewing', value: 'REVIEWING' },
+            { label: 'Published', value: 'PUBLISHED' },
+            { label: 'Blocked', value: 'BLOCKED' },
+            { label: 'Failed', value: 'FAILED' }
+          ]}
+          placeholder="Status"
+          value={status}
+          onChange={(value) => handleFilterChange('status', value)}
+        />
+
+        <Select<string>
+          allowClear
+          showSearch
+          className="w-40"
+          optionFilterProp="label"
+          options={languageOptions}
+          placeholder="Language"
+          value={language}
+          onChange={(value) => handleFilterChange('language', value)}
+        />
+      </div>
+
+      {!tracksError && (
+        <Table
+          columns={columns}
+          dataSource={tracks?.data}
+          loading={isTracksLoading || isTrackUpdatePending}
+          pagination={false}
+          rowKey={(record) => record?.id}
+          scroll={{ x: 'max-content' }}
+          sticky={{ offsetHeader: 64 }}
+        />
+      )}
+
+      {tracksError && <ErrorInfo error={tracksError} />}
+
+      {tracks?.pagination && (
+        <Pagination
+          className="mt-6 flex w-full justify-end"
+          current={currentPage}
+          pageSize={tracks?.pagination?.perPage}
+          showTotal={(total, range) =>
+            `${range[0]}-${range[1]} of ${total} tracks`
+          }
+          total={tracks.pagination.totalItems}
+          onChange={handlePageChange}
+        />
+      )}
     </div>
   )
 }
