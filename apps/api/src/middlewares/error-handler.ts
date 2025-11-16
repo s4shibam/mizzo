@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express'
 
 import { ZodError } from 'zod'
+import { generateErrorMessage } from 'zod-error'
 
 import { log } from '@mizzo/logger'
 import { Prisma } from '@mizzo/prisma'
@@ -36,8 +37,25 @@ export const errorHandler = (
 
 const handleZodError = (err: ZodError): TError => {
   const invalidFields = err.errors.map((error) => error.path.join('.'))
+
+  const formattedMessage = generateErrorMessage(err.issues, {
+    maxErrors: 1,
+    path: {
+      enabled: false
+    },
+    code: {
+      enabled: false
+    },
+    message: {
+      enabled: true,
+      label: ''
+    }
+  })
+
   return {
-    message: 'Invalid input. Please check your entries and try again.',
+    message:
+      formattedMessage ||
+      'Invalid input. Please check your entries and try again.',
     statusCode: 400,
     validationError: {
       fields: invalidFields,
