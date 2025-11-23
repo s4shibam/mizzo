@@ -335,7 +335,7 @@ const zGetArtistDashboardSummaryReqQuery = z.object({
         return Number(value)
       }
       return value
-    }, z.number().min(7).max(365))
+    }, z.number().min(7).max(999))
     .optional()
 })
 

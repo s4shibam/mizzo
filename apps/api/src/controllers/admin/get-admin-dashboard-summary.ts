@@ -215,7 +215,7 @@ const zGetAdminDashboardSummaryReqQuery = z.object({
       }
 
       return value
-    }, z.number().min(1).max(366))
+    }, z.number().min(1).max(999))
     .optional()
 })
 
