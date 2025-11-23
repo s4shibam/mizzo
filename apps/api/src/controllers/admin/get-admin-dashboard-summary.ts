@@ -163,7 +163,7 @@ export const getAdminDashboardSummary = async (req: Request, res: Response) => {
           name: playlist.name,
           likes: playlist.likes,
           status: playlist.status,
-          trackCount: playlist._count.playlistTracks,
+          trackCount: Number(playlist._count.playlistTracks),
           posterKey: playlist.posterKey,
           owner: {
             id: playlist.owner.id,
@@ -360,7 +360,7 @@ const getTrackAggregations = async ({
   const trackCount = trackStatuses.reduce<TTrackCount>(
     (acc, current) => {
       const key = current.status
-      acc[key] = current._count._all
+      acc[key] = Number(current._count._all)
       return acc
     },
     { ...baseTrackCount }
@@ -372,7 +372,7 @@ const getTrackAggregations = async ({
     tracksCreatedPrevious,
     trackLikesCurrent,
     trackLikesPrevious,
-    totalTrackListens: trackListensSum._sum.listens ?? 0
+    totalTrackListens: Number(trackListensSum._sum.listens ?? 0)
   }
 }
 
@@ -434,7 +434,7 @@ const getPlaylistAggregations = async ({
   const playlistCount = playlistStatuses.reduce<TPlaylistCount>(
     (acc, current) => {
       const key = current.status
-      acc[key] = current._count._all
+      acc[key] = Number(current._count._all)
       return acc
     },
     { ...basePlaylistCount }
@@ -477,42 +477,42 @@ const getTimelineRows = async ({ startDate }: TGetTimelineRowsArgs) => {
       SELECT generate_series(${startDate}::date, DATE_TRUNC('day', NOW())::date, '1 day') AS day
     ),
     user_counts AS (
-      SELECT DATE("createdAt") AS bucket, COUNT(*) AS count
+      SELECT DATE("createdAt") AS bucket, COUNT(*)::int AS count
       FROM "users"
       WHERE "createdAt" >= ${startDate}
       GROUP BY bucket
     ),
     track_counts AS (
-      SELECT DATE("createdAt") AS bucket, COUNT(*) AS count
+      SELECT DATE("createdAt") AS bucket, COUNT(*)::int AS count
       FROM "tracks"
       WHERE "createdAt" >= ${startDate}
       GROUP BY bucket
     ),
     playlist_counts AS (
-      SELECT DATE("createdAt") AS bucket, COUNT(*) AS count
+      SELECT DATE("createdAt") AS bucket, COUNT(*)::int AS count
       FROM "playlists"
       WHERE "createdAt" >= ${startDate}
       GROUP BY bucket
     ),
     track_likes AS (
-      SELECT DATE("createdAt") AS bucket, COUNT(*) AS count
+      SELECT DATE("createdAt") AS bucket, COUNT(*)::int AS count
       FROM "liked_tracks"
       WHERE "createdAt" >= ${startDate}
       GROUP BY bucket
     ),
     playlist_likes AS (
-      SELECT DATE("createdAt") AS bucket, COUNT(*) AS count
+      SELECT DATE("createdAt") AS bucket, COUNT(*)::int AS count
       FROM "liked_playlists"
       WHERE "createdAt" >= ${startDate}
       GROUP BY bucket
     )
     SELECT
       series.day::date AS bucket,
-      COALESCE(user_counts.count, 0) AS users,
-      COALESCE(track_counts.count, 0) AS tracks,
-      COALESCE(playlist_counts.count, 0) AS playlists,
-      COALESCE(track_likes.count, 0) AS "trackLikes",
-      COALESCE(playlist_likes.count, 0) AS "playlistLikes"
+      COALESCE(user_counts.count, 0)::int AS users,
+      COALESCE(track_counts.count, 0)::int AS tracks,
+      COALESCE(playlist_counts.count, 0)::int AS playlists,
+      COALESCE(track_likes.count, 0)::int AS "trackLikes",
+      COALESCE(playlist_likes.count, 0)::int AS "playlistLikes"
     FROM series
     LEFT JOIN user_counts ON user_counts.bucket = series.day::date
     LEFT JOIN track_counts ON track_counts.bucket = series.day::date
@@ -672,11 +672,13 @@ const getActiveArtistCount = async ({
       ? Prisma.sql`WHERE "createdAt" >= ${startDate} AND "createdAt" < ${endDate}`
       : Prisma.sql`WHERE "createdAt" >= ${startDate}`
 
-  const [result] = await prisma.$queryRaw<{ count: number }[]>(Prisma.sql`
-    SELECT COUNT(DISTINCT "primaryArtistId") AS count
+  const [result] = await prisma.$queryRaw<Array<{ count: number }>>(
+    Prisma.sql`
+    SELECT COUNT(DISTINCT "primaryArtistId")::int AS count
     FROM "tracks"
     ${parameters}
-  `)
+  `
+  )
 
   return result?.count ?? 0
 }
@@ -742,8 +744,8 @@ const mapTopArtists = async ({ groups }: TMapTopArtistsArgs) => {
       id: group.primaryArtistId,
       name: artistData?.name ?? 'Unknown Artist',
       avatarKey: artistData?.avatarKey ?? null,
-      totalTracks: group._count._all,
-      totalListens: group._sum.listens ?? 0
+      totalTracks: Number(group._count._all),
+      totalListens: Number(group._sum.listens ?? 0)
     }
   })
 }
