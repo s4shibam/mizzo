@@ -127,7 +127,7 @@ const AdminUsersPage = () => {
 
             <div className="min-w-0 flex-1">
               <Tooltip title={title}>
-                <p className="line-clamp-1 text-base font-semibold text-zinc-900">
+                <p className="line-clamp-1 text-base font-semibold">
                   {title || "User's Name"}
                 </p>
               </Tooltip>

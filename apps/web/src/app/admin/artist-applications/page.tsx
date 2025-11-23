@@ -143,7 +143,7 @@ const AdminArtistApplicationsPage = () => {
 
             <div className="min-w-0 flex-1">
               <Tooltip title={user?.name}>
-                <p className="line-clamp-1 text-base font-semibold text-zinc-900">
+                <p className="line-clamp-1 text-base font-semibold">
                   {user?.name || "User's Name"}
                 </p>
               </Tooltip>

@@ -10,7 +10,7 @@ export const Header = () => {
   const { status } = useSession()
 
   return (
-    <header className="sticky top-0 z-10 w-full border-b border-zinc-100 bg-white py-3">
+    <header className="sticky top-0 z-10 w-full border-b bg-white py-3">
       <div className="container mx-auto flex items-center justify-between px-4">
         <Branding href="/" />
 
