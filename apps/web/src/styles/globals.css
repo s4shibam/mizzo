@@ -100,3 +100,19 @@ audio::-webkit-media-controls-time-remaining-display {
 .mz-accent-drawer-form-footer {
   @apply bg-primary-light absolute bottom-0 left-0 z-10 grid w-full grid-cols-2 gap-4 p-6;
 }
+
+/* Remove focus outline from Recharts SVG elements */
+
+.recharts-wrapper svg:focus,
+.recharts-wrapper svg:focus-visible,
+.recharts-wrapper svg:active {
+  outline: none !important;
+  border: none !important;
+}
+
+.recharts-wrapper svg *:focus,
+.recharts-wrapper svg *:focus-visible,
+.recharts-wrapper svg *:active {
+  outline: none !important;
+  border: none !important;
+}
