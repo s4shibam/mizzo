@@ -812,6 +812,17 @@ const seedPlaylistTracks = async (): Promise<void> => {
 }
 
 /**
+ * Generate a random like timestamp that is after the item creation date
+ */
+const generateLikeTimestamp = (itemCreatedAt: Date): Date => {
+  const now = new Date()
+  const timeDiff = now.getTime() - itemCreatedAt.getTime()
+
+  const randomTimeOffset = Math.random() * timeDiff
+  return new Date(itemCreatedAt.getTime() + randomTimeOffset)
+}
+
+/**
  * Seed additional engagement data (likes, etc.)
  */
 const seedEngagementData = async (): Promise<void> => {
@@ -820,8 +831,12 @@ const seedEngagementData = async (): Promise<void> => {
   try {
     // Get all users and tracks for generating likes
     const users = await prisma.user.findMany({ select: { id: true } })
-    const tracks = await prisma.track.findMany({ select: { id: true } })
-    const playlists = await prisma.playlist.findMany({ select: { id: true } })
+    const tracks = await prisma.track.findMany({
+      select: { id: true, createdAt: true }
+    })
+    const playlists = await prisma.playlist.findMany({
+      select: { id: true, createdAt: true }
+    })
 
     const likedTracksToCreate: Prisma.LikedTrackCreateManyInput[] = []
     const likedPlaylistsToCreate: Prisma.LikedPlaylistCreateManyInput[] = []
@@ -835,7 +850,7 @@ const seedEngagementData = async (): Promise<void> => {
         likedTracksToCreate.push({
           userId: user.id,
           trackId: shuffledTracks[i].id,
-          createdAt: new Date()
+          createdAt: generateLikeTimestamp(shuffledTracks[i].createdAt)
         })
       }
 
@@ -847,7 +862,7 @@ const seedEngagementData = async (): Promise<void> => {
         likedPlaylistsToCreate.push({
           userId: user.id,
           playlistId: shuffledPlaylists[i].id,
-          createdAt: new Date()
+          createdAt: generateLikeTimestamp(shuffledPlaylists[i].createdAt)
         })
       }
     }
