@@ -21,9 +21,6 @@ export const EntityColumn = ({
   title
 }: EntityColumnProps) => {
   const Icon = icon
-  if (!items || !items.length) {
-    return <EmptyState description={emptyMessage ?? 'No items'} />
-  }
 
   return (
     <div className="space-y-3">
@@ -37,27 +34,29 @@ export const EntityColumn = ({
           {title}
         </span>
       </div>
-      {items.length > 0 ? (
-        <div className="space-y-2">
-          {items.map((item, idx) => {
-            return (
-              <LinkCard
-                key={item.name}
-                className={className}
-                fallbackImage={item.fallbackImage}
-                href={item.href}
-                imageKey={item.imageKey}
-                meta={item.meta}
-                name={item.name}
-                rank={idx + 1}
-                stats={item.stats}
-              />
-            )
-          })}
-        </div>
-      ) : (
-        <p className="py-4 text-xs text-zinc-400">{emptyMessage}</p>
-      )}
+      <div className="space-y-2">
+        {items?.map((item, idx) => {
+          return (
+            <LinkCard
+              key={item.name}
+              className={className}
+              fallbackImage={item.fallbackImage}
+              href={item.href}
+              imageKey={item.imageKey}
+              meta={item.meta}
+              name={item.name}
+              rank={idx + 1}
+              stats={item.stats}
+            />
+          )
+        })}
+
+        {(!items || items?.length === 0) && (
+          <div className="flex min-h-56 items-center justify-center rounded-lg border">
+            <EmptyState description={emptyMessage ?? 'No items'} />
+          </div>
+        )}
+      </div>
     </div>
   )
 }
