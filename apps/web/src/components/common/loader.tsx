@@ -28,7 +28,7 @@ export const Loader = ({
       aria-busy="true"
       aria-label={text}
       className={cn(
-        'flex size-full flex-col items-center justify-center gap-3 p-4',
+        'flex size-full flex-col items-center justify-center gap-x-2 gap-y-1 p-4',
         {
           'fixed inset-0 z-50 bg-white pt-0': fullScreen,
           'flex-row': row
@@ -37,11 +37,11 @@ export const Loader = ({
       )}
       role="alert"
     >
-      <div className="bg-primary/5 grid size-10 place-items-center rounded-lg">
+      <div className="bg-primary/5 grid size-8 place-items-center rounded-lg">
         <Image
           priority
           alt="Mizzo"
-          className="size-8"
+          className="size-5"
           draggable={false}
           height={32}
           src={MIZZO_PRIMARY_ANIMATED}
@@ -49,7 +49,7 @@ export const Loader = ({
         />
       </div>
 
-      <p className="text-lg font-medium">{text}</p>
+      <p className="text-base font-medium">{text}</p>
     </div>
   )
 }

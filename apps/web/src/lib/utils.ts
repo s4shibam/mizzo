@@ -11,12 +11,18 @@ import {
 
 import type { TStatus } from '../types'
 
-export const getUsernameFromUrl = (url?: string | null) => {
-  if (!url) return 'Not Provided'
-  const path = url.replace(/\/$/, '')
-  const parts = path.split('/')
-  const username = parts[parts.length - 1]
-  return username ? username : null
+export const formatNumber = (value: number) => {
+  const numberFormatter = new Intl.NumberFormat('en-US')
+  return numberFormatter.format(value)
+}
+
+export const formatNumberCompact = (value: number) => {
+  const compactNumberFormatter = new Intl.NumberFormat('en-US', {
+    notation: 'compact',
+    maximumFractionDigits: 2
+  })
+
+  return compactNumberFormatter.format(value)
 }
 
 export const getLanguageList = (): string[] => {
@@ -69,7 +75,7 @@ export const getStatusInfo = (
 
   const statusMap: Record<TStatus, { text: string; color: string }> = {
     PENDING: { text: 'Pending', color: 'blue' },
-    PROCESSING: { text: 'Processing', color: 'yellow' },
+    PROCESSING: { text: 'Processing', color: 'gold' },
     FAILED: { text: 'Failed', color: 'red' },
     REVIEWING: { text: 'Reviewing', color: 'orange' },
     PUBLISHED: { text: 'Published', color: 'green' },

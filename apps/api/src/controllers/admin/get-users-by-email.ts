@@ -10,6 +10,10 @@ export const getUsersByEmail = async (req: Request, res: Response) => {
   const { email } = zGetUsersByEmailReqParams.parse(req.params)
   const { take, isAdmin } = zGetUsersByEmailReqQuery.parse(req.query)
 
+  console.log('email', email)
+  console.log('take', take)
+  console.log('isAdmin', isAdmin)
+
   const users = await prisma.user.findMany({
     where: {
       email: {
@@ -51,5 +55,12 @@ const zGetUsersByEmailReqParams = z.object({
 
 const zGetUsersByEmailReqQuery = z.object({
   take: z.string().optional(),
-  isAdmin: z.boolean().optional()
+  isAdmin: z
+    .union([z.boolean(), z.string()])
+    .optional()
+    .transform((val) => {
+      if (val === undefined) return undefined
+      if (typeof val === 'boolean') return val
+      return val === 'true'
+    })
 })

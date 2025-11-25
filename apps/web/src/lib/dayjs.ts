@@ -56,7 +56,7 @@ export const getYear = (date?: Date) => {
   return dayjs(date).year()
 }
 
-export const getFormattedDate = (date?: Date, format?: string) => {
+export const getFormattedDate = (date?: Date | string, format?: string) => {
   if (!date) return 'Not Provided'
   return dayjs(date).format(format || 'ddd, MMM DD, YYYY')
 }

@@ -7,7 +7,7 @@
     "start": "dotenv -e ../../.env -- next start",
     "build": "rm -rf .next && next build",
     "dev": "dotenv -e ../../.env -- next dev -p 3000",
-    "lint": "next lint",
+    "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf .turbo .next node_modules"
   },
@@ -31,6 +31,7 @@
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.5.2",
     "react-icons": "^5.5.0",
+    "recharts": "^3.4.1",
     "tailwindcss": "^3.4.3"
   },
   "devDependencies": {

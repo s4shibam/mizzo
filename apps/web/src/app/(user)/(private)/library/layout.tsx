@@ -28,7 +28,7 @@ const LibraryLayout = ({ children }: { children: ReactNode }) => {
     <>
       <div className="sticky top-4 z-50 mb-4 flex items-center justify-between bg-white">
         <Segmented
-          className="p-1 [&>.ant-segmented-group]:gap-1"
+          className="p-1 [&>.ant-segmented-group]:gap-1 [&_.ant-segmented-item-selected]:shadow-none"
           options={[
             { label: 'My Playlists', value: 'my-playlists' },
             { label: 'Liked Playlists', value: 'liked-playlists' }

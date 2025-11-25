@@ -19,7 +19,7 @@ const Testimonial = ({
   rating
 }: TestimonialProps) => {
   return (
-    <div className="flex flex-col rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition-all hover:shadow-md">
+    <div className="flex flex-col rounded-xl border bg-white p-6 shadow-sm transition-all hover:shadow-md">
       <div className="mb-6 flex">
         {Array.from({ length: rating }).map((_, i) => (
           <FiStar key={i} className="size-5 fill-yellow-400 text-yellow-400" />

@@ -115,7 +115,7 @@ const GetPremium = () => {
           {premiumFeatures.map((feature, index) => (
             <div
               key={index}
-              className="hover:border-primary flex flex-col items-center gap-4 rounded-xl border border-zinc-100 bg-white p-6 shadow-sm transition-all hover:scale-105 hover:transform hover:shadow-lg"
+              className="hover:border-primary flex flex-col items-center gap-4 rounded-xl border bg-white p-6 shadow-sm transition-all hover:scale-105 hover:transform hover:shadow-lg"
             >
               <div className="bg-primary/10 text-primary grid size-14 place-items-center rounded-full">
                 <feature.icon className="size-7" />
@@ -213,7 +213,7 @@ const ComparisonTable = () => {
   ]
 
   return (
-    <div className="w-full max-w-3xl overflow-hidden rounded-xl border border-zinc-100 bg-white shadow-md">
+    <div className="w-full max-w-3xl overflow-hidden rounded-xl border bg-white shadow-md">
       <div className="grid grid-cols-3 border-b bg-zinc-50 p-4 text-center">
         <div className="text-lg font-bold">Features</div>
         <div className="text-lg font-bold">Free</div>

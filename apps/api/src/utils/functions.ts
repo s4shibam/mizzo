@@ -239,3 +239,37 @@ export const getS3Key = (params: TGetS3KeyParams): string | null => {
 
   return `${S3_DIRECTORIES[params.directory]}/${params.fileName}`
 }
+
+type TChangeMeta = {
+  percentage: number
+  absolute: number
+  trend: 'up' | 'down' | 'flat'
+}
+
+export const buildChangeMeta = (
+  current: number,
+  previous: number
+): TChangeMeta => {
+  if (current === 0 && previous === 0) {
+    return {
+      percentage: 0,
+      absolute: 0,
+      trend: 'flat'
+    }
+  }
+
+  const absolute = current - previous
+  const percentage =
+    previous === 0 ? (current > 0 ? 100 : 0) : (absolute / previous) * 100
+
+  let trend: TChangeMeta['trend'] = 'flat'
+
+  if (absolute > 0) trend = 'up'
+  if (absolute < 0) trend = 'down'
+
+  return {
+    percentage,
+    absolute,
+    trend
+  }
+}

@@ -2,6 +2,11 @@ import type { TStatus } from '.'
 
 import { type Artist } from './user'
 
+export type Track_Count = {
+  likedTrack: number
+  playlistTracks: number
+}
+
 export type Track = {
   id: string
   primaryArtistId: string
@@ -20,4 +25,5 @@ export type Track = {
   updatedAt: Date
   primaryArtist: Artist
   secondaryArtists: Artist[]
+  _count?: Track_Count
 }

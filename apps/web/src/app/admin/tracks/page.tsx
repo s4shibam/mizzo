@@ -124,9 +124,7 @@ const AdminTracksPage = () => {
 
             <div className="min-w-0 flex-1">
               <Tooltip title={title}>
-                <p className="line-clamp-1 text-base font-semibold text-zinc-900">
-                  {title}
-                </p>
+                <p className="line-clamp-1 text-base font-semibold">{title}</p>
               </Tooltip>
 
               <div className="mt-1 flex items-center gap-1">

@@ -18,6 +18,8 @@ export type TStatus =
   | 'PUBLISHED'
   | 'BLOCKED'
 
+export type TTrendDirection = 'up' | 'down' | 'flat'
+
 export type Notification = {
   id: number
   userId: string
