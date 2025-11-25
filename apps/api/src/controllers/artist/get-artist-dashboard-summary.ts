@@ -350,14 +350,14 @@ const getTimelineRows = ({ artistId, startDate }: TGetTimelineRowsArgs) => {
       SELECT generate_series(${startDate}::date, DATE_TRUNC('day', NOW())::date, '1 day') AS day
     ),
     track_counts AS (
-      SELECT DATE("createdAt") AS bucket, COUNT(*) AS count
+      SELECT DATE("createdAt") AS bucket, COUNT(*)::int AS count
       FROM "tracks"
       WHERE "createdAt" >= ${startDate}
         AND "primaryArtistId" = ${artistId}
       GROUP BY bucket
     ),
     track_likes AS (
-      SELECT DATE(lt."createdAt") AS bucket, COUNT(*) AS count
+      SELECT DATE(lt."createdAt") AS bucket, COUNT(*)::int AS count
       FROM "liked_tracks" lt
       JOIN "tracks" t ON t."id" = lt."trackId"
       WHERE lt."createdAt" >= ${startDate}
@@ -365,7 +365,7 @@ const getTimelineRows = ({ artistId, startDate }: TGetTimelineRowsArgs) => {
       GROUP BY bucket
     ),
     playlist_adds AS (
-      SELECT DATE(pt."createdAt") AS bucket, COUNT(*) AS count
+      SELECT DATE(pt."createdAt") AS bucket, COUNT(*)::int AS count
       FROM "playlist_tracks" pt
       JOIN "tracks" t ON t."id" = pt."trackId"
       WHERE pt."createdAt" >= ${startDate}
@@ -374,9 +374,9 @@ const getTimelineRows = ({ artistId, startDate }: TGetTimelineRowsArgs) => {
     )
     SELECT
       series.day::date AS bucket,
-      COALESCE(track_counts.count, 0) AS tracks,
-      COALESCE(track_likes.count, 0) AS "trackLikes",
-      COALESCE(playlist_adds.count, 0) AS "playlistAdds"
+      COALESCE(track_counts.count, 0)::int AS tracks,
+      COALESCE(track_likes.count, 0)::int AS "trackLikes",
+      COALESCE(playlist_adds.count, 0)::int AS "playlistAdds"
     FROM series
     LEFT JOIN track_counts ON track_counts.bucket = series.day::date
     LEFT JOIN track_likes ON track_likes.bucket = series.day::date
