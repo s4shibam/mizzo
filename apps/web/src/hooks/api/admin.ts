@@ -4,7 +4,7 @@ import type { TPaginationParams } from '@mizzo/utils'
 
 import { api } from '@/services/api'
 import type { TApiPromise, TMutationOpts, TQueryOpts } from '@/types/api'
-import type { TStatus } from '@/types/index'
+import type { TStatus, TTrendDirection } from '@/types/index'
 import { Playlist } from '@/types/playlist'
 import { Track } from '@/types/track'
 import { ArtistApplication, User } from '@/types/user'
@@ -65,47 +65,136 @@ type TManageArtistApplicationPayload = {
   isApproved: boolean | null
 }
 
-type TAdminDashboardSummary = {
-  userCount: {
-    total: number
-    artist: number
-    normal: number
-    public: number
-    private: number
-    admin: number
-  }
-  trackCount: {
-    total: number
-    public: number
-    private: number
-    pending: number
-    processing: number
-    failed: number
-    reviewing: number
-    published: number
-    blocked: number
-  }
-  playlistCount: {
-    total: number
-    public: number
-    private: number
-    reviewing: number
-    published: number
-    blocked: number
-  }
-  lastNDaysCount: {
-    n: number
-    users: number
-    tracks: number
-    playlists: number
-    trackLikes: number
-    playlistLikes: number
+type TOverviewMetric = {
+  label: string
+  value: number
+  change: {
+    percentage: number
+    absolute: number
+    trend: TTrendDirection
+    referenceWindowInDays: number
   }
 }
 
+type TTimelinePoint = {
+  date: string
+  users: number
+  tracks: number
+  playlists: number
+  trackLikes: number
+  playlistLikes: number
+}
+
+type TVisibilitySlice = {
+  label: 'Public' | 'Private'
+  value: number
+}
+
+type TTopTrack = {
+  id: string
+  title: string
+  status: TStatus
+  listens: number
+  likes: number
+  posterKey: string | null
+  artist: {
+    id: string
+    name: string
+  }
+}
+
+type TTopPlaylist = {
+  id: string
+  name: string
+  likes: number
+  status: TStatus
+  trackCount: number
+  posterKey: string | null
+  owner: {
+    id: string
+    name: string
+  }
+}
+
+type TTopArtist = {
+  id: string
+  name: string
+  avatarKey: string | null
+  totalTracks: number
+  totalListens: number
+}
+
+type TReviewQueueTrack = {
+  id: string
+  title: string
+  status: TStatus
+  submittedAt: string
+  artistName: string
+  posterKey: string | null
+}
+
+type TReviewQueuePlaylist = {
+  id: string
+  name: string
+  status: TStatus
+  submittedAt: string
+  ownerName: string
+  posterKey: string | null
+}
+
+type TReviewQueueArtistApplication = {
+  id: number
+  name: string
+  submittedAt: string
+  avatarKey: string | null
+}
+
+export type TAdminDashboardSummary = {
+  generatedAt: string
+  overview: TOverviewMetric[]
+  userCount: {
+    total: number
+    artist: number
+    public: number
+    admin: number
+    premium: number
+  }
+  timeline: {
+    points: TTimelinePoint[]
+  }
+  trackPipeline: {
+    statuses: Array<{
+      status: TStatus
+      value: number
+    }>
+  }
+  playlistInsights: {
+    visibility: TVisibilitySlice[]
+  }
+  topEntities: {
+    tracks: TTopTrack[]
+    playlists: TTopPlaylist[]
+    artists: TTopArtist[]
+  }
+  reviewQueues: {
+    tracks: TReviewQueueTrack[]
+    playlists: TReviewQueuePlaylist[]
+    artistApplications: TReviewQueueArtistApplication[]
+  }
+  aggregate: {
+    totalTrackListens: number
+  }
+}
+
+type TGetAdminDashboardSummaryParams = {
+  lastNDays?: number
+}
+
 // Admin Api Endpoints
-const getAdminDashboardSummary = (): TApiPromise<TAdminDashboardSummary> => {
-  return api.get('/admin/home/dashboard-summary')
+const getAdminDashboardSummary = (
+  params?: TGetAdminDashboardSummaryParams
+): TApiPromise<TAdminDashboardSummary> => {
+  return api.get('/admin/home/dashboard-summary', { params })
 }
 
 const getAllUsers = (params?: TGetAllUsersParams): TApiPromise<User[]> => {
@@ -164,11 +253,12 @@ const manageArtistApplication = (
 // Admin Api Hooks
 
 export const useGetAdminDashboardSummary = (
+  params?: TGetAdminDashboardSummaryParams,
   opts?: TQueryOpts<TAdminDashboardSummary>
 ) => {
   return useQuery({
-    queryKey: ['useGetAdminDashboardSummary'],
-    queryFn: getAdminDashboardSummary,
+    queryKey: ['useGetAdminDashboardSummary', params],
+    queryFn: () => getAdminDashboardSummary(params),
     ...opts
   })
 }
