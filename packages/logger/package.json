@@ -20,11 +20,10 @@
   },
   "dependencies": {
     "@mizzo/utils": "*",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "winston-loki": "^6.1.2"
   },
   "devDependencies": {
-    "@logtail/node": "^0.5.2",
-    "@logtail/winston": "^0.5.2",
     "@mizzo/eslint-config": "*",
     "@mizzo/typescript-config": "*",
     "@types/node": "^22.13.9",
