@@ -53,6 +53,7 @@
   },
   // Spell checking
   "cSpell.words": [
+    "antd",
     "autoincrement",
     "awsvpc",
     "cellspacing",
