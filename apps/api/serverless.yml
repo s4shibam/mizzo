@@ -26,6 +26,7 @@ custom:
     outputWorkFolder: '.dist'
     external:
       - 'prisma'
+      - 'snappy' # Winston Loki transport dependency
     loader:
       .prisma: text
 
@@ -88,9 +89,11 @@ functions:
       AWS_ECS_TASK_DEFINITION_ARN: ${env:AWS_ECS_TASK_DEFINITION_ARN}
 
       # Monitoring & Logging
-      LOGTAIL_TOKEN: ${env:LOGTAIL_TOKEN}
+      GRAFANA_LOKI_URL: ${env:GRAFANA_LOKI_URL}
+      GRAFANA_LOKI_AUTH_TOKEN: ${env:GRAFANA_LOKI_AUTH_TOKEN}
 
       # Feature Flags
-      ENABLE_PROFANITY_CHECK: ${env:ENABLE_PROFANITY_CHECK}
-      ENABLE_RATE_LIMIT: ${env:ENABLE_RATE_LIMIT}
-      ENABLE_CACHING: ${env:ENABLE_CACHING}
+      ENABLE_PROFANITY_CHECK: ${env:ENABLE_PROFANITY_CHECK, 'false'}
+      ENABLE_RATE_LIMIT: ${env:ENABLE_RATE_LIMIT, 'false'}
+      ENABLE_CACHING: ${env:ENABLE_CACHING, 'false'}
+      ENABLE_GRAFANA_LOKI_LOGGING: ${env:ENABLE_GRAFANA_LOKI_LOGGING, 'false'}
