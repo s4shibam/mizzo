@@ -1,9 +1,9 @@
-import { Logtail } from '@logtail/node'
-import { LogtailTransport } from '@logtail/winston'
 import winston from 'winston'
+import LokiTransport from 'winston-loki'
 
-import { NODE_ENV, TIME_ZONE } from '@mizzo/utils'
+import { APP_SLUG, NODE_ENV, TIME_ZONE } from '@mizzo/utils'
 
+import { env } from './env'
 import { sanitizeData } from './utils'
 
 const logFormat = winston.format.combine(
@@ -25,28 +25,42 @@ const logFormat = winston.format.combine(
 )
 
 const getTransports = (): winston.transport[] => {
-  const logtailToken = process.env.LOGTAIL_TOKEN
-
-  if (NODE_ENV === 'development' || !logtailToken) {
+  if (!env.enableGrafanaLokiLogging) {
     return [
       new winston.transports.Console({
-        format: logFormat
-      }),
-      new winston.transports.File({
-        filename: '.logs/error.log',
-        level: 'error',
-        format: logFormat
-      }),
-      new winston.transports.File({
-        filename: '.logs/combined.log',
         format: logFormat
       })
     ]
   }
 
-  const logtail = new Logtail(logtailToken)
+  if (NODE_ENV !== 'development' && env.grafanaLokiUrl !== 'NA') {
+    return [
+      new LokiTransport({
+        host: env.grafanaLokiUrl,
+        basicAuth: env.grafanaLokiAuthToken,
+        labels: { app: APP_SLUG },
+        json: true,
+        format: logFormat,
+        replaceTimestamp: true,
+        onConnectionError: (err) => console.error('Loki connection error:', err)
+      })
+    ]
+  }
 
-  return [new LogtailTransport(logtail)]
+  return [
+    new winston.transports.Console({
+      format: logFormat
+    }),
+    new winston.transports.File({
+      filename: '.logs/error.log',
+      level: 'error',
+      format: logFormat
+    }),
+    new winston.transports.File({
+      filename: '.logs/combined.log',
+      format: logFormat
+    })
+  ]
 }
 
 const logger = winston.createLogger({
