@@ -47,8 +47,23 @@ export const useHlsPlayer = () => {
       const hls = new Hls({
         enableWorker: true,
         autoStartLoad: true,
-        startLevel: -1,
-        maxBufferLength: 30
+        startLevel: -1, // Auto-select best quality level based on bandwidth
+        // Buffer management - incremental loading (key settings to prevent loading all segments)
+        maxBufferLength: 10, // Maximum buffer length in seconds (reduced from 30 to prevent aggressive buffering)
+        maxMaxBufferLength: 20, // Hard limit on buffer length (prevents excessive buffering)
+        maxBufferSize: 30 * 1000 * 1000, // 30MB max buffer size in bytes (reduced from default 60MB)
+        maxBufferHole: 0.5, // Max gap in buffer before seeking
+        // Adaptive Bitrate Streaming (ABR) settings for quality adaptation
+        abrBandWidthFactor: 0.95, // Conservative bandwidth factor (stay on current level)
+        abrBandWidthUpFactor: 0.7, // Less aggressive up-switching (prevents rapid quality changes)
+        abrEwmaDefaultEstimate: 500000, // Default bandwidth estimate (500kbps)
+        abrEwmaFastVoD: 3, // Fast VoD bandwidth estimation (3 seconds)
+        abrEwmaSlowVoD: 9, // Slow VoD bandwidth estimation (9 seconds)
+        // Segment loading timeouts
+        fragLoadingTimeOut: 4000, // Max time to wait for fragment load (4 seconds)
+        fragLoadingMaxRetry: 3, // Max retries for failed fragment loads
+        // Prevent loading all segments at once
+        maxStarvationDelay: 4 // Max buffering delay before switching quality down
       })
 
       hlsRef.current = hls
