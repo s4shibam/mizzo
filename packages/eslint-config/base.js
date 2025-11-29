@@ -41,6 +41,7 @@ const baseConfig = [
       '**/.serverless/**',
       '**/.turbo/**',
       '**/coverage/**',
+      '**/next-env.d.ts',
       '**/node_modules/**'
     ]
   }

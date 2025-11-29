@@ -1,9 +1,9 @@
-import { Logtail } from '@logtail/node'
-import { LogtailTransport } from '@logtail/winston'
 import winston from 'winston'
+import LokiTransport from 'winston-loki'
 
-import { NODE_ENV, TIME_ZONE } from '@mizzo/utils'
+import { APP_SLUG, NODE_ENV, TIME_ZONE } from '@mizzo/utils'
 
+import { env } from './env'
 import { sanitizeData } from './utils'
 
 const logFormat = winston.format.combine(
@@ -24,45 +24,61 @@ const logFormat = winston.format.combine(
   winston.format.prettyPrint()
 )
 
-const getTransports = (): winston.transport[] => {
-  const logtailToken = process.env.LOGTAIL_TOKEN
-
-  if (NODE_ENV === 'development' || !logtailToken) {
+const getTransports = ({
+  service
+}: {
+  service: string
+}): winston.transport[] => {
+  if (!env.enableGrafanaLokiLogging) {
     return [
       new winston.transports.Console({
-        format: logFormat
-      }),
-      new winston.transports.File({
-        filename: '.logs/error.log',
-        level: 'error',
-        format: logFormat
-      }),
-      new winston.transports.File({
-        filename: '.logs/combined.log',
         format: logFormat
       })
     ]
   }
 
-  const logtail = new Logtail(logtailToken)
+  if (NODE_ENV !== 'development' && env.grafanaLokiUrl !== 'NA') {
+    return [
+      new LokiTransport({
+        host: env.grafanaLokiUrl,
+        basicAuth: env.grafanaLokiAuthToken,
+        labels: {
+          app: `${APP_SLUG}-${service}`.toLowerCase()
+        },
+        json: true,
+        format: logFormat,
+        batching: false,
+        gracefulShutdown: true,
+        onConnectionError: (err: Error) =>
+          console.error('[LOKI] Connection error:', err.message)
+      })
+    ]
+  }
 
-  return [new LogtailTransport(logtail)]
+  return [
+    new winston.transports.Console({
+      format: logFormat
+    }),
+    new winston.transports.File({
+      filename: '.logs/error.log',
+      level: 'error',
+      format: logFormat
+    }),
+    new winston.transports.File({
+      filename: '.logs/combined.log',
+      format: logFormat
+    })
+  ]
 }
-
-const logger = winston.createLogger({
-  level: NODE_ENV === 'development' ? 'debug' : 'info',
-  format: logFormat,
-  transports: getTransports(),
-  exitOnError: false
-})
 
 type TLogMeta = {
   req?: {
-    path?: string
-    method?: string
-    query?: Record<string, any>
     body?: Record<string, any>
+    id?: string
     ip?: string
+    method?: string
+    path?: string
+    query?: Record<string, any>
     userId?: string
   }
   res?: {
@@ -90,7 +106,15 @@ const createLogger =
       }
     }
 
-    logger[level](`[${app}] ${message}`, sanitizedMeta)
+    const logger = winston.createLogger({
+      level: NODE_ENV === 'development' ? 'debug' : 'info',
+      transports: getTransports({ service: app }),
+      exitOnError: false
+    })
+
+    logger[level](`[${app}] ${message}`, {
+      ...sanitizedMeta
+    })
   }
 
 export const log = {

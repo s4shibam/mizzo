@@ -143,37 +143,33 @@ const sendErrorAsResponse = (
     validationError: NODE_ENV === 'production' ? undefined : err.validationError
   }
 
-  const deviceInfo = extractUserAgentInfo(req)
-  const ip =
-    req.ip ||
-    req.socket.remoteAddress ||
-    (Array.isArray(req.headers['x-forwarded-for'])
-      ? req.headers['x-forwarded-for'][0]
-      : req.headers['x-forwarded-for']) ||
-    'unknown'
+  const isDev = NODE_ENV === 'development'
+  const ip = isDev ? undefined : req.ip
+  const query = Object.keys(req.query).length > 0 ? req.query : undefined
+  const body = Object.keys(req.body).length > 0 ? req.body : undefined
+  const userId = req.user?.id || 'anon'
+  const deviceInfo = isDev ? undefined : extractUserAgentInfo(req)
 
-  // Log the original error for debugging
   log.error({
     app: 'API',
     message: err.message,
     meta: {
       req: {
+        id: req.id,
         method: req.method,
         path: req.path,
-        query: req.query,
-        body: req.body,
-        ip: NODE_ENV !== 'development' ? ip : undefined,
-        userId: 'NA'
+        query,
+        body,
+        ip,
+        userId
       },
-      res: {
-        status: errorResponse.statusCode,
-        json: {
-          message: errorResponse.message,
-          validationError: errorResponse.validationError
-        }
+      statusCode: errorResponse.statusCode,
+      resBody: {
+        message: errorResponse.message,
+        validationError: errorResponse.validationError
       },
       stack: err.stack,
-      deviceInfo: NODE_ENV !== 'development' ? deviceInfo : undefined
+      deviceInfo
     }
   })
 

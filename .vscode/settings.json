@@ -53,6 +53,7 @@
   },
   // Spell checking
   "cSpell.words": [
+    "antd",
     "autoincrement",
     "awsvpc",
     "cellspacing",
@@ -71,8 +72,8 @@
     "hmset",
     "ianvs",
     "kbps",
+    "kolkata",
     "libquery",
-    "logtail",
     "mizzo",
     "mpegurl",
     "nextauth",

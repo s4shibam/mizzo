@@ -9,6 +9,8 @@ import { APP_SLUG_CAP } from '@mizzo/utils'
 
 import { homePage } from './controllers/home/home'
 import { errorHandler } from './middlewares/error-handler'
+import { requestIdMiddleware } from './middlewares/request-id'
+import { successHandler } from './middlewares/success-handler'
 import { adminRouter } from './routes/admin'
 import { artistRouter } from './routes/artist'
 import { notificationRouter } from './routes/notification'
@@ -30,7 +32,9 @@ app.use(json({ limit: '5mb' }))
 app.use(urlencoded({ limit: '5mb', extended: true }))
 app.use(morgan('dev'))
 
-// app.use(successHandler)
+app.use(requestIdMiddleware)
+
+app.use(successHandler)
 
 app.get('/', async (_req: Request, res: Response) => {
   res.status(200).send(homePage({ heading: `${APP_SLUG_CAP} Connect` }))

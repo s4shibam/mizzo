@@ -14,7 +14,7 @@ Mizzo API is the backend service that provides core functionality for the music 
 - Request validation with Zod
 - User, artist, and admin role management
 - Track and Playlist CRUD operations
-- Logging with Winston and Logtail
+- Logging with Winston and Grafana Loki
 - Byte range audio streaming on HLS failure
 - Rate limiting to protect against abuse and DOS attacks
 
@@ -33,5 +33,5 @@ Mizzo API is the backend service that provides core functionality for the music 
 - Serverless Framework
 - Zod
 - JWT
-- Logtail
+- Grafana Loki
 - Docker
