@@ -24,7 +24,11 @@ const logFormat = winston.format.combine(
   winston.format.prettyPrint()
 )
 
-const getTransports = (): winston.transport[] => {
+const getTransports = ({
+  service
+}: {
+  service: string
+}): winston.transport[] => {
   if (!env.enableGrafanaLokiLogging) {
     return [
       new winston.transports.Console({
@@ -38,11 +42,15 @@ const getTransports = (): winston.transport[] => {
       new LokiTransport({
         host: env.grafanaLokiUrl,
         basicAuth: env.grafanaLokiAuthToken,
-        labels: { app: APP_SLUG },
+        labels: {
+          app: `${APP_SLUG}-${service}`.toLowerCase()
+        },
         json: true,
         format: logFormat,
-        replaceTimestamp: true,
-        onConnectionError: (err) => console.error('Loki connection error:', err)
+        batching: false,
+        gracefulShutdown: true,
+        onConnectionError: (err: Error) =>
+          console.error('[LOKI] Connection error:', err.message)
       })
     ]
   }
@@ -63,20 +71,14 @@ const getTransports = (): winston.transport[] => {
   ]
 }
 
-const logger = winston.createLogger({
-  level: NODE_ENV === 'development' ? 'debug' : 'info',
-  format: logFormat,
-  transports: getTransports(),
-  exitOnError: false
-})
-
 type TLogMeta = {
   req?: {
-    path?: string
-    method?: string
-    query?: Record<string, any>
     body?: Record<string, any>
+    id?: string
     ip?: string
+    method?: string
+    path?: string
+    query?: Record<string, any>
     userId?: string
   }
   res?: {
@@ -104,7 +106,15 @@ const createLogger =
       }
     }
 
-    logger[level](`[${app}] ${message}`, sanitizedMeta)
+    const logger = winston.createLogger({
+      level: NODE_ENV === 'development' ? 'debug' : 'info',
+      transports: getTransports({ service: app }),
+      exitOnError: false
+    })
+
+    logger[level](`[${app}] ${message}`, {
+      ...sanitizedMeta
+    })
   }
 
 export const log = {

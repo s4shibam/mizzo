@@ -14,25 +14,26 @@ export const successHandler = (
 
   res.json = function (json: any): Response {
     if (Number(res.statusCode) < 400) {
-      const deviceInfo = extractUserAgentInfo(req)
+      const isDev = NODE_ENV === 'development'
+      const ip = isDev ? undefined : req.ip
+      const deviceInfo = isDev ? undefined : extractUserAgentInfo(req)
+      const query = Object.keys(req.query).length > 0 ? req.query : undefined
+      const userId = req.user?.id || 'anon'
 
       log.info({
         app: 'API',
         message: json.message,
         meta: {
           req: {
+            id: req.id,
+            ip,
             path: req.path,
             method: req.method,
-            query: req.query,
-            body: req.body,
-            ip: req.ip,
-            userId: 'NA'
+            query,
+            userId
           },
-          res: {
-            status: res.statusCode,
-            json
-          },
-          deviceInfo: NODE_ENV !== 'development' ? deviceInfo : undefined
+          statusCode: res.statusCode,
+          deviceInfo
         }
       })
     }
