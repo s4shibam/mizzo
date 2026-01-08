@@ -8,6 +8,8 @@ import {
   type ReactNode
 } from 'react'
 
+import { usePathname } from 'next/navigation'
+
 import { HlsPlayer } from '@/components/hls-player'
 import { PlayerStorage } from '@/lib/player-storage'
 import type { Playlist } from '@/types/playlist'
@@ -34,15 +36,37 @@ export const usePlayerContext = () => {
   return context
 }
 
+const shouldShowPlayer = (pathname: string | null): boolean => {
+  if (!pathname) return false
+
+  if (pathname === '/') return false
+
+  if (pathname.startsWith('/auth')) return false
+
+  if (pathname.startsWith('/premium')) return false
+  if (pathname.startsWith('/t&c')) return false
+
+  return true
+}
+
 export const PlayerProvider = ({ children }: { children: ReactNode }) => {
+  const pathname = usePathname()
   const [activeTrack, setActiveTrack] = useState<Track>()
   const [activePlaylist, setActivePlaylist] = useState<Playlist>()
   const [isActiveTrackPlaying, setIsActiveTrackPlaying] = useState(false)
   const [savedPosition, setSavedPosition] = useState<number | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
 
+  const showPlayer = shouldShowPlayer(pathname)
+
   useEffect(() => {
     if (isInitialized) return
+
+    // Only restore player state if we're on a route that should show the player
+    if (!showPlayer) {
+      setIsInitialized(true)
+      return
+    }
 
     const storedTrack = PlayerStorage.loadTrack()
     const storedPlaylist = PlayerStorage.loadPlaylist()
@@ -63,7 +87,7 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
     }
 
     setIsInitialized(true)
-  }, [isInitialized])
+  }, [isInitialized, showPlayer])
 
   return (
     <playerContext.Provider
@@ -80,7 +104,7 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
     >
       {children}
 
-      {activeTrack && <HlsPlayer />}
+      {showPlayer && activeTrack && <HlsPlayer />}
     </playerContext.Provider>
   )
 }
