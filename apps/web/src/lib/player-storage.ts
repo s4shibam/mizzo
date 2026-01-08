@@ -16,7 +16,7 @@ export type StoredPlaylist = Playlist
 export type StoredPlaybackPosition = {
   trackId: string
   currentTime: number
-  timestamp: number 
+  timestamp: number
 }
 
 export class PlayerStorage {
