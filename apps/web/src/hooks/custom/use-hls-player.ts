@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import Hls from 'hls.js'
 import { useCookies } from 'react-cookie'
 
+import { PlayerStorage } from '@/lib/player-storage'
 import { s3GetUrlFromKey } from '@/lib/utils'
 import { usePlayerContext } from '@/providers/player-provider'
 
@@ -13,7 +14,9 @@ export const useHlsPlayer = () => {
     activePlaylist,
     setActivePlaylist,
     isActiveTrackPlaying,
-    setIsActiveTrackPlaying
+    setIsActiveTrackPlaying,
+    savedPosition,
+    setSavedPosition
   } = usePlayerContext()
 
   const [cookies, setCookies] = useCookies(['volume'])
@@ -28,12 +31,19 @@ export const useHlsPlayer = () => {
 
   const trackRef = useRef<HTMLAudioElement | null>(null)
   const hlsRef = useRef<Hls | null>(null)
+  const progressSaveIntervalRef = useRef<NodeJS.Timeout | null>(null)
+  const hasRestoredPositionRef = useRef(false)
 
   useEffect(() => {
     if (!activeTrack?.id || !trackRef.current) return
 
     setIsLoading(true)
-    setIsActiveTrackPlaying(true)
+
+    // Only auto-play if not restoring from saved position
+    const shouldAutoPlay = savedPosition === null
+    if (shouldAutoPlay) {
+      setIsActiveTrackPlaying(true)
+    }
 
     if (hlsRef.current) {
       hlsRef.current.destroy()
@@ -77,9 +87,16 @@ export const useHlsPlayer = () => {
 
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         setIsLoading(false)
-        trackElement.play().catch(() => {
-          setIsActiveTrackPlaying(false)
-        })
+
+        if (savedPosition !== null && !hasRestoredPositionRef.current) {
+          trackElement.currentTime = savedPosition
+          setSavedPosition(null)
+          hasRestoredPositionRef.current = true
+        } else {
+          trackElement.play().catch(() => {
+            setIsActiveTrackPlaying(false)
+          })
+        }
       })
 
       hls.on(Hls.Events.ERROR, (_, data) => {
@@ -110,9 +127,15 @@ export const useHlsPlayer = () => {
       trackElement.src = streamUrl
       setIsLoading(false)
 
-      trackElement.play().catch(() => {
-        setIsActiveTrackPlaying(false)
-      })
+      if (savedPosition !== null && !hasRestoredPositionRef.current) {
+        trackElement.currentTime = savedPosition
+        setSavedPosition(null)
+        hasRestoredPositionRef.current = true
+      } else {
+        trackElement.play().catch(() => {
+          setIsActiveTrackPlaying(false)
+        })
+      }
 
       return () => {
         if (trackElement) {
@@ -123,6 +146,53 @@ export const useHlsPlayer = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeTrack?.id])
+
+  // Save active track to storage when it changes
+  useEffect(() => {
+    if (activeTrack) {
+      PlayerStorage.saveTrack(activeTrack)
+      hasRestoredPositionRef.current = false
+    }
+  }, [activeTrack])
+
+  // Save active playlist to storage when it changes
+  useEffect(() => {
+    if (activePlaylist) {
+      PlayerStorage.savePlaylist(activePlaylist)
+    }
+  }, [activePlaylist])
+
+  // Save playback progress every 5 seconds while playing
+  useEffect(() => {
+    if (progressSaveIntervalRef.current) {
+      clearInterval(progressSaveIntervalRef.current)
+      progressSaveIntervalRef.current = null
+    }
+
+    if (isActiveTrackPlaying && activeTrack?.id && trackRef.current) {
+      // Save immediately when playback starts
+      const currentTime = trackRef.current.currentTime
+      if (currentTime > 0) {
+        PlayerStorage.savePlaybackPosition(activeTrack.id, currentTime)
+      }
+
+      progressSaveIntervalRef.current = setInterval(() => {
+        if (trackRef.current && activeTrack?.id) {
+          const time = trackRef.current.currentTime
+          if (time > 0) {
+            PlayerStorage.savePlaybackPosition(activeTrack.id, time)
+          }
+        }
+      }, 5000)
+    }
+
+    return () => {
+      if (progressSaveIntervalRef.current) {
+        clearInterval(progressSaveIntervalRef.current)
+        progressSaveIntervalRef.current = null
+      }
+    }
+  }, [isActiveTrackPlaying, activeTrack?.id])
 
   useEffect(() => {
     if (!trackRef.current) return
@@ -238,6 +308,13 @@ export const useHlsPlayer = () => {
     setActiveTrack(undefined)
     setActivePlaylist(undefined)
     setIsActiveTrackPlaying(false)
+
+    PlayerStorage.clearAll()
+
+    if (progressSaveIntervalRef.current) {
+      clearInterval(progressSaveIntervalRef.current)
+      progressSaveIntervalRef.current = null
+    }
 
     if (hlsRef.current) {
       hlsRef.current.destroy()
