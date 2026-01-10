@@ -57,7 +57,7 @@ export const PlaylistCard = ({
       </div>
 
       <div className="px-3 py-2">
-        <p className="line-clamp-1 font-medium lg:text-lg">{playlist?.name}</p>
+        <p className="line-clamp-1 font-medium">{playlist?.name}</p>
         <p className="line-clamp-2 text-sm">{playlistDescription}</p>
       </div>
     </Link>
