@@ -785,17 +785,33 @@ const seedPlaylists = async (): Promise<void> => {
 }
 
 /**
+ * Generate a random creation timestamp for a playlist track
+ */
+const generatePlaylistTrackCreationTimestamp = (
+  start: Date,
+  end: Date
+): Date => {
+  const startTime = start.getTime()
+  const endTime = end.getTime()
+  const randomTime = startTime + Math.random() * (endTime - startTime)
+  return new Date(randomTime)
+}
+
+/**
  * Seed playlist tracks
  */
 const seedPlaylistTracks = async (): Promise<void> => {
   console.log('\n🔗 Seeding playlist tracks...')
 
   try {
+    const dateStart = new Date('2025-06-01T00:00:00.000Z')
+    const dateEnd = new Date('2025-12-31T23:59:59.999Z')
+
     const playlistTracksToCreate: Prisma.PlaylistTrackCreateManyInput[] =
       SEED_PLAYLIST_TRACKS.map((pt) => ({
         playlistId: pt.playlistId,
         trackId: pt.trackId,
-        createdAt: new Date()
+        createdAt: generatePlaylistTrackCreationTimestamp(dateStart, dateEnd)
       }))
 
     await prisma.playlistTrack.createMany({

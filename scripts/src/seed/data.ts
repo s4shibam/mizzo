@@ -363,7 +363,7 @@ export const SEED_ADMIN_WITH_PROFILE: TSeedUserWithProfile = {
   name: 'Mizzo Official',
   email: 'mizzo.official@mizzo.artist',
   username: 'mizzo.official',
-  createdAt: new Date('2024-01-01T10:00:00.000Z'),
+  createdAt: new Date('2025-01-01T10:00:00.000Z'),
   avatarUrl: '',
   bio: 'Official Mizzo platform account. The voice of Mizzo music streaming platform.'
 }
@@ -375,7 +375,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'A. R. Rahman',
     email: 'a.r.rahman@mizzo.artist',
     username: 'a.r.rahman',
-    createdAt: new Date('2024-03-10T10:00:00.000Z'),
+    createdAt: new Date('2025-03-10T10:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5ebb19af0ea736c6228d6eb539c',
     bio: 'Oscar-winning Indian music composer, singer, and music producer. Known for integrating Indian classical music with electronic sounds.'
@@ -385,7 +385,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Alan Walker',
     email: 'alan.walker@mizzo.artist',
     username: 'alan.walker',
-    createdAt: new Date('2024-01-25T10:30:00.000Z'),
+    createdAt: new Date('2025-01-25T10:30:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5eb572a8eae56feae217f618078',
     bio: 'A Norwegian DJ and record producer known for electronic dance music. Famous for hits like "Faded", "Alone" and "Darkside".'
@@ -395,7 +395,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Anirudh Ravichander',
     email: 'anirudh.ravichander@mizzo.artist',
     username: 'anirudh.ravichander',
-    createdAt: new Date('2024-02-28T16:00:00.000Z'),
+    createdAt: new Date('2025-02-28T16:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5eb0f0be2054fe9594026a6b843',
     bio: 'An Indian music composer, singer, and music producer who primarily works in Tamil cinema. One of the most sought-after composers in the South Indian film industry.'
@@ -425,7 +425,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Atif Aslam',
     email: 'atif.aslam@mizzo.artist',
     username: 'atif.aslam',
-    createdAt: new Date('2024-03-08T11:00:00.000Z'),
+    createdAt: new Date('2025-03-08T11:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5ebc40600e02356cc86f0debe84',
     bio: 'A playback singer, songwriter, composer, and actor. He has recorded many chart-topping songs.'
@@ -445,7 +445,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Diljit Dosanjh',
     email: 'diljit.dosanjh@mizzo.artist',
     username: 'diljit.dosanjh',
-    createdAt: new Date('2024-01-10T11:00:00.000Z'),
+    createdAt: new Date('2025-01-10T11:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab67706c0000da845bd3fc52a142f8f043e7ffe6',
     bio: 'An Indian singer, actor, and television presenter who works predominantly in Punjabi cinema and music. He is recognized as one of the most successful artists in the Punjabi music industry.'
@@ -465,7 +465,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Ed Sheeran',
     email: 'ed.sheeran@mizzo.artist',
     username: 'ed.sheeran',
-    createdAt: new Date('2024-03-01T15:00:00.000Z'),
+    createdAt: new Date('2025-03-01T15:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab67616d0000b2736567a393a964a845a89b7f70',
     bio: 'An English singer-songwriter. He is known for his loop pedal compositions and often incorporates various musical genres into his work.'
@@ -475,7 +475,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Honey Singh',
     email: 'honey.singh@mizzo.artist',
     username: 'honey.singh',
-    createdAt: new Date('2024-01-01T10:00:00.000Z'),
+    createdAt: new Date('2025-01-01T10:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5ebbc7e4fffd515b47ff1ebbc1f',
     bio: "An Indian rapper, music producer, and singer known for his contributions to Punjabi and Hindi music. Popular for hits like 'Brown Rang' and 'Lungi Dance'."
@@ -485,7 +485,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Imagine Dragons',
     email: 'imagine.dragons@mizzo.artist',
     username: 'imagine.dragons',
-    createdAt: new Date('2024-02-05T16:00:00.000Z'),
+    createdAt: new Date('2025-02-05T16:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5ebab47d8dae2b24f5afe7f9d38',
     bio: 'An American rock band known for their alternative rock and pop hits. Famous for songs like "Radioactive", "Believer" and "Thunder".'
@@ -495,7 +495,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Jeet Ganguly',
     email: 'jeet.ganguly@mizzo.artist',
     username: 'jeet.ganguly',
-    createdAt: new Date('2024-01-29T10:00:00.000Z'),
+    createdAt: new Date('2025-01-29T10:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5eb6adc98db259e563ee2352b85',
     bio: 'An Indian music composer and singer, who has worked in Bollywood and Tollywood.'
@@ -505,7 +505,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Jonita Gandhi',
     email: 'jonita.gandhi@mizzo.artist',
     username: 'jonita.gandhi',
-    createdAt: new Date('2024-04-18T14:00:00.000Z'),
+    createdAt: new Date('2025-04-18T14:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab67616100005174a308d2dbeeb587cb5e9220db',
     bio: 'An Indo-Canadian playback singer known for her versatile voice and multilingual singing. Popular in Bollywood and regional Indian cinema.'
@@ -535,7 +535,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Kumar Sanu',
     email: 'kumar.sanu@mizzo.artist',
     username: 'kumar.sanu',
-    createdAt: new Date('2024-01-20T09:00:00.000Z'),
+    createdAt: new Date('2025-01-20T09:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab67616d0000b2737911c52518125dbdf4c78f4e',
     bio: 'An Indian playback singer, who is well known for singing in Hindi films, with over 21,000 recorded songs.'
@@ -545,7 +545,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Pritam Chakraborty',
     email: 'pritam.chakraborty@mizzo.artist',
     username: 'pritam.chakraborty',
-    createdAt: new Date('2024-04-12T10:00:00.000Z'),
+    createdAt: new Date('2025-04-12T10:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab67616d00001e020cb0565e2f6fcec8591e2b6d',
     bio: 'An Indian music director, singer, and composer. He has composed music for various Bollywood films and is known for his diverse musical styles.'
@@ -565,7 +565,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Shreya Ghoshal',
     email: 'shreya.ghoshal@mizzo.artist',
     username: 'shreya.ghoshal',
-    createdAt: new Date('2024-04-05T14:15:00.000Z'),
+    createdAt: new Date('2025-04-05T14:15:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5eb59303d54ce789210e745e1a9',
     bio: 'An Indian playback singer who has recorded songs for films and albums in various Indian languages and has established herself as a leading playback singer of Indian cinema.'
@@ -575,7 +575,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Sonu Nigam',
     email: 'sonu.nigam@mizzo.artist',
     username: 'sonu.nigam',
-    createdAt: new Date('2024-03-22T09:30:00.000Z'),
+    createdAt: new Date('2025-03-22T09:30:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5ebbc959d7569618ec2af2210f5',
     bio: 'An Indian singer, music director and actor. He sings predominantly in Hindi films, but has also sung in various other Indian languages.'
@@ -595,7 +595,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Taylor Swift',
     email: 'taylor.swift@mizzo.artist',
     username: 'taylor.swift',
-    createdAt: new Date('2024-02-14T08:00:00.000Z'),
+    createdAt: new Date('2025-02-14T08:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab67616d0000b273e787cffec20aa2a396a61647',
     bio: 'An American singer-songwriter. Her narrative songwriting, which often centers around her personal life, has received widespread critical praise and media coverage.'
@@ -605,7 +605,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Usha Uthup',
     email: 'usha.uthup@mizzo.artist',
     username: 'usha.uthup',
-    createdAt: new Date('2024-01-05T17:00:00.000Z'),
+    createdAt: new Date('2025-01-05T17:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5eb2f4bfcf0fbf8614697868204',
     bio: 'An Indian pop, film, jazz, and playback singer who sings in over 12 Indian and foreign languages. Known for her powerful and unconventional voice.'
@@ -615,7 +615,7 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     name: 'Zubeen Garg',
     email: 'zubeen.garg@mizzo.artist',
     username: 'zubeen.garg',
-    createdAt: new Date('2024-02-20T12:00:00.000Z'),
+    createdAt: new Date('2025-02-20T12:00:00.000Z'),
     avatarUrl:
       'https://i.scdn.co/image/ab6761610000e5ebc921245b32947c7d61a7356c',
     bio: 'An Indian singer, music director, composer, and actor from Assam.'
@@ -628,19 +628,19 @@ export const SEED_USER_ARTIST_APPLICATIONS: TSeedUserArtistApplication[] = [
     userId: USER_CUIDS['a.r.rahman'],
     message: 'Music composer seeking artist verification.',
     idProofType: 'Adhaar Card',
-    createdAt: new Date('2024-03-09T10:00:00Z')
+    createdAt: new Date('2025-03-09T10:00:00Z')
   },
   {
     userId: USER_CUIDS['alan.walker'],
     message: 'Electronic music producer seeking approval.',
     idProofType: 'National ID',
-    createdAt: new Date('2024-01-24T10:30:00Z')
+    createdAt: new Date('2025-01-24T10:30:00Z')
   },
   {
     userId: USER_CUIDS['anirudh.ravichander'],
     message: 'Tamil music director requesting artist verification.',
     idProofType: 'Passport',
-    createdAt: new Date('2024-02-27T16:00:00Z')
+    createdAt: new Date('2025-02-27T16:00:00Z')
   },
   {
     userId: USER_CUIDS['anupam.roy'],
@@ -658,7 +658,7 @@ export const SEED_USER_ARTIST_APPLICATIONS: TSeedUserArtistApplication[] = [
     userId: USER_CUIDS['atif.aslam'],
     message: 'Playback singer requesting artist status.',
     idProofType: 'Passport',
-    createdAt: new Date('2024-03-07T11:00:00Z')
+    createdAt: new Date('2025-03-07T11:00:00Z')
   },
   {
     userId: USER_CUIDS['b.praak'],
@@ -670,7 +670,7 @@ export const SEED_USER_ARTIST_APPLICATIONS: TSeedUserArtistApplication[] = [
     userId: USER_CUIDS['diljit.dosanjh'],
     message: 'Punjabi singer and actor applying.',
     idProofType: 'Driving License',
-    createdAt: new Date('2024-01-09T11:00:00Z')
+    createdAt: new Date('2025-01-09T11:00:00Z')
   },
   {
     userId: USER_CUIDS['dua.lipa'],
@@ -682,7 +682,7 @@ export const SEED_USER_ARTIST_APPLICATIONS: TSeedUserArtistApplication[] = [
     userId: USER_CUIDS['ed.sheeran'],
     message: 'Singer-songwriter requesting artist status.',
     idProofType: 'Driving License',
-    createdAt: new Date('2024-02-29T15:00:00Z')
+    createdAt: new Date('2025-02-29T15:00:00Z')
   },
   {
     userId: USER_CUIDS['honey.singh'],
@@ -694,19 +694,19 @@ export const SEED_USER_ARTIST_APPLICATIONS: TSeedUserArtistApplication[] = [
     userId: USER_CUIDS['imagine.dragons'],
     message: 'Rock band seeking artist verification.',
     idProofType: 'Passport',
-    createdAt: new Date('2024-02-04T16:00:00Z')
+    createdAt: new Date('2025-02-04T16:00:00Z')
   },
   {
     userId: USER_CUIDS['jeet.ganguly'],
     message: 'Music composer seeking artist approval.',
     idProofType: 'Passport',
-    createdAt: new Date('2024-01-28T10:00:00Z')
+    createdAt: new Date('2025-01-28T10:00:00Z')
   },
   {
     userId: USER_CUIDS['jonita.gandhi'],
     message: 'Multilingual singer applying for verification.',
     idProofType: 'Driving License',
-    createdAt: new Date('2024-04-17T14:00:00Z')
+    createdAt: new Date('2025-04-17T14:00:00Z')
   },
   {
     userId: USER_CUIDS['k.k'],
@@ -724,13 +724,13 @@ export const SEED_USER_ARTIST_APPLICATIONS: TSeedUserArtistApplication[] = [
     userId: USER_CUIDS['kumar.sanu'],
     message: 'Bollywood singer applying for verification.',
     idProofType: 'Driving License',
-    createdAt: new Date('2024-01-19T09:00:00Z')
+    createdAt: new Date('2025-01-19T09:00:00Z')
   },
   {
     userId: USER_CUIDS['pritam.chakraborty'],
     message: 'Music director applying for approval.',
     idProofType: 'Driving License',
-    createdAt: new Date('2024-04-11T10:00:00Z')
+    createdAt: new Date('2025-04-11T10:00:00Z')
   },
   {
     userId: USER_CUIDS['sam.smith'],
@@ -742,13 +742,13 @@ export const SEED_USER_ARTIST_APPLICATIONS: TSeedUserArtistApplication[] = [
     userId: USER_CUIDS['shreya.ghoshal'],
     message: 'Professional playback singer seeking approval.',
     idProofType: 'Adhaar Card',
-    createdAt: new Date('2024-04-04T14:15:00Z')
+    createdAt: new Date('2025-04-04T14:15:00Z')
   },
   {
     userId: USER_CUIDS['sonu.nigam'],
     message: 'Veteran singer requesting verification.',
     idProofType: 'Passport',
-    createdAt: new Date('2024-03-21T09:30:00Z')
+    createdAt: new Date('2025-03-21T09:30:00Z')
   },
   {
     userId: USER_CUIDS['sunidhi.chauhan'],
@@ -760,19 +760,19 @@ export const SEED_USER_ARTIST_APPLICATIONS: TSeedUserArtistApplication[] = [
     userId: USER_CUIDS['taylor.swift'],
     message: 'Singer-songwriter seeking platform verification.',
     idProofType: 'Passport',
-    createdAt: new Date('2024-02-13T08:00:00Z')
+    createdAt: new Date('2025-02-13T08:00:00Z')
   },
   {
     userId: USER_CUIDS['usha.uthup'],
     message: 'Jazz vocalist requesting artist verification.',
     idProofType: 'Passport',
-    createdAt: new Date('2024-01-04T17:00:00Z')
+    createdAt: new Date('2025-01-04T17:00:00Z')
   },
   {
     userId: USER_CUIDS['zubeen.garg'],
     message: 'Assamese singer requesting artist verification.',
     idProofType: 'Adhaar Card',
-    createdAt: new Date('2024-02-19T12:00:00Z')
+    createdAt: new Date('2025-02-19T12:00:00Z')
   }
 ]
 
@@ -786,7 +786,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=UxLSZoFK8EM',
     tags: 'Oscar Winner, Slumdog Millionaire, Hindi-English, Motivational, Dance, AR Rahman Anthem, Sukhwinder Singh, Global Hit',
-    createdAt: new Date('2024-03-12T14:00:00Z')
+    createdAt: new Date('2025-03-12T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['a.r.rahman']['maa-tujhe-salaam'],
@@ -796,7 +796,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=jDn2bn7_YSM',
     tags: 'Vande Mataram, Patriotic, Indian, Republic Day, Jai Hind, Independence Day, Bharat Anthem, Deshbhakti',
-    createdAt: new Date('2024-03-15T10:00:00Z')
+    createdAt: new Date('2025-03-15T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['a.r.rahman']['urvasi-urvasi'],
@@ -806,7 +806,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=5vkRRYMlmuo',
     tags: 'Kadhalan, Tamil, Prabhu Deva, 90s Hit, Dance, Peppy Song, Evergreen, Fun Track',
-    createdAt: new Date('2024-03-18T11:45:00Z')
+    createdAt: new Date('2025-03-18T11:45:00Z')
   },
   {
     id: TRACK_CUIDS['a.r.rahman']['mukkala-muqabala-kadhalan'],
@@ -816,7 +816,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=PjT12Ce0Kw8',
     tags: 'Kadhalan, Tamil, Prabhu Deva, Nagma, Dance Number, 90s Classic, Romance, Evergreen',
-    createdAt: new Date('2024-03-20T09:00:00Z')
+    createdAt: new Date('2025-03-20T09:00:00Z')
   },
   {
     id: TRACK_CUIDS['a.r.rahman']['enna-sona-ok-jaanu'],
@@ -826,7 +826,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=hk4khNFw92w',
     tags: 'OK Jaanu, Hindi, Arijit Singh, Aditya Roy Kapur, Shraddha Kapoor, Romantic, Love Song, Soft Melody',
-    createdAt: new Date('2024-03-25T13:00:00Z')
+    createdAt: new Date('2025-03-25T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['a.r.rahman']['vellipomaakey-saahasam-swaasaga-saagipo'],
@@ -836,7 +836,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'telugu',
     youtubeUrl: 'https://www.youtube.com/watch?v=-GydnFPTgus',
     tags: 'Telugu, Romantic, Naga Chaitanya, Manjima Mohan, Melody, Love Ballad, Soothing, Youth Favorite',
-    createdAt: new Date('2024-03-28T16:00:00Z')
+    createdAt: new Date('2025-03-28T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['a.r.rahman']['tu-hi-re-bombay'],
@@ -846,7 +846,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=V9mN0qBgEzQ',
     tags: 'Bombay, Mani Ratnam, Hindi-Tamil, Hariharan, Manisha Koirala, Arvind Swamy, Evergreen Romance, Emotional',
-    createdAt: new Date('2024-04-01T09:30:00Z')
+    createdAt: new Date('2025-04-01T09:30:00Z')
   },
   {
     id: TRACK_CUIDS['a.r.rahman']['chaka-chak-atragi-re'],
@@ -856,7 +856,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=ZS4V05gAy9k',
     tags: 'Atrangi Re, Hindi, Sara Ali Khan, Dhanush, Dance, Folk Style, Festive, Peppy Number',
-    createdAt: new Date('2024-04-03T12:00:00Z')
+    createdAt: new Date('2025-04-03T12:00:00Z')
   },
   {
     id: TRACK_CUIDS['a.r.rahman']['hamma-hamma-bombay'],
@@ -866,7 +866,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=aIx2i5NSXxU',
     tags: 'Bombay, Hindi, Remix Favorite, Dance, Romantic Groove, Evergreen, 90s Hit, Love Song',
-    createdAt: new Date('2024-04-05T15:00:00Z')
+    createdAt: new Date('2025-04-05T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['arijit.singh']['kesariya-brahmastra'],
@@ -1006,7 +1006,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=v7jiFpX5SU4',
     tags: 'Youngistaan, Pulkit Samrat, Amy Jackson, Hindi, Romantic, Soft Melody, Love Song, Popular',
-    createdAt: new Date('2024-01-01T14:00:00Z')
+    createdAt: new Date('2025-01-01T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['arijit.singh']['aayat-bajirao-mastani'],
@@ -1016,7 +1016,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=74nPCMebpYg',
     tags: 'Bajirao Mastani, Ranveer Singh, Deepika Padukone, Priyanka Chopra, Hindi, Romantic, Classical, Emotional',
-    createdAt: new Date('2024-01-05T15:00:00Z')
+    createdAt: new Date('2025-01-05T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['kumar.sanu']['tujhe-dekha-to-yeh-jaana-sanam'],
@@ -1026,7 +1026,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=cNV5hLSa9H8',
     tags: 'DDLJ, Shah Rukh Khan, Kajol, Hindi, Romantic, Evergreen, Bollywood Classic, Love Anthem',
-    createdAt: new Date('2024-01-22T10:00:00Z')
+    createdAt: new Date('2025-01-22T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['kumar.sanu']['ek-ladki-ko-dekha-to-1942-a-love-story'],
@@ -1036,7 +1036,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=htMvfOfixuM',
     tags: '1942 A Love Story, Anil Kapoor, Manisha Koirala, Hindi, Romantic, Evergreen, Melody, Bollywood Hit',
-    createdAt: new Date('2024-01-25T11:00:00Z')
+    createdAt: new Date('2025-01-25T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['kumar.sanu']['chura-ke-dil-mera-main-khiladi-tu-anari'],
@@ -1046,7 +1046,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=Yqj1_V90KJo',
     tags: 'Main Khiladi Tu Anari, Akshay Kumar, Saif Ali Khan, Hindi, Dance, Romantic, 90s Hit, Peppy Song',
-    createdAt: new Date('2024-01-28T12:00:00Z')
+    createdAt: new Date('2025-01-28T12:00:00Z')
   },
   {
     id: TRACK_CUIDS['kumar.sanu']['mera-dil-bhi-kitna-pagal-hai'],
@@ -1056,7 +1056,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=FsNc7I33w60',
     tags: 'Saajan, Salman Khan, Madhuri Dixit, Hindi, Romantic, Classic, Melody, Emotional',
-    createdAt: new Date('2024-02-01T13:00:00Z')
+    createdAt: new Date('2025-02-01T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['kumar.sanu']['jab-koi-baat-bigad-jaye-jurm'],
@@ -1066,7 +1066,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=mNSYPtzpfd4',
     tags: 'Jurm, Bollywood, Hindi, Romantic, Duet, Evergreen, Love Ballad, Classic Hit',
-    createdAt: new Date('2024-02-05T14:00:00Z')
+    createdAt: new Date('2025-02-05T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['kumar.sanu']['do-dil-mil-rahe-hain-pardes'],
@@ -1076,7 +1076,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=eKIpHujNdX0',
     tags: 'Pardes, Shah Rukh Khan, Mahima Chaudhry, Hindi, Romantic, Love Anthem, Melody, Evergreen',
-    createdAt: new Date('2024-02-08T15:00:00Z')
+    createdAt: new Date('2025-02-08T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['deewani-mastani-bajirao-mastani'],
@@ -1086,7 +1086,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=h6lHUn20J5g',
     tags: 'Bajirao Mastani, Ranveer Singh, Deepika Padukone, Priyanka Chopra, Hindi, Romantic, Classical, Dance, Shreya Ghoshal',
-    createdAt: new Date('2024-04-08T09:00:00Z')
+    createdAt: new Date('2025-04-08T09:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['ghoomar-padmaavat'],
@@ -1096,7 +1096,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=6cKErCWrb44',
     tags: 'Padmaavat, Deepika Padukone, Shahid Kapoor, Hindi, Rajasthani Folk, Dance, Traditional, Epic, Shreya Ghoshal',
-    createdAt: new Date('2024-04-10T11:00:00Z')
+    createdAt: new Date('2025-04-10T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['guli-mata'],
@@ -1106,7 +1106,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=Gp1RNYBckBs',
     tags: 'Pop Fusion, International, Duet, Dance, Shreya Ghoshal, Saad Lamjarred, Hindi-Arabic, Catchy, Romantic',
-    createdAt: new Date('2024-04-12T13:00:00Z')
+    createdAt: new Date('2025-04-12T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['munbe-vaa-sillunu-oru-kaadhal'],
@@ -1116,7 +1116,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=UPQZ4vuvW2s',
     tags: 'Sillunu Oru Kaadhal, Tamil, Vijay, Trisha, Romantic, Melody, Soft Ballad, Shreya Ghoshal',
-    createdAt: new Date('2024-04-14T15:00:00Z')
+    createdAt: new Date('2025-04-14T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['nagada-sang-dhol-ram-leela'],
@@ -1126,7 +1126,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=3X7x4Ye-tqo',
     tags: 'Ram-Leela, Ranveer Singh, Deepika Padukone, Hindi, Dance, Folk, Festival Song, Shreya Ghoshal',
-    createdAt: new Date('2024-04-16T10:00:00Z')
+    createdAt: new Date('2025-04-16T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['tumi-bondhu-aaj-shunbe'],
@@ -1136,7 +1136,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=znhB3R1qHZ4',
     tags: 'Shantanu Moitra, Emotional, Night Conspiracy, Inner Conflict, Breaking Boundaries, Destruction, Rebellion',
-    createdAt: new Date('2024-04-18T12:00:00Z')
+    createdAt: new Date('2025-04-18T12:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['anuraga-vilochananayi'],
@@ -1146,7 +1146,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'malayalam',
     youtubeUrl: 'https://www.youtube.com/watch?v=maGx1qLP3GE',
     tags: 'Malayalam, Romantic, Soft Melody, Love Song, Emotional, Shreya Ghoshal, Regional Hit',
-    createdAt: new Date('2024-04-20T14:00:00Z')
+    createdAt: new Date('2025-04-20T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['chhaila-bhoomi'],
@@ -1156,7 +1156,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=4UkJ-AziPu0',
     tags: 'Bollywood, Dance, Duet, Party Song, Hindi, Shreya Ghoshal, Sunidhi Chauhan, Peppy',
-    createdAt: new Date('2024-04-06T10:30:00Z')
+    createdAt: new Date('2025-04-06T10:30:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['neel-digante'],
@@ -1166,7 +1166,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=Y1doS51Ec4I',
     tags: 'Telugu, Romantic, Soft Melody, Emotional, Shreya Ghoshal, Love Ballad, Regional Hit',
-    createdAt: new Date('2024-04-22T16:00:00Z')
+    createdAt: new Date('2025-04-22T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['namo-shankara-mahashivaratri'],
@@ -1176,7 +1176,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=mb0Aix5gZ4A',
     tags: 'Devotional, Hindi, Shreya Ghoshal, Lord Shiva, Bhajan, Festival, Spiritual, Celebration',
-    createdAt: new Date('2024-04-25T10:00:00Z')
+    createdAt: new Date('2025-04-25T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['neenadena-yuvarathnaa'],
@@ -1186,7 +1186,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'kannada',
     youtubeUrl: 'https://www.youtube.com/watch?v=3s5XyooFGpg',
     tags: 'Kannada, Romantic, Puneeth Rajkumar, Soft Melody, Emotional, Love Ballad, Shreya Ghoshal',
-    createdAt: new Date('2024-04-28T11:00:00Z')
+    createdAt: new Date('2025-04-28T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['yimmy-yimmy-tayc'],
@@ -1196,7 +1196,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=OzI9M74IfR0',
     tags: 'Pop, Duet, International, Catchy, Dance, Shreya Ghoshal, Tayc, Fusion, Romantic',
-    createdAt: new Date('2024-04-30T13:00:00Z')
+    createdAt: new Date('2025-04-30T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['chawlraastaye-autograph'],
@@ -1206,7 +1206,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=Y7okSN12O54',
     tags: 'Marathi, Emotional, Melody, Love Song, Shreya Ghoshal, Regional, Soft, Romantic',
-    createdAt: new Date('2024-05-02T15:00:00Z')
+    createdAt: new Date('2025-05-02T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['jao-pakhi-bolo'],
@@ -1216,7 +1216,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=IUmHCgivgi4',
     tags: 'Bengali, Soft Melody, Romantic, Emotional, Shreya Ghoshal, Love Ballad, Regional Favorite',
-    createdAt: new Date('2024-05-05T10:00:00Z')
+    createdAt: new Date('2025-05-05T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['jeev-rangla-jogwa'],
@@ -1226,7 +1226,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'marathi',
     youtubeUrl: 'https://www.youtube.com/watch?v=en60_iC0u2M',
     tags: 'Marathi, National Award, Romantic, Melody, Emotional, Regional Hit, Shreya Ghoshal',
-    createdAt: new Date('2024-05-07T11:00:00Z')
+    createdAt: new Date('2025-05-07T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['shreya.ghoshal']['adhir-man-zhaley'],
@@ -1236,7 +1236,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'marathi',
     youtubeUrl: 'https://www.youtube.com/watch?v=pCaq8r4OvS8',
     tags: 'Marathi, Romantic, Soft Ballad, Emotional, Shreya Ghoshal, Regional Hit, Love Song',
-    createdAt: new Date('2024-05-09T13:00:00Z')
+    createdAt: new Date('2025-05-09T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['why-this-kolaveri-di'],
@@ -1246,7 +1246,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=YR12Z8f1Dh8',
     tags: 'Tamil, Viral Hit, Dhanush, Fun Song, Internet Sensation, Catchy, Dance, Youth Favorite',
-    createdAt: new Date('2024-03-01T10:00:00Z')
+    createdAt: new Date('2025-03-01T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['arabic-kuthu-beast'],
@@ -1256,7 +1256,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=KUN5Uf9mObQ',
     tags: 'Tamil, Vijay, Pooja Hegde, Dance, Peppy, Party Song, Viral, Mass Track',
-    createdAt: new Date('2024-03-05T11:00:00Z')
+    createdAt: new Date('2025-03-05T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['vaathi-coming-master'],
@@ -1266,7 +1266,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=fRD_3vJagxk',
     tags: 'Tamil, Vijay, Dance, Mass Song, Celebration, Festival, Peppy, Party Track',
-    createdAt: new Date('2024-03-08T12:00:00Z')
+    createdAt: new Date('2025-03-08T12:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['hukum-jailer'],
@@ -1276,7 +1276,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=1F3hm6MfR1k',
     tags: 'Tamil, Rajinikanth, Dance, Mass Song, Celebration, Peppy, Action Movie, Catchy',
-    createdAt: new Date('2024-03-12T13:00:00Z')
+    createdAt: new Date('2025-03-12T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['naa-ready-leo'],
@@ -1286,7 +1286,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=szvt1vD0Uug',
     tags: 'Tamil, Vijay, Dance, Mass Track, Peppy, Action, Celebration, Youth Favorite',
-    createdAt: new Date('2024-03-15T14:00:00Z')
+    createdAt: new Date('2025-03-15T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['gaali-vaaluga-agnyaathavaasi'],
@@ -1296,7 +1296,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'telugu',
     youtubeUrl: 'https://www.youtube.com/watch?v=yUNMH9KaTjA',
     tags: 'Telugu, Allu Arjun, Action, Dance, Mass Song, Peppy, Catchy, Party Track',
-    createdAt: new Date('2024-03-18T15:00:00Z')
+    createdAt: new Date('2025-03-18T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['hoyna-hoyna-gang-leader'],
@@ -1306,7 +1306,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'telugu',
     youtubeUrl: 'https://www.youtube.com/watch?v=91EzD9VgwGk',
     tags: 'Telugu, Mass Song, Dance, Peppy, Stylish, Allu Arjun, Celebration, Catchy',
-    createdAt: new Date('2024-03-20T16:00:00Z')
+    createdAt: new Date('2025-03-20T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['zinda-banda-jawan'],
@@ -1316,7 +1316,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=AQEc4BwX6dk',
     tags: 'Tamil, Shah Rukh Khan, Action, Dance, Mass Track, Party, Celebration, Energetic',
-    createdAt: new Date('2024-03-22T17:00:00Z')
+    createdAt: new Date('2025-03-22T17:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['ayudha-pooja-devara'],
@@ -1326,7 +1326,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'telugu',
     youtubeUrl: 'https://www.youtube.com/watch?v=HZ_Q20ir-gg',
     tags: 'Tamil, Festival Song, Dance, Mass Track, Peppy, Celebration, Energetic, Catchy',
-    createdAt: new Date('2024-03-25T10:00:00Z')
+    createdAt: new Date('2025-03-25T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['anirudh.ravichander']['baitikochi-chuste-agnyaathavaasi'],
@@ -1336,7 +1336,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'telugu',
     youtubeUrl: 'https://www.youtube.com/watch?v=JXIiQFSj8Yg',
     tags: 'Telugu, Stylish, Dance, Mass Track, Peppy, Allu Arjun, Catchy, Celebration',
-    createdAt: new Date('2024-03-28T11:00:00Z')
+    createdAt: new Date('2025-03-28T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['diljit.dosanjh']['lover-moonchild-era'],
@@ -1346,7 +1346,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=mH_LFkWxpI0',
     tags: 'Punjabi, Romantic, Melody, Love Song, Emotional, Youth Favorite, Soft Ballad',
-    createdAt: new Date('2024-01-12T10:00:00Z')
+    createdAt: new Date('2025-01-12T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['diljit.dosanjh']['tenu-ki-pata'],
@@ -1356,7 +1356,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=bWNegJHBnUk',
     tags: 'Aryan Khan, Badshah, Punjabi, Party Song, Dance, Peppy, Youth Favorite, Bass Boosted',
-    createdAt: new Date('2024-01-15T11:00:00Z')
+    createdAt: new Date('2025-01-15T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['diljit.dosanjh']['proper-patola-namaste-england'],
@@ -1366,7 +1366,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=YmXJp4RtBCM',
     tags: 'Punjabi, Bollywood, Party Song, Dance, Peppy, Catchy, Youth Favorite, Fun Track',
-    createdAt: new Date('2024-01-18T12:00:00Z')
+    createdAt: new Date('2025-01-18T12:00:00Z')
   },
   {
     id: TRACK_CUIDS['diljit.dosanjh']['do-you-know'],
@@ -1376,7 +1376,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=P-DhwN87JDY',
     tags: 'Punjabi, Romantic, Love Song, Soft Melody, Emotional, Melody, Youth Favorite, Catchy',
-    createdAt: new Date('2024-01-20T13:00:00Z')
+    createdAt: new Date('2025-01-20T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['diljit.dosanjh']['born-to-shine-g-o-a-t'],
@@ -1386,7 +1386,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=OaIYx56dqu0',
     tags: 'Punjabi, Motivational, Dance, Peppy, Youth Favorite, Catchy, Energetic, Party Track',
-    createdAt: new Date('2024-01-22T14:00:00Z')
+    createdAt: new Date('2025-01-22T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['diljit.dosanjh']['patiala-peg'],
@@ -1396,7 +1396,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=xB9-dsTC_0U',
     tags: 'Punjabi, Party Song, Dance, Catchy, Fun Track, Peppy, Youth Favorite, Celebration',
-    createdAt: new Date('2024-01-25T15:00:00Z')
+    createdAt: new Date('2025-01-25T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['diljit.dosanjh']['g-o-a-t-title-track'],
@@ -1406,7 +1406,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=cl0a3i2wFcc',
     tags: 'Punjabi, Rap, Motivational, Catchy, Dance, Youth Favorite, Energetic, Party Track',
-    createdAt: new Date('2024-01-28T16:00:00Z')
+    createdAt: new Date('2025-01-28T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['anupam.roy']['amake-amar-moto-thakte-dao'],
@@ -1516,7 +1516,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=oq5Ocx_rEv8',
     tags: 'Hindi, Shah Rukh Khan, Preity Zinta, Romance, Melody, Emotional, Evergreen, Bollywood Hit',
-    createdAt: new Date('2024-03-24T10:00:00Z')
+    createdAt: new Date('2025-03-24T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['sonu.nigam']['abhi-mujh-mein-kahin-agneepath'],
@@ -1526,7 +1526,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=usSA3mPzOJY',
     tags: 'Hindi, Hrithik Roshan, Melody, Emotional, Love Song, Bollywood, Evergreen, Romantic',
-    createdAt: new Date('2024-03-26T11:00:00Z')
+    createdAt: new Date('2025-03-26T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['sonu.nigam']['saathiya-title-track'],
@@ -1536,7 +1536,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=eMA6GHTQ4WA',
     tags: 'Hindi, Vivek Oberoi, Rani Mukerji, Romantic, Melody, Evergreen, Bollywood, Love Song',
-    createdAt: new Date('2024-03-28T12:00:00Z')
+    createdAt: new Date('2025-03-28T12:00:00Z')
   },
   {
     id: TRACK_CUIDS['sonu.nigam']['main-agar-kahoon-om-shanti-om'],
@@ -1546,7 +1546,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=DAYszemgPxc',
     tags: 'Hindi, Shah Rukh Khan, Deepika Padukone, Romantic, Melody, Soft Ballad, Bollywood, Love Song',
-    createdAt: new Date('2024-03-30T13:00:00Z')
+    createdAt: new Date('2025-03-30T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['sonu.nigam']['sandese-aate-hain-border'],
@@ -1556,7 +1556,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=HsQYlZEtKX4',
     tags: 'Hindi, Sunny Deol, Jackie Shroff, Patriotic, War Film, Melody, Emotional, Evergreen',
-    createdAt: new Date('2024-04-01T14:00:00Z')
+    createdAt: new Date('2025-04-01T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['sonu.nigam']['shukran-allah-kurbaan'],
@@ -1566,7 +1566,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=z_B0PF8Ug00',
     tags: 'Hindi, Kurbaan, Saif Ali Khan, Kareena Kapoor, Romantic, Melody, Soft Ballad, Emotional',
-    createdAt: new Date('2024-04-03T15:00:00Z')
+    createdAt: new Date('2025-04-03T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['sonu.nigam']['mungaru-maleye'],
@@ -1576,7 +1576,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'kannada',
     youtubeUrl: 'https://www.youtube.com/watch?v=QrCQyRSoEtY',
     tags: 'Kannada, Romantic, Melody, Love Song, Emotional, Evergreen, Regional Hit, Soft Ballad',
-    createdAt: new Date('2024-04-05T16:00:00Z')
+    createdAt: new Date('2025-04-05T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['sonu.nigam']['anisuthide-yaako-indhu-mungaru-maleye'],
@@ -1586,7 +1586,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'kannada',
     youtubeUrl: 'https://www.youtube.com/watch?v=DMmrwp1pS6E',
     tags: 'Kannada, Romantic, Melody, Love Song, Emotional, Soft Ballad, Regional Hit, Evergreen',
-    createdAt: new Date('2024-03-25T10:00:00Z')
+    createdAt: new Date('2025-03-25T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['dua.lipa']['dont-start-now'],
@@ -1708,7 +1708,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=q_b8tcbRhXE',
     tags: '7 Khoon Maaf, Hindi, Thriller, Usha Uthup, Jazz, Catchy, Melody, Bollywood',
-    createdAt: new Date('2024-01-10T17:00:00Z')
+    createdAt: new Date('2025-01-10T17:00:00Z')
   },
   {
     id: TRACK_CUIDS['usha.uthup']['hari-om-hari-pyara-dushman'],
@@ -1718,7 +1718,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=cOnLqQgD538',
     tags: 'Pyara Dushman, Hindi, Dance, Retro, Catchy, Usha Uthup, Party Song, Fun Track',
-    createdAt: new Date('2024-01-15T17:00:00Z')
+    createdAt: new Date('2025-01-15T17:00:00Z')
   },
   {
     id: TRACK_CUIDS['usha.uthup']['rambha-ho-ho-ho-armageddon'],
@@ -1728,7 +1728,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=MINo9f1hpz8',
     tags: 'Hindi, Dance, Fun Track, Retro, Party Song, Catchy, Usha Uthup, Bollywood',
-    createdAt: new Date('2024-01-20T17:00:00Z')
+    createdAt: new Date('2025-01-20T17:00:00Z')
   },
   {
     id: TRACK_CUIDS['usha.uthup']['aami-shotti-bolchi-kahaani'],
@@ -1738,7 +1738,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=dWrOxSyv9cA',
     tags: 'Kahaani, Vidya Balan, Hindi, Thriller, Melody, Catchy, Usha Uthup, Bollywood',
-    createdAt: new Date('2024-01-25T17:00:00Z')
+    createdAt: new Date('2025-01-25T17:00:00Z')
   },
   {
     id: TRACK_CUIDS['usha.uthup']['auva-auva-koi-yahan-nache'],
@@ -1748,7 +1748,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=3vylXQbEULQ',
     tags: 'Hindi, Dance, Party Song, Catchy, Usha Uthup, Fun Track, Retro, Bollywood',
-    createdAt: new Date('2024-01-30T17:00:00Z')
+    createdAt: new Date('2025-01-30T17:00:00Z')
   },
   {
     id: TRACK_CUIDS['usha.uthup']['uri-uri-baba'],
@@ -1758,7 +1758,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=y9QZFFVB9qs',
     tags: 'Hindi, Fun Track, Party Song, Catchy, Retro, Usha Uthup, Dance, Bollywood',
-    createdAt: new Date('2024-01-30T17:00:00Z')
+    createdAt: new Date('2025-01-30T17:00:00Z')
   },
   {
     id: TRACK_CUIDS['usha.uthup']['vande-mataram-k3g'],
@@ -1768,7 +1768,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=eDBrF3yfZHE',
     tags: 'K3G, Shahrukh Khan, Hindi, Patriotic, Festival, Vande Mataram, Usha Uthup, Iconic',
-    createdAt: new Date('2024-02-03T17:00:00Z')
+    createdAt: new Date('2025-02-03T17:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty']['ae-dil-hai-mushkil-title-track'],
@@ -1778,7 +1778,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=wx89ZdkwtS8',
     tags: 'Ae Dil Hai Mushkil, Ranbir Kapoor, Anushka Sharma, Hindi, Romantic, Melody, Soft Ballad, Love Song',
-    createdAt: new Date('2024-04-15T10:00:00Z')
+    createdAt: new Date('2025-04-15T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty']['in-dino-life-in-a-metro'],
@@ -1788,7 +1788,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=dXFVOkq41us',
     tags: 'Life In A Metro, Shiney Ahuja, Mahi Gill, Hindi, Romantic, Melody, Soft Ballad, Love Song',
-    createdAt: new Date('2024-04-18T10:00:00Z')
+    createdAt: new Date('2025-04-18T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty'][
@@ -1800,7 +1800,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=II2EO3Nw4m0',
     tags: 'Yeh Jawaani Hai Deewani, Ranbir Kapoor, Deepika Padukone, Hindi, Dance, Party, Peppy, Catchy',
-    createdAt: new Date('2024-04-20T10:00:00Z')
+    createdAt: new Date('2025-04-20T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty']['shayad-love-aaj-kal'],
@@ -1810,7 +1810,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=MJyKN-8UncM',
     tags: 'Love Aaj Kal, Kartik Aaryan, Sara Ali Khan, Hindi, Romantic, Soft Ballad, Melody, Emotional',
-    createdAt: new Date('2024-04-22T10:00:00Z')
+    createdAt: new Date('2025-04-22T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty']['raabta-agent-vinod'],
@@ -1820,7 +1820,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=zlt38OOqwDc',
     tags: 'Agent Vinod, Saif Ali Khan, Kareena Kapoor, Hindi, Romantic, Melody, Soft Ballad, Love Song',
-    createdAt: new Date('2024-04-25T10:00:00Z')
+    createdAt: new Date('2025-04-25T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty'][
@@ -1832,7 +1832,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=D8XFTglfSMg',
     tags: 'Once Upon A Time In Mumbaai, Emraan Hashmi, Prachi Desai, Hindi, Romantic, Melody, Love Song, Soft',
-    createdAt: new Date('2024-04-28T10:00:00Z')
+    createdAt: new Date('2025-04-28T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty']['tum-se-hi-jab-we-met'],
@@ -1842,7 +1842,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=Cb6wuzOurPc',
     tags: 'Jab We Met, Shahid Kapoor, Kareena Kapoor, Hindi, Romantic, Melody, Love Song, Evergreen',
-    createdAt: new Date('2024-05-01T10:00:00Z')
+    createdAt: new Date('2025-05-01T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty'][
@@ -1854,7 +1854,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=QYO6AlxiRE4',
     tags: 'Yeh Jawaani Hai Deewani, Ranbir Kapoor, Deepika Padukone, Hindi, Romantic, Melody, Love Song, Soft Ballad',
-    createdAt: new Date('2024-05-03T10:00:00Z')
+    createdAt: new Date('2025-05-03T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty']['janam-janam-dilwale'],
@@ -1864,7 +1864,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=pIBoAh4OXhQ',
     tags: 'Dilwale, Shah Rukh Khan, Kajol, Hindi, Romantic, Melody, Love Song, Soft Ballad',
-    createdAt: new Date('2024-05-05T10:00:00Z')
+    createdAt: new Date('2025-05-05T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['pritam.chakraborty']['oh-my-love-amanush-2'],
@@ -1874,7 +1874,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=ZNbE-PfI6jk',
     tags: 'Jannat 2, Emraan Hashmi, Esha Gupta, Hindi, Romantic, Melody, Love Song, Soft Ballad',
-    createdAt: new Date('2024-05-08T10:00:00Z')
+    createdAt: new Date('2025-05-08T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['taylor.swift']['love-story-fearless'],
@@ -1884,7 +1884,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=LHxXaY7NR3w',
     tags: 'Pop, Romantic, Love Song, 2020s, Soft Ballad, Melody, International, Catchy',
-    createdAt: new Date('2024-02-16T08:00:00Z')
+    createdAt: new Date('2025-02-16T08:00:00Z')
   },
   {
     id: TRACK_CUIDS['taylor.swift']['blank-space-1989'],
@@ -1894,7 +1894,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=e-ORhEE9VVg',
     tags: 'Pop, Dance, Catchy, Love Song, 2014 Hit, International, Party, Energetic',
-    createdAt: new Date('2024-02-18T08:00:00Z')
+    createdAt: new Date('2025-02-18T08:00:00Z')
   },
   {
     id: TRACK_CUIDS['taylor.swift']['shake-it-off-1989'],
@@ -1904,7 +1904,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=nfWlot6h_JM',
     tags: 'Pop, Dance, Energetic, Catchy, 2014 Hit, Party Song, International, Fun Track',
-    createdAt: new Date('2024-02-20T08:00:00Z')
+    createdAt: new Date('2025-02-20T08:00:00Z')
   },
   {
     id: TRACK_CUIDS['taylor.swift']['anti-hero-midnights'],
@@ -1914,7 +1914,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=b1kbLwvqugk',
     tags: 'Pop, 2022 Hit, International, Catchy, Energetic, Fun Track, Melody, Contemporary',
-    createdAt: new Date('2024-02-22T08:00:00Z')
+    createdAt: new Date('2025-02-22T08:00:00Z')
   },
   {
     id: TRACK_CUIDS['taylor.swift']['cruel-summer-lover'],
@@ -1924,7 +1924,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=ic8j13piAhQ',
     tags: 'Pop, Dance, Energetic, Love Song, International, Catchy, Fun Track, 2019 Hit',
-    createdAt: new Date('2024-02-25T08:00:00Z')
+    createdAt: new Date('2025-02-25T08:00:00Z')
   },
   {
     id: TRACK_CUIDS['taylor.swift']['you-belong-with-me-fearless'],
@@ -1934,7 +1934,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=VuNIsY6JdUw',
     tags: 'Pop, Country-Pop, 2008 Hit, Romantic, Love Song, International, Catchy, Soft Ballad',
-    createdAt: new Date('2024-02-28T08:00:00Z')
+    createdAt: new Date('2025-02-28T08:00:00Z')
   },
   {
     id: TRACK_CUIDS['ed.sheeran']['shape-of-you'],
@@ -1944,7 +1944,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=JGwWNGJdvx8',
     tags: 'Pop, Dance, Romantic, 2017 Hit, International, Catchy, Party Song, Melody',
-    createdAt: new Date('2024-03-05T15:00:00Z')
+    createdAt: new Date('2025-03-05T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['ed.sheeran']['sapphire-feat-arijit-singh'],
@@ -1954,7 +1954,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=JgDNFQ2RaLQ',
     tags: 'Pop, Romantic, International, Melody, Duet, Soft Ballad, Emotional, Catchy',
-    createdAt: new Date('2024-03-08T15:00:00Z')
+    createdAt: new Date('2025-03-08T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['ed.sheeran']['thinking-out-loud'],
@@ -1964,7 +1964,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=lp-EO5I60KA',
     tags: 'Pop, Romantic, Love Song, 2014 Hit, Soft Ballad, Melody, International, Evergreen',
-    createdAt: new Date('2024-03-10T15:00:00Z')
+    createdAt: new Date('2025-03-10T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['ed.sheeran']['bad-habits'],
@@ -1974,7 +1974,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=orJSJGHjBLI',
     tags: 'Pop, Dance, 2021 Hit, Catchy, Party Song, Energetic, International, Fun Track',
-    createdAt: new Date('2024-03-12T15:00:00Z')
+    createdAt: new Date('2025-03-12T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['ed.sheeran']['give-me-love'],
@@ -1984,7 +1984,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=FOjdXSrtUxA',
     tags: 'Pop, Romantic, Love Song, Soft Ballad, Melody, 2012 Hit, International, Emotional',
-    createdAt: new Date('2024-03-15T15:00:00Z')
+    createdAt: new Date('2025-03-15T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['k.k']['pyaar-ke-pal'],
@@ -2064,7 +2064,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=60ItHLz5WEA',
     tags: 'EDM, Electronic, Dance, International, Catchy, Melancholic, 2015 Hit, Party Song',
-    createdAt: new Date('2024-01-28T10:30:00Z')
+    createdAt: new Date('2025-01-28T10:30:00Z')
   },
   {
     id: TRACK_CUIDS['alan.walker']['alone-official'],
@@ -2074,7 +2074,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=1-xGerv5FOk',
     tags: 'EDM, Dance, Electronic, International, Catchy, Party Song, Energetic, 2016 Hit',
-    createdAt: new Date('2024-02-01T10:30:00Z')
+    createdAt: new Date('2025-02-01T10:30:00Z')
   },
   {
     id: TRACK_CUIDS['alan.walker']['not-you'],
@@ -2084,7 +2084,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=vjexVOf-s2Y',
     tags: 'EDM, Electronic, Dance, International, Catchy, Party Song, Melodic, Fun Track',
-    createdAt: new Date('2024-02-03T10:30:00Z')
+    createdAt: new Date('2025-02-03T10:30:00Z')
   },
   {
     id: TRACK_CUIDS['alan.walker']['on-my-way'],
@@ -2094,7 +2094,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=dhYOPzcsbGM',
     tags: 'EDM, Electronic, Dance, International, Catchy, Energetic, Party Song, 2019 Hit',
-    createdAt: new Date('2024-02-05T10:30:00Z')
+    createdAt: new Date('2025-02-05T10:30:00Z')
   },
   {
     id: TRACK_CUIDS['alan.walker']['the-spectre'],
@@ -2104,7 +2104,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=wJnBTPUQS5A',
     tags: 'EDM, Electronic, Dance, International, Catchy, Party Song, Energetic, 2017 Hit',
-    createdAt: new Date('2024-02-10T10:30:00Z')
+    createdAt: new Date('2025-02-10T10:30:00Z')
   },
   {
     id: TRACK_CUIDS['sam.smith']['unholy-kim-petras'],
@@ -2274,7 +2274,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=OBEOPnAO1hc',
     tags: 'Romantic, Melody, Emotional, Soft Ballad, Punjabi, Love Song, Heartfelt, Catchy',
-    createdAt: new Date('2024-01-01T13:00:00Z')
+    createdAt: new Date('2025-01-01T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['honey.singh']['lungi-dance-chennai-express'],
@@ -2284,7 +2284,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=69CEiHfS_mc',
     tags: 'Chennai Express, Shah Rukh Khan, Deepika Padukone, Hindi, Dance, Party Song, Peppy, Fun Track',
-    createdAt: new Date('2024-01-05T10:00:00Z')
+    createdAt: new Date('2025-01-05T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['honey.singh']['brown-rang-international-villager'],
@@ -2294,7 +2294,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=PqFMFVcCZgI',
     tags: 'Punjabi, Party Song, Dance, Peppy, Youth Favorite, Catchy, Fun Track, Energetic',
-    createdAt: new Date('2024-01-08T10:00:00Z')
+    createdAt: new Date('2025-01-08T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['honey.singh']['blue-eyes-single'],
@@ -2304,7 +2304,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=NbyHNASFi6U',
     tags: 'Punjabi, Pop, Romantic, Catchy, Peppy, Youth Favorite, Fun Track, Party Song',
-    createdAt: new Date('2024-01-10T10:00:00Z')
+    createdAt: new Date('2025-01-10T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['honey.singh']['dheere-dheere-single'],
@@ -2314,7 +2314,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=nCD2hj6zJEc',
     tags: 'Hindi, Romantic, Melody, Soft Ballad, Catchy, Peppy, Love Song, Fun Track',
-    createdAt: new Date('2024-01-12T10:00:00Z')
+    createdAt: new Date('2025-01-12T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['honey.singh']['laal-pari-house-full-5'],
@@ -2324,7 +2324,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=KGn-erOG-Bs',
     tags: 'Housefull 5, Hindi, Dance, Party Song, Peppy, Catchy, Fun Track, Energetic',
-    createdAt: new Date('2024-01-15T10:00:00Z')
+    createdAt: new Date('2025-01-15T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['honey.singh']['raat-jashan-di'],
@@ -2334,7 +2334,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=D--rQj49heE',
     tags: 'Punjabi, Party Song, Dance, Peppy, Youth Favorite, Fun Track, Catchy, Energetic',
-    createdAt: new Date('2024-01-18T10:00:00Z')
+    createdAt: new Date('2025-01-18T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['honey.singh']['maniac-glory'],
@@ -2344,7 +2344,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=W8x6Dwyj0-A',
     tags: 'Glory, Hindi, Dance, Party Song, Peppy, Energetic, Fun Track, Catchy',
-    createdAt: new Date('2024-01-20T10:00:00Z')
+    createdAt: new Date('2025-01-20T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['honey.singh']['millionaire-glory'],
@@ -2354,7 +2354,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=XO8wew38VM8',
     tags: 'Glory, Hindi, Dance, Party Song, Peppy, Catchy, Energetic, Fun Track',
-    createdAt: new Date('2024-01-22T10:00:00Z')
+    createdAt: new Date('2025-01-22T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['honey.singh']['one-bottle-down'],
@@ -2364,7 +2364,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=NDJ-1FK1c_k',
     tags: 'Punjabi, Party Song, Dance, Peppy, Fun Track, Youth Favorite, Catchy, Energetic',
-    createdAt: new Date('2024-01-25T10:00:00Z')
+    createdAt: new Date('2025-01-25T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['imagine.dragons']['believer-evolve-2017'],
@@ -2374,7 +2374,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=7wtfhZwyrcc',
     tags: 'Rock, Alternative, Pop Rock, Energetic, Catchy, Motivational, Anthem, 2017 Hit',
-    createdAt: new Date('2024-02-07T16:00:00Z')
+    createdAt: new Date('2025-02-07T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['imagine.dragons']['thunder-evolve'],
@@ -2384,7 +2384,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=fKopy74weus',
     tags: 'Rock, Alternative, Pop Rock, Energetic, Catchy, Motivational, Anthem, 2017 Hit',
-    createdAt: new Date('2024-02-10T16:00:00Z')
+    createdAt: new Date('2025-02-10T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['imagine.dragons']['bleeding-out-night-visions'],
@@ -2394,7 +2394,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=QFKHScAStsU',
     tags: 'Rock, Alternative, Pop Rock, Energetic, Anthem, Motivational, Catchy, 2012 Hit',
-    createdAt: new Date('2024-02-10T16:00:00Z')
+    createdAt: new Date('2025-02-10T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['imagine.dragons']['gods-dont-pray-loom'],
@@ -2404,7 +2404,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=NKcWKS2MW1M',
     tags: 'Rock, Alternative, Pop Rock, Energetic, Catchy, Anthem, Motivational, International',
-    createdAt: new Date('2024-06-10T16:00:00Z')
+    createdAt: new Date('2025-06-10T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['imagine.dragons']['nice-to-meet-you-loom'],
@@ -2414,7 +2414,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'english',
     youtubeUrl: 'https://www.youtube.com/watch?v=NeUfmyu5t8Q',
     tags: 'Rock, Alternative, Pop Rock, Energetic, Catchy, Anthem, Motivational, International',
-    createdAt: new Date('2024-06-15T16:00:00Z')
+    createdAt: new Date('2025-06-15T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['atif.aslam']['dil-diyan-gallan-tiger-zinda-hai'],
@@ -2424,7 +2424,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=SAcpESN_Fk4',
     tags: 'Tiger Zinda Hai, Salman Khan, Katrina Kaif, Hindi, Romantic, Soft Ballad, Melody, Love Song',
-    createdAt: new Date('2024-07-21T11:00:00Z')
+    createdAt: new Date('2025-07-21T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['atif.aslam']['tera-hone-laga-hoon'],
@@ -2434,7 +2434,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=rTuxUAuJRyY',
     tags: 'Ajab Prem Ki Ghazab Kahani, Ranbir Kapoor, Katrina Kaif, Hindi, Romantic, Melody, Soft Ballad, Love Song',
-    createdAt: new Date('2024-03-12T11:00:00Z')
+    createdAt: new Date('2025-03-12T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['atif.aslam']['tu-jaane-na-ajab-prem-ki-ghazab-kahani'],
@@ -2444,7 +2444,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=P8PWN1OmZOA',
     tags: 'Ajab Prem Ki Ghazab Kahani, Ranbir Kapoor, Katrina Kaif, Hindi, Romantic, Melody, Soft Ballad, Love Song',
-    createdAt: new Date('2024-03-15T11:00:00Z')
+    createdAt: new Date('2025-03-15T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['atif.aslam']['pehli-nazar-mein-race'],
@@ -2454,7 +2454,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=BadBAMnPX0I',
     tags: 'Race, Saif Ali Khan, Katrina Kaif, Hindi, Romantic, Melody, Soft Ballad, Love Song',
-    createdAt: new Date('2024-03-18T11:00:00Z')
+    createdAt: new Date('2025-03-18T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['atif.aslam']['jeena-jeena-badlapur'],
@@ -2464,7 +2464,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=zFdi834FiZ4',
     tags: 'Badlapur, Varun Dhawan, Hindi, Romantic, Soft Ballad, Melody, Love Song, Emotional',
-    createdAt: new Date('2024-03-20T11:00:00Z')
+    createdAt: new Date('2025-03-20T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['atif.aslam']['woh-lamhe-woh-baatein-zeher'],
@@ -2474,7 +2474,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=y12BRDS1CHI',
     tags: 'Zeher, Emraan Hashmi, Hindi, Romantic, Melody, Soft Ballad, Love Song, Emotional',
-    createdAt: new Date('2024-03-22T11:00:00Z')
+    createdAt: new Date('2025-03-22T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['atif.aslam']['tere-sang-yaara-rustom'],
@@ -2484,7 +2484,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=gIOea2pgfIo',
     tags: "Rustom, Akshay Kumar, Ileana D'Cruz, Hindi, Romantic, Soft Ballad, Melody, Love Song",
-    createdAt: new Date('2024-03-25T11:00:00Z')
+    createdAt: new Date('2025-03-25T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['atif.aslam']['o-saathi-baaghi-2'],
@@ -2494,7 +2494,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=YuXLN23ZGQo',
     tags: 'Baaghi 2, Tiger Shroff, Disha Patani, Hindi, Romantic, Soft Ballad, Melody, Love Song',
-    createdAt: new Date('2024-03-28T11:00:00Z')
+    createdAt: new Date('2025-03-28T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['jonita.gandhi']['the-breakup-song-ae-dil-hai-mushkil'],
@@ -2504,7 +2504,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=kd5KqlmcHNo',
     tags: 'Ae Dil Hai Mushkil, Ranbir Kapoor, Anushka Sharma, Hindi, Dance, Party, Catchy, Peppy',
-    createdAt: new Date('2024-04-20T10:00:00Z')
+    createdAt: new Date('2025-04-20T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['jonita.gandhi']['dil-ka-telephone-dream-girl'],
@@ -2514,7 +2514,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=a3B2glol4IU',
     tags: 'Dream Girl, Ayushmann Khurrana, Nushrat Bharucha, Hindi, Dance, Fun Track, Party Song, Catchy',
-    createdAt: new Date('2024-04-25T11:30:00Z')
+    createdAt: new Date('2025-04-25T11:30:00Z')
   },
   {
     id: TRACK_CUIDS['jonita.gandhi']['chellamma-doctor-tamil'],
@@ -2524,7 +2524,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=DV7nV9W7y-0',
     tags: 'Doctor, Vijay, Samantha Ruth Prabhu, Tamil, Dance, Catchy, Peppy, Fun Track',
-    createdAt: new Date('2024-05-01T14:00:00Z')
+    createdAt: new Date('2025-05-01T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['jonita.gandhi']['mental-manadhil-ok-kanmani'],
@@ -2534,7 +2534,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=ryD8BqVexJI',
     tags: 'OK Kanmani, Dulquer Salmaan, Nithya Menen, Tamil, Romantic, Soft Ballad, Melody, Love Song',
-    createdAt: new Date('2024-05-05T09:00:00Z')
+    createdAt: new Date('2025-05-05T09:00:00Z')
   },
   {
     id: TRACK_CUIDS['jonita.gandhi']['jimikki-ponnu-varisu'],
@@ -2544,7 +2544,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'tamil',
     youtubeUrl: 'https://www.youtube.com/watch?v=HfMTwkVQohM',
     tags: 'Varisu, Vijay, Rashmika Mandanna, Tamil, Dance, Catchy, Party Song, Peppy',
-    createdAt: new Date('2024-05-08T10:00:00Z')
+    createdAt: new Date('2025-05-08T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['jonita.gandhi']['beparwai-solo'],
@@ -2554,7 +2554,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=NivkHWpLDdQ',
     tags: 'Hindi, Romantic, Melody, Soft Ballad, Love Song, Catchy, Emotional, Pop',
-    createdAt: new Date('2024-05-10T16:00:00Z')
+    createdAt: new Date('2025-05-10T16:00:00Z')
   },
   {
     id: TRACK_CUIDS['jonita.gandhi']['what-jhumka'],
@@ -2564,7 +2564,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=P1fIdFRnfqw',
     tags: 'Rocky Aur Rani Kii Prem Kahaani, Ranveer Singh, Alia Bhatt, Hindi, Dance, Catchy, Peppy, Fun Track',
-    createdAt: new Date('2024-05-15T12:00:00Z')
+    createdAt: new Date('2025-05-15T12:00:00Z')
   },
   {
     id: TRACK_CUIDS['jonita.gandhi']['nuvve-nuvve-kick-2'],
@@ -2574,7 +2574,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'telugu',
     youtubeUrl: 'https://www.youtube.com/watch?v=B-mW-XIYHGk',
     tags: 'Kick 2, Ravi Teja, Telugu, Dance, Party, Catchy, Energetic, Peppy',
-    createdAt: new Date('2024-05-20T08:00:00Z')
+    createdAt: new Date('2025-05-20T08:00:00Z')
   },
   {
     id: TRACK_CUIDS['jonita.gandhi']['takdi-ravan-jindua'],
@@ -2584,7 +2584,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'punjabi',
     youtubeUrl: 'https://www.youtube.com/watch?v=94CeDlXPLVk',
     tags: 'Jindua, Diljit Dosanjh, Punjabi, Dance, Party, Peppy, Catchy, Fun Track',
-    createdAt: new Date('2024-05-25T13:00:00Z')
+    createdAt: new Date('2025-05-25T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['jeet.ganguly']['khujechi-toke-raat-berate'],
@@ -2594,7 +2594,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=ZrDlqXsIblA',
     tags: 'Bengali, Romantic, Melody, Soft Ballad, Emotional, Love Song, Regional Hit, Popular',
-    createdAt: new Date('2024-02-01T10:00:00Z')
+    createdAt: new Date('2025-02-01T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['jeet.ganguly']['muskurane-citylights'],
@@ -2604,7 +2604,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=2ltGXfmI6mk',
     tags: 'Citylights, Rajkummar Rao, Bengali, Romantic, Soft Ballad, Melody, Emotional, Love Song',
-    createdAt: new Date('2024-02-05T11:00:00Z')
+    createdAt: new Date('2025-02-05T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['jeet.ganguly']['raaz-aankhein-teri-raaz-reboot'],
@@ -2614,7 +2614,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=AvgFmr-ckpk',
     tags: 'Parmanu, John Abraham, Hindi, Romantic, Melody, Soft Ballad, Love Song, Emotional',
-    createdAt: new Date('2024-02-10T12:00:00Z')
+    createdAt: new Date('2025-02-10T12:00:00Z')
   },
   {
     id: TRACK_CUIDS['jeet.ganguly']['hamari-adhuri-kahani-title-track'],
@@ -2624,7 +2624,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=sVRwZEkXepg',
     tags: 'Hamari Adhuri Kahani, Emraan Hashmi, Hindi, Romantic, Soft Ballad, Melody, Emotional, Love Song',
-    createdAt: new Date('2024-02-15T13:00:00Z')
+    createdAt: new Date('2025-02-15T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['jeet.ganguly']['khamoshiyan-title-track'],
@@ -2634,7 +2634,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=Mv3SZDP7QUo',
     tags: 'Khamoshiyan, Gurmeet Choudhary, Hindi, Romantic, Soft Ballad, Melody, Emotional, Love Song',
-    createdAt: new Date('2024-02-20T14:00:00Z')
+    createdAt: new Date('2025-02-20T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['jeet.ganguly']['chaahun-main-ya-naa-aashiqui-2'],
@@ -2644,7 +2644,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=VdyBtGaspss',
     tags: 'Aashiqui 2, Aditya Roy Kapur, Shraddha Kapoor, Hindi, Romantic, Melody, Soft Ballad, Love Song',
-    createdAt: new Date('2024-02-25T15:00:00Z')
+    createdAt: new Date('2025-02-25T15:00:00Z')
   },
   {
     id: TRACK_CUIDS['jeet.ganguly']['tor-ek-kothaye'],
@@ -2654,7 +2654,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=AbluPg_E14k',
     tags: 'Bengali, Romantic, Melody, Soft Ballad, Love Song, Emotional, Regional Hit, Popular',
-    createdAt: new Date('2024-03-10T09:00:00Z')
+    createdAt: new Date('2025-03-10T09:00:00Z')
   },
   {
     id: TRACK_CUIDS['jeet.ganguly']['dhaker-taale-poran-jay-joliya-re'],
@@ -2664,7 +2664,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=hbXuXt7gkFY',
     tags: 'Bengali, Romantic, Melody, Soft Ballad, Love Song, Emotional, Regional Hit, Popular',
-    createdAt: new Date('2024-03-15T10:00:00Z')
+    createdAt: new Date('2025-03-15T10:00:00Z')
   },
   {
     id: TRACK_CUIDS['jeet.ganguly']['boss-title-track'],
@@ -2674,7 +2674,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=pP3lIwYc9BU',
     tags: 'Boss, Akshay Kumar, Hindi, Dance, Energetic, Party Song, Peppy, Catchy',
-    createdAt: new Date('2024-03-20T11:00:00Z')
+    createdAt: new Date('2025-03-20T11:00:00Z')
   },
   {
     id: TRACK_CUIDS['zubeen.garg']['ya-ali-gangster'],
@@ -2684,7 +2684,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=QFW6FnryEpk',
     tags: 'Gangster, Emraan Hashmi, Kareena Kapoor, Hindi, Romantic, Melody, Soft Ballad, Love Song',
-    createdAt: new Date('2024-02-25T12:00:00Z')
+    createdAt: new Date('2025-02-25T12:00:00Z')
   },
   {
     id: TRACK_CUIDS['zubeen.garg']['dil-tu-hi-bataa-krrish-3'],
@@ -2694,7 +2694,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=Hievfejv90c',
     tags: 'Krrish 3, Hrithik Roshan, Priyanka Chopra, Hindi, Romantic, Melody, Soft Ballad, Love Song',
-    createdAt: new Date('2024-03-01T13:00:00Z')
+    createdAt: new Date('2025-03-01T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['zubeen.garg']['jhoom-barabar-jhoom'],
@@ -2704,7 +2704,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'hindi',
     youtubeUrl: 'https://www.youtube.com/watch?v=NvSt5Nsmxlg',
     tags: 'Jhoom Barabar Jhoom, Abhishek Bachchan, Preity Zinta, Hindi, Dance, Catchy, Fun Track, Peppy',
-    createdAt: new Date('2024-03-03T13:00:00Z')
+    createdAt: new Date('2025-03-03T13:00:00Z')
   },
   {
     id: TRACK_CUIDS['zubeen.garg']['khuda-jaane-paglu-2'],
@@ -2714,7 +2714,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=Ze1p1cwqtNc',
     tags: 'Paglu 2, Hindi, Romantic, Melody, Soft Ballad, Love Song, Emotional, Catchy',
-    createdAt: new Date('2024-03-05T14:00:00Z')
+    createdAt: new Date('2025-03-05T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['zubeen.garg']['tomar-amar-prem'],
@@ -2724,7 +2724,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'bengali',
     youtubeUrl: 'https://www.youtube.com/watch?v=s4WEbB4vvVU',
     tags: 'Bengali, Romantic, Melody, Soft Ballad, Love Song, Emotional, Regional Hit, Popular',
-    createdAt: new Date('2024-03-07T14:00:00Z')
+    createdAt: new Date('2025-03-07T14:00:00Z')
   },
   {
     id: TRACK_CUIDS['zubeen.garg']['tumi-suwa-jetia'],
@@ -2734,7 +2734,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     language: 'assamese',
     youtubeUrl: 'https://www.youtube.com/watch?v=VTdTRreNiI8',
     tags: 'Assamese, Romantic, Melody, Soft Ballad, Love Song, Emotional, Regional Hit, Popular',
-    createdAt: new Date('2024-03-10T15:00:00Z')
+    createdAt: new Date('2025-03-10T15:00:00Z')
   }
 ]
 
@@ -2748,7 +2748,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'The most beautiful romantic songs from Bollywood that will touch your heart and soul.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b2734d21df80ef60fc7fdfee5292',
-    createdAt: new Date('2024-01-15T10:00:00Z')
+    createdAt: new Date('2025-01-15T10:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['tamil-dance-anthems'],
@@ -2758,7 +2758,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'High-energy Tamil dance tracks that will get you moving! Perfect for parties and workouts.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d00001e026e89960ef135d6398696385f',
-    createdAt: new Date('2024-02-01T11:00:00Z')
+    createdAt: new Date('2025-02-01T11:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['punjabi-party-bangers'],
@@ -2768,7 +2768,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'The ultimate Punjabi party playlist with bhangra beats and energetic vibes.',
     posterUrl:
       'https://i.scdn.co/image/ab67706c0000da84b5f11ac79d96dbabd5ed34f1',
-    createdAt: new Date('2024-02-10T12:00:00Z')
+    createdAt: new Date('2025-02-10T12:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['bengali-soulful-collection'],
@@ -2778,7 +2778,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'A curated collection of the most soulful and emotional Bengali songs that speak to the heart.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b2739ed555535dd99ca0266940a6',
-    createdAt: new Date('2024-01-20T13:00:00Z')
+    createdAt: new Date('2025-01-20T13:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['ar-rahman-classics'],
@@ -2788,7 +2788,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Timeless compositions by the Mozart of Madras featuring his greatest hits across languages.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b273949eb6b7959abb947ae862ff',
-    createdAt: new Date('2024-03-15T14:00:00Z')
+    createdAt: new Date('2025-03-15T14:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['arijit-singh-love-songs'],
@@ -2798,7 +2798,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       "The voice of love - Arijit Singh's most romantic and emotional tracks compiled together.",
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b273426b907c48173c04e430aa6e',
-    createdAt: new Date('2024-01-25T15:00:00Z')
+    createdAt: new Date('2025-01-25T15:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['western-pop-favorites'],
@@ -2808,7 +2808,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Chart-topping Western pop hits featuring the biggest artists and their most popular songs.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d00001e0281959e6fcd97c1509a0cd055',
-    createdAt: new Date('2024-02-20T16:00:00Z')
+    createdAt: new Date('2025-02-20T16:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['bollywood-item-songs'],
@@ -2818,7 +2818,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'High-energy Bollywood dance numbers and item songs that light up the screen.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b2733c528c581a6b3f940a24cb5f',
-    createdAt: new Date('2024-01-30T17:00:00Z')
+    createdAt: new Date('2025-01-30T17:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['emotional-ballads'],
@@ -2828,7 +2828,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Soul-stirring ballads across languages that capture the deepest emotions of love and life.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d00001e02159b3340c36d70908440901a',
-    createdAt: new Date('2024-02-25T18:00:00Z')
+    createdAt: new Date('2025-02-25T18:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['cross-cultural-fusion'],
@@ -2838,7 +2838,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'A unique blend of Eastern and Western music featuring collaborations and fusion tracks.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b2735a1aec2e30e701d9f1d8526b',
-    createdAt: new Date('2024-03-01T19:00:00Z')
+    createdAt: new Date('2025-03-01T19:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['bollywood-bangers'],
@@ -2848,7 +2848,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'High-energy Bollywood dance tracks that dominate the charts and dance floors.',
     posterUrl:
       'https://i.scdn.co/image/ab67706c0000da84e88843a52a60aee3a348391e',
-    createdAt: new Date('2024-03-05T10:00:00Z')
+    createdAt: new Date('2025-03-05T10:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['classical-hits'],
@@ -2858,7 +2858,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       "Timeless classical and traditional compositions that showcase India's rich musical heritage.",
     posterUrl:
       'https://i.scdn.co/image/ab67706c0000d72c4ed1546759ae6e2e1256cfb0',
-    createdAt: new Date('2024-03-10T11:00:00Z')
+    createdAt: new Date('2025-03-10T11:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['devotional-bliss'],
@@ -2868,7 +2868,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Spiritual and devotional songs that elevate the soul and connect you with the divine.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d00001e02b94fb7607195aa4c8e215c20',
-    createdAt: new Date('2024-03-15T12:00:00Z')
+    createdAt: new Date('2025-03-15T12:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['sufi-sanctuary'],
@@ -2878,7 +2878,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Mystical Sufi melodies and soulful qawwalis that touch the deepest corners of the heart.',
     posterUrl:
       'https://i.scdn.co/image/ab67706c0000da8457d9344f09f1957fcfbc0aaf',
-    createdAt: new Date('2024-03-20T13:00:00Z')
+    createdAt: new Date('2025-03-20T13:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['regional-hits'],
@@ -2888,7 +2888,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Popular songs from South Indian cinema including Telugu, Kannada, and more regional gems.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d00001e0268cb8aa2bafff95536a085ca',
-    createdAt: new Date('2024-03-25T14:00:00Z')
+    createdAt: new Date('2025-03-25T14:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['deep-focus'],
@@ -2898,7 +2898,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Calm and contemplative tracks perfect for deep work, study sessions, and concentration.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b273e3a03829bed283a3d72bcdf0',
-    createdAt: new Date('2024-04-01T15:00:00Z')
+    createdAt: new Date('2025-04-01T15:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['quiet-moments'],
@@ -2908,7 +2908,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Peaceful and serene songs for relaxation, meditation, and quiet contemplation.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d00001e024d0204b5bb55fcd38e429ad1',
-    createdAt: new Date('2024-04-05T16:00:00Z')
+    createdAt: new Date('2025-04-05T16:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['indie-india'],
@@ -2918,7 +2918,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Independent and alternative Indian music that breaks conventional boundaries.',
     posterUrl:
       'https://i.scdn.co/image/ab67706c0000da846ed88b653d703826f8026e34',
-    createdAt: new Date('2024-04-10T17:00:00Z')
+    createdAt: new Date('2025-04-10T17:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['retro-classics'],
@@ -2928,7 +2928,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Golden oldies and vintage classics that defined generations and remain evergreen.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d00001e02ee15bb043702a45064d0eb33',
-    createdAt: new Date('2024-04-15T18:00:00Z')
+    createdAt: new Date('2025-04-15T18:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
@@ -2938,7 +2938,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Exotic fusion of Arabic melodies with Malayalam classics and cross-cultural experiments.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b273727470c5e0a196d46d3ed3d3',
-    createdAt: new Date('2024-04-20T19:00:00Z')
+    createdAt: new Date('2025-04-20T19:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['action-anthems'],
@@ -2948,7 +2948,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Adrenaline-pumping tracks from action movies that fuel your energy and motivation.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b2731be8e9bf7929f4d3d7ac34ef',
-    createdAt: new Date('2024-04-25T20:00:00Z')
+    createdAt: new Date('2025-04-25T20:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['patriotic-pride'],
@@ -2958,7 +2958,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Songs that celebrate the nation and evoke feelings of patriotism and national pride.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d00001e0222366fe48681c79d11ebfd54',
-    createdAt: new Date('2024-04-30T21:00:00Z')
+    createdAt: new Date('2025-04-30T21:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['folk-treasures'],
@@ -2968,7 +2968,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Authentic folk songs from different regions that preserve traditional musical heritage.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d00001e029ce5acfc9346d01a4873a543',
-    createdAt: new Date('2024-05-05T22:00:00Z')
+    createdAt: new Date('2025-05-05T22:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['electronic-beats'],
@@ -2978,7 +2978,7 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Electronic dance music and EDM tracks that get your heart pumping and feet moving.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b273bf10471c9bfef2719d7585bd',
-    createdAt: new Date('2024-05-10T23:00:00Z')
+    createdAt: new Date('2025-05-10T23:00:00Z')
   },
   {
     id: PLAYLIST_CUIDS['beats-to-think-to'],
@@ -2988,13 +2988,20 @@ export const SEED_PLAYLISTS: TSeedPlaylist[] = [
       'Thoughtful melodies and introspective songs perfect for reflection and creative thinking.',
     posterUrl:
       'https://i.scdn.co/image/ab67616d0000b2732da49f9ecc8c48b83f7ce450',
-    createdAt: new Date('2024-05-15T08:00:00Z')
+    createdAt: new Date('2025-05-15T08:00:00Z')
   }
 ]
 
 // Playlist-track relationships for seeding playlist contents
 export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
-  // Bollywood Romantic Hits
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
+    trackId: TRACK_CUIDS['arijit.singh']['tum-hi-ho-aashiqui-2']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
+    trackId: TRACK_CUIDS['a.r.rahman']['enna-sona-ok-jaanu']
+  },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
     trackId: TRACK_CUIDS['arijit.singh']['kesariya-brahmastra']
@@ -3005,19 +3012,15 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
+    trackId: TRACK_CUIDS['pritam.chakraborty']['ae-dil-hai-mushkil-title-track']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
     trackId: TRACK_CUIDS['arijit.singh']['gerua-dilwale']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
-    trackId: TRACK_CUIDS['arijit.singh']['tum-hi-ho-aashiqui-2']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
-    trackId: TRACK_CUIDS['atif.aslam']['dil-diyan-gallan-tiger-zinda-hai']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
-    trackId: TRACK_CUIDS['atif.aslam']['tera-hone-laga-hoon']
+    trackId: TRACK_CUIDS['arijit.singh']['phir-le-aaya-dil-barfi']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
@@ -3029,33 +3032,55 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
-    trackId: TRACK_CUIDS['b.praak']['mann-bharryaa-2-0-shershaah']
+    trackId: TRACK_CUIDS['kumar.sanu']['mera-dil-bhi-kitna-pagal-hai']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
-    trackId: TRACK_CUIDS['b.praak']['ranjha-shershaah']
+    trackId: TRACK_CUIDS['kumar.sanu']['jab-koi-baat-bigad-jaye-jurm']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
-    trackId: TRACK_CUIDS['pritam.chakraborty']['ae-dil-hai-mushkil-title-track']
+    trackId: TRACK_CUIDS['kumar.sanu']['do-dil-mil-rahe-hain-pardes']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
-    trackId: TRACK_CUIDS['pritam.chakraborty']['shayad-love-aaj-kal']
+    trackId: TRACK_CUIDS['sonu.nigam']['kal-ho-naa-ho-title-track']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
-    trackId: TRACK_CUIDS['k.k']['tu-hi-meri-shab-hai-gangster']
+    trackId: TRACK_CUIDS['sonu.nigam']['abhi-mujh-mein-kahin-agneepath']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
-    trackId: TRACK_CUIDS['sonu.nigam']['main-agar-kahoon-om-shanti-om']
+    trackId: TRACK_CUIDS['sonu.nigam']['saathiya-title-track']
   },
-
-  // Tamil Dance Anthems
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
+    trackId: TRACK_CUIDS['pritam.chakraborty']['janam-janam-dilwale']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
+    trackId: TRACK_CUIDS['atif.aslam']['dil-diyan-gallan-tiger-zinda-hai']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
+    trackId: TRACK_CUIDS['atif.aslam']['tera-hone-laga-hoon']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
+    trackId: TRACK_CUIDS['atif.aslam']['tu-jaane-na-ajab-prem-ki-ghazab-kahani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-romantic-hits'],
+    trackId: TRACK_CUIDS['atif.aslam']['pehli-nazar-mein-race']
+  },
   {
     playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
-    trackId: TRACK_CUIDS['anirudh.ravichander']['why-this-kolaveri-di']
+    trackId: TRACK_CUIDS['a.r.rahman']['urvasi-urvasi']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
+    trackId: TRACK_CUIDS['a.r.rahman']['mukkala-muqabala-kadhalan']
   },
   {
     playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
@@ -3075,11 +3100,15 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
-    trackId: TRACK_CUIDS['a.r.rahman']['urvasi-urvasi']
+    trackId: TRACK_CUIDS['anirudh.ravichander']['why-this-kolaveri-di']
   },
   {
     playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
-    trackId: TRACK_CUIDS['a.r.rahman']['mukkala-muqabala-kadhalan']
+    trackId: TRACK_CUIDS['anirudh.ravichander']['zinda-banda-jawan']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
+    trackId: TRACK_CUIDS['anirudh.ravichander']['ayudha-pooja-devara']
   },
   {
     playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
@@ -3087,13 +3116,31 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
-    trackId: TRACK_CUIDS['jonita.gandhi']['nuvve-nuvve-kick-2']
+    trackId: TRACK_CUIDS['jonita.gandhi']['jimikki-ponnu-varisu']
   },
-
-  // Punjabi Party Bangers
+  {
+    playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['mental-manadhil-ok-kanmani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['munbe-vaa-sillunu-oru-kaadhal']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
+    trackId: TRACK_CUIDS['a.r.rahman']['tu-hi-re-bombay']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['tamil-dance-anthems'],
+    trackId: TRACK_CUIDS['a.r.rahman']['hamma-hamma-bombay']
+  },
   {
     playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
     trackId: TRACK_CUIDS['diljit.dosanjh']['lover-moonchild-era']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
+    trackId: TRACK_CUIDS['diljit.dosanjh']['tenu-ki-pata']
   },
   {
     playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
@@ -3125,18 +3172,28 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
-    trackId: TRACK_CUIDS['honey.singh']['maniac-glory']
+    trackId: TRACK_CUIDS['honey.singh']['one-bottle-down']
   },
   {
     playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
-    trackId: TRACK_CUIDS['honey.singh']['millionaire-glory']
+    trackId: TRACK_CUIDS['honey.singh']['lungi-dance-chennai-express']
   },
   {
     playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
     trackId: TRACK_CUIDS['b.praak']['filhaal-single']
   },
-
-  // Bengali Soulful Collection
+  {
+    playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
+    trackId: TRACK_CUIDS['b.praak']['yaar-ka-sataya-hua-hai']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['takdi-ravan-jindua']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
+    trackId: TRACK_CUIDS['diljit.dosanjh']['do-you-know']
+  },
   {
     playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
     trackId: TRACK_CUIDS['anupam.roy']['amake-amar-moto-thakte-dao']
@@ -3159,11 +3216,23 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
-    trackId: TRACK_CUIDS['arijit.singh']['ki-kore-toke-bolbo']
+    trackId: TRACK_CUIDS['anupam.roy']['bariye-dao-tomar-haat']
   },
   {
     playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
-    trackId: TRACK_CUIDS['arijit.singh']['mon-majhi-re']
+    trackId: TRACK_CUIDS['anupam.roy']['ure-jaak-uma']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
+    trackId: TRACK_CUIDS['anupam.roy']['jaago-jaago-uma']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
+    trackId: TRACK_CUIDS['kishore.kumar']['ami-chini-go-chini-charulata']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['jao-pakhi-bolo']
   },
   {
     playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
@@ -3175,18 +3244,36 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['chawlraastaye-autograph']
+    trackId: TRACK_CUIDS['jeet.ganguly']['dhaker-taale-poran-jay-joliya-re']
   },
   {
     playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['jao-pakhi-bolo']
+    trackId: TRACK_CUIDS['zubeen.garg']['tomar-amar-prem']
   },
   {
     playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
-    trackId: TRACK_CUIDS['kishore.kumar']['ami-chini-go-chini-charulata']
+    trackId: TRACK_CUIDS['arijit.singh']['aami-tomar-kache-yoddha']
   },
-
-  // A.R. Rahman Classics
+  {
+    playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
+    trackId: TRACK_CUIDS['arijit.singh']['ki-kore-toke-bolbo']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
+    trackId: TRACK_CUIDS['arijit.singh']['mon-majhi-re']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
+    trackId: TRACK_CUIDS['arijit.singh']['tomake-chuye-dilam']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
+    trackId: TRACK_CUIDS['usha.uthup']['aami-shotti-bolchi-kahaani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bengali-soulful-collection'],
+    trackId: TRACK_CUIDS['zubeen.garg']['khuda-jaane-paglu-2']
+  },
   {
     playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
     trackId: TRACK_CUIDS['a.r.rahman']['jai-ho-slumdog-millionaire']
@@ -3202,10 +3289,6 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   {
     playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
     trackId: TRACK_CUIDS['a.r.rahman']['mukkala-muqabala-kadhalan']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
-    trackId: TRACK_CUIDS['a.r.rahman']['enna-sona-ok-jaanu']
   },
   {
     playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
@@ -3226,17 +3309,67 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['a.r.rahman']['enna-sona-ok-jaanu']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['usha.uthup']['darling-7-khoon-maaf']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['pritam.chakraborty']['tum-se-hi-jab-we-met']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
     trackId: TRACK_CUIDS['jonita.gandhi']['mental-manadhil-ok-kanmani']
   },
-
-  // Arijit Singh Love Songs
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['chellamma-doctor-tamil']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['munbe-vaa-sillunu-oru-kaadhal']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['pritam.chakraborty']['in-dino-life-in-a-metro']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['zubeen.garg']['ya-ali-gangster']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['atif.aslam']['pehli-nazar-mein-race']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['atif.aslam']['jeena-jeena-badlapur']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['usha.uthup']['auva-auva-koi-yahan-nache']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['ar-rahman-classics'],
+    trackId: TRACK_CUIDS['pritam.chakraborty']['raabta-agent-vinod']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
+    trackId: TRACK_CUIDS['arijit.singh']['tum-hi-ho-aashiqui-2']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
+    trackId: TRACK_CUIDS['arijit.singh']['channa-mereya-ae-dil-hai-mushkil']
+  },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
     trackId: TRACK_CUIDS['arijit.singh']['kesariya-brahmastra']
   },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
-    trackId: TRACK_CUIDS['arijit.singh']['channa-mereya-ae-dil-hai-mushkil']
+    trackId: TRACK_CUIDS['arijit.singh']['khairiyat-chhichhore']
   },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
@@ -3248,27 +3381,23 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
-    trackId: TRACK_CUIDS['arijit.singh']['tum-hi-ho-aashiqui-2']
+    trackId: TRACK_CUIDS['a.r.rahman']['enna-sona-ok-jaanu']
   },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
-    trackId: TRACK_CUIDS['arijit.singh']['tomake-chuye-dilam']
+    trackId: TRACK_CUIDS['arijit.singh']['anuvanuvuu-om-bheem-bush']
   },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
-    trackId: TRACK_CUIDS['arijit.singh']['suno-na-sangemarmar-youngistaan']
+    trackId: TRACK_CUIDS['pritam.chakraborty']['ae-dil-hai-mushkil-title-track']
   },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
-    trackId: TRACK_CUIDS['arijit.singh']['aayat-bajirao-mastani']
+    trackId: TRACK_CUIDS['pritam.chakraborty']['shayad-love-aaj-kal']
   },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
     trackId: TRACK_CUIDS['pritam.chakraborty']['raabta-agent-vinod']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
-    trackId: TRACK_CUIDS['jeet.ganguly']['muskurane-citylights']
   },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
@@ -3280,10 +3409,53 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
-    trackId: TRACK_CUIDS['b.praak']['saari-duniya-jalaa-denge-animal']
+    trackId: TRACK_CUIDS['jeet.ganguly']['chaahun-main-ya-naa-aashiqui-2']
   },
-
-  // Western Pop Favorites
+  {
+    playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
+    trackId: TRACK_CUIDS['ed.sheeran']['sapphire-feat-arijit-singh']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
+    trackId: TRACK_CUIDS['pritam.chakraborty']['oh-my-love-amanush-2']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
+    trackId:
+      TRACK_CUIDS['pritam.chakraborty']['pee-loon-once-upon-a-time-in-mumbaai']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
+    trackId: TRACK_CUIDS['atif.aslam']['tere-sang-yaara-rustom']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
+    trackId: TRACK_CUIDS['atif.aslam']['o-saathi-baaghi-2']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arijit-singh-love-songs'],
+    trackId: TRACK_CUIDS['jeet.ganguly']['muskurane-citylights']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
+    trackId: TRACK_CUIDS['dua.lipa']['dont-start-now']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
+    trackId: TRACK_CUIDS['dua.lipa']['levitating-feat-dababy']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
+    trackId: TRACK_CUIDS['dua.lipa']['new-rules']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
+    trackId: TRACK_CUIDS['dua.lipa']['one-kiss-calvin-harris']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
+    trackId: TRACK_CUIDS['dua.lipa']['houdini-single']
+  },
   {
     playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
     trackId: TRACK_CUIDS['taylor.swift']['love-story-fearless']
@@ -3302,15 +3474,11 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
-    trackId: TRACK_CUIDS['dua.lipa']['dont-start-now']
+    trackId: TRACK_CUIDS['taylor.swift']['cruel-summer-lover']
   },
   {
     playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
-    trackId: TRACK_CUIDS['dua.lipa']['levitating-feat-dababy']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
-    trackId: TRACK_CUIDS['dua.lipa']['new-rules']
+    trackId: TRACK_CUIDS['taylor.swift']['you-belong-with-me-fearless']
   },
   {
     playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
@@ -3326,29 +3494,20 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
-    trackId: TRACK_CUIDS['sam.smith']['unholy-kim-petras']
+    trackId: TRACK_CUIDS['ed.sheeran']['give-me-love']
   },
   {
-    playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
-    trackId: TRACK_CUIDS['sam.smith']['stay-with-me']
+    playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
+    trackId: TRACK_CUIDS['sunidhi.chauhan']['sheila-ki-jawani-tees-maar-khan']
   },
-  {
-    playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
-    trackId: TRACK_CUIDS['imagine.dragons']['believer-evolve-2017']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['western-pop-favorites'],
-    trackId: TRACK_CUIDS['alan.walker']['faded-official']
-  },
-
-  // Bollywood Item Songs
   {
     playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
     trackId: TRACK_CUIDS['sunidhi.chauhan']['kamli-dhoom-3']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
-    trackId: TRACK_CUIDS['sunidhi.chauhan']['sheila-ki-jawani-tees-maar-khan']
+    trackId:
+      TRACK_CUIDS['kumar.sanu']['chura-ke-dil-mera-main-khiladi-tu-anari']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
@@ -3373,26 +3532,45 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
-    trackId: TRACK_CUIDS['honey.singh']['lungi-dance-chennai-express']
+    trackId: TRACK_CUIDS['jonita.gandhi']['the-breakup-song-ae-dil-hai-mushkil']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['deewani-mastani-bajirao-mastani']
+    trackId:
+      TRACK_CUIDS['pritam.chakraborty']['badtameez-dil-yeh-jawaani-hai-deewani']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['ghoomar-padmaavat']
+    trackId: TRACK_CUIDS['jonita.gandhi']['what-jhumka']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
-    trackId: TRACK_CUIDS['usha.uthup']['darling-7-khoon-maaf']
+    trackId: TRACK_CUIDS['honey.singh']['laal-pari-house-full-5']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
-    trackId: TRACK_CUIDS['usha.uthup']['rambha-ho-ho-ho-armageddon']
+    trackId: TRACK_CUIDS['jonita.gandhi']['dil-ka-telephone-dream-girl']
   },
-
-  // Emotional Ballads
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['chellamma-doctor-tamil']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-item-songs'],
+    trackId: TRACK_CUIDS['zubeen.garg']['jhoom-barabar-jhoom']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['arijit.singh']['tum-hi-ho-aashiqui-2']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['arijit.singh']['channa-mereya-ae-dil-hai-mushkil']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['arijit.singh']['phir-le-aaya-dil-barfi']
+  },
   {
     playlistId: PLAYLIST_CUIDS['emotional-ballads'],
     trackId: TRACK_CUIDS['sonu.nigam']['kal-ho-naa-ho-title-track']
@@ -3403,31 +3581,15 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['sonu.nigam']['main-agar-kahoon-om-shanti-om']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
     trackId: TRACK_CUIDS['sonu.nigam']['sandese-aate-hain-border']
   },
   {
     playlistId: PLAYLIST_CUIDS['emotional-ballads'],
-    trackId: TRACK_CUIDS['arijit.singh']['khairiyat-chhichhore']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
-    trackId: TRACK_CUIDS['arijit.singh']['channa-mereya-ae-dil-hai-mushkil']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
-    trackId: TRACK_CUIDS['b.praak']['teri-mitti-kesari']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
-    trackId: TRACK_CUIDS['b.praak']['saari-duniya-jalaa-denge-animal']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
-    trackId: TRACK_CUIDS['k.k']['pyaar-ke-pal']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
-    trackId: TRACK_CUIDS['k.k']['yaaron-rockford']
+    trackId: TRACK_CUIDS['sonu.nigam']['shukran-allah-kurbaan']
   },
   {
     playlistId: PLAYLIST_CUIDS['emotional-ballads'],
@@ -3435,7 +3597,27 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['emotional-ballads'],
-    trackId: TRACK_CUIDS['atif.aslam']['jeena-jeena-badlapur']
+    trackId: TRACK_CUIDS['k.k']['tu-hi-meri-shab-hai-gangster']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['k.k']['aankhon-mein-teri-om-shanti-om']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['k.k']['zara-sa-jannat']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['k.k']['khuda-jaane-bachna-ae-haseeno']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['sam.smith']['stay-with-me']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['sam.smith']['im-not-the-only-one']
   },
   {
     playlistId: PLAYLIST_CUIDS['emotional-ballads'],
@@ -3443,17 +3625,19 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['emotional-ballads'],
-    trackId: TRACK_CUIDS['kishore.kumar']['mere-sapno-ki-rani-aradhana']
+    trackId: TRACK_CUIDS['arijit.singh']['suno-na-sangemarmar-youngistaan']
   },
   {
     playlistId: PLAYLIST_CUIDS['emotional-ballads'],
-    trackId: TRACK_CUIDS['sam.smith']['stay-with-me']
+    trackId: TRACK_CUIDS['zubeen.garg']['dil-tu-hi-bataa-krrish-3']
   },
-
-  // Cross-Cultural Fusion
   {
-    playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
-    trackId: TRACK_CUIDS['ed.sheeran']['sapphire-feat-arijit-singh']
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['b.praak']['mann-bharryaa-2-0-shershaah']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['emotional-ballads'],
+    trackId: TRACK_CUIDS['b.praak']['ranjha-shershaah']
   },
   {
     playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
@@ -3465,15 +3649,15 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['nagada-sang-dhol-ram-leela']
+    trackId: TRACK_CUIDS['ed.sheeran']['sapphire-feat-arijit-singh']
   },
   {
     playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
-    trackId: TRACK_CUIDS['alan.walker']['faded-official']
+    trackId: TRACK_CUIDS['a.r.rahman']['jai-ho-slumdog-millionaire']
   },
   {
     playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
-    trackId: TRACK_CUIDS['alan.walker']['alone-official']
+    trackId: TRACK_CUIDS['shreya.ghoshal']['chhaila-bhoomi']
   },
   {
     playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
@@ -3485,18 +3669,40 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
-    trackId: TRACK_CUIDS['imagine.dragons']['thunder-evolve']
+    trackId: TRACK_CUIDS['anirudh.ravichander']['arabic-kuthu-beast']
   },
   {
     playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
-    trackId: TRACK_CUIDS['jonita.gandhi']['the-breakup-song-ae-dil-hai-mushkil']
+    trackId: TRACK_CUIDS['anirudh.ravichander']['zinda-banda-jawan']
   },
   {
     playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
-    trackId: TRACK_CUIDS['jonita.gandhi']['what-jhumka']
+    trackId: TRACK_CUIDS['sam.smith']['unholy-kim-petras']
   },
-
-  // Bollywood Bangers
+  {
+    playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
+    trackId: TRACK_CUIDS['imagine.dragons']['nice-to-meet-you-loom']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
+    trackId: TRACK_CUIDS['dua.lipa']['levitating-feat-dababy']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
+    trackId: TRACK_CUIDS['dua.lipa']['dont-start-now']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
+    trackId: TRACK_CUIDS['ed.sheeran']['bad-habits']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['cross-cultural-fusion'],
+    trackId: TRACK_CUIDS['dua.lipa']['houdini-single']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['honey.singh']['lungi-dance-chennai-express']
+  },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
     trackId:
@@ -3504,16 +3710,56 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['the-breakup-song-ae-dil-hai-mushkil']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['sunidhi.chauhan']['kamli-dhoom-3']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['sunidhi.chauhan']['sheila-ki-jawani-tees-maar-khan']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['sunidhi.chauhan']['crazy-kiya-re-dhoom-2']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['sunidhi.chauhan']['dhoom-machale-dhoom']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['sunidhi.chauhan']['aaja-nachle-title-track']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
     trackId:
-      TRACK_CUIDS['kumar.sanu']['chura-ke-dil-mera-main-khiladi-tu-anari']
+      TRACK_CUIDS['sunidhi.chauhan']['the-disco-song-student-of-the-year']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
-    trackId: TRACK_CUIDS['honey.singh']['dheere-dheere-single']
+    trackId: TRACK_CUIDS['jonita.gandhi']['what-jhumka']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
-    trackId: TRACK_CUIDS['honey.singh']['laal-pari-house-full-5']
+    trackId: TRACK_CUIDS['a.r.rahman']['chaka-chak-atragi-re']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['b.praak']['saari-duniya-jalaa-denge-animal']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['jeet.ganguly']['boss-title-track']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['honey.singh']['maniac-glory']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['honey.singh']['millionaire-glory']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
@@ -3522,29 +3768,55 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
-    trackId: TRACK_CUIDS['jonita.gandhi']['dil-ka-telephone-dream-girl']
+    trackId: TRACK_CUIDS['pritam.chakraborty']['in-dino-life-in-a-metro']
   },
   {
     playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
-    trackId: TRACK_CUIDS['anirudh.ravichander']['zinda-banda-jawan']
-  },
-
-  // Classical Hits
-  {
-    playlistId: PLAYLIST_CUIDS['classical-hits'],
-    trackId: TRACK_CUIDS['kishore.kumar']['pal-pal-dil-ke-paas-blackmail']
+    trackId: TRACK_CUIDS['usha.uthup']['auva-auva-koi-yahan-nache']
   },
   {
-    playlistId: PLAYLIST_CUIDS['classical-hits'],
-    trackId: TRACK_CUIDS['kishore.kumar']['yeh-shaam-mastani-kati-patang']
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['usha.uthup']['uri-uri-baba']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['bollywood-bangers'],
+    trackId: TRACK_CUIDS['jeet.ganguly']['raaz-aankhein-teri-raaz-reboot']
   },
   {
     playlistId: PLAYLIST_CUIDS['classical-hits'],
-    trackId: TRACK_CUIDS['kishore.kumar']['roop-tera-mastana-aradhana']
+    trackId: TRACK_CUIDS['shreya.ghoshal']['deewani-mastani-bajirao-mastani']
   },
   {
     playlistId: PLAYLIST_CUIDS['classical-hits'],
-    trackId: TRACK_CUIDS['kishore.kumar']['o-mere-dil-ke-chain']
+    trackId: TRACK_CUIDS['shreya.ghoshal']['ghoomar-padmaavat']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['classical-hits'],
+    trackId: TRACK_CUIDS['arijit.singh']['aayat-bajirao-mastani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['classical-hits'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['nagada-sang-dhol-ram-leela']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['classical-hits'],
+    trackId: TRACK_CUIDS['arijit.singh']['ami-je-tomar-bhool-bhulaiyaa-2']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['classical-hits'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['munbe-vaa-sillunu-oru-kaadhal']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['classical-hits'],
+    trackId: TRACK_CUIDS['kishore.kumar']['ami-chini-go-chini-charulata']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['classical-hits'],
+    trackId: TRACK_CUIDS['kumar.sanu']['tujhe-dekha-to-yeh-jaana-sanam']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['classical-hits'],
+    trackId: TRACK_CUIDS['kumar.sanu']['ek-ladki-ko-dekha-to-1942-a-love-story']
   },
   {
     playlistId: PLAYLIST_CUIDS['classical-hits'],
@@ -3552,21 +3824,23 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['classical-hits'],
-    trackId: TRACK_CUIDS['kumar.sanu']['jab-koi-baat-bigad-jaye-jurm']
+    trackId: TRACK_CUIDS['arijit.singh']['suno-na-sangemarmar-youngistaan']
   },
   {
     playlistId: PLAYLIST_CUIDS['classical-hits'],
-    trackId: TRACK_CUIDS['kumar.sanu']['do-dil-mil-rahe-hain-pardes']
+    trackId: TRACK_CUIDS['atif.aslam']['pehli-nazar-mein-race']
   },
   {
     playlistId: PLAYLIST_CUIDS['classical-hits'],
-    trackId: TRACK_CUIDS['usha.uthup']['hari-om-hari-pyara-dushman']
+    trackId: TRACK_CUIDS['atif.aslam']['tu-jaane-na-ajab-prem-ki-ghazab-kahani']
   },
-
-  // Devotional Bliss
   {
-    playlistId: PLAYLIST_CUIDS['devotional-bliss'],
-    trackId: TRACK_CUIDS['a.r.rahman']['maa-tujhe-salaam']
+    playlistId: PLAYLIST_CUIDS['classical-hits'],
+    trackId: TRACK_CUIDS['atif.aslam']['tera-hone-laga-hoon']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['classical-hits'],
+    trackId: TRACK_CUIDS['pritam.chakraborty']['janam-janam-dilwale']
   },
   {
     playlistId: PLAYLIST_CUIDS['devotional-bliss'],
@@ -3574,15 +3848,11 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['devotional-bliss'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['anuraga-vilochananayi']
+    trackId: TRACK_CUIDS['usha.uthup']['vande-mataram-k3g']
   },
   {
     playlistId: PLAYLIST_CUIDS['devotional-bliss'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['jeev-rangla-jogwa']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['devotional-bliss'],
-    trackId: TRACK_CUIDS['jonita.gandhi']['nuvve-nuvve-kick-2']
+    trackId: TRACK_CUIDS['b.praak']['teri-mitti-kesari']
   },
   {
     playlistId: PLAYLIST_CUIDS['devotional-bliss'],
@@ -3590,13 +3860,15 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['devotional-bliss'],
-    trackId: TRACK_CUIDS['arijit.singh']['aayat-bajirao-mastani']
+    trackId: TRACK_CUIDS['a.r.rahman']['maa-tujhe-salaam']
   },
-
-  // Sufi Sanctuary
   {
     playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
     trackId: TRACK_CUIDS['zubeen.garg']['ya-ali-gangster']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
+    trackId: TRACK_CUIDS['arijit.singh']['phir-le-aaya-dil-barfi']
   },
   {
     playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
@@ -3604,7 +3876,31 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
-    trackId: TRACK_CUIDS['sonu.nigam']['saathiya-title-track']
+    trackId: TRACK_CUIDS['a.r.rahman']['tu-hi-re-bombay']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
+    trackId: TRACK_CUIDS['atif.aslam']['jeena-jeena-badlapur']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
+    trackId: TRACK_CUIDS['k.k']['khuda-jaane-bachna-ae-haseeno']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
+    trackId: TRACK_CUIDS['jeet.ganguly']['hamari-adhuri-kahani-title-track']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
+    trackId: TRACK_CUIDS['pritam.chakraborty']['tum-se-hi-jab-we-met']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
+    trackId: TRACK_CUIDS['arijit.singh']['suno-na-sangemarmar-youngistaan']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
+    trackId: TRACK_CUIDS['atif.aslam']['woh-lamhe-woh-baatein-zeher']
   },
   {
     playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
@@ -3613,37 +3909,19 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
-    trackId: TRACK_CUIDS['pritam.chakraborty']['tum-se-hi-jab-we-met']
+    trackId: TRACK_CUIDS['jeet.ganguly']['muskurane-citylights']
   },
   {
     playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
-    trackId: TRACK_CUIDS['atif.aslam']['pehli-nazar-mein-race']
+    trackId: TRACK_CUIDS['arijit.singh']['aayat-bajirao-mastani']
   },
   {
     playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
     trackId: TRACK_CUIDS['atif.aslam']['tere-sang-yaara-rustom']
   },
-
-  // Regional Hits
   {
-    playlistId: PLAYLIST_CUIDS['regional-hits'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['munbe-vaa-sillunu-oru-kaadhal']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['regional-hits'],
-    trackId: TRACK_CUIDS['zubeen.garg']['tumi-suwa-jetia']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['regional-hits'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['neenadena-yuvarathnaa']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['regional-hits'],
-    trackId: TRACK_CUIDS['zubeen.garg']['ya-ali-gangster']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['regional-hits'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['adhir-man-zhaley']
+    playlistId: PLAYLIST_CUIDS['sufi-sanctuary'],
+    trackId: TRACK_CUIDS['atif.aslam']['pehli-nazar-mein-race']
   },
   {
     playlistId: PLAYLIST_CUIDS['regional-hits'],
@@ -3660,11 +3938,20 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['regional-hits'],
-    trackId: TRACK_CUIDS['arijit.singh']['kesariya-brahmastra']
+    trackId: TRACK_CUIDS['jonita.gandhi']['nuvve-nuvve-kick-2']
   },
   {
     playlistId: PLAYLIST_CUIDS['regional-hits'],
-    trackId: TRACK_CUIDS['arijit.singh']['channa-mereya-ae-dil-hai-mushkil']
+    trackId:
+      TRACK_CUIDS['a.r.rahman']['vellipomaakey-saahasam-swaasaga-saagipo']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['regional-hits'],
+    trackId: TRACK_CUIDS['arijit.singh']['ee-raathale-radhe-shyam']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['regional-hits'],
+    trackId: TRACK_CUIDS['arijit.singh']['anuvanuvuu-om-bheem-bush']
   },
   {
     playlistId: PLAYLIST_CUIDS['regional-hits'],
@@ -3674,23 +3961,29 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
     playlistId: PLAYLIST_CUIDS['regional-hits'],
     trackId: TRACK_CUIDS['sonu.nigam']['anisuthide-yaako-indhu-mungaru-maleye']
   },
-
-  // Deep Focus
   {
-    playlistId: PLAYLIST_CUIDS['deep-focus'],
-    trackId: TRACK_CUIDS['anupam.roy']['bezubaan-piku']
+    playlistId: PLAYLIST_CUIDS['regional-hits'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['neenadena-yuvarathnaa']
   },
   {
-    playlistId: PLAYLIST_CUIDS['deep-focus'],
-    trackId: TRACK_CUIDS['anupam.roy']['journey-song-piku']
+    playlistId: PLAYLIST_CUIDS['regional-hits'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['anuraga-vilochananayi']
   },
   {
-    playlistId: PLAYLIST_CUIDS['deep-focus'],
-    trackId: TRACK_CUIDS['anupam.roy']['bariye-dao-tomar-haat']
+    playlistId: PLAYLIST_CUIDS['regional-hits'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['neel-digante']
   },
   {
-    playlistId: PLAYLIST_CUIDS['deep-focus'],
-    trackId: TRACK_CUIDS['pritam.chakraborty']['in-dino-life-in-a-metro']
+    playlistId: PLAYLIST_CUIDS['regional-hits'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['jeev-rangla-jogwa']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['regional-hits'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['adhir-man-zhaley']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['regional-hits'],
+    trackId: TRACK_CUIDS['zubeen.garg']['tumi-suwa-jetia']
   },
   {
     playlistId: PLAYLIST_CUIDS['deep-focus'],
@@ -3698,55 +3991,220 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['deep-focus'],
-    trackId: TRACK_CUIDS['alan.walker']['the-spectre']
+    trackId: TRACK_CUIDS['ed.sheeran']['thinking-out-loud']
   },
   {
     playlistId: PLAYLIST_CUIDS['deep-focus'],
-    trackId: TRACK_CUIDS['sam.smith']['im-not-the-only-one']
-  },
-
-  // Quiet Moments
-  {
-    playlistId: PLAYLIST_CUIDS['quiet-moments'],
-    trackId: TRACK_CUIDS['k.k']['aankhon-mein-teri-om-shanti-om']
+    trackId: TRACK_CUIDS['ed.sheeran']['sapphire-feat-arijit-singh']
   },
   {
-    playlistId: PLAYLIST_CUIDS['quiet-moments'],
-    trackId: TRACK_CUIDS['k.k']['zara-sa-jannat']
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId:
+      TRACK_CUIDS['a.r.rahman']['vellipomaakey-saahasam-swaasaga-saagipo']
   },
   {
-    playlistId: PLAYLIST_CUIDS['quiet-moments'],
-    trackId: TRACK_CUIDS['k.k']['khuda-jaane-bachna-ae-haseeno']
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['mental-manadhil-ok-kanmani']
   },
   {
-    playlistId: PLAYLIST_CUIDS['quiet-moments'],
-    trackId: TRACK_CUIDS['jeet.ganguly']['raaz-aankhein-teri-raaz-reboot']
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['munbe-vaa-sillunu-oru-kaadhal']
   },
   {
-    playlistId: PLAYLIST_CUIDS['quiet-moments'],
-    trackId: TRACK_CUIDS['jeet.ganguly']['chaahun-main-ya-naa-aashiqui-2']
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['arijit.singh']['ee-raathale-radhe-shyam']
   },
   {
-    playlistId: PLAYLIST_CUIDS['quiet-moments'],
-    trackId: TRACK_CUIDS['jeet.ganguly']['tor-ek-kothaye']
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['sonu.nigam']['mungaru-maleye']
   },
   {
-    playlistId: PLAYLIST_CUIDS['quiet-moments'],
-    trackId: TRACK_CUIDS['atif.aslam']['o-saathi-baaghi-2']
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['sonu.nigam']['anisuthide-yaako-indhu-mungaru-maleye']
   },
-
-  // Indie India
   {
-    playlistId: PLAYLIST_CUIDS['indie-india'],
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['neel-digante']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['anupam.roy']['journey-song-piku']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['anupam.roy']['gobheere-jao-baishe-srabon']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['jao-pakhi-bolo']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
     trackId: TRACK_CUIDS['anupam.roy']['ure-jaak-uma']
   },
   {
-    playlistId: PLAYLIST_CUIDS['indie-india'],
-    trackId: TRACK_CUIDS['diljit.dosanjh']['tenu-ki-pata']
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['anupam.roy']['bezubaan-piku']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['arijit.singh']['tomake-chuye-dilam']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['usha.uthup']['aami-shotti-bolchi-kahaani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['pritam.chakraborty']['oh-my-love-amanush-2']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['b.praak']['mann-bharryaa-2-0-shershaah']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['deep-focus'],
+    trackId: TRACK_CUIDS['b.praak']['ranjha-shershaah']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['anupam.roy']['bezubaan-piku']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['anupam.roy']['journey-song-piku']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['anupam.roy']['ure-jaak-uma']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['jao-pakhi-bolo']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['anupam.roy']['bariye-dao-tomar-haat']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['neel-digante']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['anuraga-vilochananayi']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['munbe-vaa-sillunu-oru-kaadhal']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['mental-manadhil-ok-kanmani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['sonu.nigam']['mungaru-maleye']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['ed.sheeran']['give-me-love']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['ed.sheeran']['thinking-out-loud']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['sam.smith']['stay-with-me']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['sam.smith']['im-not-the-only-one']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['ed.sheeran']['sapphire-feat-arijit-singh']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['arijit.singh']['ki-kore-toke-bolbo']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['arijit.singh']['mon-majhi-re']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['arijit.singh']['tomake-chuye-dilam']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['atif.aslam']['woh-lamhe-woh-baatein-zeher']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['quiet-moments'],
+    trackId: TRACK_CUIDS['jeet.ganguly']['muskurane-citylights']
   },
   {
     playlistId: PLAYLIST_CUIDS['indie-india'],
-    trackId: TRACK_CUIDS['diljit.dosanjh']['do-you-know']
+    trackId: TRACK_CUIDS['k.k']['pyaar-ke-pal']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['k.k']['yaaron-rockford']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['beparwai-solo']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['b.praak']['filhaal-single']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['honey.singh']['dheere-dheere-single']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['honey.singh']['maniac-glory']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['honey.singh']['millionaire-glory']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['honey.singh']['blue-eyes-single']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['diljit.dosanjh']['born-to-shine-g-o-a-t']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['anupam.roy']['amake-amar-moto-thakte-dao']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['anupam.roy']['bondhu-chol']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['anupam.roy']['jaago-jaago-uma']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['tumi-bondhu-aaj-shunbe']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['chawlraastaye-autograph']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['indie-india'],
+    trackId: TRACK_CUIDS['zubeen.garg']['khuda-jaane-paglu-2']
   },
   {
     playlistId: PLAYLIST_CUIDS['indie-india'],
@@ -3754,41 +4212,19 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['indie-india'],
-    trackId: TRACK_CUIDS['pritam.chakraborty']['oh-my-love-amanush-2']
+    trackId: TRACK_CUIDS['arijit.singh']['mon-majhi-re']
   },
   {
     playlistId: PLAYLIST_CUIDS['indie-india'],
-    trackId: TRACK_CUIDS['jeet.ganguly']['boss-title-track']
+    trackId: TRACK_CUIDS['arijit.singh']['ki-kore-toke-bolbo']
   },
   {
     playlistId: PLAYLIST_CUIDS['indie-india'],
-    trackId: TRACK_CUIDS['zubeen.garg']['khuda-jaane-paglu-2']
-  },
-
-  // Retro Classics
-  {
-    playlistId: PLAYLIST_CUIDS['retro-classics'],
-    trackId: TRACK_CUIDS['usha.uthup']['rambha-ho-ho-ho-armageddon']
+    trackId: TRACK_CUIDS['arijit.singh']['tomake-chuye-dilam']
   },
   {
-    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    playlistId: PLAYLIST_CUIDS['indie-india'],
     trackId: TRACK_CUIDS['usha.uthup']['aami-shotti-bolchi-kahaani']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['retro-classics'],
-    trackId: TRACK_CUIDS['usha.uthup']['uri-uri-baba']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['retro-classics'],
-    trackId: TRACK_CUIDS['jeet.ganguly']['dhaker-taale-poran-jay-joliya-re']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['retro-classics'],
-    trackId: TRACK_CUIDS['zubeen.garg']['dil-tu-hi-bataa-krrish-3']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['retro-classics'],
-    trackId: TRACK_CUIDS['kishore.kumar']['ami-chini-go-chini-charulata']
   },
   {
     playlistId: PLAYLIST_CUIDS['retro-classics'],
@@ -3800,21 +4236,64 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['kishore.kumar']['yeh-shaam-mastani-kati-patang']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['kishore.kumar']['roop-tera-mastana-aradhana']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
     trackId: TRACK_CUIDS['kishore.kumar']['pal-pal-dil-ke-paas-blackmail']
   },
   {
     playlistId: PLAYLIST_CUIDS['retro-classics'],
-    trackId: TRACK_CUIDS['kishore.kumar']['yeh-shaam-mastani-kati-patang']
+    trackId: TRACK_CUIDS['kishore.kumar']['ami-chini-go-chini-charulata']
   },
-
-  // Arabic & Malayalam Fusion
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['kumar.sanu']['tujhe-dekha-to-yeh-jaana-sanam']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['kumar.sanu']['ek-ladki-ko-dekha-to-1942-a-love-story']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId:
+      TRACK_CUIDS['kumar.sanu']['chura-ke-dil-mera-main-khiladi-tu-anari']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['kumar.sanu']['mera-dil-bhi-kitna-pagal-hai']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['kumar.sanu']['jab-koi-baat-bigad-jaye-jurm']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['kumar.sanu']['do-dil-mil-rahe-hain-pardes']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['usha.uthup']['darling-7-khoon-maaf']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['usha.uthup']['hari-om-hari-pyara-dushman']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['retro-classics'],
+    trackId: TRACK_CUIDS['usha.uthup']['rambha-ho-ho-ho-armageddon']
+  },
   {
     playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
     trackId: TRACK_CUIDS['shreya.ghoshal']['guli-mata']
   },
   {
     playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
-    trackId: TRACK_CUIDS['jonita.gandhi']['takdi-ravan-jindua']
+    trackId: TRACK_CUIDS['anirudh.ravichander']['arabic-kuthu-beast']
   },
   {
     playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
@@ -3822,14 +4301,40 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['yimmy-yimmy-tayc']
+    trackId: TRACK_CUIDS['shreya.ghoshal']['namo-shankara-mahashivaratri']
   },
   {
     playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
     trackId: TRACK_CUIDS['shreya.ghoshal']['munbe-vaa-sillunu-oru-kaadhal']
   },
-
-  // Action Anthems
+  {
+    playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['mental-manadhil-ok-kanmani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['yimmy-yimmy-tayc']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
+    trackId: TRACK_CUIDS['a.r.rahman']['tu-hi-re-bombay']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
+    trackId: TRACK_CUIDS['a.r.rahman']['hamma-hamma-bombay']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['arabic-malayalam-fusion'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['chellamma-doctor-tamil']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['b.praak']['saari-duniya-jalaa-denge-animal']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['anirudh.ravichander']['zinda-banda-jawan']
+  },
   {
     playlistId: PLAYLIST_CUIDS['action-anthems'],
     trackId: TRACK_CUIDS['anirudh.ravichander']['hukum-jailer']
@@ -3844,19 +4349,15 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['action-anthems'],
-    trackId: TRACK_CUIDS['imagine.dragons']['bleeding-out-night-visions']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['action-anthems'],
-    trackId: TRACK_CUIDS['imagine.dragons']['nice-to-meet-you-loom']
-  },
-  {
-    playlistId: PLAYLIST_CUIDS['action-anthems'],
     trackId: TRACK_CUIDS['anirudh.ravichander']['arabic-kuthu-beast']
   },
   {
     playlistId: PLAYLIST_CUIDS['action-anthems'],
-    trackId: TRACK_CUIDS['anirudh.ravichander']['ayudha-pooja-devara']
+    trackId: TRACK_CUIDS['anirudh.ravichander']['gaali-vaaluga-agnyaathavaasi']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['anirudh.ravichander']['hoyna-hoyna-gang-leader']
   },
   {
     playlistId: PLAYLIST_CUIDS['action-anthems'],
@@ -3865,21 +4366,48 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['action-anthems'],
-    trackId: TRACK_CUIDS['anirudh.ravichander']['gaali-vaaluga-agnyaathavaasi']
-  },
-
-  // Patriotic Pride
-  {
-    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
-    trackId: TRACK_CUIDS['b.praak']['teri-mitti-kesari']
+    trackId: TRACK_CUIDS['anirudh.ravichander']['ayudha-pooja-devara']
   },
   {
-    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
-    trackId: TRACK_CUIDS['sonu.nigam']['sandese-aate-hain-border']
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['imagine.dragons']['believer-evolve-2017']
   },
   {
-    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
-    trackId: TRACK_CUIDS['b.praak']['saari-duniya-jalaa-denge-animal']
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['imagine.dragons']['thunder-evolve']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['imagine.dragons']['bleeding-out-night-visions']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['imagine.dragons']['gods-dont-pray-loom']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['a.r.rahman']['jai-ho-slumdog-millionaire']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['imagine.dragons']['nice-to-meet-you-loom']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['jeet.ganguly']['raaz-aankhein-teri-raaz-reboot']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId:
+      TRACK_CUIDS['pritam.chakraborty']['subhanallah-yeh-jawaani-hai-deewani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['usha.uthup']['uri-uri-baba']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['action-anthems'],
+    trackId: TRACK_CUIDS['atif.aslam']['dil-diyan-gallan-tiger-zinda-hai']
   },
   {
     playlistId: PLAYLIST_CUIDS['patriotic-pride'],
@@ -3889,11 +4417,45 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
     playlistId: PLAYLIST_CUIDS['patriotic-pride'],
     trackId: TRACK_CUIDS['usha.uthup']['vande-mataram-k3g']
   },
-
-  // Folk Treasures
+  {
+    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
+    trackId: TRACK_CUIDS['sonu.nigam']['sandese-aate-hain-border']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
+    trackId: TRACK_CUIDS['b.praak']['teri-mitti-kesari']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
+    trackId: TRACK_CUIDS['a.r.rahman']['jai-ho-slumdog-millionaire']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
+    trackId: TRACK_CUIDS['anupam.roy']['jaago-jaago-uma']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
+    trackId: TRACK_CUIDS['arijit.singh']['suno-na-sangemarmar-youngistaan']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['namo-shankara-mahashivaratri']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['tumi-bondhu-aaj-shunbe']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['patriotic-pride'],
+    trackId: TRACK_CUIDS['diljit.dosanjh']['born-to-shine-g-o-a-t']
+  },
   {
     playlistId: PLAYLIST_CUIDS['folk-treasures'],
-    trackId: TRACK_CUIDS['shreya.ghoshal']['chhaila-bhoomi']
+    trackId: TRACK_CUIDS['shreya.ghoshal']['ghoomar-padmaavat']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['nagada-sang-dhol-ram-leela']
   },
   {
     playlistId: PLAYLIST_CUIDS['folk-treasures'],
@@ -3901,21 +4463,51 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['folk-treasures'],
-    trackId: TRACK_CUIDS['arijit.singh']['aami-tomar-kache-yoddha']
+    trackId: TRACK_CUIDS['a.r.rahman']['chaka-chak-atragi-re']
   },
   {
     playlistId: PLAYLIST_CUIDS['folk-treasures'],
-    trackId: TRACK_CUIDS['anupam.roy']['bondhu-chol']
-  },
-
-  // Electronic Beats
-  {
-    playlistId: PLAYLIST_CUIDS['electronic-beats'],
-    trackId: TRACK_CUIDS['alan.walker']['on-my-way']
+    trackId: TRACK_CUIDS['shreya.ghoshal']['jeev-rangla-jogwa']
   },
   {
-    playlistId: PLAYLIST_CUIDS['electronic-beats'],
-    trackId: TRACK_CUIDS['dua.lipa']['houdini-single']
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['adhir-man-zhaley']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['shreya.ghoshal']['chawlraastaye-autograph']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['diljit.dosanjh']['patiala-peg']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['honey.singh']['brown-rang-international-villager']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['diljit.dosanjh']['proper-patola-namaste-england']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['takdi-ravan-jindua']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['honey.singh']['raat-jashan-di']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['honey.singh']['lungi-dance-chennai-express']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['anirudh.ravichander']['why-this-kolaveri-di']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['folk-treasures'],
+    trackId: TRACK_CUIDS['a.r.rahman']['urvasi-urvasi']
   },
   {
     playlistId: PLAYLIST_CUIDS['electronic-beats'],
@@ -3931,40 +4523,131 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['electronic-beats'],
+    trackId: TRACK_CUIDS['alan.walker']['on-my-way']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
     trackId: TRACK_CUIDS['alan.walker']['the-spectre']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
+    trackId: TRACK_CUIDS['dua.lipa']['one-kiss-calvin-harris']
   },
   {
     playlistId: PLAYLIST_CUIDS['electronic-beats'],
     trackId: TRACK_CUIDS['dua.lipa']['levitating-feat-dababy']
   },
-
-  // Beats to Think To
   {
-    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
+    trackId: TRACK_CUIDS['dua.lipa']['dont-start-now']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
+    trackId: TRACK_CUIDS['ed.sheeran']['bad-habits']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
+    trackId: TRACK_CUIDS['dua.lipa']['houdini-single']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
+    trackId: TRACK_CUIDS['sam.smith']['dancing-with-a-stranger-normani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
+    trackId: TRACK_CUIDS['sam.smith']['unholy-kim-petras']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
+    trackId: TRACK_CUIDS['taylor.swift']['shake-it-off-1989']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
     trackId: TRACK_CUIDS['taylor.swift']['cruel-summer-lover']
   },
   {
-    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
-    trackId: TRACK_CUIDS['taylor.swift']['you-belong-with-me-fearless']
+    playlistId: PLAYLIST_CUIDS['electronic-beats'],
+    trackId: TRACK_CUIDS['dua.lipa']['new-rules']
   },
   {
     playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
-    trackId: TRACK_CUIDS['arijit.singh']['channa-mereya-ae-dil-hai-mushkil']
+    trackId: TRACK_CUIDS['shreya.ghoshal']['tumi-bondhu-aaj-shunbe']
   },
   {
     playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
-    trackId: TRACK_CUIDS['arijit.singh']['khairiyat-chhichhore']
+    trackId: TRACK_CUIDS['anupam.roy']['gobheere-jao-baishe-srabon']
   },
   {
     playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
-    trackId: TRACK_CUIDS['arijit.singh']['phir-le-aaya-dil-barfi']
+    trackId: TRACK_CUIDS['anupam.roy']['ekbar-bol']
   },
   {
     playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
-    trackId: TRACK_CUIDS['arijit.singh']['tum-hi-ho-aashiqui-2']
+    trackId: TRACK_CUIDS['anupam.roy']['bezubaan-piku']
   },
   {
     playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
-    trackId: TRACK_CUIDS['arijit.singh']['aami-tomar-kache-yoddha']
+    trackId: TRACK_CUIDS['anupam.roy']['journey-song-piku']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['jonita.gandhi']['mental-manadhil-ok-kanmani']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId:
+      TRACK_CUIDS['a.r.rahman']['vellipomaakey-saahasam-swaasaga-saagipo']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['arijit.singh']['ee-raathale-radhe-shyam']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['sonu.nigam']['mungaru-maleye']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['ed.sheeran']['give-me-love']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['ed.sheeran']['thinking-out-loud']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['ed.sheeran']['sapphire-feat-arijit-singh']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['sam.smith']['stay-with-me']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['k.k']['pyaar-ke-pal']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['k.k']['yaaron-rockford']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['arijit.singh']['ki-kore-toke-bolbo']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['arijit.singh']['mon-majhi-re']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['atif.aslam']['tere-sang-yaara-rustom']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['atif.aslam']['o-saathi-baaghi-2']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['zubeen.garg']['dil-tu-hi-bataa-krrish-3']
   }
 ]
