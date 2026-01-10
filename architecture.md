@@ -58,8 +58,8 @@ flowchart TD
 - ECS spawns isolated Docker container with FFmpeg
 - Downloads original audio from S3
 - Creates two HLS variants:
-  - *High quality*: 128kbps AAC, 10-second segments
-  - *Low quality*: 64kbps AAC, 10-second segments
+  - _High quality_: 128kbps AAC, 10-second segments
+  - _Low quality_: 64kbps AAC, 10-second segments
 - Generates `master.m3u8` playlist pointing to quality variants
 
 #### Step 5: Delivery
@@ -116,34 +116,34 @@ sequenceDiagram
     participant Cron
     participant ECS
     participant Admin
-    
+
     Artist->>Web: Upload track + metadata
     Web->>API: POST /utils/upload-url
     API->>S3: Generate presigned URL
     API-->>Web: Presigned URL
     Web->>S3: PUT audio file
     S3-->>Web: 200 OK
-    
+
     Web->>API: POST /track/upload (metadata)
     API->>API: Validate artist, profanity check
     API->>API: Create Track (status: PENDING)
     API-->>Web: Track created
-    
+
     S3->>SQS: ObjectCreated event
-    
+
     loop Every 1 minute
         Cron->>SQS: Poll for messages
         SQS-->>Cron: S3 event
         Cron->>API: Check processing count
         Cron->>ECS: Run transcoding task
     end
-    
+
     ECS->>S3: Download audio
     ECS->>ECS: Transcode with FFmpeg
     ECS->>S3: Upload HLS files
     ECS->>API: Update status: REVIEWING
     API->>Artist: Notification sent
-    
+
     Admin->>API: Review track
     API->>API: Update status: PUBLISHED
     API->>Artist: Track published notification
@@ -244,7 +244,7 @@ flowchart TD
     B -->|Track status change| C[Track notification]
     B -->|Artist application| D[Artist notification]
     B -->|Playlist status| E[Playlist notification]
-    
+
     C --> F[Create notification record]
     D --> F
     E --> F

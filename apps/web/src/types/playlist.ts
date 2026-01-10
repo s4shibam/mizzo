@@ -4,7 +4,13 @@ import type { Track } from './track'
 import type { User } from './user'
 
 export type Playlist = {
-  id: 'search-results' | 'liked-songs' | 'my-collabs' | 'my-uploads' | 'top-tracks' | string
+  id:
+    | 'search-results'
+    | 'liked-songs'
+    | 'my-collabs'
+    | 'my-uploads'
+    | 'top-tracks'
+    | string
   ownerId?: string
   name: string
   description?: string | null
