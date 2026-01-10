@@ -48,6 +48,7 @@ Mizzo is a music streaming platform that allows users to discover, play, and sha
 - Tailwind CSS
 - Ant Design
 - Prisma ORM
+- Grafana Loki
 
 ## 📦 Other Libraries and Tools
 
@@ -94,6 +95,10 @@ This monorepo contains multiple applications and shared packages, orchestrated w
 - **Typescript Config**: Shared TypeScript configurations
 - **Eslint Config**: Shared ESLint configurations
 - **Tailwind Config**: Shared Tailwind CSS configurations
+
+### Database Schema
+
+![Schema](./.readme/schema.webp)
 
 ## 🖼️ Screenshots
 
