@@ -2,7 +2,7 @@ import axios from 'axios'
 
 import { env } from './env'
 
-const MAX_PROCESSING_TRACK_COUNT = 2
+const MAX_PROCESSING_TRACK_COUNT = 10
 
 export const shouldCreateNewProcessingTask = async () => {
   if (env.apiUrl === 'NA' || env.apiSecretKey === 'NA') {
