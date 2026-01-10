@@ -74,7 +74,8 @@ export const PlayerRightSection = ({
       </div>
 
       {activePlaylist?.id &&
-        !activePlaylist.id.startsWith('search-results') && (
+        !activePlaylist.id.startsWith('search-results') &&
+        !activePlaylist.id.startsWith('top-tracks') && (
           <Tooltip title="Go to Playlist">
             <Link
               href={

@@ -43,14 +43,8 @@
     "typescriptreact": "javascript"
   },
   "tailwindCSS.experimental.classRegex": [
-    [
-      "cva\\(([^)]*)\\)",
-      "[\"'`]([^\"'`]*).*?[\"'`]"
-    ],
-    [
-      "cn\\(([^)]*)\\)",
-      "[\"'`]([^\"'`]*).*?[\"'`]"
-    ]
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
   "tailwindCSS.experimental.configFile": {
     "apps/web/tailwind.config.ts": "apps/web/**"
@@ -60,6 +54,7 @@
     "autoincrement",
     "awsvpc",
     "cellspacing",
+    "collabs",
     "commitlint",
     "cssinjs",
     "cuid",
