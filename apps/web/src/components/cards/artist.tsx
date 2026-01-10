@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { LuCirclePlay } from 'react-icons/lu'
+import { LuPlay } from 'react-icons/lu'
 
 import ARTIST_AVATAR_PLACEHOLDER from '@/assets/placeholders/artist-avatar.webp'
 import { ImageWithFallback } from '@/components/common/image-with-fallback'
@@ -26,13 +26,14 @@ export const ArtistCard = ({ artist }: ArtistCardProps) => {
           src={s3GetUrlFromKey(artist?.profile?.avatarKey)}
         />
 
-        <LuCirclePlay className="text-primary absolute bottom-0 right-0 rounded-full bg-white stroke-1 text-5xl opacity-0 transition-all duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:opacity-100 xl:text-6xl" />
+        <div className="absolute bottom-0 right-0 flex items-center justify-center rounded-full bg-white p-2 opacity-0 transition-all duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:opacity-100">
+          <LuPlay className="text-primary fill-primary size-10" />
+        </div>
       </div>
 
       <div className="px-3 py-2">
-        <p className="line-clamp-1 font-medium lg:text-lg">{artist?.name}</p>
-
-        <p className="line-clamp-2 text-sm lg:text-base/5">Artist</p>
+        <p className="line-clamp-1 font-medium">{artist?.name}</p>
+        <p className="line-clamp-2 text-sm">Artist</p>
       </div>
     </Link>
   )

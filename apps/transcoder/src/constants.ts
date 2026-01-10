@@ -1,7 +1,7 @@
 export const VALID_EXT_NAMES = ['mp3', 'wav', 'm4a']
 
 export const TRANSCODING_OPTIONS = [
-  { quality: 'high', bitrate: 128, duration: 15 },
+  { quality: 'high', bitrate: 128, duration: 10 },
   { quality: 'low', bitrate: 64, duration: 10 }
 ]
 

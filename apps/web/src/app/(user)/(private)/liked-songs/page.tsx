@@ -7,7 +7,7 @@ import { LuPlay } from 'react-icons/lu'
 import { APP_SLUG_CAP } from '@mizzo/utils'
 
 import LIKED_TRACKS_PLAYLIST_POSTER from '@/assets/placeholders/liked-tracks-playlist-poster.webp'
-import { TrackCard } from '@/components/cards/track'
+import { TrackBarCard } from '@/components/cards/track'
 import { ErrorInfo } from '@/components/common/error-info'
 import { ImageWithFallback } from '@/components/common/image-with-fallback'
 import { Loader } from '@/components/common/loader'
@@ -99,7 +99,7 @@ const LikedTracksPage = () => {
         )}
 
         {likedTracks?.data?.playlistTracks?.map((track) => (
-          <TrackCard
+          <TrackBarCard
             key={track?.id}
             playTrack={() => onPlay(track)}
             track={track}

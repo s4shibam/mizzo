@@ -23,18 +23,69 @@ import type { Track } from '@/types/track'
 import { TrackMenu } from '../menus/track'
 
 type TrackCardProps = {
+  track: Track
+  playTrack?: () => void
+}
+
+export const TrackCard = ({ track, playTrack }: TrackCardProps) => {
+  const trackLink = `/track/${track?.id}`
+
+  return (
+    <div className="border-secondary/25 bg-primary-light group inline-block size-full cursor-pointer flex-col overflow-hidden rounded-lg border">
+      <div className="relative grid aspect-square w-full place-items-center">
+        <ImageWithFallback
+          fill
+          alt={track?.title + ' poster'}
+          className="aspect-square h-auto w-full object-cover"
+          draggable={false}
+          fallbackSrc={TRACK_POSTER_PLACEHOLDER}
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          src={s3GetUrlFromKey(track?.posterKey)}
+        />
+
+        <button
+          className="absolute bottom-0 right-0 flex items-center justify-center rounded-full bg-white p-2 opacity-0 transition-all duration-500 group-hover:-translate-x-2 group-hover:-translate-y-2 group-hover:opacity-100"
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            playTrack?.()
+          }}
+        >
+          <LuPlay className="text-primary fill-primary size-10" />
+        </button>
+      </div>
+
+      <div className="px-3 py-2">
+        <Link
+          className="line-clamp-1 font-medium hover:underline"
+          href={trackLink}
+        >
+          {track?.title}
+        </Link>
+        <Link
+          className="line-clamp-2 text-sm hover:underline"
+          href={`/artist/${track?.primaryArtistId}`}
+        >
+          {track?.primaryArtist?.name}
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+type TrackBarCardProps = {
   showArtistOnlyInfo?: boolean
   playlist?: Playlist
   track: Track
   playTrack?: () => void
 }
 
-export const TrackCard = ({
+export const TrackBarCard = ({
   playlist,
   showArtistOnlyInfo = false,
   track,
   playTrack
-}: TrackCardProps) => {
+}: TrackBarCardProps) => {
   const { data: session } = useSession()
 
   const [isMenuActive, setIsMenuActive] = useState(false)

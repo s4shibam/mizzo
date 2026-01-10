@@ -9,7 +9,7 @@ import { APP_SLUG_CAP } from '@mizzo/utils'
 
 import { ArtistCard } from '@/components/cards/artist'
 import { PlaylistCard } from '@/components/cards/playlist'
-import { TrackCard } from '@/components/cards/track'
+import { TrackBarCard } from '@/components/cards/track'
 import { ErrorInfo } from '@/components/common/error-info'
 import { Loader } from '@/components/common/loader'
 import {
@@ -127,7 +127,7 @@ const SearchContent = () => {
           <p className="px-4 py-2 text-2xl">Tracks</p>
 
           {tracks?.data?.map((track) => (
-            <TrackCard
+            <TrackBarCard
               key={track?.id}
               playTrack={() => onPlay(track)}
               track={track}
