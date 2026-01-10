@@ -86,6 +86,30 @@ const searchPlaylistsByUserId = (
   return api.get(`/search/user/${search}/playlist`)
 }
 
+const getTopTracks = (params: {
+  limit: number
+}): TApiPromise<{
+  heading: string
+  tracks: Track[]
+}> => {
+  const { limit } = params
+  return api.get(`/search/track/top`, {
+    params: { limit }
+  })
+}
+
+const getTopArtists = (params: {
+  limit: number
+}): TApiPromise<{
+  heading: string
+  artists: User[]
+}> => {
+  const { limit } = params
+  return api.get(`/search/artist/top`, {
+    params: { limit }
+  })
+}
+
 // Search Api Hooks
 export const useSearchUserByUserId = (
   params: TSearchParams,
@@ -191,6 +215,34 @@ export const useSearchPlaylistsByUserId = (
   return useQuery({
     queryKey: ['useSearchPlaylistsByUserId', params],
     queryFn: () => searchPlaylistsByUserId(params),
+    ...opts
+  })
+}
+
+export const useGetTopTracks = (
+  params: { limit: number },
+  opts?: TQueryOpts<{
+    heading: string
+    tracks: Track[]
+  }>
+) => {
+  return useQuery({
+    queryKey: ['useGetTopTracks', params],
+    queryFn: () => getTopTracks(params),
+    ...opts
+  })
+}
+
+export const useGetTopArtists = (
+  params: { limit: number },
+  opts?: TQueryOpts<{
+    heading: string
+    artists: User[]
+  }>
+) => {
+  return useQuery({
+    queryKey: ['useGetTopArtists', params],
+    queryFn: () => getTopArtists(params),
     ...opts
   })
 }
