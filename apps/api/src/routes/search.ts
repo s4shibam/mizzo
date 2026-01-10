@@ -1,5 +1,7 @@
 import { Router } from 'express'
 
+import { getTopArtists } from '../controllers/search/get-top-artists'
+import { getTopTracks } from '../controllers/search/get-top-tracks'
 import { searchPlaylistByPlaylistId } from '../controllers/search/search-playlist-by-playlist-id'
 import { searchPlaylistsAsCollection } from '../controllers/search/search-playlists-as-collection'
 import { searchPlaylistsByPlaylistName } from '../controllers/search/search-playlists-by-playlist-name'
@@ -25,12 +27,14 @@ const searchRateLimit = ratelimit({
 router.use(searchRateLimit)
 
 // Users
-router.get('/user/:userId', searchUserByUserId)
+router.get('/artist/top', getTopArtists)
 router.get('/user/name/:search', searchUsersByUserName)
+router.get('/user/:userId', searchUserByUserId)
 
 // Tracks
-router.get('/track/:trackId', addRequestorDetails, searchTrackByTrackId)
+router.get('/track/top', getTopTracks)
 router.get('/track/name/:search', searchTracksByTrackName)
+router.get('/track/:trackId', addRequestorDetails, searchTrackByTrackId)
 router.get('/user/:userId/track', searchTracksByUserId)
 
 // Playlists
