@@ -13,7 +13,7 @@ import { LuHeart, LuPause, LuPenLine, LuPlay } from 'react-icons/lu'
 import { cn } from '@mizzo/utils'
 
 import PLAYLIST_POSTER_PLACEHOLDER from '@/assets/placeholders/playlist-poster.webp'
-import { TrackCard } from '@/components/cards/track'
+import { TrackBarCard } from '@/components/cards/track'
 import { ErrorInfo } from '@/components/common/error-info'
 import { ImageWithFallback } from '@/components/common/image-with-fallback'
 import { LikeButton } from '@/components/common/like-button'
@@ -207,7 +207,7 @@ const PlaylistByPlaylistIdPage = () => {
         )}
 
         {playlist?.data?.playlistTracks?.map((playlistTrack) => (
-          <TrackCard
+          <TrackBarCard
             key={playlistTrack?.id}
             playlist={playlist?.data}
             playTrack={() => onPlay(playlistTrack)}

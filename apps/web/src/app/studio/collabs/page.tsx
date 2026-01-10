@@ -9,7 +9,7 @@ import { LuCirclePlay } from 'react-icons/lu'
 import { APP_SLUG_CAP } from '@mizzo/utils'
 
 import TRACK_POSTER_PLACEHOLDER from '@/assets/placeholders/track-poster.webp'
-import { TrackCard } from '@/components/cards/track'
+import { TrackBarCard } from '@/components/cards/track'
 import { ErrorInfo } from '@/components/common/error-info'
 import { Loader } from '@/components/common/loader'
 import { useGetMyCollaboratedTracks } from '@/hooks/api/track'
@@ -78,7 +78,7 @@ const MyCollabs = () => {
       </div>
 
       {collabs?.data?.map((track) => (
-        <TrackCard
+        <TrackBarCard
           key={track?.id}
           playTrack={() => onPlay(track)}
           track={track}

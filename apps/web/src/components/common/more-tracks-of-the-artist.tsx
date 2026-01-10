@@ -1,4 +1,4 @@
-import { TrackCard } from '@/components/cards/track'
+import { TrackBarCard } from '@/components/cards/track'
 import { useSearchTracksByUserId } from '@/hooks/api/search'
 import { useOnPlay } from '@/hooks/custom/use-on-play'
 import type { Artist } from '@/types/user'
@@ -47,7 +47,7 @@ export const MoreTracksOfTheArtist = ({
 
       <div className="mt-4">
         {filteredTracks?.map((track) => (
-          <TrackCard
+          <TrackBarCard
             key={track?.id}
             playTrack={() => onPlay(track)}
             track={track}

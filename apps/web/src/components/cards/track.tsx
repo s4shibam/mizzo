@@ -22,19 +22,19 @@ import type { Track } from '@/types/track'
 
 import { TrackMenu } from '../menus/track'
 
-type TrackCardProps = {
+type TrackBarCardProps = {
   showArtistOnlyInfo?: boolean
   playlist?: Playlist
   track: Track
   playTrack?: () => void
 }
 
-export const TrackCard = ({
+export const TrackBarCard = ({
   playlist,
   showArtistOnlyInfo = false,
   track,
   playTrack
-}: TrackCardProps) => {
+}: TrackBarCardProps) => {
   const { data: session } = useSession()
 
   const [isMenuActive, setIsMenuActive] = useState(false)

@@ -10,7 +10,7 @@ import { LuPlay, LuUpload } from 'react-icons/lu'
 import { APP_SLUG_CAP } from '@mizzo/utils'
 
 import TRACK_POSTER_PLACEHOLDER from '@/assets/placeholders/track-poster.webp'
-import { TrackCard } from '@/components/cards/track'
+import { TrackBarCard } from '@/components/cards/track'
 import { ErrorInfo } from '@/components/common/error-info'
 import { ImageWithFallback } from '@/components/common/image-with-fallback'
 import { Loader } from '@/components/common/loader'
@@ -105,7 +105,7 @@ const ContentPage = () => {
         )}
 
         {uploads?.data?.playlistTracks?.map((track) => (
-          <TrackCard
+          <TrackBarCard
             key={track?.id}
             showArtistOnlyInfo
             playTrack={() => onPlay(track)}
