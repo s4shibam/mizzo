@@ -17,19 +17,23 @@ const sqsClient = new SQSClient({
   }
 })
 
-export const sqsGetMessages = async (): Promise<Message[]> => {
+export const sqsGetMessages = async ({
+  maxMessages = 10
+}: {
+  maxMessages?: number
+}): Promise<Message[]> => {
   try {
     const command = new ReceiveMessageCommand({
       QueueUrl: env.awsSqsQueueUrl,
-      MaxNumberOfMessages: 1,
-      WaitTimeSeconds: 20
+      MaxNumberOfMessages: maxMessages,
+      WaitTimeSeconds: 20,
+      VisibilityTimeout: 5 * 60 // 5 minutes
     })
 
     const response = await sqsClient.send(command)
-
     return response.Messages ?? []
   } catch (error) {
-    console.error('Error getting messages from SQS', error)
+    console.error('Error getting messages from SQS:', error)
     return []
   }
 }
@@ -42,10 +46,9 @@ export const sqsDeleteMessage = async (message: Message) => {
     })
 
     await sqsClient.send(command)
-
     return true
   } catch (error) {
-    console.error('Error deleting message from SQS', error)
+    console.error('Error deleting message from SQS:', error)
     return false
   }
 }

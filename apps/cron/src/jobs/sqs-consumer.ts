@@ -9,7 +9,9 @@ import {
 } from '@mizzo/aws'
 
 import { env } from '../env'
-import { shouldCreateNewProcessingTask } from '../utils'
+import { getAvailableProcessingSlots } from '../utils'
+
+const MAX_MESSAGES_PER_POLL = 10
 
 const getQueueName = (queueUrl: string): string => {
   if (queueUrl === 'NA') {
@@ -24,12 +26,25 @@ const sqsConsumer = async () => {
   console.log('[SQS]', new Date().toLocaleString())
 
   try {
-    const messages = await sqsGetMessages()
+    const availableSlots = await getAvailableProcessingSlots()
 
-    if (messages.length === 0) {
-      console.error('[SQS] No messages found')
+    if (availableSlots <= 0) {
+      console.log('[SQS] No available slots')
       return
     }
+
+    const messages = await sqsGetMessages({
+      maxMessages: Math.min(availableSlots, MAX_MESSAGES_PER_POLL)
+    })
+
+    if (messages.length === 0) {
+      console.log('[SQS] No messages found')
+      return
+    }
+
+    console.log(`[SQS] Processing ${messages.length} message(s)`)
+
+    let tasksCreated = 0
 
     for (const message of messages) {
       try {
@@ -44,7 +59,7 @@ const sqsConsumer = async () => {
         try {
           s3Event = JSON.parse(Body) as TS3Event
         } catch (error) {
-          console.error('Error parsing message body:', error)
+          console.error('[SQS] Failed to parse message:', error)
           await sqsDeleteMessage(message)
           continue
         }
@@ -58,11 +73,9 @@ const sqsConsumer = async () => {
           continue
         }
 
-        const isNewTaskAllowed = await shouldCreateNewProcessingTask()
-
-        if (!isNewTaskAllowed) {
-          console.log('[SQS] No new processing task created.')
-          return
+        if (tasksCreated >= availableSlots) {
+          console.log('[SQS] Capacity reached, stopping')
+          break
         }
 
         if ('Records' in s3Event) {
@@ -72,25 +85,31 @@ const sqsConsumer = async () => {
             const s3BucketName = s3.bucket.name
             const s3Key = s3.object.key // Format: tracks/trackId.mp3
 
-            console.log('[SQS] Creating new task', {
-              s3BucketName,
-              s3Key
-            })
-
-            if (s3Key.split('/').length === 2) {
-              await ecsRunTask({
-                bucketName: s3BucketName,
-                key: s3Key
-              })
+            if (s3Key.split('/').length !== 2) {
+              console.warn('[SQS] Invalid S3 key format:', s3Key)
+              await sqsDeleteMessage(message)
+              continue
             }
 
-            await sqsDeleteMessage(message)
+            console.log('[SQS] Creating task', { s3BucketName, s3Key })
+
+            try {
+              await ecsRunTask({ bucketName: s3BucketName, key: s3Key })
+              tasksCreated++
+              await sqsDeleteMessage(message)
+            } catch (error) {
+              console.error('[SQS] Failed to create task:', error)
+            }
           }
+        } else {
+          await sqsDeleteMessage(message)
         }
       } catch (error) {
         console.error('[SQS] Error processing message:', error)
       }
     }
+
+    console.log(`[SQS] Created ${tasksCreated} task(s)`)
   } catch (error) {
     console.error('[SQS] Error consuming messages:', error)
   }
@@ -105,7 +124,7 @@ export const scheduleSqsConsumer = () => {
   const queueName = getQueueName(awsEnv.awsSqsQueueUrl)
   console.log('[SQS] Connected to queue:', queueName)
 
-  cron.schedule('*/1 * * * *', async () => {
+  cron.schedule('*/15 * * * * *', async () => {
     await sqsConsumer()
   })
 }

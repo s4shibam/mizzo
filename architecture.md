@@ -15,10 +15,10 @@ flowchart TD
     C --> D[Client uploads directly to S3]
     D --> E[S3 emits ObjectCreated event]
     E --> F[SQS Queue receives event]
-    G[Cron Job: polls every 1 min] --> H[Check SQS for messages]
-    H --> I{Processing concurrency limit reached?}
-    I -->|If below limit| J[Trigger ECS Fargate Task]
-    I -->|If at or above limit| K[Skip, retry later]
+    G[Cron Job: polls at intervals] --> H[Fetch messages in batch from SQS]
+    H --> I{Capacity available?}
+    I -->|Yes| J[Trigger ECS Fargate Tasks]
+    I -->|No| K[Skip, retry later]
     J --> L[Transcoder Container starts]
     L --> M[Download audio from S3]
     M --> N[FFmpeg: Create HLS variants]
@@ -49,9 +49,10 @@ flowchart TD
 
 #### Step 3: Scheduled Processing
 
-- Cron service polls SQS every minute
-- Checks concurrent processing limit
-- If under limit, triggers ECS Fargate task with S3 key
+- Cron service polls SQS at regular intervals
+- Fetches messages in batch based on available capacity
+- Creates ECS Fargate tasks for available capacity
+- Auto-retry on failure with visibility timeout and retry limits
 
 #### Step 4: Transcoding
 
@@ -131,11 +132,12 @@ sequenceDiagram
 
     S3->>SQS: ObjectCreated event
 
-    loop Every 1 minute
-        Cron->>SQS: Poll for messages
-        SQS-->>Cron: S3 event
-        Cron->>API: Check processing count
-        Cron->>ECS: Run transcoding task
+    loop At regular intervals
+        Cron->>API: Check available slots
+        Cron->>SQS: Fetch messages in batch
+        SQS-->>Cron: S3 events
+        Cron->>ECS: Run transcoding tasks
+        Cron->>SQS: Delete processed messages
     end
 
     ECS->>S3: Download audio
