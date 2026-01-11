@@ -5,6 +5,7 @@ type TNotificationTagType =
   | 'track_publish'
   | 'track_block'
   | 'track_review'
+  | 'track_failed'
   | 'artist_approved'
   | 'artist_rejected'
   | 'playlist_publish'
@@ -53,6 +54,10 @@ export const createTrackStatusNotification = ({
     case 'REVIEWING':
       tag = 'track_review'
       message = `Your track "${trackTitle}" is under review.`
+      break
+    case 'FAILED':
+      tag = 'track_failed'
+      message = `Processing failed for your track "${trackTitle}". Please try uploading again or contact support for more information.`
       break
     default:
       return null
