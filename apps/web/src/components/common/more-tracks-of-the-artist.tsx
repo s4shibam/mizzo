@@ -1,9 +1,12 @@
+import { Button } from 'antd'
+import Link from 'next/link'
+import { LuMusic2, LuSearch } from 'react-icons/lu'
+
 import { TrackBarCard } from '@/components/cards/track'
 import { useSearchTracksByUserId } from '@/hooks/api/search'
 import { useOnPlay } from '@/hooks/custom/use-on-play'
 import type { Artist } from '@/types/user'
 
-import { ErrorInfo } from './error-info'
 import { Loader } from './loader'
 
 type MoreTracksOfTheArtistProps = {
@@ -34,7 +37,34 @@ export const MoreTracksOfTheArtist = ({
   )
 
   if (filteredTracks?.length === 0) {
-    return <ErrorInfo customMessage="No songs found" customStatusCode={404} />
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 rounded-lg border border-dashed border-zinc-300 bg-zinc-50/50 p-20 text-center">
+        <div className="from-primary/20 to-primary/10 rounded-full bg-gradient-to-br p-4">
+          <LuMusic2 className="text-primary size-8" />
+        </div>
+        <div>
+          <h3 className="text-lg font-semibold text-zinc-800">
+            That&apos;s all for now!
+          </h3>
+          <p className="mt-1 text-sm text-zinc-600">
+            {primaryArtist?.name} has not released any other tracks yet.
+          </p>
+          <p className="mt-2 text-sm text-zinc-500">
+            Stay tuned for more music!
+          </p>
+        </div>
+        <Link href="/search">
+          <Button
+            className="mt-4 flex items-center gap-2 text-sm"
+            icon={<LuSearch />}
+            size="large"
+            type="primary"
+          >
+            Discover More Music
+          </Button>
+        </Link>
+      </div>
+    )
   }
 
   return (
