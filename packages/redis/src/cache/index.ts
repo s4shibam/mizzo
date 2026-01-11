@@ -1,8 +1,9 @@
-import { redis as defaultRedis } from '..'
+import { getRedis } from '..'
 import type Redis from 'ioredis'
 
 import { log, type LogParams } from '@mizzo/logger'
 
+import { env } from '../env'
 import { CacheStore, NullCacheStore } from './service'
 import type { TCacheStore } from './store'
 
@@ -21,7 +22,7 @@ export class CacheService {
   private app: LogParams['app']
 
   constructor({
-    redis = defaultRedis,
+    redis,
     defaultConfig,
     app
   }: {
@@ -29,9 +30,12 @@ export class CacheService {
     defaultConfig?: TCacheDefaultConfig
     app?: LogParams['app']
   }) {
-    const isFallback = !redis || process.env.ENABLE_CACHE !== 'true'
+    const redisInstance = redis || getRedis()
+    const isFallback = !redisInstance || !env.enableCaching
 
-    this.store = isFallback ? new NullCacheStore() : new CacheStore(redis)
+    this.store = isFallback
+      ? new NullCacheStore()
+      : new CacheStore(redisInstance)
 
     this.defaultConfig = {
       ttl: 1 * 60 * 60,
