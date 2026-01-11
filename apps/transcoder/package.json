@@ -4,6 +4,7 @@
   "private": true,
   "main": "src/index.ts",
   "scripts": {
+    "build": "tsc",
     "clean": "rm -rf .turbo .dist node_modules",
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit"

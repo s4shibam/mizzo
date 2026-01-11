@@ -25,6 +25,12 @@ done
 echo "Building Docker image..."
 docker build -f apps/transcoder/Dockerfile -t $AWS_ECR_REPO_NAME . 
 
+# Check if the build was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Docker build failed"
+  exit 1
+fi
+
 # Get the login password for ECR
 echo "Logging in to AWS ECR..."
 aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ECR_BASE_URI
