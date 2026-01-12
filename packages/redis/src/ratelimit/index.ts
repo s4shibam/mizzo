@@ -1,3 +1,4 @@
+import { env } from '../env'
 import type { RateLimitStrategy } from './strategy'
 
 /**
@@ -22,7 +23,7 @@ export class RateLimiter {
    */
   async isAllowed(key: string): Promise<boolean> {
     // If rate limiting is disabled, return true to bypass rate limiting
-    if (process.env.ENABLE_RATE_LIMIT !== 'true') {
+    if (!env.enableRateLimit) {
       return true
     }
 

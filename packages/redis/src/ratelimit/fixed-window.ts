@@ -1,4 +1,4 @@
-import { redis as defaultRedis } from '..'
+import { getRedis } from '..'
 import type Redis from 'ioredis'
 
 import type { RateLimitStrategy } from './strategy'
@@ -11,7 +11,7 @@ import type { RateLimitStrategy } from './strategy'
 export class FixedWindowStrategy implements RateLimitStrategy {
   private readonly limit: number
   private readonly windowSizeInSeconds: number
-  private readonly redis: Redis
+  private readonly redis: Redis | null
   private readonly prefix: string
 
   /**
@@ -32,12 +32,13 @@ export class FixedWindowStrategy implements RateLimitStrategy {
   }) {
     this.limit = limit
     this.windowSizeInSeconds = windowSizeInSeconds
-    this.redis = redis ?? defaultRedis
+    this.redis = redis ?? getRedis()
     this.prefix = prefix ?? 'ratelimit:window'
   }
 
   async isAllowed(key: string): Promise<boolean> {
-    // Create a time-bound key that changes each window
+    if (!this.redis) return true
+
     const currentWindow = Math.floor(
       Date.now() / 1000 / this.windowSizeInSeconds
     )
@@ -45,15 +46,12 @@ export class FixedWindowStrategy implements RateLimitStrategy {
     const windowKey = `${this.prefix}:${key}:${currentWindow}`
     const normalizedKey = windowKey.replace(/:+/g, ':')
 
-    // Increment the counter for this window
     const count = await this.redis.incr(normalizedKey)
 
-    // Set expiration for this window key (if not already set)
     if (count === 1) {
       await this.redis.expire(windowKey, this.windowSizeInSeconds)
     }
 
-    // Check if request is allowed
     return count <= this.limit
   }
 }
