@@ -30,7 +30,7 @@ const execAsync = promisify(exec)
 const TEMP_DIR = path.join(process.cwd(), '.temp')
 
 // Batch processing configuration for tracks
-const TRACK_BATCH_SIZE = 50
+const TRACK_BATCH_SIZE = 2
 
 // Hash password using bcryptjs
 const hashPassword = async ({
