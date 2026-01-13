@@ -24,6 +24,8 @@ type PlayerContextValue = {
   setIsActiveTrackPlaying: (isActiveTrackPlaying: boolean) => void
   savedPosition: number | null
   setSavedPosition: (position: number | null) => void
+  isPipMode: boolean
+  setIsPipMode: (isPipMode: boolean) => void
 }
 
 const playerContext = createContext<PlayerContextValue | undefined>(undefined)
@@ -56,6 +58,7 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
   const [isActiveTrackPlaying, setIsActiveTrackPlaying] = useState(false)
   const [savedPosition, setSavedPosition] = useState<number | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
+  const [isPipMode, setIsPipMode] = useState(false)
 
   const showPlayer = shouldShowPlayer(pathname)
 
@@ -99,7 +102,9 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
         isActiveTrackPlaying,
         setIsActiveTrackPlaying,
         savedPosition,
-        setSavedPosition
+        setSavedPosition,
+        isPipMode,
+        setIsPipMode
       }}
     >
       {children}
