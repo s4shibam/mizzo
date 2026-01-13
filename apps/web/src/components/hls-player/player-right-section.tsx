@@ -102,7 +102,7 @@ export const PlayerRightSection = ({
 
       <Tooltip title="Picture in Picture">
         <LuPictureInPicture2
-          className="size-5 cursor-pointer hover:text-primary"
+          className="hover:text-primary size-5 cursor-pointer"
           onClick={onTogglePip}
         />
       </Tooltip>
