@@ -10,6 +10,8 @@ import {
   useToggleLikeOfTrack
 } from '@/hooks/api/track'
 import { useHlsPlayer } from '@/hooks/custom/use-hls-player'
+import { useMediaKeys } from '@/hooks/custom/use-media-keys'
+import { s3GetUrlFromKey } from '@/lib/utils'
 import { usePlayerContext } from '@/providers/player-provider'
 import { invalidateQueries } from '@/services/tanstack'
 
@@ -81,6 +83,18 @@ export const HlsPlayer = () => {
       setViewIncremented(true)
     }
   }
+
+  useMediaKeys({
+    onPlayPause: () => togglePlayPause(!isActiveTrackPlaying),
+    onNext: playNext,
+    onPrevious: playPrevious,
+    isPlaying: isActiveTrackPlaying,
+    trackTitle: activeTrack?.title,
+    trackArtist: activeTrack?.primaryArtist?.name,
+    trackArtwork: activeTrack?.posterKey
+      ? s3GetUrlFromKey(activeTrack.posterKey)
+      : undefined
+  })
 
   const handleTogglePip = () => {
     setIsPipMode(true)

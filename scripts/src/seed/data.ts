@@ -25,6 +25,7 @@ export const USER_CUIDS = {
   'imagine.dragons': 'v3k8nzfyb67lqqcnlc6o5xgf',
   'jeet.ganguly': 'ddp5edguu1s92h3km63043n9',
   'jonita.gandhi': 'd9vqhxn5okf54i1otbqn5z4v',
+  'jasmine.sandlas': 'vhfzm92mffudztjlxs2wjkx3',
   'k.k': 'yrl0a2gwtp6megvlzsjlnxk6',
   'kishore.kumar': 'g5swq1gx44hvearuuclzgebv',
   'kumar.sanu': 'idl5gl950e137t246pa2tyvp',
@@ -180,6 +181,13 @@ export const TRACK_CUIDS = {
     'takdi-ravan-jindua': 'fbdt2aptdzzcdvvss6ywgh2t',
     'the-breakup-song-ae-dil-hai-mushkil': 'l1dx4e8zlulds3q8vit7s5or',
     'what-jhumka': 'rfu5wk5efy37vwzx3w16tsap'
+  },
+  'jasmine.sandlas': {
+    'dhurandhar-title-track': 'shsspaz6yx5vfd501sv5l81a',
+    'illegal-weapon': 'cu8rxb9ncrmvssft9084azds',
+    'ittar-desi-melodies': 'zzxwv2mdhlgmts06lfiobkwl',
+    'sawan-mein': 'fzhtkyvak9rw7ticbh12doy2',
+    'taras-munjya': 'b6b3h45h121duxo5jdr2gzhv'
   },
   'k.k': {
     'aankhon-mein-teri-om-shanti-om': 'f5q16iq23n26cxgji4vqha6i',
@@ -511,6 +519,16 @@ export const SEED_USERS_WITH_PROFILE: TSeedUserWithProfile[] = [
     bio: 'An Indo-Canadian playback singer known for her versatile voice and multilingual singing. Popular in Bollywood and regional Indian cinema.'
   },
   {
+    id: USER_CUIDS['jasmine.sandlas'],
+    name: 'Jasmine Sandlas',
+    email: 'jasmine.sandlas@mizzo.artist',
+    username: 'jasmine.sandlas',
+    createdAt: new Date('2025-04-18T14:10:00.000Z'),
+    avatarUrl:
+      'https://i.scdn.co/image/ab6761610000517424014f4a90070826e31dc90c',
+    bio: 'Jasmine Sandlas is an Indian-American singer, television personality, performer, songwriter who mainly sings Punjabi songs.'
+  },
+  {
     id: USER_CUIDS['k.k'],
     name: 'K K',
     email: 'k.k@mizzo.artist',
@@ -707,6 +725,12 @@ export const SEED_USER_ARTIST_APPLICATIONS: TSeedUserArtistApplication[] = [
     message: 'Multilingual singer applying for verification.',
     idProofType: 'Driving License',
     createdAt: new Date('2025-04-17T14:00:00Z')
+  },
+  {
+    userId: USER_CUIDS['jasmine.sandlas'],
+    message: 'Punjabi singer and performer applying.',
+    idProofType: 'Driving License',
+    createdAt: new Date('2025-04-18T14:30:00Z')
   },
   {
     userId: USER_CUIDS['k.k'],
@@ -1014,7 +1038,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     secondaryArtists: [],
     title: 'Aayat (From Bajirao Mastani)',
     language: 'hindi',
-    youtubeUrl: 'https://www.youtube.com/watch?v=74nPCMebpYg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=vKDsAB1ccn0',
     tags: 'Bajirao Mastani, Ranveer Singh, Deepika Padukone, Priyanka Chopra, Hindi, Romantic, Classical, Emotional',
     createdAt: new Date('2025-01-05T15:00:00Z')
   },
@@ -1985,6 +2009,56 @@ export const SEED_TRACKS: TSeedTrack[] = [
     youtubeUrl: 'https://www.youtube.com/watch?v=FOjdXSrtUxA',
     tags: 'Pop, Romantic, Love Song, Soft Ballad, Melody, 2012 Hit, International, Emotional',
     createdAt: new Date('2025-03-15T15:00:00Z')
+  },
+  {
+    id: TRACK_CUIDS['jasmine.sandlas']['dhurandhar-title-track'],
+    primaryArtistId: USER_CUIDS['jasmine.sandlas'],
+    secondaryArtists: [],
+    title: 'Dhurandhar Title Track',
+    language: 'hindi',
+    youtubeUrl: 'https://www.youtube.com/watch?v=1a5nyrMtRsk',
+    tags: 'Punjabi, Hindi, Movie Soundtrack, Remake, Energetic, Cultural Fusion, Retro Vibes',
+    createdAt: new Date('2025-04-18T14:30:00Z')
+  },
+  {
+    id: TRACK_CUIDS['jasmine.sandlas']['illegal-weapon'],
+    primaryArtistId: USER_CUIDS['jasmine.sandlas'],
+    secondaryArtists: [],
+    title: 'Illegal Weapon ft. Garry Sandhu',
+    language: 'punjabi',
+    youtubeUrl: 'https://www.youtube.com/watch?v=H7_yY3yr-jE',
+    tags: 'Punjabi, Party Anthem, Dance, Club Track, High Energy, Desi Banger',
+    createdAt: new Date('2025-04-18T14:30:00Z')
+  },
+  {
+    id: TRACK_CUIDS['jasmine.sandlas']['ittar-desi-melodies'],
+    primaryArtistId: USER_CUIDS['jasmine.sandlas'],
+    secondaryArtists: [USER_CUIDS['b.praak']],
+    title: 'Ittar By Jasmine Sandlas & B Praak',
+    language: 'punjabi',
+    youtubeUrl: 'https://www.youtube.com/watch?v=kxeACXtiZNQ',
+    tags: 'Punjabi, Romantic, Pop, Duet, Feel-Good, Danceable, Love Song',
+    createdAt: new Date('2025-04-18T14:30:00Z')
+  },
+  {
+    id: TRACK_CUIDS['jasmine.sandlas']['sawan-mein'],
+    primaryArtistId: USER_CUIDS['jasmine.sandlas'],
+    secondaryArtists: [],
+    title: 'Sawan Mein - Divya Kumar and Jasmine Sandlas',
+    language: 'punjabi',
+    youtubeUrl: 'https://www.youtube.com/watch?v=uFsV0ieoU-w',
+    tags: 'Hindi, Soft Melody, Heart Break, Romantic, Emotional, Monsoon Mood, Heartfelt Ballad',
+    createdAt: new Date('2025-04-18T14:30:00Z')
+  },
+  {
+    id: TRACK_CUIDS['jasmine.sandlas']['taras-munjya'],
+    primaryArtistId: USER_CUIDS['jasmine.sandlas'],
+    secondaryArtists: [],
+    title: 'Taras (Munjya)',
+    language: 'punjabi',
+    youtubeUrl: 'https://www.youtube.com/watch?v=kfXy4W0aD40',
+    tags: 'Punjabi, Film Song, Emotional, Romantic, Melodic, Storytelling',
+    createdAt: new Date('2025-04-18T14:30:00Z')
   },
   {
     id: TRACK_CUIDS['k.k']['pyaar-ke-pal'],
@@ -3140,11 +3214,23 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   },
   {
     playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
+    trackId: TRACK_CUIDS['jasmine.sandlas']['illegal-weapon']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
     trackId: TRACK_CUIDS['diljit.dosanjh']['tenu-ki-pata']
   },
   {
     playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
     trackId: TRACK_CUIDS['diljit.dosanjh']['proper-patola-namaste-england']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
+    trackId: TRACK_CUIDS['jasmine.sandlas']['taras-munjya']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
+    trackId: TRACK_CUIDS['jasmine.sandlas']['dhurandhar-title-track']
   },
   {
     playlistId: PLAYLIST_CUIDS['punjabi-party-bangers'],
@@ -4584,6 +4670,14 @@ export const SEED_PLAYLIST_TRACKS: TSeedPlaylistTrack[] = [
   {
     playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
     trackId: TRACK_CUIDS['anupam.roy']['bezubaan-piku']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['jasmine.sandlas']['sawan-mein']
+  },
+  {
+    playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
+    trackId: TRACK_CUIDS['jasmine.sandlas']['ittar-desi-melodies']
   },
   {
     playlistId: PLAYLIST_CUIDS['beats-to-think-to'],
