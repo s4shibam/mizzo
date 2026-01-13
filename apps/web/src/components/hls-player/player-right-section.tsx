@@ -4,6 +4,7 @@ import {
   LuCircleArrowUp,
   LuCirclePlus,
   LuCircleX,
+  LuPictureInPicture2,
   LuVolume2,
   LuVolumeX
 } from 'react-icons/lu'
@@ -26,6 +27,7 @@ type PlayerRightSectionProps = {
   handleVolumeChange: (newVolume: number) => void
   toggleMute: () => void
   stop: () => void
+  onTogglePip: () => void
 }
 
 export const PlayerRightSection = ({
@@ -36,7 +38,8 @@ export const PlayerRightSection = ({
   activeTrackTitle,
   handleVolumeChange,
   toggleMute,
-  stop
+  stop,
+  onTogglePip
 }: PlayerRightSectionProps) => {
   const handleVolumeInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value)
@@ -96,6 +99,13 @@ export const PlayerRightSection = ({
           <LuCirclePlus className="size-5 cursor-pointer" />
         </Tooltip>
       </AddToPlaylistButton>
+
+      <Tooltip title="Picture in Picture">
+        <LuPictureInPicture2
+          className="size-5 cursor-pointer hover:text-primary"
+          onClick={onTogglePip}
+        />
+      </Tooltip>
 
       <Tooltip placement="left" title="Close Player">
         <LuCircleX

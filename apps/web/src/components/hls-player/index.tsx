@@ -2,17 +2,30 @@
 
 import { useEffect, useState } from 'react'
 
-import { useIncrementTrackListeningCount } from '@/hooks/api/track'
+import { toast } from 'react-hot-toast'
+
+import {
+  useGetLikeStatusOfTrack,
+  useIncrementTrackListeningCount,
+  useToggleLikeOfTrack
+} from '@/hooks/api/track'
 import { useHlsPlayer } from '@/hooks/custom/use-hls-player'
 import { usePlayerContext } from '@/providers/player-provider'
+import { invalidateQueries } from '@/services/tanstack'
 
+import { PipPlayer } from './pip-player'
 import { PlayerLeftSection } from './player-left-section'
 import { PlayerMidSection } from './player-mid-section'
 import { PlayerRightSection } from './player-right-section'
 
 export const HlsPlayer = () => {
-  const { activeTrack, activePlaylist, isActiveTrackPlaying } =
-    usePlayerContext()
+  const {
+    activeTrack,
+    activePlaylist,
+    isActiveTrackPlaying,
+    isPipMode,
+    setIsPipMode
+  } = usePlayerContext()
 
   const {
     trackRef,
@@ -41,6 +54,23 @@ export const HlsPlayer = () => {
   const { mutate: incrementTrackListensMutation } =
     useIncrementTrackListeningCount()
 
+  const { data: trackLikeData } = useGetLikeStatusOfTrack({
+    trackId: activeTrack?.id || ''
+  })
+
+  const { mutate: toggleLikeMutation } = useToggleLikeOfTrack({
+    onError: (error) => toast.error(error.message),
+    onSuccess: (success) => {
+      toast.success(success.message)
+      invalidateQueries({
+        queryKey: ['useGetLikeStatusOfTrack', { trackId: activeTrack?.id }]
+      })
+      setTimeout(() => {
+        invalidateQueries({ queryKey: ['useGetLikedTracks'] })
+      }, 500)
+    }
+  })
+
   useEffect(() => {
     setViewIncremented(false)
   }, [activeTrack])
@@ -49,6 +79,20 @@ export const HlsPlayer = () => {
     if (!viewIncremented && activeTrack?.id) {
       incrementTrackListensMutation({ trackId: activeTrack.id })
       setViewIncremented(true)
+    }
+  }
+
+  const handleTogglePip = () => {
+    setIsPipMode(true)
+  }
+
+  const handleClosePip = () => {
+    setIsPipMode(false)
+  }
+
+  const handleToggleLike = () => {
+    if (activeTrack?.id) {
+      toggleLikeMutation({ trackId: activeTrack.id })
     }
   }
 
@@ -86,7 +130,24 @@ export const HlsPlayer = () => {
         stop={stop}
         toggleMute={toggleMute}
         volume={volume}
+        onTogglePip={handleTogglePip}
       />
+
+      {isPipMode && (
+        <PipPlayer
+          currentTime={currentTime}
+          duration={duration}
+          handleSeek={handleSeek}
+          isLiked={trackLikeData?.data?.isLiked || false}
+          isPlaying={isActiveTrackPlaying}
+          playNext={playNext}
+          playPrevious={playPrevious}
+          toggleLike={handleToggleLike}
+          togglePlayPause={togglePlayPause}
+          track={activeTrack}
+          onClose={handleClosePip}
+        />
+      )}
     </section>
   )
 }
