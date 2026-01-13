@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 
 import { useIncrementTrackListeningCount } from '@/hooks/api/track'
 import { useHlsPlayer } from '@/hooks/custom/use-hls-player'
+import { useMediaKeys } from '@/hooks/custom/use-media-keys'
+import { s3GetUrlFromKey } from '@/lib/utils'
 import { usePlayerContext } from '@/providers/player-provider'
 
 import { PlayerLeftSection } from './player-left-section'
@@ -51,6 +53,18 @@ export const HlsPlayer = () => {
       setViewIncremented(true)
     }
   }
+
+  useMediaKeys({
+    onPlayPause: () => togglePlayPause(!isActiveTrackPlaying),
+    onNext: playNext,
+    onPrevious: playPrevious,
+    isPlaying: isActiveTrackPlaying,
+    trackTitle: activeTrack?.title,
+    trackArtist: activeTrack?.primaryArtist?.name,
+    trackArtwork: activeTrack?.posterKey
+      ? s3GetUrlFromKey(activeTrack.posterKey)
+      : undefined
+  })
 
   if (!activeTrack) return null
 
