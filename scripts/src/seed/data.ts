@@ -1038,7 +1038,7 @@ export const SEED_TRACKS: TSeedTrack[] = [
     secondaryArtists: [],
     title: 'Aayat (From Bajirao Mastani)',
     language: 'hindi',
-    youtubeUrl: 'https://www.youtube.com/watch?v=74nPCMebpYg',
+    youtubeUrl: 'https://www.youtube.com/watch?v=vKDsAB1ccn0',
     tags: 'Bajirao Mastani, Ranveer Singh, Deepika Padukone, Priyanka Chopra, Hindi, Romantic, Classical, Emotional',
     createdAt: new Date('2025-01-05T15:00:00Z')
   },
