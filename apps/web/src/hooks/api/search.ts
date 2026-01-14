@@ -130,7 +130,6 @@ export const useSearchUsersByUserName = (
     queryKey: ['useSearchUsersByUserName', params],
     queryFn: () => searchUsersByUserName(params),
     enabled: false,
-    retry: 1,
     ...opts
   })
 }
@@ -154,7 +153,6 @@ export const useSearchTracksByTrackName = (
     queryKey: ['useSearchTracksByTrackName', params],
     queryFn: () => searchTracksByTrackName(params),
     enabled: false,
-    retry: 1,
     ...opts
   })
 }
@@ -203,7 +201,6 @@ export const useSearchPlaylistsByPlaylistName = (
     queryKey: ['useSearchPlaylistsByPlaylistName', params],
     queryFn: () => searchPlaylistsByPlaylistName(params),
     enabled: false,
-    retry: 1,
     ...opts
   })
 }
