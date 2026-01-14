@@ -109,6 +109,7 @@ This monorepo contains multiple applications and shared packages, orchestrated w
 ![Screenshot 4](./.readme/4.webp)
 ![Screenshot 5](./.readme/5.webp)
 ![Screenshot 6](./.readme/6.webp)
+![Screenshot 7](./.readme/7.webp)
 
 ## 👋🏻 Contact
 
