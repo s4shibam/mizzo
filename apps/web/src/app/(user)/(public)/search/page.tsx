@@ -38,7 +38,7 @@ const SearchContent = () => {
   const searchQuery = qParams.q || ''
 
   const [noData, setNoData] = useState(false)
-  const [cardCount, setCardCount] = useState(8)
+  const [cardCount, setCardCount] = useState(0)
 
   const {
     data: tracks,
@@ -78,7 +78,7 @@ const SearchContent = () => {
   }, [isUsersError, isPlaylistsError, isTracksError])
 
   useEffect(() => {
-    if (searchQuery.length === 0) {
+    if (searchQuery.length === 0 || cardCount === 0) {
       return
     }
 
@@ -90,6 +90,10 @@ const SearchContent = () => {
   }, [searchQuery, cardCount])
 
   useEffect(() => {
+    if (width === 0) {
+      return
+    }
+
     if (width < 1280) {
       setCardCount(4)
     } else if (width >= 1280 && width < 1536) {
@@ -124,7 +128,7 @@ const SearchContent = () => {
     <div className="flex h-full flex-col gap-6">
       {tracks && (
         <div>
-          <p className="px-4 py-2 text-2xl">Tracks</p>
+          <p className="p-1 text-xl font-medium">Tracks</p>
 
           {tracks?.data?.map((track) => (
             <TrackBarCard
@@ -138,7 +142,7 @@ const SearchContent = () => {
 
       {playlists && (
         <div>
-          <p className="px-4 py-2 text-2xl">Playlists</p>
+          <p className="p-1 text-xl font-medium">Playlists</p>
 
           <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8">
             {playlists?.data?.map((playlist) => (
@@ -154,7 +158,7 @@ const SearchContent = () => {
 
       {users && (
         <div>
-          <p className="px-4 py-2 text-2xl">Artists</p>
+          <p className="p-1 text-xl font-medium">Artists</p>
 
           <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4 xl:grid-cols-6 2xl:grid-cols-8">
             {users?.data?.map((user) => (

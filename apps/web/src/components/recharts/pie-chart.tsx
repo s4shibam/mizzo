@@ -52,14 +52,14 @@ export const PieChart = ({
       <RechartsPieChart>
         <Pie
           animationDuration={800}
-          cornerRadius={8}
+          cornerRadius={4}
           cx="50%"
           cy="50%"
           data={data}
           innerRadius={`${innerRadius * 100}%`}
           nameKey="label"
           outerRadius={`${outerRadius * 100}%`}
-          paddingAngle={2}
+          paddingAngle={3}
         >
           {data.map((entry, index) => (
             <Cell
