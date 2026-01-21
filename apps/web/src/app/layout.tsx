@@ -12,7 +12,17 @@ import '@/styles/globals.css'
 
 export const metadata: Metadata = {
   title: `${APP_SLUG_CAP} - Where music flows`,
-  description: `${APP_SLUG_CAP} - Where music flows`
+  description: `${APP_SLUG_CAP} - Where music flows`,
+  openGraph: {
+    title: `${APP_SLUG_CAP} - Where music flows`,
+    description: "Discover, stream, and share unlimited music. Connect with artists and fans in a community built for music lovers.",
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${APP_SLUG_CAP} - Where music flows`,
+    description:"Discover, stream, and share unlimited music. Connect with artists and fans in a community built for music lovers."
+  }
 }
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
