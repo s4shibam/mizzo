@@ -23,6 +23,7 @@
     "@mizzo/prisma": "*",
     "@mizzo/redis": "*",
     "@mizzo/utils": "*",
+    "@temporalio/client": "^1.12.6",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "express": "^4.21.2",
@@ -31,8 +32,8 @@
     "morgan": "^1.10.0",
     "serverless-http": "^3.2.0",
     "source-map-support": "^0.5.21",
-    "zod": "^3.24.2",
-    "zod-error": "^1.5.0"
+    "zod": "^4.1.8",
+    "zod-error": "^2.0.0"
   },
   "devDependencies": {
     "@mizzo/eslint-config": "*",
