@@ -36,7 +36,7 @@ export const errorHandler = (
 }
 
 const handleZodError = (err: ZodError): TError => {
-  const invalidFields = err.errors.map((error) => error.path.join('.'))
+  const invalidFields = err.issues.map((error) => error.path.join('.'))
 
   const formattedMessage = generateErrorMessage(err.issues, {
     maxErrors: 1,
@@ -59,7 +59,7 @@ const handleZodError = (err: ZodError): TError => {
     statusCode: 400,
     validationError: {
       fields: invalidFields,
-      details: err.errors.map((error) => ({
+      details: err.issues.map((error) => ({
         field: error.path.join('.'),
         message: error.message,
         code: error.code

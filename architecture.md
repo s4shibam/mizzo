@@ -1,6 +1,6 @@
 # Mizzo Platform Architecture
 
-This document describes the backend architecture for the Mizzo music streaming platform, focusing on audio transcoding, track upload and publishing, authentication, audio streaming, and notification system.
+This document describes the backend architecture for the Mizzo music streaming platform, focusing on audio transcoding, track upload and publishing, AI-powered live lyrics generation, audio streaming, and notification system.
 
 ---
 
@@ -33,7 +33,7 @@ flowchart TD
     H --> V[Delete SQS message]
 ```
 
-### Architecture Details
+### Transcoding Details
 
 #### Step 1: Presigned Upload
 
@@ -103,7 +103,50 @@ stateDiagram-v2
 
 ---
 
-## 2. Track Upload and Publishing Flow
+## 2. AI-Powered Live Lyrics System
+
+### Flow (transcoding completion to live lyrics)
+
+```mermaid
+flowchart TD
+    A[Track status: REVIEWING] --> B[Trigger Temporal workflow]
+    B --> C[Temporal orchestrates tasks]
+    C --> D[Worker generates presigned URL]
+    D --> E[Worker calls Gemini AI]
+    E --> F[AI analyzes audio + generates lyrics]
+    F --> G[Store time-synced lyrics]
+    G --> H[Frontend displays real-time sync]
+```
+
+### Live Lyrics Generation Details
+
+#### Step 1: Workflow Trigger
+
+- API detects track status change to `REVIEWING`
+- Triggers Temporal workflow with track metadata
+- Creates workflow record with `PENDING` status
+
+#### Step 2: Temporal Orchestration
+
+- Temporal Cloud manages distributed task execution
+- Executes activities: audio URL generation, AI processing, database updates
+- Automatic retry with exponential backoff on failure
+
+#### Step 3: AI Processing
+
+- Worker calls Gemini 3 Flash Preview via Vercel AI SDK
+- Analyzes audio from presigned S3 URL + track metadata
+- Generates time-synchronized lyrics with millisecond precision
+
+#### Step 4: Result Storage
+
+- Worker stores generated lyrics in database
+- Updates workflow status to `COMPLETED` or `FAILED`
+- Triggers notifications for completed processing
+
+---
+
+## 3. Track Upload and Publishing Flow
 
 ### Complete Upload Flow
 
@@ -194,7 +237,7 @@ POST /track/upload
 
 ---
 
-## 3. Audio Streaming
+## 4. Audio Streaming
 
 ### HLS Adaptive Streaming
 
@@ -236,7 +279,7 @@ flowchart LR
 
 ---
 
-## 4. Notification System
+## 5. Notification System
 
 ### Notification Flow
 

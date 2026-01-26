@@ -24,6 +24,7 @@ Mizzo is a music streaming platform that allows users to discover, play, and sha
 ## ✨ Features
 
 - Stream music with adaptive bitrate streaming (HLS) for optimal quality
+- AI-powered live lyrics with real-time synchronization during playback
 - Manage user profile with customizable fields and integrations
 - Secure user authentication and authorization with Role-based access control
 - Create, share, and manage personal playlists
@@ -44,6 +45,8 @@ Mizzo is a music streaming platform that allows users to discover, play, and sha
 - PostgreSQL
 - TurboRepo
 - AWS (Lambda, S3, SQS, ECS, SES)
+- Temporal
+- Google Gemini AI
 - Tanstack Query
 - Tailwind CSS
 - Ant Design
@@ -73,6 +76,7 @@ Mizzo is a music streaming platform that allows users to discover, play, and sha
 - [x] Boost API performance with Redis-powered caching for high-traffic endpoints
 - [x] Orchestrate background tasks using AWS services in a microservice-oriented architecture
 - [x] Implement notification system for user engagement and activity tracking
+- [x] Build AI-powered live lyrics system with Temporal Cloud and Google Gemini AI for real-time synchronized lyrics
 
 ## 🏗️ Repository Structure
 
@@ -110,6 +114,7 @@ This monorepo contains multiple applications and shared packages, orchestrated w
 ![Screenshot 5](./.readme/5.webp)
 ![Screenshot 6](./.readme/6.webp)
 ![Screenshot 7](./.readme/7.webp)
+![Screenshot 8](./.readme/8.webp)
 
 ## 👋🏻 Contact
 

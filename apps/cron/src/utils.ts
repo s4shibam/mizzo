@@ -3,6 +3,7 @@ import axios from 'axios'
 import { env } from './env'
 
 const MAX_PROCESSING_TRACK_COUNT = 10
+export const MAX_CONCURRENT_AI_ACTIVITIES = 2 // Note: Gemini free tier has a limit of 5 RPM
 
 export const getAvailableProcessingSlots = async () => {
   if (env.apiUrl === 'NA' || env.apiSecretKey === 'NA') {
