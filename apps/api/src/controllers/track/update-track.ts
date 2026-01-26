@@ -12,17 +12,10 @@ import { throwError } from '../../utils/throw-error'
 export const updateTrack = async (req: Request, res: Response) => {
   const userId = req.user.id
   const { trackId } = zUpdateTrackReqParams.parse(req.params)
-  const {
-    title,
-    language,
-    tags,
-    lyrics,
-    posterUrl,
-    secondaryArtistIds,
-    isPublic
-  } = zUpdateTrackReqBody.parse(req.body)
+  const { title, language, tags, posterUrl, secondaryArtistIds, isPublic } =
+    zUpdateTrackReqBody.parse(req.body)
 
-  const profanityChecks = [title, language, tags, lyrics].filter(
+  const profanityChecks = [title, language, tags].filter(
     (item): item is string => item !== undefined
   )
 
@@ -107,7 +100,6 @@ export const updateTrack = async (req: Request, res: Response) => {
       title,
       tags: tags !== undefined ? formatTags(tags) : undefined,
       language: language?.toLowerCase(),
-      lyrics,
       posterKey,
       isPublic,
       secondaryArtists: secondaryArtistsData
@@ -127,7 +119,6 @@ const zUpdateTrackReqBody = z.object({
   title: z.string().min(1, 'Please enter title').optional(),
   language: z.string().min(1, 'Please enter language').optional(),
   tags: z.array(z.string()).optional(),
-  lyrics: z.string().optional(),
   posterUrl: z.string().url('Invalid poster URL').optional(),
   secondaryArtistIds: z.array(z.string().cuid2()).optional(),
   isPublic: z.boolean().optional()

@@ -32,9 +32,16 @@ type TUpdateTrackPayload = {
   isPublic?: boolean
   posterUpdateOption?: TMediaUpdateOption
   secondaryArtistIds?: string[]
-  lyrics?: string
   posterUrl?: string
   trackUrl?: string
+}
+
+type TTrackLiveLyric = {
+  status: 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'FAILED'
+  content: {
+    lines: Array<{ startTime: number; endTime: number; text: string }>
+  } | null
+  workflowId?: string | null
 }
 
 // Track Api Endpoints
@@ -81,6 +88,12 @@ const incrementTrackListeningCount = ({ trackId }: TTrackId): TApiPromise => {
 
 const deleteTrackById = ({ trackId }: TTrackId): TApiPromise => {
   return api.delete(`/track/${trackId}`)
+}
+
+const getTrackLiveLyric = ({
+  trackId
+}: TTrackId): TApiPromise<TTrackLiveLyric | null> => {
+  return api.get(`/track/${trackId}/live-lyric`)
 }
 
 // Hooks
@@ -159,6 +172,17 @@ export const useDeleteTrackById = (opts?: TMutationOpts<TTrackId>) => {
   return useMutation({
     mutationKey: ['useDeleteTrackById'],
     mutationFn: deleteTrackById,
+    ...opts
+  })
+}
+
+export const useGetTrackLiveLyric = (
+  params: TTrackId,
+  opts?: TQueryOpts<TTrackLiveLyric | null>
+) => {
+  return useQuery({
+    queryKey: ['useGetTrackLiveLyric', params],
+    queryFn: () => getTrackLiveLyric(params),
     ...opts
   })
 }
