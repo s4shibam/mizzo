@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { toast } from 'react-hot-toast'
 
@@ -26,7 +26,8 @@ export const HlsPlayer = () => {
     activePlaylist,
     isActiveTrackPlaying,
     isPipMode,
-    setIsPipMode
+    setIsPipMode,
+    setSyncedCurrentTime
   } = usePlayerContext()
 
   const {
@@ -52,6 +53,7 @@ export const HlsPlayer = () => {
   } = useHlsPlayer()
 
   const [viewIncremented, setViewIncremented] = useState(false)
+  const currentTimeRef = useRef(0)
 
   const { mutate: incrementTrackListensMutation } =
     useIncrementTrackListeningCount()
@@ -76,6 +78,18 @@ export const HlsPlayer = () => {
   useEffect(() => {
     setViewIncremented(false)
   }, [activeTrack])
+
+  useEffect(() => {
+    currentTimeRef.current = currentTime
+  }, [currentTime])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSyncedCurrentTime(currentTimeRef.current)
+    }, 500)
+
+    return () => clearInterval(interval)
+  }, [setSyncedCurrentTime])
 
   const handlePlay = () => {
     if (!viewIncremented && activeTrack?.id) {
