@@ -85,6 +85,13 @@ export const getAllTracks = async (req: Request, res: Response) => {
             likedTrack: true,
             playlistTracks: true
           }
+        },
+        liveLyric: {
+          select: {
+            status: true,
+            workflowId: true,
+            errorMessage: true
+          }
         }
       },
       orderBy: {

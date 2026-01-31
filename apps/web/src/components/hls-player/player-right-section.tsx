@@ -1,9 +1,13 @@
+import type { ChangeEvent } from 'react'
+
 import { Tooltip } from 'antd'
 import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
 import {
   LuCircleArrowUp,
   LuCirclePlus,
   LuCircleX,
+  LuMic,
   LuPictureInPicture2,
   LuVolume2,
   LuVolumeX
@@ -41,7 +45,9 @@ export const PlayerRightSection = ({
   stop,
   onTogglePip
 }: PlayerRightSectionProps) => {
-  const handleVolumeInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const router = useRouter()
+  const pathname = usePathname()
+  const handleVolumeInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value)
     handleVolumeChange(newVolume)
   }
@@ -99,6 +105,16 @@ export const PlayerRightSection = ({
           <LuCirclePlus className="size-5 cursor-pointer" />
         </Tooltip>
       </AddToPlaylistButton>
+
+      <Tooltip title="Lyrics">
+        <button
+          aria-label="Lyrics"
+          className={pathname === '/lyrics' ? 'text-primary' : ''}
+          onClick={() => router.push('/lyrics')}
+        >
+          <LuMic className="size-5 cursor-pointer" />
+        </button>
+      </Tooltip>
 
       <Tooltip title="Picture in Picture">
         <LuPictureInPicture2

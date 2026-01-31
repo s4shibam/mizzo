@@ -30,7 +30,7 @@ import {
 import { getLanguageList, getStatusInfo, s3GetUrlFromKey } from '@/lib/utils'
 import { invalidateQueries } from '@/services/tanstack'
 import type { TStatus } from '@/types/index'
-import type { Track } from '@/types/track'
+import type { TLiveLyricStatus, Track } from '@/types/track'
 
 const AdminTracksPage = () => {
   const { qParams, updateQParams } = useQueryParams()
@@ -77,6 +77,13 @@ const AdminTracksPage = () => {
 
   const handleUpdateTrack = (id: string, newStatus: TStatus) => {
     updateTrackMutation({ id, data: { status: newStatus } })
+  }
+
+  const handleUpdateLiveLyricStatus = (
+    id: string,
+    newStatus: TLiveLyricStatus
+  ) => {
+    updateTrackMutation({ id, data: { liveLyricStatus: newStatus } })
   }
 
   const handlePageChange = (page: number) => {
@@ -266,6 +273,47 @@ const AdminTracksPage = () => {
               <div
                 className="size-4 rounded-full"
                 style={{ backgroundColor: color }}
+              />
+            )}
+          </div>
+        )
+      }
+    },
+    {
+      title: 'Lyrics',
+      fixed: 'right',
+      width: 170,
+      render: (record: Track) => {
+        const liveLyricStatus = record?.liveLyric?.status
+        const statusColors: Record<TLiveLyricStatus, string> = {
+          PENDING: '#3b82f6',
+          PROCESSING: '#f59e0b',
+          COMPLETED: '#10b981',
+          FAILED: '#ef4444'
+        }
+
+        const statusOptions: SelectProps<TLiveLyricStatus>['options'] = [
+          { value: 'PENDING', label: 'Pending' },
+          { value: 'PROCESSING', label: 'Processing' },
+          { value: 'COMPLETED', label: 'Completed' },
+          { value: 'FAILED', label: 'Failed' }
+        ]
+
+        return (
+          <div className="flex w-fit items-center gap-2">
+            <Select
+              className="w-fit min-w-32"
+              defaultValue={liveLyricStatus}
+              options={statusOptions}
+              placeholder="No lyrics"
+              onChange={(newStatus) =>
+                handleUpdateLiveLyricStatus(record?.id, newStatus)
+              }
+            />
+            {liveLyricStatus && (
+              <div
+                className="size-4 rounded-full"
+                style={{ backgroundColor: statusColors[liveLyricStatus] }}
               />
             )}
           </div>

@@ -14,8 +14,6 @@ import { useDebounce } from '@/hooks/custom/use-debounce'
 import { useUpdateTrackForm } from '@/hooks/form/use-update-track-form'
 import type { Track } from '@/types/track'
 
-const { TextArea: InputTextArea } = Input
-
 type UpdateTrackFormProps = {
   track: Track
   close: () => void
@@ -60,7 +58,6 @@ export const UpdateTrackForm = ({ track, close }: UpdateTrackFormProps) => {
       title: track.title,
       language: track.language,
       tags: track.tags?.split(','),
-      lyrics: track.lyrics,
       isPublic: track.isPublic,
       secondaryArtistIds:
         track.secondaryArtists?.map((artist) => artist.id) || []
@@ -225,14 +222,6 @@ export const UpdateTrackForm = ({ track, close }: UpdateTrackFormProps) => {
           </Upload>
         </Form.Item>
       )}
-
-      <Form.Item label="Lyrics" name="lyrics">
-        <InputTextArea
-          autoSize={{ minRows: 10, maxRows: 20 }}
-          placeholder="Enter track lyrics (optional)"
-          size="large"
-        />
-      </Form.Item>
 
       <div className="mz-accent-drawer-form-footer">
         <Button

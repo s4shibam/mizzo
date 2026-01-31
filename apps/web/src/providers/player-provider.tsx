@@ -22,6 +22,8 @@ type PlayerContextValue = {
   setActivePlaylist: (playlist: Playlist | undefined) => void
   isActiveTrackPlaying: boolean
   setIsActiveTrackPlaying: (isActiveTrackPlaying: boolean) => void
+  syncedCurrentTime: number
+  setSyncedCurrentTime: (time: number) => void
   savedPosition: number | null
   setSavedPosition: (position: number | null) => void
   isPipMode: boolean
@@ -56,6 +58,7 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
   const [activeTrack, setActiveTrack] = useState<Track>()
   const [activePlaylist, setActivePlaylist] = useState<Playlist>()
   const [isActiveTrackPlaying, setIsActiveTrackPlaying] = useState(false)
+  const [syncedCurrentTime, setSyncedCurrentTime] = useState(0)
   const [savedPosition, setSavedPosition] = useState<number | null>(null)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isPipMode, setIsPipMode] = useState(false)
@@ -101,6 +104,8 @@ export const PlayerProvider = ({ children }: { children: ReactNode }) => {
         setActivePlaylist,
         isActiveTrackPlaying,
         setIsActiveTrackPlaying,
+        syncedCurrentTime,
+        setSyncedCurrentTime,
         savedPosition,
         setSavedPosition,
         isPipMode,

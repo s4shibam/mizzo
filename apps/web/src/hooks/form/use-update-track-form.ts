@@ -26,7 +26,6 @@ type TValidationResult = {
     language: string
     tags?: string[]
     secondaryArtistIds?: string[]
-    lyrics?: string
     posterFile: UploadChangeParam
     posterFileObj?: File
     posterFileExt?: string
@@ -38,7 +37,6 @@ type TTrackUpdateFormValues = {
   language: string
   tags?: string[]
   secondaryArtistIds?: string[]
-  lyrics?: string
   posterFile: UploadChangeParam
 }
 
@@ -81,8 +79,7 @@ export const useUpdateTrackForm = (track: Track, close: () => void) => {
   const validateFormData = (
     values: TTrackUpdateFormValues
   ): TValidationResult => {
-    const { title, language, tags, secondaryArtistIds, lyrics, posterFile } =
-      values
+    const { title, language, tags, secondaryArtistIds, posterFile } = values
 
     const posterFileObj = posterFile?.fileList?.[0]?.originFileObj
     const posterFileExt = posterFileObj?.name.split('.').pop()
@@ -114,7 +111,6 @@ export const useUpdateTrackForm = (track: Track, close: () => void) => {
         language,
         tags,
         secondaryArtistIds,
-        lyrics,
         posterFile,
         posterFileObj: posterFileObj || undefined,
         posterFileExt: posterFileExt || undefined
@@ -133,7 +129,6 @@ export const useUpdateTrackForm = (track: Track, close: () => void) => {
       title,
       language,
       tags,
-      lyrics,
       secondaryArtistIds,
       posterFileObj,
       posterFileExt
@@ -176,7 +171,6 @@ export const useUpdateTrackForm = (track: Track, close: () => void) => {
       title,
       language,
       tags,
-      lyrics,
       isPublic,
       secondaryArtistIds,
       posterUpdateOption,

@@ -4,7 +4,7 @@ import * as path from 'path'
 import * as readline from 'readline'
 import { promisify } from 'util'
 
-import { Prisma, Status } from '@prisma/client'
+import { Prisma, Status, TrackLiveLyricStatus } from '@prisma/client'
 import bcryptjs from 'bcryptjs'
 
 import {
@@ -440,6 +440,7 @@ const clearDatabase = async (): Promise<void> => {
     await prisma.likedPlaylist.deleteMany()
     await prisma.likedTrack.deleteMany()
     await prisma.playlist.deleteMany()
+    await prisma.trackLiveLyric.deleteMany()
     await prisma.track.deleteMany()
     await prisma.userArtistApplication.deleteMany()
     await prisma.userResetToken.deleteMany()
@@ -708,6 +709,37 @@ const seedTracks = async (): Promise<void> => {
     // Bulk insert all tracks
     console.log('\n💾 Bulk inserting all tracks...')
     await prisma.track.createMany({ data: allTracksToCreate })
+
+    const liveLyricsToCreate: Prisma.TrackLiveLyricCreateManyInput[] = []
+
+    for (const track of allTracksToCreate) {
+      if (!track.id) {
+        continue
+      }
+
+      const status =
+        track.status === Status.FAILED
+          ? TrackLiveLyricStatus.FAILED
+          : TrackLiveLyricStatus.PENDING
+
+      const base: Prisma.TrackLiveLyricCreateManyInput = {
+        trackId: track.id,
+        status
+      }
+
+      if (status === TrackLiveLyricStatus.FAILED) {
+        base.errorMessage = 'Track processing failed during seeding'
+      }
+
+      if (track.createdAt) {
+        base.createdAt = track.createdAt
+      }
+
+      liveLyricsToCreate.push(base)
+    }
+
+    console.log('🎼 Creating live lyric entries...')
+    await prisma.trackLiveLyric.createMany({ data: liveLyricsToCreate })
 
     // Connect secondary artists
     if (allTrackSecondaryArtists.length > 0) {

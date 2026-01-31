@@ -1,8 +1,10 @@
 import { scheduleSqsConsumer } from './jobs'
+import { startTemporalWorker } from './temporal/worker'
 
 const startCronServer = () => {
   try {
     console.log('[CRON] Server is live.')
+    startTemporalWorker()
     scheduleSqsConsumer()
   } catch (error) {
     console.error('[CRON] Failed to start cron server', error)
