@@ -31,7 +31,7 @@ export const startTemporalWorker = async () => {
     connection,
     namespace: env.temporalNamespace,
     taskQueue: 'track-live-lyric',
-    workflowsPath: require.resolve('./temporal/workflows'),
+    workflowsPath: require.resolve('./workflows'),
     activities,
     maxConcurrentActivityTaskExecutions: MAX_CONCURRENT_AI_ACTIVITIES
   })
