@@ -69,6 +69,9 @@ export const uploadTrack = async (req: Request, res: Response) => {
       tags,
       posterKey,
       trackKey,
+      liveLyric: {
+        create: {}
+      },
       secondaryArtists: {
         connect: filteredSecondaryArtistIds
       }
