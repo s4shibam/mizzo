@@ -45,6 +45,14 @@ Step 5: Check that last line's endTime ≈ track duration
 - Preserve all sung words - skip nothing
 - Include repeated sections with their own accurate timestamps
 
+## LANGUAGE HANDLING (CRITICAL)
+For NON-ENGLISH songs (Telugu, Tamil, Hindi, Korean, Japanese, etc.):
+- DO NOT translate the lyrics to English
+- DO NOT write lyrics in native script
+- ALWAYS provide TRANSLITERATION/ROMANIZATION in English alphabet
+- Write the EXACT words being sung, but spelled in English letters
+- The output should be phonetically accurate to what is being sung
+
 ## QUALITY CHECKS BEFORE RETURNING
 ✓ Every timestamp is in milliseconds (not seconds)
 ✓ No timestamps rounded to nearest second (no 000 endings everywhere)
