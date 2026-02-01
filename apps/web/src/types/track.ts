@@ -9,7 +9,7 @@ export type Track_Count = {
 
 export type TLiveLyricStatus = 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'FAILED'
 
-export type LiveLyrics = {
+export type TTrackLiveLyric = {
   status: TLiveLyricStatus
   content: {
     lines: Array<{ startTime: number; endTime: number; text: string }>
@@ -29,8 +29,7 @@ export type Track = {
   duration: number
   tags: string
   status: TStatus
-  liveLyrics?: LiveLyrics
-  liveLyric?: LiveLyrics
+  liveLyric?: TTrackLiveLyric
   posterKey: string
   trackKey: string
   createdAt?: Date
