@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-import { Drawer, Tag, Tooltip } from 'antd'
+import { Button, Drawer, Tag, Tooltip } from 'antd'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -76,11 +76,15 @@ const TrackByTrackIdPage = () => {
     trackId: track?.data?.id || ''
   })
 
-  const { data: liveLyricResponse, isLoading: isLiveLyricLoading } =
-    useGetTrackLiveLyric(
-      { trackId: track?.data?.id || '' },
-      { enabled: !!track?.data?.id }
-    )
+  const {
+    data: liveLyricResponse,
+    isLoading: isLiveLyricLoading,
+    error: liveLyricError,
+    refetch: refetchLiveLyric
+  } = useGetTrackLiveLyric(
+    { trackId: track?.data?.id || '' },
+    { enabled: !!track?.data?.id }
+  )
 
   const liveLyric = liveLyricResponse?.data
 
@@ -267,9 +271,16 @@ const TrackByTrackIdPage = () => {
         width={drawerWidth}
         onClose={closeLyricsDrawer}
       >
-        <div className="h-full overflow-y-auto p-4">
+        <div className="h-full overflow-y-auto">
           {isLiveLyricLoading ? (
             <Loader loading />
+          ) : liveLyricError ? (
+            <div className="flex flex-col items-center gap-2 text-sm text-zinc-600">
+              <p>Failed to load lyrics. Please try again.</p>
+              <Button type="primary" onClick={() => refetchLiveLyric()}>
+                Retry
+              </Button>
+            </div>
           ) : liveLyric?.status === 'PENDING' ||
             liveLyric?.status === 'PROCESSING' ? (
             <div className="flex flex-col items-center gap-2 text-sm text-zinc-600">
