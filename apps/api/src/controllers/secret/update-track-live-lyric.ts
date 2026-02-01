@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 
 import { z } from 'zod'
 
-import { prisma, TrackLiveLyricStatus } from '@mizzo/prisma'
+import { prisma, TrackLiveLyricStatus, type Prisma } from '@mizzo/prisma'
 
 export const updateTrackLiveLyric = async (req: Request, res: Response) => {
   const { trackId } = zUpdateTrackLiveLyricReqParams.parse(req.params)
@@ -14,7 +14,7 @@ export const updateTrackLiveLyric = async (req: Request, res: Response) => {
     where: { trackId },
     data: {
       status,
-      content,
+      content: content as Prisma.InputJsonValue,
       errorMessage
     }
   })
@@ -26,13 +26,23 @@ export const updateTrackLiveLyric = async (req: Request, res: Response) => {
 }
 
 const zUpdateTrackLiveLyricReqParams = z.object({
-  trackId: z.string().cuid2()
+  trackId: z.cuid2()
+})
+
+const zLiveLyricContentSchema = z.object({
+  lines: z.array(
+    z.object({
+      startTime: z.number(),
+      endTime: z.number(),
+      text: z.string()
+    })
+  )
 })
 
 const zUpdateTrackLiveLyricReqBody = z.object({
-  status: z.nativeEnum(TrackLiveLyricStatus, {
+  status: z.enum(TrackLiveLyricStatus, {
     message: 'Invalid status value'
   }),
-  content: z.any().optional().nullable(),
+  content: zLiveLyricContentSchema.optional().nullable(),
   errorMessage: z.string().optional().nullable()
 })

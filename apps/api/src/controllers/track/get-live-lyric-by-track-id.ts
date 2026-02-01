@@ -29,5 +29,5 @@ export const getLiveLyricByTrackId = async (req: Request, res: Response) => {
 }
 
 const zGetLiveLyricByTrackIdReqParams = z.object({
-  trackId: z.string().cuid2()
+  trackId: z.cuid2()
 })
