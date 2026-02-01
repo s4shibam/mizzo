@@ -98,6 +98,7 @@ export const updateTrack = async (req: Request, res: Response) => {
   if (liveLyricStatus) {
     let workflowId: string | undefined
     let wasWorkflowStarted = false
+    let workflowErrorMessage: string | undefined
 
     if (liveLyricStatus === 'PENDING') {
       if (!track.trackKey) {
@@ -125,6 +126,10 @@ export const updateTrack = async (req: Request, res: Response) => {
 
           wasWorkflowStarted = true
         } catch (error) {
+          workflowErrorMessage =
+            error instanceof Error
+              ? error.message
+              : JSON.stringify(error) || 'Failed to start workflow'
           console.error('Error starting track live lyric workflow:', error)
         }
       }
@@ -139,8 +144,10 @@ export const updateTrack = async (req: Request, res: Response) => {
             ? workflowId
             : undefined,
         errorMessage:
-          liveLyricStatus === 'PENDING' && !env.enableTemporal
-            ? 'Temporal feature is disabled'
+          liveLyricStatus === 'PENDING'
+            ? !env.enableTemporal
+              ? 'Temporal feature is disabled'
+              : workflowErrorMessage
             : undefined
       },
       create: {
@@ -151,8 +158,10 @@ export const updateTrack = async (req: Request, res: Response) => {
             ? workflowId
             : undefined,
         errorMessage:
-          liveLyricStatus === 'PENDING' && !env.enableTemporal
-            ? 'Temporal feature is disabled'
+          liveLyricStatus === 'PENDING'
+            ? !env.enableTemporal
+              ? 'Temporal feature is disabled'
+              : workflowErrorMessage
             : undefined
       }
     })
