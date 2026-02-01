@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react'
 
 type LiveLyricsDisplayProps = {
   lines: Array<{ startTime: number; endTime: number; text: string }>
@@ -28,7 +28,7 @@ export const LiveLyricsDisplay = ({
   }, [activeIndex])
 
   return (
-    <div className="space-y-6 text-2xl font-semibold leading-relaxed text-zinc-500 md:text-3xl max-w-4xl mx-auto text-center">
+    <div className="mx-auto max-w-4xl space-y-6 text-center text-2xl font-semibold leading-relaxed text-zinc-500 md:text-3xl">
       {lines.map((line, index) => {
         const isActive = index === activeIndex
         return (

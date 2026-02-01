@@ -72,12 +72,10 @@ const LyricsPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col gap-20 p-4">
-      
-        <LiveLyricsDisplay
-          currentTime={currentTimeMs}
-          lines={liveLyric.content.lines}
-        />
-      
+      <LiveLyricsDisplay
+        currentTime={currentTimeMs}
+        lines={liveLyric.content.lines}
+      />
 
       <div className="flex items-center justify-center gap-1.5 text-xs font-medium text-zinc-400 opacity-75">
         <LuSparkles className="size-3" />
