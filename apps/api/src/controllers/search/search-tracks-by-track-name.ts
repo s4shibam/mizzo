@@ -51,7 +51,6 @@ export const searchTracksByTrackName = async (req: Request, res: Response) => {
     // Exact phrase search
     { title: { contains: cleanSearch, mode: 'insensitive' } },
     { tags: { contains: cleanSearch, mode: 'insensitive' } },
-    { lyrics: { contains: cleanSearch, mode: 'insensitive' } },
     { primaryArtist: { name: { contains: cleanSearch, mode: 'insensitive' } } },
     {
       secondaryArtists: {
@@ -65,7 +64,6 @@ export const searchTracksByTrackName = async (req: Request, res: Response) => {
     (word) => [
       { title: { contains: word, mode: 'insensitive' } },
       { tags: { contains: word, mode: 'insensitive' } },
-      { lyrics: { contains: word, mode: 'insensitive' } },
       { primaryArtist: { name: { contains: word, mode: 'insensitive' } } },
       {
         secondaryArtists: {

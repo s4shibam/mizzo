@@ -2,6 +2,7 @@ import { Router } from 'express'
 
 import { deleteTrackById } from '../controllers/track/delete-track'
 import { getLikeStatusOfTrack } from '../controllers/track/get-like-status-of-track'
+import { getLiveLyricByTrackId } from '../controllers/track/get-live-lyric-by-track-id'
 import { getMyCollaboratedTracks } from '../controllers/track/get-my-collaborated-tracks'
 import { getMyUploads } from '../controllers/track/get-my-uploads'
 import { increaseTrackListens } from '../controllers/track/increase-track-listens'
@@ -38,6 +39,9 @@ router.get('/my-collaborations', isAuthenticatedUser, getMyCollaboratedTracks)
 
 // Check like status
 router.get('/:trackId/like', isAuthenticatedUser, getLikeStatusOfTrack)
+
+// Get live lyric by track ID
+router.get('/:trackId/live-lyric', getLiveLyricByTrackId)
 
 // Toggle like (like <-> unlike)
 router.put(

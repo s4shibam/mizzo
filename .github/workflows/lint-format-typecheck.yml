@@ -27,7 +27,7 @@ jobs:
         run: npm run lint
 
       - name: Check format
-        run: npx prettier --check "**/*.{json,js,jsx,ts,tsx,md}"
+        run: npm run format
 
       - name: Run typecheck
         run: npm run typecheck

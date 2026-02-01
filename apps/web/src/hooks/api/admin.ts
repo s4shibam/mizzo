@@ -6,6 +6,7 @@ import { api } from '@/services/api'
 import type { TApiPromise, TMutationOpts, TQueryOpts } from '@/types/api'
 import type { TStatus, TTrendDirection } from '@/types/index'
 import { Playlist } from '@/types/playlist'
+import type { TLiveLyricStatus } from '@/types/track'
 import { Track } from '@/types/track'
 import { ArtistApplication, User } from '@/types/user'
 
@@ -52,7 +53,7 @@ type TUpdateUserPayload = {
 
 type TUpdateTrackPayload = {
   id: string
-  data: Partial<Track>
+  data: Partial<Track> & { liveLyricStatus?: TLiveLyricStatus }
 }
 
 type TUpdatePlaylistPayload = {

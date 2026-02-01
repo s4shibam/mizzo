@@ -23,7 +23,8 @@
     "studio": "dotenv -e ../../.env -- prisma studio --browser none",
     "push": "dotenv -e ../../.env -- prisma db push",
     "migrate:create": "dotenv -e ../../.env -- prisma migrate dev --create-only --name",
-    "migrate": "dotenv -e ../../.env -- prisma migrate dev"
+    "migrate:dev": "dotenv -e ../../.env -- prisma migrate dev",
+    "migrate:deploy": "dotenv -e ../../.env -- prisma migrate deploy"
   },
   "dependencies": {
     "@prisma/client": "^6.4.1"

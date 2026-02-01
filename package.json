@@ -17,7 +17,7 @@
     "db:push": "npm run push --workspace=@mizzo/prisma",
     "db:studio": "npm run studio --workspace=@mizzo/prisma",
     "db:migrate:create": "npm run migrate:create --workspace=@mizzo/prisma",
-    "db:migrate": "npm run migrate --workspace=@mizzo/prisma",
+    "db:migrate:dev": "npm run migrate:dev --workspace=@mizzo/prisma",
     "dock:up": "docker compose up -d",
     "dock:down": "docker compose down",
     "dock:nuke": "docker compose down --volumes --remove-orphans"

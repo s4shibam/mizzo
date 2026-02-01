@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-import { Drawer, Tag, Tooltip } from 'antd'
+import { Button, Drawer, Tag, Tooltip } from 'antd'
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -26,7 +26,10 @@ import { MoreTracksOfTheArtist } from '@/components/common/more-tracks-of-the-ar
 import { UpdateTrackForm } from '@/components/forms/update-track'
 import { TrackMenu } from '@/components/menus/track'
 import { useSearchTrackByTrackId } from '@/hooks/api/search'
-import { useGetLikeStatusOfTrack } from '@/hooks/api/track'
+import {
+  useGetLikeStatusOfTrack,
+  useGetTrackLiveLyric
+} from '@/hooks/api/track'
 import { useDrawerWidth } from '@/hooks/custom/use-drawer-width'
 import { useOnPlay } from '@/hooks/custom/use-on-play'
 import { useOpenClose } from '@/hooks/custom/use-open-close'
@@ -73,6 +76,18 @@ const TrackByTrackIdPage = () => {
     trackId: track?.data?.id || ''
   })
 
+  const {
+    data: liveLyricResponse,
+    isLoading: isLiveLyricLoading,
+    error: liveLyricError,
+    refetch: refetchLiveLyric
+  } = useGetTrackLiveLyric(
+    { trackId: track?.data?.id || '' },
+    { enabled: !!track?.data?.id }
+  )
+
+  const liveLyric = liveLyricResponse?.data
+
   useEffect(() => {
     document.title = 'Track - ' + (track?.data?.title || 'Not Found')
   }, [track?.data?.title])
@@ -106,7 +121,7 @@ const TrackByTrackIdPage = () => {
           </Tooltip>
 
           <div className="flex items-center justify-center gap-1">
-            {track?.data?.lyrics && (
+            {track?.data?.id && (
               <Tooltip title="Lyrics">
                 <button
                   className="hover:bg-background rounded-md p-2"
@@ -256,10 +271,37 @@ const TrackByTrackIdPage = () => {
         width={drawerWidth}
         onClose={closeLyricsDrawer}
       >
-        <div className="h-full overflow-y-auto p-4">
-          <pre className="whitespace-pre-wrap font-sans text-sm text-zinc-700">
-            {track?.data?.lyrics || 'No lyrics available.'}
-          </pre>
+        <div className="h-full overflow-y-auto">
+          {isLiveLyricLoading ? (
+            <Loader loading />
+          ) : liveLyricError ? (
+            <div className="flex flex-col items-center gap-2 text-sm text-zinc-600">
+              <p>Failed to load lyrics. Please try again.</p>
+              <Button type="primary" onClick={() => refetchLiveLyric()}>
+                Retry
+              </Button>
+            </div>
+          ) : liveLyric?.status === 'PENDING' ||
+            liveLyric?.status === 'PROCESSING' ? (
+            <div className="flex flex-col items-center gap-2 text-sm text-zinc-600">
+              <Loader loading />
+              <p>Generating lyrics...</p>
+            </div>
+          ) : liveLyric?.status === 'FAILED' ? (
+            <p className="text-sm text-zinc-600">
+              Lyrics generation failed. Please try again later.
+            </p>
+          ) : liveLyric?.content?.lines?.length ? (
+            <div className="space-y-2 text-sm text-zinc-700">
+              {liveLyric.content.lines.map((line, index) => (
+                <p key={`${line.startTime}-${index}`}>{line.text}</p>
+              ))}
+            </div>
+          ) : (
+            <p className="text-sm text-zinc-600">
+              Lyrics not available for this track.
+            </p>
+          )}
         </div>
       </Drawer>
     </div>

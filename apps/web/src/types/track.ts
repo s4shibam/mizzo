@@ -7,6 +7,17 @@ export type Track_Count = {
   playlistTracks: number
 }
 
+export type TLiveLyricStatus = 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'FAILED'
+
+export type TTrackLiveLyric = {
+  status: TLiveLyricStatus
+  content: {
+    lines: Array<{ startTime: number; endTime: number; text: string }>
+  } | null
+  workflowId?: string | null
+  errorMessage?: string | null
+}
+
 export type Track = {
   id: string
   primaryArtistId: string
@@ -17,8 +28,8 @@ export type Track = {
   listens: number
   duration: number
   tags: string
-  lyrics: string
   status: TStatus
+  liveLyric?: TTrackLiveLyric
   posterKey: string
   trackKey: string
   createdAt?: Date

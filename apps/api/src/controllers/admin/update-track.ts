@@ -7,20 +7,33 @@ import {
   sqsBuildS3EventBridgeMessage,
   sqsSendMessage
 } from '@mizzo/aws'
-import { prisma, Status, type Prisma } from '@mizzo/prisma'
+import {
+  prisma,
+  Status,
+  TrackLiveLyricStatus,
+  type Prisma
+} from '@mizzo/prisma'
 
 import { STATUS_LIST } from '../../constants/common'
+import { env } from '../../constants/env'
 import { createTrackStatusNotification } from '../../services/notification'
+import { startTrackLiveLyricWorkflow } from '../../services/temporal'
 import { getStatusText } from '../../utils/functions'
 import { throwError } from '../../utils/throw-error'
 
 export const updateTrack = async (req: Request, res: Response) => {
   const { trackId } = zUpdateTrackParams.parse(req.params)
-  const { status } = zUpdateTrackReqBody.parse(req.body)
+  const { status, liveLyricStatus } = zUpdateTrackReqBody.parse(req.body)
 
-  const data: Prisma.TrackUpdateInput = {
-    status,
-    isPublic: status === 'PUBLISHED'
+  if (!status && !liveLyricStatus) {
+    throwError('No updates provided', 400)
+  }
+
+  const data: Prisma.TrackUpdateInput = {}
+
+  if (status) {
+    data.status = status
+    data.isPublic = status === 'PUBLISHED'
   }
 
   const track = await prisma.track.findUnique({
@@ -30,7 +43,9 @@ export const updateTrack = async (req: Request, res: Response) => {
     select: {
       title: true,
       primaryArtistId: true,
-      trackKey: true
+      trackKey: true,
+      duration: true,
+      language: true
     }
   })
 
@@ -38,14 +53,14 @@ export const updateTrack = async (req: Request, res: Response) => {
     throwError('Track not found', 404)
   }
 
-  await prisma.track.update({
-    where: {
-      id: trackId
-    },
-    data
-  })
-
   if (status) {
+    await prisma.track.update({
+      where: {
+        id: trackId
+      },
+      data
+    })
+
     createTrackStatusNotification({
       userId: track.primaryArtistId,
       trackTitle: track.title,
@@ -54,6 +69,9 @@ export const updateTrack = async (req: Request, res: Response) => {
   }
 
   // If status is set to PENDING, send message to SQS to reprocess the track
+  let responseStatus = 200
+  const responseMessages: string[] = []
+
   if (status === 'PENDING' && track.trackKey) {
     const s3EventBridgeMessage = sqsBuildS3EventBridgeMessage({
       bucketName: awsEnv.awsS3Bucket,
@@ -63,19 +81,110 @@ export const updateTrack = async (req: Request, res: Response) => {
     const messageSent = await sqsSendMessage(s3EventBridgeMessage)
 
     if (messageSent) {
-      res.status(201).json({
-        message: `Track status updated to ${getStatusText({ status })} and queued for reprocessing.`
-      })
-      return
+      responseStatus = 201
+      responseMessages.push(
+        `Track status updated to ${getStatusText({ status })} and queued for reprocessing.`
+      )
     } else {
-      res.status(201).json({
-        message: `Track status updated to ${getStatusText({ status })}, but failed to queue for reprocessing.`
-      })
-      return
+      responseStatus = 201
+      responseMessages.push(
+        `Track status updated to ${getStatusText({ status })}, but failed to queue for reprocessing.`
+      )
+    }
+  } else if (status) {
+    responseMessages.push('Track updated successfully')
+  }
+
+  if (liveLyricStatus) {
+    let workflowId: string | undefined
+    let wasWorkflowStarted = false
+    let workflowErrorMessage: string | undefined
+
+    if (liveLyricStatus === 'PENDING') {
+      if (!track.trackKey) {
+        throwError('Track audio key not found', 400)
+      }
+
+      if (!track.duration) {
+        throwError('Track duration not found', 400)
+      }
+
+      workflowId = `track-live-lyric-${trackId}`
+
+      if (env.enableTemporal) {
+        try {
+          await startTrackLiveLyricWorkflow(
+            {
+              trackId,
+              audioS3Key: track.trackKey,
+              duration: track.duration,
+              title: track.title,
+              language: track.language
+            },
+            workflowId
+          )
+
+          wasWorkflowStarted = true
+        } catch (error) {
+          workflowErrorMessage =
+            error instanceof Error
+              ? error.message
+              : JSON.stringify(error) || 'Failed to start workflow'
+          console.error('Error starting track live lyric workflow:', error)
+        }
+      }
+    }
+
+    await prisma.trackLiveLyric.upsert({
+      where: { trackId },
+      update: {
+        status: liveLyricStatus,
+        workflowId:
+          liveLyricStatus === 'PENDING' && wasWorkflowStarted
+            ? workflowId
+            : undefined,
+        errorMessage:
+          liveLyricStatus === 'PENDING'
+            ? !env.enableTemporal
+              ? 'Temporal feature is disabled'
+              : workflowErrorMessage
+            : undefined
+      },
+      create: {
+        trackId,
+        status: liveLyricStatus,
+        workflowId:
+          liveLyricStatus === 'PENDING' && wasWorkflowStarted
+            ? workflowId
+            : undefined,
+        errorMessage:
+          liveLyricStatus === 'PENDING'
+            ? !env.enableTemporal
+              ? 'Temporal feature is disabled'
+              : workflowErrorMessage
+            : undefined
+      }
+    })
+
+    if (liveLyricStatus === 'PENDING') {
+      responseStatus = 201
+      responseMessages.push(
+        wasWorkflowStarted
+          ? 'Lyrics status set to Pending and workflow started.'
+          : 'Lyrics status set to Pending, but failed to start workflow.'
+      )
+    } else {
+      responseMessages.push(
+        `Lyrics status updated to ${getLiveLyricStatusText(liveLyricStatus)}.`
+      )
     }
   }
 
-  res.status(200).json({ message: 'Track updated successfully' })
+  res.status(responseStatus).json({
+    message: responseMessages.length
+      ? responseMessages.join(' ')
+      : 'Track updated successfully'
+  })
 }
 
 const zUpdateTrackParams = z.object({
@@ -83,5 +192,9 @@ const zUpdateTrackParams = z.object({
 })
 
 const zUpdateTrackReqBody = z.object({
-  status: z.enum(STATUS_LIST as [Status, ...Status[]]).optional()
+  status: z.enum(STATUS_LIST as [Status, ...Status[]]).optional(),
+  liveLyricStatus: z.nativeEnum(TrackLiveLyricStatus).optional()
 })
+
+const getLiveLyricStatusText = (status: TrackLiveLyricStatus) =>
+  status.slice(0, 1) + status.slice(1).toLowerCase()
