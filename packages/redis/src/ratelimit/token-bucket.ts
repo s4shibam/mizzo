@@ -1,4 +1,4 @@
-import { redis as defaultRedis } from '..'
+import { getRedis } from '..'
 import type Redis from 'ioredis'
 
 import type { RateLimitStrategy } from './strategy'
@@ -10,7 +10,7 @@ import type { RateLimitStrategy } from './strategy'
  * - If no tokens are available, the request is rejected
  */
 export class TokenBucketStrategy implements RateLimitStrategy {
-  private readonly redis: Redis
+  private readonly redis: Redis | null
   private readonly capacity: number
   private readonly refillRate: number // tokens per second
   private readonly prefix: string
@@ -33,39 +33,33 @@ export class TokenBucketStrategy implements RateLimitStrategy {
   }) {
     this.capacity = capacity
     this.refillRate = refillRate
-    this.redis = redis ?? defaultRedis
+    this.redis = redis ?? getRedis()
     this.prefix = prefix ?? 'ratelimit:token'
   }
 
   async isAllowed(key: string): Promise<boolean> {
+    if (!this.redis) return true
+
     const nowInSecs = Date.now() / 1000
     const bucketKey = `${this.prefix}:${key}`
     const normalizedKey = bucketKey.replace(/:+/g, ':')
 
-    // Get current bucket state
     const [tokensStr, lastRefillStr] = await this.redis.hmget(
       normalizedKey,
       'tokens',
       'lastRefill'
     )
 
-    // Parse values or use defaults
     const tokens = tokensStr ? parseFloat(tokensStr) : this.capacity
     const lastRefill = lastRefillStr ? parseFloat(lastRefillStr) : nowInSecs
 
-    // Calculate tokens to add based on time elapsed
     const elapsedTime = nowInSecs - lastRefill
     const tokensToAdd = elapsedTime * this.refillRate
-
-    // Update tokens (not exceeding capacity)
     const newTokens = Math.min(this.capacity, tokens + tokensToAdd)
 
-    // Check if we have at least 1 token
     if (newTokens >= 1) {
-      // Consume a token
       const remainingTokens = newTokens - 1
 
-      // Update the bucket
       await this.redis.hmset(
         bucketKey,
         'tokens',

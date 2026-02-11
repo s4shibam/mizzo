@@ -1,35 +1,46 @@
 import Redis from 'ioredis'
 
 import { log } from '@mizzo/logger'
-import { NODE_ENV } from '@mizzo/utils'
 
-const globalForRedis = global as unknown as { redis: Redis }
+import { env } from './env'
 
-export const redis = globalForRedis.redis || new Redis(process.env.REDIS_URL!)
+let redisInstance: Redis | null = null
 
-redis.on('error', (error) => {
-  log.error({
-    message: 'Redis connection error',
-    meta: { error }
-  })
-})
+export const getRedis = (): Redis | null => {
+  if (!env.shouldUseRedis || env.redisUrl === 'NA') return null
 
-if (NODE_ENV !== 'production') {
-  globalForRedis.redis = redis
+  if (!redisInstance) {
+    redisInstance = new Redis(env.redisUrl, {
+      enableReadyCheck: false // Disable ready check to avoid unnecessary latency
+    })
+
+    redisInstance.on('error', (error) => {
+      log.error({
+        message: 'Redis connection error',
+        meta: { error }
+      })
+    })
+  }
+
+  return redisInstance
 }
 
 export const disconnectRedis = async (): Promise<void> => {
-  if (redis) {
+  if (redisInstance) {
     try {
-      await redis.quit()
-      console.log('Redis connection closed')
+      await redisInstance.quit()
+      redisInstance = null
     } catch (error) {
-      console.log(`Redis connection close error...\n`, error)
+      log.error({
+        message: 'Redis disconnect error',
+        meta: { error }
+      })
     }
   }
 }
 
 export * from './cache/index'
+export * from './env'
 
 export * from './ratelimit/fixed-window'
 export * from './ratelimit/index'
